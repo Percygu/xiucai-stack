@@ -1,35 +1,77 @@
 import { sidebar } from "vuepress-theme-hope";
 
+
 // 左侧侧边栏
 export default sidebar({
-  "/": [
-    "",             // 项目主页，即HOME，对应.vuepress目录下的README.md
-    "portfolio",    // 档案主页,对应.vuepress目录下的portfolio.md
-    {
-      text: "案例",
-      icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
-      children: "structure",
-    },
-    {
-      text: "文档",
-      icon: "book",
-      prefix: "guide/",
-      children: "structure",
-    },
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
-    }
-  ],
-  "/Go语言系列/":[
+  "/Go语言系列/": [
     {
       text: "Go语言系列",
       collapsible: true,
-      children: ["/Go语言系列/环境安装/环境安装.md"]
+      children: [
+        "/Go语言系列/Go语言前景/Go语言前景.md",
+        "/Go语言系列/Go环境搭建/环境搭建.md",
+        {
+          text: "Go语言基础",
+          collapsible: true,
+          children: [
+            "/Go语言系列/Go语言基础/Go语言代码结构.md",
+            "/Go语言系列/Go语言基础/Go语言命名规范.md",
+            "/Go语言系列/Go语言基础/Go语言变量.md",
+            "/Go语言系列/Go语言基础/Go语言常量.md",
+            "/Go语言系列/Go语言基础/Go语言运算符.md",
+            "/Go语言系列/Go语言基础/Go语言结构体.md",
+            "/Go语言系列/Go语言基础/Go语言数组与切片.md",
+            "/Go语言系列/Go语言基础/Go语言Map.md",
+            "/Go语言系列/Go语言基础/Go语言条件句.md",
+            "/Go语言系列/Go语言基础/Go语言循环.md",
+            "/Go语言系列/Go语言基础/Go语言指针.md",
+            "/Go语言系列/Go语言基础/Go语言函数.md",
+            "/Go语言系列/Go语言基础/Go语言方法.md",
+            "/Go语言系列/Go语言基础/Go语言接口.md",
+            "/Go语言系列/Go语言基础/Go语言error.md",
+            "/Go语言系列/Go语言基础/Go语言defer.md",
+            "/Go语言系列/Go语言基础/Go语言异常捕获.md",
+            "/Go语言系列/Go语言基础/Go语言依赖管理.md",
+          ]
+        },
+        {
+          text: "Go语言进阶",
+          collapsible: true,
+          children: [
+            "/Go语言系列/Go语言进阶/并发概述.md",
+            "/Go语言系列/Go语言进阶/Goroutine.md",
+            "/Go语言系列/Go语言进阶/Channel.md",
+            "/Go语言系列/Go语言进阶/Sync.md",
+            "/Go语言系列/Go语言进阶/Select.md",
+            "/Go语言系列/Go语言进阶/Context.md",
+            "/Go语言系列/Go语言进阶/定时器.md",
+            "/Go语言系列/Go语言进阶/协程池.md",
+            "/Go语言系列/Go语言进阶/反射.md",
+            "/Go语言系列/Go语言进阶/范型.md",
+          ]
+        },
+        {
+          text: "Go语言框架",
+          collapsible: true,
+          children: [
+            "/Go语言系列/Go语言框架/gorm.md",
+            "/Go语言系列/Go语言框架/gin.md",
+          ]
+        },
+        {
+          text: "Go语言原理",
+          collapsible: true,
+          children: [
+            "/Go语言系列/Go语言原理/程序初始化.md",
+            "/Go语言系列/Go语言原理/string原理.md",
+          ]
+        },
+      ],
     },
+  ],
+  "/线上问题排查系列/": [
+    "/线上问题排查系列/Java线上接口响应慢如何排查.md",
+    "/线上问题排查系列/Go程序数据库连接池耗尽如何排查.md"
   ],
   "/杂文":[
     {
@@ -48,5 +90,24 @@ export default sidebar({
         }
       ],
     }
-  ]
+  ],
+  "/后端组件/":[
+    {
+      text: "后端组件",
+      collapsible: true,
+      children: [
+        {
+          text: "Mysql",
+          collapsible: true,
+          children: ["/后端组件/Mysql/mysql.md"]
+        },
+        {
+          text: "Redis",
+          collapsible: true,
+          children: ["/后端组件/Redis/redis.md"]
+        }
+      ],
+    }
+  ],
+ 
 });

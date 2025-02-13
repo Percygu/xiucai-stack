@@ -3,17 +3,19 @@ import { hopeTheme } from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
+
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "Mr.Hope",
+    name: "秀才",
     url: "https://mister-hope.com",
   },
 
   iconAssets: "fontawesome-with-brands",
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  // logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/assets/img/logo.png",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
@@ -130,6 +132,9 @@ export default hopeTheme({
     components: {
       components: ["Badge", "VPCard"],
     },
+
+
+
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     // pwa: {

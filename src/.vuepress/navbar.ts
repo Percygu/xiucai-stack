@@ -1,27 +1,27 @@
 import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
-  "/",
-  "/portfolio",
-  "/demo/",
   "/杂文/",
-  "Go语言系列/",
   {
-    text: "指南",
-    icon: "lightbulb",
-    prefix: "/guide/",
+    text: "Go语言系列",
+    icon: "book",
+    link: "/Go语言系列/Go语言前景/Go语言前景.md",
+  },
+  "/线上问题排查系列/",
+  {
+    text: "后端组件",
+    icon: "gears",
+    //prefix: "/后端组件/",
     children: [
       {
-        text: "Bar",
-        icon: "lightbulb",
-        prefix: "bar/",
-        children: ["baz", { text: "...", icon: "ellipsis", link: "" }],
+        text: "Mysql",
+        icon: "book",
+        link: "/后端组件/Mysql/mysql.md",
       },
       {
-        text: "Foo",
-        icon: "lightbulb",
-        prefix: "foo/",
-        children: ["ray", { text: "...", icon: "ellipsis", link: "" }],
+        text: "Redis",
+        icon: "book",
+        link: "/后端组件/Redis/redis.md",
       },
     ],
   },
