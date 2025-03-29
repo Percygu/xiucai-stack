@@ -2,7 +2,7 @@
 tags:
   - Go
   - golang
-  - go进阶语法
+  - go原理深入
   - string原理
 ---
 
@@ -78,11 +78,10 @@ type stringStruct struct {
 
 ```go
 word := "Hello"
-}
 ```
 其底层结构如下图：
 
-![string数据结构](../../assets/img/go语言系列/string原理/string原理1.png)
+![](../../assets/img/go语言系列/string原理/string原理1.png)
 
 在本例中，`len` 的长度为5，表示 `word` 这个字符串占用的字节数，每个字节的值如图中所示。这里需要注意，`len` 字段存储的是实际的字节数，而不是字符数，所以对于非单字节编码的字符，其结果可能多于字符个数。
 

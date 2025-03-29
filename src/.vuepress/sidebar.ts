@@ -9,7 +9,7 @@ export default sidebar({
       collapsible: true,
       children: [
         "/Go语言系列/Go语言前景/Go语言前景.md",
-        "/Go语言系列/Go环境搭建/环境搭建.md",
+        "/Go语言系列/Go环境搭建/Go环境搭建.md",
         {
           text: "Go语言基础",
           collapsible: true,
@@ -64,8 +64,19 @@ export default sidebar({
           children: [
             "/Go语言系列/Go语言原理/程序初始化.md",
             "/Go语言系列/Go语言原理/string原理.md",
+            "/Go语言系列/Go语言原理/slice原理.md",
+            "/Go语言系列/Go语言原理/map原理.md",
+            "/Go语言系列/Go语言原理/sync.map原理.md",
+            "/Go语言系列/Go语言原理/channel原理.md",
+            "/Go语言系列/Go语言原理/context原理.md",
+            "/Go语言系列/Go语言原理/defer原理.md",
+            "/Go语言系列/Go语言原理/interface原理.md",
+            "/Go语言系列/Go语言原理/逃逸分析.md",
+            "/Go语言系列/Go语言原理/内存管理.md",
+            "/Go语言系列/Go语言原理/垃圾回收.md",
           ]
         },
+        "/Go语言系列/Go编码规范/Go编码规范.md",
       ],
     },
   ],
