@@ -5,7 +5,7 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar({
   "/Go语言系列/": [
     {
-      text: "Go语言系列",
+      text: "Go语言进阶之路",
       collapsible: true,
       children: [
         "/Go语言系列/Go语言前景/Go语言前景.md",
@@ -74,15 +74,43 @@ export default sidebar({
             "/Go语言系列/Go语言原理/逃逸分析.md",
             "/Go语言系列/Go语言原理/内存管理.md",
             "/Go语言系列/Go语言原理/垃圾回收.md",
+            "/Go语言系列/Go语言原理/gmp调度原理.md",
           ]
         },
+        "/Go语言系列/Go语言单测/Go语言单测.md",
         "/Go语言系列/Go编码规范/Go编码规范.md",
+        {
+          text: "Go面试题库",
+          collapsible: true,
+          children: [
+            "/Go语言系列/Go面试题库/基础面试题.md",
+            "/Go语言系列/Go面试题库/Slice面试题.md",
+            "/Go语言系列/Go面试题库/Map面试题.md",
+            "/Go语言系列/Go面试题库/Channel面试题.md",
+            "/Go语言系列/Go面试题库/Sync面试题.md",
+            "/Go语言系列/Go面试题库/Context面试题.md",
+            "/Go语言系列/Go面试题库/Interface面试题.md",
+            "/Go语言系列/Go面试题库/反射面试题.md",
+            "/Go语言系列/Go面试题库/GMP面试题.md",
+            "/Go语言系列/Go面试题库/内存管理面试题.md",
+            "/Go语言系列/Go面试题库/垃圾回收面试题.md",
+            "/Go语言系列/Go面试题库/代码面试题.md",
+          ]
+        },
       ],
     },
   ],
-  "/线上问题排查系列/": [
-    "/线上问题排查系列/Java线上接口响应慢如何排查.md",
-    "/线上问题排查系列/Go程序数据库连接池耗尽如何排查.md"
+  "/后端进阶之路/": [
+    {
+      text: "面试场景题",
+      collapsible: true,
+      children: [
+        "/后端进阶之路/面试场景题/Go程序数据库连接池耗尽如何排查.md",
+        "/后端进阶之路/面试场景题/Java线上接口响应慢如何排查.md",
+        "/后端进阶之路/面试场景题/微服务架构核心：服务注册与发现的AP与CP抉择.md",
+        "/后端进阶之路/面试场景题/当面试官问起\"负载均衡\"，哪些点是核心？.md",
+      ]
+    }
   ],
   "/杂文":[
     {
@@ -118,6 +146,79 @@ export default sidebar({
           children: ["/后端组件/Redis/redis.md"]
         }
       ],
+    }
+  ],
+  "/AI进阶之路/":[
+    {
+      text: "AI进阶之路",
+      collapsible: true,
+      children: [
+        {
+          text: "DeepSeek全家桶",
+          collapsible: true,
+          children: [
+            "/AI进阶之路/DeepSeek全家桶/清华大学第二弹：DeepSeek赋能职场.md",
+          ]
+        },
+        {
+          text: "生成式AI入门指南",
+          collapsible: true,
+          children: [
+            "/AI进阶之路/生成式AI入门/生成式AI简介.md",
+            "/AI进阶之路/生成式AI入门/理解机器学习.md",
+            "/AI进阶之路/生成式AI入门/生成式AI简介.md",
+          ]
+        },
+        {
+          text: "大模型应用开发",
+          collapsible: true,
+          children: [
+            {
+              text: "LangChain从入门到精通",
+              collapsible: true,
+              children: [
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/LangChain基础概念.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/Model-IO.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/数据连接.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/链.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/Memery.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/RAG(检索增强).md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/Agent.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/回调.md",
+                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/LCEL.md",
+              ]  
+            },
+            {
+              text: "RAG系列",
+              collapsible: true,
+              children: ["/AI进阶之路/大模型应用开发/RAG系列/RAG总体概览.md"]
+            }
+          ]
+        },
+        {
+          text: "AI编程",
+          collapsible: true,
+          children: ["/AI进阶之路/AI编程/Cusor AI编程实战(1)：抖音爆款文案提取&改写工具(上).md"]
+        },
+        {
+          text: "AI应用",
+          collapsible: true,
+          children: ["/AI进阶之路/AI应用/2025 年你必须知道的 10 个向量数据库.md"]
+        },
+        {
+          text: "AI资讯",
+          collapsible: true,
+          children: ["/AI进阶之路/AI资讯/Claude 4发布，程序员真的要失业了吗.md"]
+        },
+        
+      ],
+    }
+  ],
+  "/面试题/":[
+    {
+      text: "高级程序员面试场景题",
+      collapsible: true,
+      children: ["/面试题/高级程序员面试题/消息丢失.md"]
     }
   ],
  

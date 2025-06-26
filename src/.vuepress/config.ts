@@ -1,35 +1,15 @@
 import { defineUserConfig } from "vuepress";
 
 import theme from "./theme.js";
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import toolBarPlugin from "vuepress-plugin-toolbar"
 
 export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "秀才客栈",
-  description: "秀才学习客栈",
+  title: "秀才的进阶之路",
+  description: "通俗易懂、风趣幽默的技术学习指南，涵盖Go语言、AI应用、后端架构、面试攻略等核心知识点",
 
   theme,
-
-  plugins: [
-
-
-    docsearchPlugin({
-      locales: {
-        '/': {
-          placeholder: 'Search',
-        },
-        '/zh/': {
-          placeholder: '搜索',
-        },
-      },
-    }),
-
-  ],
-
-
 
   // 和 PWA 一起启用
   // shouldPrefetch: false,

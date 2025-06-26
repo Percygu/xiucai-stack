@@ -9,15 +9,15 @@ export default hopeTheme({
 
   author: {
     name: "秀才",
-    url: "https://mister-hope.com",
+    url: "https://github.com/yourusername",
   },
 
   iconAssets: "fontawesome-with-brands",
 
   // logo: "https://theme-hope-assets.vuejs.press/logo.svg",
-  logo: "/assets/img/logo.png",
+  logo: "/web_logo2.png",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "yourusername/xiucai-stack",
 
   docsDir: "src",
 
@@ -28,8 +28,11 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "Copyright © 2025 秀才客栈 | 专注于技术分享与知识传播",
   displayFooter: true,
+
+  // 启用搜索
+  hotReload: false,
 
   // 加密配置
   encrypt: {
@@ -42,9 +45,6 @@ export default hopeTheme({
   metaLocales: {
     editLink: "在 GitHub 上编辑此页",
   },
-
-  // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
-  // hotReload: true,
 
   // 此处开启了很多功能用于演示，你应仅保留用到的功能。
   markdown: {
@@ -120,6 +120,9 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
+    // 暂时禁用搜索功能
+    // slimsearch: false,
+
     // 注意: 仅用于测试! 你必须自行生成并在生产环境中使用自己的评论服务
     comment: {
       provider: "Giscus",
@@ -132,9 +135,6 @@ export default hopeTheme({
     components: {
       components: ["Badge", "VPCard"],
     },
-
-
-
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     // pwa: {

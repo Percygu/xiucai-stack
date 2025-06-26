@@ -1,1 +1,196 @@
 // place your custom styles here
+
+// 添加以下代码来修改背景图颜色
+.vp-hero-info-wrapper {
+  position: relative;
+}
+
+.vp-hero-info-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240, 248, 255, 0.85); /* 淡蓝色 */
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.vp-hero-info-wrapper > * {
+  position: relative;
+  z-index: 2;
+}
+
+// 主页hero区域样式优化
+.vp-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  min-height: 70vh;
+  
+  .vp-hero-image {
+    max-width: 300px !important;
+    max-height: 300px !important;
+    margin: 0 auto 2rem;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+    
+    img {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 20px !important;
+      background: rgba(255, 255, 255, 0.9) !important;
+      padding: 10px !important;
+    }
+  }
+  
+  .vp-hero-info {
+    h1.vp-hero-title {
+      font-size: 3.5rem !important;
+      font-weight: 700 !important;
+      color: #1e293b !important;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      
+      @media (max-width: 768px) {
+        font-size: 2.5rem !important;
+      }
+    }
+    
+    .vp-hero-description {
+      font-size: 1.25rem !important;
+      color: #475569 !important;
+      line-height: 1.7 !important;
+      max-width: 800px !important;
+      margin: 0 auto 2.5rem !important;
+      
+      @media (max-width: 768px) {
+        font-size: 1.1rem !important;
+      }
+    }
+  }
+  
+  .vp-hero-actions {
+    gap: 1rem;
+    
+    .vp-action-link {
+      padding: 12px 32px !important;
+      font-size: 1.1rem !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+      transition: all 0.3s ease !important;
+      
+      &.primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+        
+        &:hover {
+          transform: translateY(-2px) !important;
+          box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+        }
+      }
+      
+      &:not(.primary) {
+        background: transparent !important;
+        border: 2px solid #e2e8f0 !important;
+        color: #475569 !important;
+        
+        &:hover {
+          background: #f8fafc !important;
+          border-color: #cbd5e1 !important;
+          transform: translateY(-1px) !important;
+        }
+      }
+    }
+  }
+}
+
+// 导航栏logo优化
+.vp-navbar .vp-navbar-brand .vp-navbar-brand-logo {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 8px !important;
+  object-fit: contain !important;
+}
+
+// 特性卡片优化
+.vp-features {
+  .vp-feature {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    
+    &:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+      border-color: #cbd5e1 !important;
+    }
+    
+    .vp-feature-title {
+      font-size: 1.25rem !important;
+      font-weight: 600 !important;
+      color: #1e293b !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    .vp-feature-details {
+      color: #64748b !important;
+      line-height: 1.6 !important;
+    }
+  }
+}
+
+// 推荐阅读区域样式
+.theme-default-content {
+  h2 {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  ul li {
+    margin-bottom: 0.8rem !important;
+    
+    strong {
+      color: #3b82f6 !important;
+    }
+  }
+}
+
+// 页脚样式优化
+.vp-footer {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  border-top: 1px solid #e2e8f0 !important;
+  padding: 2rem 0 !important;
+  
+  .vp-footer-content {
+    color: #64748b !important;
+  }
+}
+
+// 响应式优化
+@media (max-width: 768px) {
+  .vp-hero {
+    min-height: 60vh;
+    padding: 2rem 1rem;
+    
+    .vp-hero-image {
+      max-width: 220px !important;
+      max-height: 220px !important;
+    }
+  }
+  
+  .vp-features {
+    .vp-feature {
+      padding: 1.5rem !important;
+    }
+  }
+  
+  .vp-navbar .vp-navbar-brand .vp-navbar-brand-logo {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
