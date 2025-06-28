@@ -5,7 +5,7 @@ export default navbar([
   {
     text: "Go语言进阶之路",
     icon: "book",
-    link: "/Go语言系列/",
+    link: "/Go语言系列/Go语言前景/Go语言前景.md",
   },
   {
     text: "后端进阶之路",
@@ -22,40 +22,8 @@ export default navbar([
     ],
   },
   {
-    text: "架构学习之路",
-    icon: "server",
-    children: [
-      {
-        text: "Mysql",
-        icon: "database",
-        link: "/后端组件/Mysql/mysql.md",
-      },
-      {
-        text: "Redis",
-        icon: "database",
-        link: "/后端组件/Redis/redis.md",
-      },
-      {
-        text: "面试题",
-        icon: "question",
-        children: [
-          {
-            text: "高级程序员面试场景题",
-            icon: "book",
-            link: "/面试题/高级程序员面试题/消息丢失.md",
-          },
-        ],
-      },
-    ],
-  },
-  {
     text: "AI进阶之路",
     icon: "robot",
     link: "/AI进阶之路/",
-  },
-  {
-    text: "V2 文档",
-    icon: "book",
-    link: "https://theme-hope.vuejs.press/zh/",
   },
 ]);
