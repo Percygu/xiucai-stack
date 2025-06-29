@@ -160,17 +160,6 @@
   }
 }
 
-// 页脚样式优化
-.vp-footer {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
-  border-top: 1px solid #e2e8f0 !important;
-  padding: 2rem 0 !important;
-  
-  .vp-footer-content {
-    color: #64748b !important;
-  }
-}
-
 // 响应式优化
 @media (max-width: 768px) {
   .vp-hero {
@@ -194,3 +183,4 @@
     height: 35px !important;
   }
 }
+

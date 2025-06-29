@@ -92,9 +92,8 @@ GitHub 上标星 1000+ 的开源知识库《秀才的进阶之路》第一版来
 2. 对于文中我没有涉及到知识点，欢迎提交 PR。
 3. 欢迎分享你的学习心得和技术总结。
 
----
 
-<div style="text-align: center; margin-top: 40px; padding: 2rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; color: #64748b;">
+<!-- <div style="text-align: center; margin-top: 40px; padding: 2rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; color: #64748b;">
   <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">
     Made with ❤️ by 秀才
   </div>
@@ -104,4 +103,4 @@ GitHub 上标星 1000+ 的开源知识库《秀才的进阶之路》第一版来
   <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.8;">
     基于 VuePress Theme Hope 构建 • 持续更新中
   </div>
-</div>
+</div> -->

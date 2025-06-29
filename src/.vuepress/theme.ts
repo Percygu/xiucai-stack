@@ -28,7 +28,7 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "Copyright © 2025 秀才客栈 | 专注于技术分享与知识传播",
+  footer: '秀才的进阶之路｜专注于技术分享与知识传播｜<a href="https://beian.miit.gov.cn/" target="_blank" style="color: #3b82f6; text-decoration: none;">粤ICP备2024352247号</a>',
   displayFooter: true,
 
   // 启用搜索
