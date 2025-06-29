@@ -10,16 +10,7 @@ export default navbar([
   {
     text: "后端进阶之路",
     icon: "chart-simple",
-    children: [
-      {
-        text: "面试场景题",
-        icon: "question",
-        children: [
-          "/后端进阶之路/面试场景题/Go程序数据库连接池耗尽如何排查.md",
-          "/后端进阶之路/面试场景题/Java线上接口响应慢如何排查.md",
-        ]
-      }
-    ],
+    link: "/后端进阶之路/面试场景题/微服务架构核心：服务注册与发现的AP与CP抉择.md",
   },
   {
     text: "AI进阶之路",

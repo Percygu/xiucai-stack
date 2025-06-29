@@ -105,13 +105,13 @@ export default sidebar({
       text: "面试场景题",
       collapsible: true,
       children: [
-        "/后端进阶之路/面试场景题/Go程序数据库连接池耗尽如何排查.md",
-        "/后端进阶之路/面试场景题/Java线上接口响应慢如何排查.md",
         "/后端进阶之路/面试场景题/微服务架构核心：服务注册与发现的AP与CP抉择.md",
         "/后端进阶之路/面试场景题/当面试官问起\"负载均衡\"，哪些点是核心？.md",
         "/后端进阶之路/面试场景题/熔断：如何优雅地应对服务雪崩与抖动.md",
         "/后端进阶之路/面试场景题/服务降级：从有损服务到保障核心业务的架构智慧.md",
         "/后端进阶之路/面试场景题/限流：从算法到阈值，一次性讲透.md",
+        "/后端进阶之路/面试场景题/Go程序数据库连接池耗尽如何排查.md",
+        "/后端进阶之路/面试场景题/Java线上接口响应慢如何排查.md",
       ]
     }
   ],
@@ -157,19 +157,11 @@ export default sidebar({
       collapsible: true,
       children: [
         {
-          text: "DeepSeek全家桶",
-          collapsible: true,
-          children: [
-            "/AI进阶之路/DeepSeek全家桶/清华大学第二弹：DeepSeek赋能职场.md",
-          ]
-        },
-        {
           text: "生成式AI入门指南",
           collapsible: true,
           children: [
             "/AI进阶之路/生成式AI入门/生成式AI简介.md",
             "/AI进阶之路/生成式AI入门/理解机器学习.md",
-            "/AI进阶之路/生成式AI入门/生成式AI简介.md",
           ]
         },
         {
@@ -207,11 +199,6 @@ export default sidebar({
           text: "AI应用",
           collapsible: true,
           children: ["/AI进阶之路/AI应用/2025 年你必须知道的 10 个向量数据库.md"]
-        },
-        {
-          text: "AI资讯",
-          collapsible: true,
-          children: ["/AI进阶之路/AI资讯/Claude 4发布，程序员真的要失业了吗.md"]
         },
         
       ],
