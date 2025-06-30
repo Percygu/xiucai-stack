@@ -14,7 +14,7 @@ export default defineUserConfig({
 
   plugins: [
     sitemapPlugin({
-      hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
+      hostname: "https://xiucaistack.cn",
     }),
   ],
 

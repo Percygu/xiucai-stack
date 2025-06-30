@@ -5,11 +5,11 @@ import sidebar from "./sidebar.js";
 
 
 export default hopeTheme({
-  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
+  hostname: "https://xiucaistack.cn",
 
   author: {
     name: "秀才",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/Percygu",
   },
 
   iconAssets: "fontawesome-with-brands",
