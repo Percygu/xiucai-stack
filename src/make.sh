@@ -1,0 +1,1 @@
+chmod -R 755 /root/projects/xiucai-stack/src/dist
