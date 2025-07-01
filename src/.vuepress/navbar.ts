@@ -15,6 +15,6 @@ export default navbar([
   {
     text: "AI进阶之路",
     icon: "robot",
-    link: "/AI进阶之路/",
+    link: "/AI进阶之路/生成式AI入门/人工智能导论.md",
   },
 ]);

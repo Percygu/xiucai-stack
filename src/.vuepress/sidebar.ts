@@ -160,14 +160,29 @@ export default sidebar({
           text: "生成式AI入门指南",
           collapsible: true,
           children: [
-            "/AI进阶之路/生成式AI入门/生成式AI简介.md",
+            "/AI进阶之路/生成式AI入门/人工智能导论.md",
             "/AI进阶之路/生成式AI入门/理解机器学习.md",
+            "/AI进阶之路/生成式AI入门/理解深度学习.md",
+            "/AI进阶之路/生成式AI入门/生成式AI简介.md",
+            "/AI进阶之路/生成式AI入门/什么是大语言模型.md",
+          ]
+        },
+        {
+          text: "提示词工程",
+          collapsible: true,
+          children: [
+            
           ]
         },
         {
           text: "大模型应用开发",
           collapsible: true,
           children: [
+            {
+              text: "大模型导论",
+              collapsible: true,
+              children: ["/AI进阶之路/大模型应用开发/大模型导论/大模型简介.md"]
+            },
             {
               text: "LangChain从入门到精通",
               collapsible: true,
