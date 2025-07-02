@@ -184,3 +184,137 @@
   }
 }
 
+// Algolia DocSearch 搜索框样式优化
+.DocSearch {
+  --docsearch-primary-color: #3b82f6;
+  --docsearch-text-color: #1e293b;
+  --docsearch-spacing: 12px;
+  --docsearch-icon-stroke-width: 1.4;
+  --docsearch-highlight-color: #3b82f6;
+  --docsearch-muted-color: #64748b;
+  --docsearch-container-background: rgba(101, 108, 133, 0.8);
+  --docsearch-logo-color: #5468ff;
+
+  // 搜索按钮样式
+  .DocSearch-Button {
+    height: 40px !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+    min-width: 200px !important;
+    
+    &:hover {
+      border-color: #3b82f6 !important;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15) !important;
+    }
+    
+    .DocSearch-Search-Icon {
+      color: #64748b !important;
+      width: 18px !important;
+      height: 18px !important;
+    }
+    
+    .DocSearch-Button-Placeholder {
+      color: #64748b !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+    
+    .DocSearch-Button-Keys {
+      display: none !important;
+      
+      @media (min-width: 768px) {
+        display: block !important;
+      }
+    }
+  }
+}
+
+// 搜索模态框样式
+.DocSearch-Modal {
+  --docsearch-modal-width: 600px;
+  --docsearch-modal-height: 600px;
+  --docsearch-modal-background: #f8fafc;
+  --docsearch-modal-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  
+  .DocSearch-SearchBar {
+    padding: 0 var(--docsearch-spacing) !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    
+    .DocSearch-Form {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    
+    .DocSearch-Input {
+      font-size: 16px !important;
+      color: #1e293b !important;
+      
+      &::placeholder {
+        color: #64748b !important;
+      }
+    }
+  }
+  
+  .DocSearch-Dropdown {
+    background: #ffffff !important;
+    
+    .DocSearch-Hit {
+      border-radius: 6px !important;
+      
+      &[aria-selected="true"] {
+        background: #f1f5f9 !important;
+        
+        .DocSearch-Hit-Container {
+          background: transparent !important;
+        }
+      }
+    }
+    
+    .DocSearch-Hit-Title {
+      color: #1e293b !important;
+      font-weight: 500 !important;
+    }
+    
+    .DocSearch-Hit-Path {
+      color: #64748b !important;
+      font-size: 12px !important;
+    }
+  }
+  
+  .DocSearch-Footer {
+    background: #f8fafc !important;
+    border-top: 1px solid #e2e8f0 !important;
+    
+    .DocSearch-Commands-Key {
+      background: #ffffff !important;
+      border: 1px solid #d1d5db !important;
+      color: #374151 !important;
+    }
+  }
+}
+
+// 导航栏中的搜索框位置优化
+.vp-navbar .vp-navbar-nav {
+  .DocSearch {
+    margin-left: auto !important;
+    margin-right: 1rem !important;
+    
+    @media (max-width: 768px) {
+      margin-right: 0.5rem !important;
+      
+      .DocSearch-Button {
+        min-width: 120px !important;
+        
+        .DocSearch-Button-Placeholder {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
