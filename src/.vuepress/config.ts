@@ -20,8 +20,8 @@ export default defineUserConfig({
   plugins: [
     docsearchPlugin({
       appId: "3F08C0VVP6",
-      apiKey: "0b8beebca043d79cd85521dd92654a5f",
-      indexName: "xiucaistack",
+      apiKey: "27cf8795-ba49-4d3f-8cb3-780ee014828d",
+      indexName: "xiucai-stack",
       locales: {
         "/": {
           placeholder: "搜索文档",
