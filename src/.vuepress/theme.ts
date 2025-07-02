@@ -123,7 +123,7 @@ export default hopeTheme({
     // 使用Algolia DocSearch - 已配置爬虫
     docsearch: {
       appId: "3F08C0VVP6",
-      apiKey: "d15827f16c2154f7abf66a6034797bd5",
+      apiKey: "0b8beebca043d79cd85521dd92654a5f",
       indexName: "xiucaistack",
       locales: {
         "/": {
