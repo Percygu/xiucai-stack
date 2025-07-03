@@ -19,7 +19,7 @@ taglineStyle:
   maxWidth: "800px"
   margin: "0 auto"
 actions:
-  - text: 立马上路→
+  - text: 开始学习→
     icon: rocket
     link: ./Go语言系列/
     type: primary
