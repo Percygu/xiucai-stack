@@ -8,6 +8,7 @@ export default sidebar({
       text: "Go语言进阶之路",
       collapsible: true,
       children: [
+        "/Go语言系列/前言.md",
         "/Go语言系列/Go语言前景/Go语言前景.md",
         "/Go语言系列/Go环境搭建/Go环境搭建.md",
         {
