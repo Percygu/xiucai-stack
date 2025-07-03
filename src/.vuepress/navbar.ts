@@ -5,7 +5,7 @@ export default navbar([
   {
     text: "Go语言进阶之路",
     icon: "book",
-    link: "/Go语言系列/Go语言前景/Go语言前景.md",
+    link: "/Go语言系列/前言.md",
   },
   {
     text: "后端进阶之路",
