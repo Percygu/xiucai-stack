@@ -17,7 +17,7 @@ export default hopeTheme({
   // logo: "https://theme-hope-assets.vuejs.press/logo.svg",
   logo: "/web_logo2.png",
 
-  repo: "Percygu/xiucai-stack",
+  repo: "Percygu/GolangGuide",
 
   docsDir: "src",
 
