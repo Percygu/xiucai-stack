@@ -6,15 +6,15 @@ tags:
   - context原理
 ---
 
-# channel原理
+# **channel原理**
 
-## channel是什么
+## **channel是什么**
 
 顾名思义，channel就是一个通信管道，作用是用来在goroutine中传递信息，使不同的goroutine能够通信。
 
 go语言遵循CSP并发编程模式，提倡通过通信来实现内存共享，而不提倡通过共享内存来实现通信，而channel就是这种并发编程思想的实现。正是由于channel的存在，才使go语言的并发编程变得简单快捷。并且，在go语言中，通过channel与select的搭配使用以及调度器对goroutine的调度，可以很高效的实现协程的阻塞和唤醒以及多路复用。
 
-### channel的分类
+### **channel的分类**
 
 channel 又分为两类：有缓冲 channel 和无缓冲 channel
 
@@ -33,7 +33,7 @@ ch2 := make(chan int, 3)
 
 关于channel的具体操作在golang并发编程实战中已经介绍，这里就不重复讲解了。
 
-## channel的数据结构
+## **channel的数据结构**
 
 channel用make函数创建初始化的时候会在堆上分配一个runtime.hchan类型的数据结构，并返回指针指向堆上这块hchan内存区域，所以channel是一个引用类型
 
@@ -98,9 +98,9 @@ channel的底层结构图：
 
 在这个例子中，channel的长度buf为8，元素个数为4，其中有四个元素100，200，300，400。可以发送的索引sendx为4，可以接受的索引为recvq为0
 
-## channel操作
+## **channel操作**
 
-### channel初始化
+### **channel初始化**
 
 在程序中我们通过make函数来初始化一个channel，而在运行时其实是调用的makechan函数来完成初始化工作
 
@@ -169,7 +169,7 @@ makechan函数有两个参数`t *chantype, size int`，第一个参数代表要�
 | **发送(write)** | **无缓冲区或者缓冲区满** | **阻塞**    |
 | **发送(write)** | **关闭**         | **panic** |
 
-### channel写入
+### **channel写入**
 
 往channel写入数据在编码上很简单
 
@@ -321,7 +321,7 @@ func chansend(c *hchan, ep unsafe.Pointer, block bool, callerpc uintptr) bool {
 
 这是有缓冲管道的例子，如果是无缓冲管道，elem 会直接写入到 g2 的内存再激活g1，流程是一致的
 
-### channel读取
+### **channel读取**
 
 从channel读取数据的编码形式如下
 
@@ -491,7 +491,7 @@ func chanrecv(c *hchan, ep unsafe.Pointer, block bool) (selected, received bool)
 | **接收(read)** | **打开，没有元素**   | **阻塞**         |
 | **接收(read)** | **关闭**        | **读取到默认值(空值)** |
 
-### channel关闭
+### **channel关闭**
 
 管道的关闭很简单
 

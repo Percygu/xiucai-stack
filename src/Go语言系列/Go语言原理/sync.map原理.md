@@ -6,9 +6,9 @@ tags:
   - sync.map原理
 ---
 
-# sync.map原理
+# **sync.map原理**
 
-## sync.map是什么
+## **sync.map是什么**
 
 sync.map是go语言在sync包下提供的一个可以提供并发访问的map。我们知道go语言的map是非线程安全的，对map的操作不是原子操作，所以在对原生的map进行并发读写的时候，很容易造成panic。
 
@@ -18,7 +18,7 @@ sync.map是go语言在sync包下提供的一个可以提供并发访问的map。
 
 从功能上看，sync.map是一个读写分离的map，采用了空间换时间的策略来提高数据的读写性能，其内部其实用了两个map来实现，一个read map和一个dirty map。在并发处理上，相比于我们前面提到的普通map的无脑加锁操作，sync.map将读和写分开，读数据优先从read中读取，对read的操作是不会加锁的，当read读取不到才会去dirty读，而写数据只会在dirty写，只有对dirty操作时需要加锁的，这样区分加锁时机，就提升了并发性能。
 
-## sync.map的数据结构
+## **sync.map的数据结构**
 
 先来看一下sync.Map的结构定义，sync.Map定义在源文件src/sync/map.go里面，我这里去掉了注释
 
@@ -70,7 +70,7 @@ sync.Map的底层结构如下图：
 
 **expunged**这个字段的作用是用来标识map中的某个key是否被删除，注意，这里知识标记删除，并没有真正的删除，所以**expunged**是map中用来对某个key做假删除动作的，当从sync.Map删除某个key的时候，将这个key对应的value标记为nil或者**expunged，**&##x540E;面在对这个key进行删除
 
-## sync.map方法
+## **sync.map方法**
 
 sync.map跟map一样，提供了数据的增删改查功能，这里我们对照map从源代码来分析一下sync.map各个功能的具体实现
 
@@ -374,7 +374,7 @@ func (e *entry) delete() (value interface{}, ok bool) {
 }
 ```
 
-### `Range`
+### **`Range`**
 
 Range方法是对sync.Map进行遍历，其参数是一个`func(key, value interface{}) bool`类型的函数f，f的作用是对sync.Map中遍历到的每一个key/value键值对进行处理，当f返回false的时候，遍历停止。
 
@@ -416,7 +416,7 @@ range流程如下图：
 
 ![](../../assets/img/go语言系列/sync.map原理/image-5.png)
 
-## p的状态变化
+## **p的状态变化**
 
 在sync.Map中，不论是read中还是dirty中，其底层的存储都是一个map，回顾一下这个map的结构：
 
@@ -459,7 +459,7 @@ type entry struct {
 
 通过上面的流程分析，走了一遍map的增删改查，分析了read到dirty中key集合的变化过程，以及key1对应的p的状态变化，可以看到key1的nil和expunged都表示标记删除，二者只有一个区别，就是当p为nil时，此时dirty对应的状态是nil或者dirty不为空且包含这个key，而当p的状态时expunged时，dirty不为nil，且dirty中包含read中没有的key。这里就可以知道，当p的状态为expunged时，对key1的操作不能只操作read，还要加锁操作dirty，而p的状态为nil时，只用操作read即可，不用加锁，性能更高。所以可以看出，虽然二者都表示标记删除，但分为两个状态之后，可以更细粒度的区分操作复杂度，在p的状态为nil时不加锁，尽量保证在能不加锁的时候就不加锁，提升程序性能。从这里分析也可以得知，没有expunged这个状态行不行呢，其实也可以，不过那样就不能根据区分度来判断是不是不用加锁直接操作read就可以了，还要加锁去read中检查一次，这样就降低了程序的性能。
 
-## sync.Map总结
+## **sync.Map总结**
 
 * **sync.Map是一个线程安全的map，可以多线程并发安全执行**
 

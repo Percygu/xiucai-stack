@@ -7,11 +7,11 @@ tags:
   - http
 ---
 
-# Gin
+# **Gin**
 
 Gin是一个用Go语言编写的高性能Web框架，以其高效的路由系统和优秀的性能著称。本文将详细介绍如何使用Gin框架开发Web应用。
 
-## 安装Gin
+## **安装Gin**
 
 首先，我们需要安装Gin框架。可以使用以下命令：
 
@@ -19,9 +19,9 @@ Gin是一个用Go语言编写的高性能Web框架，以其高效的路由系统
 go get -u github.com/gin-gonic/gin
 ```
 
-## 基本使用
+## **基本使用**
 
-### 创建HTTP服务器
+### **创建HTTP服务器**
 
 使用Gin创建一个基本的HTTP服务器非常简单：
 
@@ -49,7 +49,7 @@ func main() {
 }
 ```
 
-### 路由参数
+### **路由参数**
 
 Gin支持多种路由参数形式：
 
@@ -71,7 +71,7 @@ r.GET("/users", func(c *gin.Context) {
 })
 ```
 
-### 处理表单数据
+### **处理表单数据**
 
 Gin可以轻松处理POST请求中的表单数据：
 
@@ -88,7 +88,7 @@ r.POST("/form", func(c *gin.Context) {
 })
 ```
 
-### 处理JSON数据
+### **处理JSON数据**
 
 Gin可以轻松处理POST请求中的JSON数据：
 
@@ -138,7 +138,7 @@ r.POST("/raw", func(c *gin.Context) {
 3. 也可以使用map来接收不固定结构的JSON数据
 4. `c.BindJSON()`会自动检查Content-Type是否为application/json
 
-### 上传文件
+### **上传文件**
 
 Gin支持单文件和多文件上传：
 
@@ -166,7 +166,7 @@ r.POST("/uploads", func(c *gin.Context) {
 })
 ```
 
-### 中间件
+### **中间件**
 
 Gin的中间件可以在请求处理过程中执行一些公共的操作：
 
@@ -190,7 +190,7 @@ func Logger() gin.HandlerFunc {
 r.Use(Logger())
 ```
 
-### 分组路由
+### **分组路由**
 
 Gin支持路由分组，可以更好地组织API：
 
@@ -212,7 +212,7 @@ v2 := r.Group("/v2")
 }
 ```
 
-## 完整示例
+## **完整示例**
 
 以下是一个完整的示例，展示了如何使用Gin框架创建一个简单的RESTful API服务：
 
@@ -321,7 +321,7 @@ func deleteUser(c *gin.Context) {
 }
 ```
 
-### 程序测试
+### **程序测试**
 
 使用curl命令测试API：
 
@@ -342,7 +342,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{"id":1,"name":"张三丰","
 curl -X DELETE http://localhost:8080/users/2
 ```
 
-### 代码说明
+### **代码说明**
 
 1. **路由设置**：使用`gin.Default()`创建路由引擎，并注册了基本的RESTful API路由。
 
@@ -357,6 +357,6 @@ curl -X DELETE http://localhost:8080/users/2
 
 4. **错误处理**：对各种可能的错误情况进行了处理，并返回适当的HTTP状态码。
 
-## 小结
+## **小结**
 
 这篇文章简单介绍了Gin框架的基本使用方法，包括路由配置、参数获取、中间件使用等内容。如需了解Gin框架更详细的用法，可以参考：[Gin框架官方文档](https://gin-gonic.com/zh-cn/docs/) 

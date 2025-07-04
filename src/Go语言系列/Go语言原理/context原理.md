@@ -6,15 +6,15 @@ tags:
   - channel原理
 ---
 
-# context原理
+# **context原理**
 
-## context是什么
+## **context是什么**
 
 context是go语言在1.7引入的一个用于goroutine之间传递信息的并发安全的包，context可以翻译为上下文，其在项目中主要是用于上下与下层goroutine的取消控制以及数据共享，也是go语言中goroutine之间通信的一种方式，其底层是借助channl与sync.Mutex实现的。
 
 关于context的用法我们在前一章节并发实践里已经做过介绍，本章主要介绍一下context的底层原理
 
-## context的底层实现
+## **context的底层实现**
 
 与context相关的源码基本都在src/context/context.go中，我们通过源码来看一下，context的底层究竟做了些什么
 
@@ -51,9 +51,9 @@ context接口的四种实现
 
 下面我们将逐一解读这几个结构及其实现方法
 
-## 接口说明
+## **接口说明**
 
-### context接口
+### **context接口**
 
 首先还是回顾一下context接口，context的接口定义如下：
 
@@ -76,7 +76,7 @@ type Context interface {
 
 * 4.`Value` ：从 context.Context 中获取键对应的值，类似于map的get方法，对于同一个context，多次调用 Value 并传入相同的 Key 会返回相同的结果，如果没有对应的`key`,则返回`nil`，键值对是通过WithValue方法写入
 
-### canceler接口
+### **canceler接口**
 
 **canceler接口的源码定义如下**
 
@@ -89,11 +89,11 @@ type canceler interface {
 
 canceler接口主要用于取消方法的实现，如果一个示例既实现了context接口又实现了canceler接口，那么这个context就是可以本取消的，比如cancelCtx 和timerCtx。如果仅仅只是实现了context接口，而没有实现canceler，就是不可取消的，比如emptyCtx 和valueCtx。
 
-## contex实现
+## **contex实现**
 
 在context报下对context接口有四种基本的实现，即emptyCtx ，cancelCtx ，timerCtx，valueCtx
 
-### emptyCtx
+### **emptyCtx**
 
 首先看一下emptyCtx 这个最基本的实现，emptyCtx 虽然实现了context接口，但是不具备任何功能，因为实现很简单，基本都是直接返回空值。虽然emptyCtx 没有任何功能，但他还是有作用的，一般用它作为根context来派生出有实际用处的context。要想创建有实际功能的context，要使用后续提供的一系列with方法来派生出新的context，这个在前面讲context用法的时候已经做过介绍，就不再过多赘述。
 
@@ -144,7 +144,7 @@ var (
 
 在写代码的时候，我么你调用这两个函数其实Background()函数或者TODO()函数创建最顶层的context其实就是获取一个emptyCtx。
 
-###cancelCtx
+###**cancelCtx**
 
 cancelCtx结构定义如下:
 
@@ -179,7 +179,7 @@ func (c *cancelCtx) Done() <-chan struct{} {
 }
 ```
 
-代码很简单，其实就是采用”懒汉模式“创建一个struct{}类型的管道返回，从类型可以看出这个channel是只读的，不能往里面写数据，所以应该避免直接读取这个channel，会发生阻塞。所以在使用上要配合select来非阻塞读取，由于是只读的，所以只有在一种情况下会读到值，那就是关闭这个channel的时候会读到零值。利用这个而特性就可以实现关闭的消息通知。
+代码很简单，其实就是采用"懒汉模式"创建一个struct{}类型的管道返回，从类型可以看出这个channel是只读的，不能往里面写数据，所以应该避免直接读取这个channel，会发生阻塞。所以在使用上要配合select来非阻塞读取，由于是只读的，所以只有在一种情况下会读到值，那就是关闭这个channel的时候会读到零值。利用这个而特性就可以实现关闭的消息通知。
 
 再看一下其 cancel() 方法的实现：
 
@@ -324,13 +324,13 @@ func parentCancelCtx(parent Context) (*cancelCtx, bool) {
 
 总结一下通过WithCancel函数在派生可取消的子context的过程中，通过propagateCancel函数关联父子context可能遇到的几种情形：
 
-1. 父context的通信管道done为空或者已经被取消，就不用关联了，直接取消当前子context即可‘’
+1. 父context的通信管道done为空或者已经被取消，就不用关联了，直接取消当前子context即可''
 
 2. 父context可以被取消，但是还未被取消，并且父context可以提取出标准的cancelCtx结构，则创建父context的children map，将当前子context加入到这个map中
 
 3. 父context可以被取消，但是还未被取消，父context不能提取出标准的cancelCtx结构，新起一个goroutine监控父子context的通信管道有没有取消信号
 
-### timerCtx
+### **timerCtx**
 
 timerCtx在cancelCtx 的基础上，又提供了截止时间的功能，不仅拥有像cancelCtx 一样，可以通过调用取消函数cancelFun来取消子context的方式，还可以设置一个截止时间deadline ，在 deadline 到来时，自动取消 context。
 
@@ -411,7 +411,7 @@ func WithDeadline(parent Context, d time.Time) (Context, CancelFunc) {
 
 设置的截止时间早于父context的截止时间，会创建一个正常的timerCtx
 
-### valueCtx
+### **valueCtx**
 
 valueCtx的作用与上述三个context有点不同，他不是用于父子context之间的取消的，而是用于数据共享。作用类似于一个map，不过数据的存储和读取是在两个context，用于goroutine之间的数据传递。
 

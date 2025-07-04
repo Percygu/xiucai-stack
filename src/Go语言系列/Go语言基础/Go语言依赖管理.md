@@ -8,20 +8,20 @@ tags:
   - 依赖管理
 ---
 
-# Go语言依赖管理
+# **Go语言依赖管理**
 
 在工程代码中，每种语言基本上都有自己的依赖管理工具，比如python的`pip`、node.js的`npm`，java的`maven`，rust的`cargo`，Go语言也有提供自己的依赖库管理工具。Go语言从v1.5开始开始引入vendor模式，如果项目目录下有vendor目录，那么go工具链会优先使用vendor内的包进行编译、测试等。在go1.11之后，Go语言主要使用`Go modules`对代码依赖进行管理。
 
-## Go Modules要点
+## **Go Modules要点**
 
-### GO111MODULE环境变量
+### **GO111MODULE环境变量**
 这个环境变量是Go Modules的开关，主要有以下参数：
 - auto：只在项目包含了`go.mod`文件时启动go modules，在Go1.13版本中是默认值
 - on：无脑启动Go Modules，推荐设置，Go1.14版本以后的默认值
 - off：禁用Go Modules，一般没有使用`go modules`的工程使用；
 
 
-### GOPROXY
+### **GOPROXY**
 该环境变量用于设置Go模块代理，Go后续在拉取模块版本时能够脱离传统的VCS方式从镜像站点快速拉取，`GOPROXY`的值要以英文逗号分割，默认值是`https://proxy.golang.org,direct`，但是该地址在国内无法访问，所以可以使用`goproxy.cn`来代替(七牛云配置)，设置命令：
 ```bash
 go env -w GOPROXY=https://goproxy.cn,direct
@@ -35,7 +35,7 @@ go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/
 `direct`为特殊指示符，因为我们指定了镜像地址，默认是从镜像站点拉取，但是有些库可能不存在镜像站点中，`direct`可以指示Go回源到模块版本的源地址去抓取，比如`github`，当`go module proxy`返回`404、410`这类错误时，其会自动尝试列表中的下一个，遇见`direct`时回源地址抓取；
 
 
-### GOSUMDB
+### **GOSUMDB**
 `GOSUMDB`（go checksum database）是Go官方为了go modules安全考虑，设定的module校验数据库，你在本地对依赖进行变动（更新/添加）操作时，Go 会自动去这个服务器进行数据校验，保证你下的这个代码库和世界上其他人下的代码库是一样的，保证Go在拉取模块版本时拉取到的模块版本数据未经篡改
 
 GOSUMDB的值自定义格式如下：
@@ -53,7 +53,7 @@ go env -w GONOSUMDB=*.example.com,test.xyz/com
 这样的话，像 `git.example.com`, `test.xyz/com` 这些公司和自己的私有仓库就都不会做校验了。
 
 
-### GONOPROXY/GONOSUMDB/GOPRIVATE
+### **GONOPROXY/GONOSUMDB/GOPRIVATE**
 这三个环境变量放在一起说，一般在项目中不经常使用，这三个环境变量主要用于私有模块的拉取，在GOPROXY、GOSUMDB中无法访问到模块的场景中，例如拉取git上的私有仓库；
 GONOPROXY、GONOSUMDB的默认值是GOPRIVATE的值，所以我们一般直接使用GOPRIVATE即可，其值也是可以设置多个，以英文逗号进行分割；例如：
 ```bash
@@ -62,12 +62,12 @@ go env -w GOPRIVATE="github.com/asong2020/go-localcache,git.xxxx.com"
 也可以使用通配符的方式进行设置，对域名设置通配符号，这样子域名就都不经过`Go module proxy`和`Go checksum database`
 
 
-### 全局缓存
+### **全局缓存**
 `go mod download`会将依赖缓存到本地，缓存的目录是`GOPATH/pkg/mod/cache`、`GOPATH/pkg/sum`，这些缓存依赖可以被多个项目使用，未来可能会迁移到`$GOCACHE`下面；
 可以使用`go clean -modcache`清理所有已缓存的模块版本数据；
 
 
-## Go Modules命令
+## **Go Modules命令**
 我们可以使用`go help mod`查看可以使用的命令：
 ```bash
 go help mod
@@ -107,7 +107,7 @@ go mod verify | 校验一个模块是否被篡改过
 go mod why | 解释为什么需要依赖某个模块
 
 
-### go.mod文件
+### **go.mod文件**
 `go.mod`是启用Go modules的项目所必须且最重要的文件，其描述了当前项目的元信息，每个`go.mod`文件开头符合包含如下信息：
 
 **module**：用于定义当前项目的模块路径（突破$GOPATH路径）
@@ -148,7 +148,7 @@ retract v0.2.0
 假设我们有上述`go.mod`文件，接下来我们分模块详细介绍一下各个部分
 
 
-### module 
+### **module**
 `go.mod`文件的第一行是`module`， 表示工程里的依赖的基路径，例如上面的项目：
 ```go
 module rotatebot
@@ -156,18 +156,18 @@ module rotatebot
 工程里的`import`的路径都是以`rotatebot`开头的字符串
 
 
-### go version
+### **go version**
 `go.mod`文件的第二行是`go version`，其是用来指定你的代码所需要的最低版本：
 ```go
 go 1.17
 ```
 
 
-### require
+### **require**
 `require`用来指定该项目所需要的各个依赖库以及他们的版本，从上面的例子中我们看到版本部分有不同的写法，还有注释，接下来我们来解释一下这部分；
 
 
-#### indirect注释
+#### **indirect注释**
 ```go
 github.com/gin-contrib/sse v0.1.0 // indirect
 github.com/go-playground/locales v0.14.0 // indirect
@@ -179,7 +179,7 @@ github.com/go-playground/locales v0.14.0 // indirect
 
 Go1.17版本对此做了优化，`indirect`的module将被放在单独`require`块的，这样看起来更加清晰明了。
 
-#### incompatible标记
+#### **incompatible标记**
 `incompatible`标记其实是一个module标签归规范约束，Go module 的版本选择机制规定，Module 的版本号需要遵循 v\<major\>.\<minor\>.\<patch\> 的格式，此外，如果major版本号大于`1`时，其版本号还需要体现在Module名字中。
 比如[Module github.com/RainbowMango/m](https://github.com/RainbowMango/m)，如果其版本号增长到 v2.x.x 时，其 Module 名字也需要相应的改变为：[github.com/RainbowMango/m/v2](https://github.com/RainbowMango/m/v2)。即，如果major版本号大于`1`时，需要在Module名字中体现版本。
 那么如果 Module 的 major 版本号虽然变成了 v2.x.x，但 Module 名字仍保持原样会怎么样呢？ 其他项目是否还可以引用呢？
@@ -192,7 +192,7 @@ require (
 除了增加 +incompatible（不兼容）标识外，在其使用上没有区别
 
 
-#### 版本号
+#### **版本号**
 go module拉取依赖包本质也是go get行为，go get主要提供了以下命令：
 
 命令 | 作用
@@ -227,7 +227,7 @@ github.com/gin-contrib/sse v0.1.0
 ```
 
 
-### replace
+### **replace**
 因为某些未知原因，并不是所有的包都能直接用`go get`获取到，或者说是我们想要在官方的依赖库中集成一些我们自己的功能，这时我们就需要使用`go modules`的`replace`功能了
 `replace`顾名思义，就是用新的`package`去替换另一个`package`，他们可以是不同的`package`，也可以是同一个`package`的不同版本。看一下基本的语法：
 ```bash
@@ -243,7 +243,7 @@ replace的使用步骤：
 5. 最后，在你的代码里直接使用`old-package`的名字，golang会自动识别出`replace`，然后实际你的程序将会使用`new-package`，替换成功
 
 
-### exclude
+### **exclude**
 这个特性是在Go1.16版本中引入，用来声明该第三方模块的某些发行版本不能被其他模块使用；
 使用场景：发生严重问题或者无意发布某些版本后，模块的维护者可以撤回该版本，支持撤回单个或多个版本；
 这种场景以前的解决办法：
@@ -260,7 +260,7 @@ retract (
 重新发布新版本后，在引用该依赖库的使用执行`go list`可以看到 版本和"严重bug..."的提醒。该特性的主要目的是将问题更直观的反馈到开发者的手中；
 
 
-### go.sum文件
+### **go.sum文件**
 Go 在做依赖管理时会创建两个文件，`go.mod` 和 `go.sum`，`go.mod` 的重要性不言而喻，这个文件几乎提供了依赖版本的全部信息。而 `go.sum` 则是记录了所有依赖的 module 的校验信息，以防下载的依赖被恶意篡改，主要用于安全校验。这个文件我们一般不需要编辑，更新以来的时候会自动更新。
 每行的格式如下：
 ```
@@ -275,7 +275,7 @@ github.com/spf13/cast v1.4.1/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkU
 其中 `module` 是依赖的路径，`version` 是依赖的版本号。如果 `version` 后面跟 `/go.mod` 表示对哈希值是 `module` 的 `go.mod` 文件；否则，哈希值是 `module` 的 `.zip` 文件。
 `hash` 是以 `h1:` 开头的字符串，表示生成 checksum 的算法是第一版的HASH算法（SHA256）。如果将来在SHA-256中发现漏洞，将添加对另一种算法的支持，可能会命名为`h2`。
 
-## Go Modules使用
+## **Go Modules使用**
 
 使用 `go modules` 的一个前置条件是Go语言版本大于等于Go1.11；然后我们要检查环境变量 `GO111MODULE` 是否开启，执行 `go env` 查看：
 ```bash

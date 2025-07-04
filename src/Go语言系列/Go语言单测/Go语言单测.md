@@ -6,16 +6,16 @@ tags:
   - 单元测试
 ---
 
-# Go单元测试
+# **Go单元测试**
 
 
-## 1. 什么是单元测试
+## **1. 什么是单元测试**
 
 单元测试是软件开发中的一种测试方法，旨在验证代码中最小可测试单元（如函数、方法、类）的行为是否符合预期，它是开发流程的重要组成部分。单元测试的目标是发现代码中的缺陷和错误，并确保代码的正确性和稳定性。
 
 Go语言中自带有一个轻量级的测试框架testing和自带的go test命令来实现单元测试和性能测试。在包目录内，以\_test.go为后缀名的源文件都是go test的一部分，而不是go build的构建部分。
 
-## 2. Go单元测试命名规范
+## **2. Go单元测试命名规范**
 
 1. 在 Go 中，测试文件的命名规则非常重要。测试文件**必须以 `_test.go` 结尾**，否则 Go 的测试框架在执行时将不会识别这些文件。
 
@@ -27,7 +27,7 @@ Go语言中自带有一个轻量级的测试框架testing和自带的go test命�
 
 * 在测试的时候通过`go test`命令进行测试
 
-## 3. Go语言的测试框架
+## **3. Go语言的测试框架**
 
 Go语言有以下几种常见的测试框架：
 
@@ -45,7 +45,7 @@ Go语言有以下几种常见的测试框架：
 
 接下来也会重点讲一下Go原生testing包的单测写法和GoConvey的主要用法
 
-## 4. Go自带的testing包
+## **4. Go自带的testing包**
 
 `testing`包为Go语言的package提供了自动化测试支持。通过`go test`命令，可以自动执行如下形式的任何函数：
 
@@ -59,7 +59,7 @@ func TestXxx(*testing.T)
 
 > 创建一个新的文件夹hello1，作为项目的根目录。在项目中根目录创建一个文件夹gotest，在gotest目录中创建一个example.go用于编写被测试代码，然后同样在gotest目录中创建一个example\_test.go，用于编写测试代码。后续的所有测试用例都是在此基础上进行
 
-### 4.1 基础示例
+### **4.1 基础示例**
 
 被测试代码：
 
@@ -118,7 +118,7 @@ FAIL    hello1/gotest   0.334s
 FAIL
 ```
 
-### 4.2 Table-Driven测试
+### **4.2 Table-Driven测试**
 
 Table-Driven方式可以在同一个测试函数中测试多个用例，将`TestFactorial`函数改为最初正确的形式，再次测试
 
@@ -155,7 +155,7 @@ ok      hello1/gotest   0.345s
 
 Go自带testing包的更多用法可以参考[Go标准库文档](https://golang.org/pkg/testing/)。
 
-## 5. GoConvey
+## **5. GoConvey**
 
 GoConvey适用于编写单元测试用例，并且可以兼容到testing框架中。可以通过`go test`命令或使用`goconvey`命令访问`localhost:8080`的Web测试界面来查看测试结果。GoConvey的基本用法如下：
 
@@ -167,7 +167,7 @@ Convey("测试描述", t, func() {
 
 GoConvey通常使用`So`函数进行断言，断言方式可以传入一个函数，或者使用内置的`ShouldBeNil`、`ShouldEqual`、`ShouldNotBeNil`等函数。
 
-### 5.1 基本示例
+### **5.1 基本示例**
 
 被测试代码：
 
@@ -230,7 +230,7 @@ ok      hello1/gotest   0.231s
 
 总共执行了一个断言，测试结果跟我们预测的结果相同，a和b相等，这个判定应该为true，如果确实相等，则单测会PASS，否侧不通过。测试结果为PASS，表示通过。执行耗时为0.231s
 
-### 5.2 嵌套测试
+### **5.2 嵌套测试**
 
 测试代码：
 
@@ -287,11 +287,11 @@ ok      hello1/gotest   0.235s
 
 GoConvey的更多用法可以参考[官方文档](https://github.com/smartystreets/goconvey)。
 
-## 6. Stub/Mock框架
+## **6. Stub/Mock框架**
 
 在单元测试中，我们往往需要**隔离外部依赖**（如数据库、网络、文件系统、第三方服务等），这时就会用到 **Stub** 和 **Mock** 框架。它们帮助我们**模拟依赖组件的行为**，让测试只聚焦于目标函数的逻辑本身。
 
-### 6.1 Stub 是什么？
+### **6.1 Stub 是什么？**
 
 **Stub（桩）** 是一种最基础的替代品，它通常是你手动实现的函数或对象，用来返回**固定的值或行为**。
 
@@ -326,7 +326,7 @@ func TestGetUserName(t *testing.T) {
 
 **Stub的特点是简单、手动、只模拟"结果"。**
 
-### 6.2 Mock 是什么？
+### **6.2 Mock 是什么？**
 
 **Mock（模拟）** 是一种更高级的替代品，通常配合框架使用（如：GoMock、Testify）。除了返回值，它还可以**验证调用过程**，比如：
 
@@ -388,7 +388,7 @@ Golang有以下Stub/Mock框架：
 
 一般来说，GoConvey可以和GoStub、GoMock、Monkey中的一个或多个搭配使用。
 
-### 6.3 GoStub
+### **6.3 GoStub**
 
 GoStub框架有多种使用场景：
 
@@ -400,7 +400,7 @@ GoStub框架有多种使用场景：
 
 * 复合场景：由多个基本场景组合而成
 
-#### 6.3.1 为全局变量打桩
+#### **6.3.1 为全局变量打桩**
 
 假设在被测函数中使用了一个全局整型变量count，当前测试用例需要将count的值固定为150：
 
@@ -412,7 +412,7 @@ defer stubs.Reset()
 
 stubs是GoStub框架函数接口Stub返回的对象，该对象有Reset方法可以将全局变量恢复为原值。
 
-#### 6.3.2 为函数打桩
+#### **6.3.2 为函数打桩**
 
 设我们的代码中有以下函数定义：
 
@@ -429,7 +429,7 @@ stubs := StubFunc(&Execute, "command-output", nil)
 defer stubs.Reset()
 ```
 
-#### 6.3.3 为过程打桩
+#### **6.3.3 为过程打桩**
 
 当函数没有返回值时，我们通常称之为过程。例如，一个资源清理函数：
 
@@ -448,11 +448,11 @@ defer stubs.Reset()
 
 GoStub的更多用法可以参考[官方文档](https://github.com/prashantv/gostub)。
 
-### 6.4 GoMock
+### **6.4 GoMock**
 
 GoMock是由Go官方开发维护的测试框架，提供了基于接口的Mock功能，能够与Go内置的testing包良好集成。GoMock包含两个主要部分：GoMock库和mockgen工具，其中GoMock库管理桩对象的生命周期，mockgen工具用于生成接口对应的Mock类源文件。
 
-#### 6.4.1 定义接口
+#### **6.4.1 定义接口**
 
 ```go
 package db
@@ -465,7 +465,7 @@ type DataStore interface {
 }
 ```
 
-#### 6.4.2 生成Mock类文件
+#### **6.4.2 生成Mock类文件**
 
 mockgen工具有两种操作模式：源文件模式和反射模式。
 
@@ -525,7 +525,7 @@ func (_m *MockDataStore) Create(_param0 string, _param1 []byte) error {
 // ... 其他方法实现
 ```
 
-#### 6.4.3 使用Mock对象进行测试
+#### **6.4.3 使用Mock对象进行测试**
 
 1. 导入相关包
 
@@ -589,7 +589,7 @@ mockDB.EXPECT().Retrieve(Any()).Return(dataBytes3, nil)
 
 GoMock的更多用法可以参考[官方文档](https://github.com/golang/mock)。
 
-### 6.5 Monkey
+### **6.5 Monkey**
 
 前面我们已经了解到：
 
@@ -621,7 +621,7 @@ Monkey框架的使用场景：
 
 * 特殊场景：桩中桩的案例
 
-#### 6.5.1 为函数打桩
+#### **6.5.1 为函数打桩**
 
 假设Execute是一个执行命令的函数：
 
@@ -681,7 +681,7 @@ func TestExecute(t *testing.T) {
 
 3. 返回值是PatchGuard对象指针，用于在测试结束时移除补丁
 
-#### 6.5.2 为过程打桩
+#### **6.5.2 为过程打桩**
 
 对于没有返回值的函数（过程），打桩代码如下：
 
@@ -692,7 +692,7 @@ guard := Patch(CleanupResources, func() {
 defer guard.Unpatch()
 ```
 
-#### 6.5.3 为方法打桩
+#### **6.5.3 为方法打桩**
 
 假设在分布式系统中，需要模拟从配置中心获取配置的行为：
 
@@ -734,9 +734,9 @@ PatchInstanceMethod API是Monkey提供的方法打桩API：
 
 Monkey的更多用法可以参考[官方文档](https://github.com/bouk/monkey)。
 
-## 7. Mock场景最佳实践
+## **7. Mock场景最佳实践**
 
-### 7.1 实例函数Mock：Monkey。
+### **7.1 实例函数Mock：Monkey。**
 
 Monkey框架可用于对依赖函数进行替换，完成针对当前模块的单元测试。
 
@@ -809,7 +809,7 @@ func TestMethodFormatting() {
 }
 ```
 
-### 7.2 未实现函数Mock：GoMock
+### **7.2 未实现函数Mock：GoMock**
 
 假设场景：`Company`（公司）和`Person`（人）之间的关系：
 
@@ -867,7 +867,7 @@ func TestCompany_Meeting(t *testing.T) {
 }
 ```
 
-### 7.3 系统内置函数Mock：Monkey
+### **7.3 系统内置函数Mock：Monkey**
 
 使用Monkey可以mock系统内置函数，例如json.Unmarshal：
 
@@ -892,7 +892,7 @@ monkey.Unpatch(json.Unmarshal)    // 解除单个Patch
 monkey.UnpatchAll()               // 解除所有Patch
 ```
 
-### 7.4 数据库行为Mock
+### **7.4 数据库行为Mock**
 
 使用sqlmock库模拟数据库操作：
 
@@ -947,7 +947,7 @@ func TestDatabaseQuery(t *testing.T) {
 }
 ```
 
-### 7.5 服务器行为Mock
+### **7.5 服务器行为Mock**
 
 使用net/http/httptest模拟HTTP服务器：
 
@@ -1014,9 +1014,9 @@ func TestHTTPClient(t *testing.T) {
 }
 ```
 
-## 8. 实战案例：消息通讯系统
+## **8. 实战案例：消息通讯系统**
 
-### 8.1  项目概览
+### **8.1  项目概览**
 
 假设该项目是一个具有用户登录、查看在线用户、私聊、群聊等功能的命令行通讯系统。项目分为Client和Server两个子模块，都采用Model-Controller(Processor)-View(Main)的架构进行功能划分。另外还有一个Common模块存放通用工具类和数据结构。
 
@@ -1060,7 +1060,7 @@ func TestHTTPClient(t *testing.T) {
 
 鉴于需要编写Mock和桩函数，我们使用`GoStub`和`Monkey`包来简化测试，只需要编写替代接口和Mock函数，就能在测试过程中替换系统函数或依赖模块。
 
-### 8.2 Model层与数据库测试
+### **8.2 Model层与数据库测试**
 
 由于是单元测试，我们需要创建Mock数据库实例，测试CRUD操作的SQL语句执行：
 
@@ -1136,7 +1136,7 @@ func TestUserRepository(t *testing.T) {
 }
 ```
 
-### 8.3 私聊功能测试
+### **8.3 私聊功能测试**
 
 私聊功能涉及JSON编码和发送消息的底层操作（`WritePkg`函数），我们使用Monkey进行Mock：
 
@@ -1169,7 +1169,7 @@ func TestMessageSender_SendPrivateMessage(t *testing.T) {
 }
 ```
 
-### 8.4  登录功能测试
+### **8.4  登录功能测试**
 
 登录功能涉及服务器连接和数据处理，我们可以使用多种Mock技术结合测试：
 
@@ -1202,7 +1202,7 @@ func TestMessageSender_SendPrivateMessage(t *testing.T) {
 }
 ```
 
-### 4. 登录功能测试
+### **8.5 登录功能测试**
 
 登录功能涉及服务器连接和数据处理，我们可以使用多种Mock技术结合测试：
 
@@ -1264,7 +1264,7 @@ func TestUserProcessor_Login(t *testing.T) {
 }
 ```
 
-## 8.5 工具类测试
+## **8.5 工具类测试**
 
 测试网络传输工具类：
 
@@ -1351,7 +1351,7 @@ func TestTransfer_WritePackage(t *testing.T) {
 
 * [GoMock实践指南](https://github.com/golang/mock)
 
-## 9. 基准测试
+## **9. 基准测试**
 
 除了前面提到的单元测试，测试代码单元的正确性之外，Go语言还提供了基准测试框架，可以测试一段程序的性能、CPU消耗，可以对代码做性能分析，测试方法与单元测试类似。
 
@@ -1537,7 +1537,7 @@ func BenchmarkAbsParallel(b *testing.B) {
 
 可以通过 `-cpu` 参数为 `go test` 指定 GOMAXPROCS 的值，用来控制使用的 CPU 核心数量。如果想了解更多 `go test` 支持的参数选项，可以执行命令 `go help testflag` 来获取完整的帮助信息。
 
-## 10. 小结
+## **10. 小结**
 
 单元测试（Unit Test，简称 UT）是高质量软件项目中不可缺少的一个组成部分。它的核心目标是对程序中**最小的功能单位**进行验证，通常是一个函数或者方法，确保其行为符合预期。Go语言对单元测试提供了很好的支持，其自身就带有一个轻量级的测试框架testing，可以用自带的go test命令来实现单元测试和性能测试。同时也有非常多好用的第三方测试包，比如GoConvey，testify等，可以更加简洁的写测试用例。写好Go程序的单测，不仅仅可以确保代码的完整性和正确性，也是一个Gopher基本功的重要体现
 

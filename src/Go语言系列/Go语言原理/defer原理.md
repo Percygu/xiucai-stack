@@ -6,13 +6,13 @@ tags:
   - defer原理
 ---
 
-# defer原理
+# **defer原理**
 
-## defer是什么
+## **defer是什么**
 
 defer是go语言的一个关键字，用来修饰函数，其作用是让defer后面跟的函数或者方法调用能够延迟到当前所在函数return或者panic的时候再执行。
 
-## defer的使用形式
+## **defer的使用形式**
 
 ```go
 defer func(args)
@@ -20,7 +20,7 @@ defer func(args)
 
 defer在使用的时候，只需要在其后面加上具体的函数调用即可，这样就会注册一个延迟执行的函数func，并且会把函数名和参数都确定，等到从当前函数退出的时候在执行
 
-## defer的底层结构
+## **defer的底层结构**
 
 进行defer 函数调用的时候其实会生成一个\_defer结构，一个函数中可能有多次defer调用，所以会生成多个这样的\_defer结构，这些\_defer结构链式存储构成一个\_defer链表，当前goroutine的\_defer指向这个链表的头节点，
 
@@ -48,7 +48,7 @@ type _defer struct {
 
 defer函数在注册的时候，创建的\_defer结构会依次插入到\_defer链表的表头，在当前函数return的时候，依次从\_defer链表的表头取出\_defer结构执行里面的fn函数
 
-## defer的执行过程
+## **defer的执行过程**
 
 在探究defer的执行过程之前，先简单看一下go语言程序的编译过程，go语言程序由.go文件编译成最终的二进制机器码主要有以下结果步骤
 
@@ -91,11 +91,11 @@ case ir.ODEFER:     // 如果节点时defer节点
 
 从上述代码可以看出，defer的是现有三种实现方式，在栈上分配内存，在堆上分配内存以及使用开放编码的方式。会优先使用内联方式，当内联不满足，且没有发生内存逃逸的情况下，使用栈分配的方式，这两种情况都不符合的情况下在使用堆分配，这样做的好处是提升性能。
 
-### \_defer内存分配
+### **_defer内存分配**
 
 在上面的分析中我们可以看出在不同的情况下，\_defer结构分配在不同的地方，可能分配在堆上也可能分配在栈上，这两种分配方式调用的函数是不同的，堆上分配实际调用的是`runtime.deferproc`函数，栈上分配内存调用的是`runtime.deferprocStack`函数，下面分别来看看这两个函数都做了些什么工作？
 
-#### 堆上分配
+#### **堆上分配**
 
 `先看deferproc`函数，在堆上分配内存，go 1.13 之前只有这个函数，说明go 1.13 之前，\_defer只能在堆上分配。
 
@@ -161,7 +161,7 @@ func newdefer() *_defer {
 
 可以看出堆上defer的创建思想借助了内存复用，用到了内存池的思想，创建defer的过程是：优先在p的本地和全局的defer缓存池里找到一个可用的defer结构返回，找不到在去堆上创建
 
-#### 栈上分配
+#### **栈上分配**
 
 下面看一下`runtime.deferprocStack`函数，在栈上分配\_defer，这个函数是go 1.13 之后引入的，优化defer性能的，显然在栈上分配的效率更高。`runtime.deferprocStack`源码如下：
 
@@ -191,7 +191,7 @@ func deferprocStack(d *_defer) {
 
 Go 在编译的时候在 SSA中间代码阶段，如果判断出\_defer需要在站上分配，则编译器会直接在函数调用栈上初始化 \_defer 记录，并作为参数传递给 deferprocStack函数。
 
-#### 开放编码
+#### **开放编码**
 
 再看一下defer的第三种实现方式，开放编码。这种方式是在go1.14 引入的继续优化defer实现性能的方式。在go1.14 中通过代码内联优化，使得函数末尾直接对`defer`函数进行调用，减少了函数调用开销。其主要逻辑位于 cmd/compile/internal/walk/stmt.go文件的 walkStmt()函数和 cmd/compile/internal/ssagen/ssa.go 的 buildssa()函数，函数较长，这里看下关键代码。
 
@@ -269,7 +269,7 @@ if s.hasOpenDefers &&
 
 * defer没有出现在循环语句中时
 
-### defer函数执行
+### **defer函数执行**
 
 在给defer分配好内存之后，剩下的就是执行了。在函数退出的时候，`deferreturn` 来执行defer链表上的各个defer函数。函数源码如下：
 
