@@ -1,3 +1,15 @@
+---
+title: 二、Go语言前景
+index: false
+icon: fas fa-book
+category:
+  - Go语言
+tag:
+  - Go语言
+  - Go语言前景
+  - Golang
+---
+
 # **Go语言前景**
 
 当下BAT大厂正在把Go作为新项目开发的首选语言，今天给大家带来一个系统的go语言相关知识梳理，也希望能够在未来和大家一起学习和探讨。

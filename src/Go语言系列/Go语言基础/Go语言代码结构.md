@@ -1,4 +1,5 @@
 ---
+title: 1. Go语言代码结构
 tags:
   - Go
   - golang
