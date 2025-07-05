@@ -1,7 +1,5 @@
 ---
 title: 二、Go语言前景
-index: false
-icon: fas fa-book
 category:
   - Go语言
 tag:

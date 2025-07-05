@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 3. slice原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
   - slice原理

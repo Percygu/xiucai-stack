@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 8. Go语言Map
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - map

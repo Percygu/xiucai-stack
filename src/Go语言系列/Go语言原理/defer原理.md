@@ -1,6 +1,8 @@
 ---
-tags:
-  - Go
+title: 8. defer原理
+category:
+  - Go语言
+tag:
   - golang
   - go原理深入
   - defer原理

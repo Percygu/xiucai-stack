@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 7. Go语言数组与切片
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 数组

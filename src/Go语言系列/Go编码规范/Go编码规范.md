@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 九、Go编码规范
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go编码规范
   - 程序格式化

@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 18. Go语言依赖管理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - modules

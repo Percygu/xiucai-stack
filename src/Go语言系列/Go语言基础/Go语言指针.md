@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 11. Go语言指针
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 指针

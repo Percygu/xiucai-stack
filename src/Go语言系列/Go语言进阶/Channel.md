@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 3. Channel
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go进阶语法
   - Channel

@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 5. Go语言运算符
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 运算符

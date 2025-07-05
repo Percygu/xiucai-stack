@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 2. Goroutine
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go进阶语法
   - Goroutine

@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 12. Go语言函数
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 函数

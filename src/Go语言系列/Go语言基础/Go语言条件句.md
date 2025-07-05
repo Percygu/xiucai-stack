@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 9. Go语言条件语句
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 条件语句

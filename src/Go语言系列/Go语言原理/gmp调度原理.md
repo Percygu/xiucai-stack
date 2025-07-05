@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 13. GMP调度原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
   - GMP调度

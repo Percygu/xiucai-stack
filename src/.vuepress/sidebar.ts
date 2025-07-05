@@ -12,7 +12,7 @@ export default sidebar({
         "/Go语言系列/Go语言前景/Go语言前景.md",
         "/Go语言系列/Go环境搭建/Go环境搭建.md",
         {
-          text: "Go语言基础",
+          text: "四、Go语言基础",
           collapsible: true,
           children: [
             "/Go语言系列/Go语言基础/Go语言代码结构.md",
@@ -36,7 +36,7 @@ export default sidebar({
           ]
         },
         {
-          text: "Go语言进阶",
+          text: "五、Go语言进阶",
           collapsible: true,
           children: [
             "/Go语言系列/Go语言进阶/并发概述.md",
@@ -52,7 +52,7 @@ export default sidebar({
           ]
         },
         {
-          text: "Go语言框架",
+          text: "六、Go语言框架",
           collapsible: true,
           children: [
             "/Go语言系列/Go语言框架/gorm.md",
@@ -60,7 +60,7 @@ export default sidebar({
           ]
         },
         {
-          text: "Go语言原理",
+          text: "七、Go语言原理",
           collapsible: true,
           children: [
             "/Go语言系列/Go语言原理/程序初始化.md",
@@ -81,7 +81,7 @@ export default sidebar({
         "/Go语言系列/Go语言单测/Go语言单测.md",
         "/Go语言系列/Go编码规范/Go编码规范.md",
         {
-          text: "Go面试题库",
+          text: "十、Go面试题库",
           collapsible: true,
           children: [
             "/Go语言系列/Go面试题库/基础面试题.md",

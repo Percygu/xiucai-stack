@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 2. GORM
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - gorm
   - mysql

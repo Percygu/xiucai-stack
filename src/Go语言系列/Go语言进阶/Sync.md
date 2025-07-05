@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 4. sync包
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go进阶
   - sync

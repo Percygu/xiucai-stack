@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 10. Go语言循环
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 循环

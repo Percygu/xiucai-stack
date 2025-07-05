@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 1. Gin
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - gin
   - web框架

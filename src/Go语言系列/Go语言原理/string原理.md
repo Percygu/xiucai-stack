@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 2. string原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
   - string原理

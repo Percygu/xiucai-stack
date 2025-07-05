@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 5. sync.map原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
   - sync.map原理

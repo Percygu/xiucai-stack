@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 14. Go语言接口
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 接口

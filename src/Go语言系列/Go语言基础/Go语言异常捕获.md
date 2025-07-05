@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 17. Go语言异常捕获
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 异常捕获

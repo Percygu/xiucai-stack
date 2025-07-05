@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 16. Go语言defer
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - defer

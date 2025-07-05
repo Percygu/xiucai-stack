@@ -1,9 +1,12 @@
 ---
-tags:
-  - Go
+title: 6. channel原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
-  - context原理
+  - channel原理
 ---
 
 # **channel原理**

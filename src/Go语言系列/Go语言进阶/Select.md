@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 5. Select
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go进阶
   - select

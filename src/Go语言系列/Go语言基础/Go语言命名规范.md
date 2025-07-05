@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 2. Go语言命名规范
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - go命名规范

@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 八、Go语言单测
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go单测
   - 单元测试

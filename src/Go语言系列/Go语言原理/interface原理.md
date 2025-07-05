@@ -1,9 +1,12 @@
 ---
-tags:
-  - Go
+title: 9. interface原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
-  - defer原理
+  - interface原理
 ---
 
 # **interface原理**

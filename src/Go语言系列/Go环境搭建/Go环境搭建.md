@@ -1,8 +1,10 @@
 ---
 title: 三、Go环境搭建
-tags:
-   - Go
-   - 环境搭建
+category:
+  - Go语言
+tag:
+  - Go语言
+  - 环境搭建
 ---
 
 # **Go环境搭建**

@@ -1,7 +1,9 @@
 ---
 title: 1. Go语言代码结构
-tags:
-  - Go
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - go程序结构

@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 6. Context
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go进阶
   - context

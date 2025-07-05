@@ -1,9 +1,12 @@
 ---
-tags:
-  - Go
+title: 7. context原理
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go原理深入
-  - channel原理
+  - context原理
 ---
 
 # **context原理**

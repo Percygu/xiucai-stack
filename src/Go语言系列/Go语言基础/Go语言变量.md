@@ -1,6 +1,9 @@
 ---
-tags:
-  - Go
+title: 3. Go语言变量
+category:
+  - Go语言
+tag:
+  - Go语言
   - golang
   - go基础语法
   - 变量
