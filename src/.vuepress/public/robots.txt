@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # 指向sitemap
-Sitemap: https://xiucaistack.cn/sitemap.xml
+Sitemap: https://golangstar.cn/sitemap.xml
 
 # 爬取延迟
 Crawl-delay: 1
