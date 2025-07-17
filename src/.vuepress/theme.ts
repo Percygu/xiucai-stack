@@ -5,7 +5,7 @@ import sidebar from "./sidebar.js";
 
 
 export default hopeTheme({
-  hostname: "https://xiucaistack.cn",
+  hostname: "https://golangstar.cn",
 
   author: {
     name: "秀才",
@@ -28,7 +28,7 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: '秀才的进阶之路｜专注于技术分享与知识传播｜<a href="https://beian.miit.gov.cn/" target="_blank" style="color: #3b82f6; text-decoration: none;">粤ICP备2024352247号</a>',
+  footer: '秀才的进阶之路｜专注于技术分享与知识传播｜<a href="https://beian.miit.gov.cn/" target="_blank" style="color: #3b82f6; text-decoration: none;">粤ICP备2024352247号-2</a>',
   displayFooter: true,
 
   // 启用搜索
@@ -124,7 +124,7 @@ export default hopeTheme({
     docsearch: {
       appId: "3F08C0VVP6",
       apiKey: "0b8beebca043d79cd85521dd92654a5f",
-      indexName: "xiucaistack",
+      indexName: "golangstar",
       locales: {
         "/": {
           placeholder: "搜索文档",

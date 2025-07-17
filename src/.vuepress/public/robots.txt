@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# 指向sitemap
+Sitemap: https://xiucaistack.cn/sitemap.xml
+
+# 爬取延迟
+Crawl-delay: 1
+
+# 优先爬取重要内容
+Allow: /Go语言系列/
+Allow: /AI进阶之路/
+Allow: /后端进阶之路/
+Allow: /面试题/
+
+# 禁止爬取不重要的页面
+Disallow: /404.html
+Disallow: /_internal/ 

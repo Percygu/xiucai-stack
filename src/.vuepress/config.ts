@@ -18,7 +18,7 @@ export default defineUserConfig({
 
   plugins: [
     sitemapPlugin({
-      hostname: "https://xiucaistack.cn",
+      hostname: "https://golangstar.cn",
     }),
   ],
 
