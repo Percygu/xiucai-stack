@@ -158,6 +158,21 @@ main() {
     # 拷贝资源
     copy_assets
 
+    # 修复权限
+    print_info "修复文件权限..."
+    chown -R root:www src/.vuepress/dist/ 2>/dev/null || true
+    chmod -R 644 src/.vuepress/dist/ 2>/dev/null || true
+    chmod -R +X src/.vuepress/dist/ 2>/dev/null || true
+
+    # 确保nginx可以访问目录路径
+    chmod o+x /root/ 2>/dev/null || true
+    chmod o+x /root/projects/ 2>/dev/null || true
+    chmod o+x /root/projects/xiucai-stack/ 2>/dev/null || true
+    chmod o+x /root/projects/xiucai-stack/src/ 2>/dev/null || true
+    chmod o+x /root/projects/xiucai-stack/src/.vuepress/ 2>/dev/null || true
+
+    print_info "权限修复完成"
+
     print_info "构建完成！输出目录: src/.vuepress/dist/"
 }
 
