@@ -9,17 +9,17 @@ export default sidebar({
       collapsible: true,
       children: [
         "/go_series/introduction.md",
-        "/go_series/go_ prospect/go_ prospect.md",
-        "/go_series/go_environment/go_environment.md",
+        "/go_series/go_prospect/go_prospect.md",
+        "/go_series/go_environment/go_ environment.md",
         {
           text: "四、Go语言基础",
           collapsible: true,
           children: [
-            "/go_series/go_base/go_environment.md",
+            "/go_series/go_base/go_code_structure.md",
             "/go_series/go_base/go_naming_standards.md",
-            "/go_series/go_base/go_ variable.md",
-            "/go_series/go_base/go_ constant.md",
-            "/go_series/go_base/go_ operators.md",
+            "/go_series/go_base/go_variable.md",
+            "/go_series/go_base/go_constant.md",
+            "/go_series/go_base/go_operators.md",
             "/go_series/go_base/go_struct.md",
             "/go_series/go_base/go_slice.md",
             "/go_series/go_base/go_map.md",
