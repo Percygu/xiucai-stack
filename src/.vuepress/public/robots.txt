@@ -8,11 +8,11 @@ Sitemap: https://golangstar.cn/sitemap.xml
 Crawl-delay: 1
 
 # 优先爬取重要内容
-Allow: /Go语言系列/
-Allow: /AI进阶之路/
-Allow: /后端进阶之路/
+Allow: /go_series/
+Allow: /ai_series/
+Allow: /backend_series/
 Allow: /面试题/
 
 # 禁止爬取不重要的页面
 Disallow: /404.html
-Disallow: /_internal/ 
+Disallow: /_internal/

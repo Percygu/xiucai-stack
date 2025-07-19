@@ -66,6 +66,17 @@ free_system_resources() {
     if [ "$high_mem_processes" -gt 5 ]; then
         print_warning "检测到${high_mem_processes}个高内存进程，建议关闭不必要的编辑器窗口"
     fi
+
+    # 检查VSCode进程数量
+    local vscode_processes=$(ps aux | grep -c "[v]scode")
+    if [ "$vscode_processes" -gt 10 ]; then
+        print_warning "检测到${vscode_processes}个VSCode进程，建议重启VSCode以释放内存"
+        print_info "可以运行: pkill -f vscode-server 来清理VSCode进程"
+    fi
+
+    # 显示当前内存使用最高的进程
+    print_info "当前内存使用最高的5个进程："
+    ps aux --sort=-%mem | head -6 | tail -5 | awk '{printf "  PID: %s, 内存: %s%%, 命令: %s\n", $2, $4, $11}'
 }
 
 # 执行编译
