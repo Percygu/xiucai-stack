@@ -135,25 +135,7 @@ export default sidebar({
       ],
     }
   ],
-  "/后端组件/": [
-    {
-      text: "后端组件",
-      collapsible: true,
-      children: [
-        {
-          text: "Mysql",
-          collapsible: true,
-          children: ["/后端组件/Mysql/mysql.md"]
-        },
-        {
-          text: "Redis",
-          collapsible: true,
-          children: ["/后端组件/Redis/redis.md"]
-        }
-      ],
-    }
-  ],
-  "/AI进阶之路/": [
+  "/ai_series/": [
     {
       text: "AI进阶之路",
       collapsible: true,
@@ -162,11 +144,11 @@ export default sidebar({
           text: "生成式AI入门指南",
           collapsible: true,
           children: [
-            "/AI进阶之路/生成式AI入门/人工智能导论.md",
-            "/AI进阶之路/生成式AI入门/理解机器学习.md",
-            "/AI进阶之路/生成式AI入门/理解深度学习.md",
-            "/AI进阶之路/生成式AI入门/生成式AI简介.md",
-            "/AI进阶之路/生成式AI入门/什么是大语言模型.md",
+            "/ai_series/generative_ai/ai_introduction.md",
+            "/ai_series/generative_ai/machine_learning.md",
+            "/ai_series/generative_ai/deep_learning.md",
+            "/ai_series/generative_ai/generative_ai.md",
+            "/ai_series/generative_ai/llm.md",
           ]
         },
         {
@@ -183,39 +165,39 @@ export default sidebar({
             {
               text: "大模型导论",
               collapsible: true,
-              children: ["/AI进阶之路/大模型应用开发/大模型导论/大模型简介.md"]
+              children: ["/ai_series/llm_development/llm_introduction/llm_ Introduction.md"]
             },
             {
               text: "LangChain从入门到精通",
               collapsible: true,
               children: [
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/LangChain基础概念.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/Model-IO.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/数据连接.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/链.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/Memery.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/RAG(检索增强).md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/Agent.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/回调.md",
-                "/AI进阶之路/大模型应用开发/LangChain从入门到精通/LCEL.md",
+                "/ai_series/llm_development/langchain/concepts.md",
+                "/ai_series/llm_development/langchain/model-io.md",
+                "/ai_series/llm_development/langchain/data_connection.md",
+                "/ai_series/llm_development/langchain/chain.md",
+                "/ai_series/llm_development/langchain/memory.md",
+                "/ai_series/llm_development/langchain/rag.md",
+                "/ai_series/llm_development/langchain/agent.md",
+                "/ai_series/llm_development/langchain/callbacks.md",
+                "/ai_series/llm_development/langchain/lcel.md",
               ]
             },
             {
               text: "RAG系列",
               collapsible: true,
-              children: ["/AI进阶之路/大模型应用开发/RAG系列/RAG总体概览.md"]
+              children: ["/ai_series/llm_development/rag_series/rag_concepts.md"]
             }
           ]
         },
         {
           text: "AI编程",
           collapsible: true,
-          children: ["/AI进阶之路/AI编程/Cusor AI编程实战(1)：抖音爆款文案提取&改写工具(上).md"]
+          children: ["/ai_series/ai_coding/cursor1.md"]
         },
         {
           text: "AI应用",
           collapsible: true,
-          children: ["/AI进阶之路/AI应用/2025 年你必须知道的 10 个向量数据库.md"]
+          children: ["/ai_series/ai_app/vector_database.md"]
         },
 
       ],

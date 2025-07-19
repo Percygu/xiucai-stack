@@ -1,3 +1,12 @@
+---
+title: Cursor 1.0 终于来了
+tags:
+  - AI
+  - AI编程
+  - AI资讯
+  - Cursor
+---
+
 [Cursor ](https://www.cursor.com/)自 2023 年首次发布以来，正式迎来了首个重大版本更新。Cursor 1.0 震撼登场！ Cursor 已成为我这一年多来首选的 AI 编程工具。OpenAI 也曾多次尝试收购该应用，但交易始终未能达成。其母公司 Anysphere 目前估值已达 100 亿美元。
 
 以下是 Cursor 1.0 版本的主要新特性概览：

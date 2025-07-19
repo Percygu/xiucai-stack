@@ -1,4 +1,5 @@
 ---
+title: Claude 4发布，程序员真的要失业了吗
 tags:
   - AI
   - Claude

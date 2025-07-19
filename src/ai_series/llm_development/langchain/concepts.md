@@ -1,4 +1,5 @@
 ---
+title: LangChain基础概念
 tags:
   - AI
   - AI应用开发
