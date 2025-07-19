@@ -10,7 +10,7 @@ export default navbar([
   {
     text: "后端进阶之路",
     icon: "chart-simple",
-    link: "/后端进阶之路/面试场景题/微服务架构核心：服务注册与发现的AP与CP抉择.md",
+    link: "/backend_series/advanced_interview/service_registry.md",
   },
   {
     text: "AI进阶之路",

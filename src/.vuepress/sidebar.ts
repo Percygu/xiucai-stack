@@ -102,18 +102,18 @@ export default sidebar({
       ],
     },
   ],
-  "/后端进阶之路/": [
+  "/backend_series/": [
     {
       text: "面试场景题",
       collapsible: true,
       children: [
-        "/后端进阶之路/面试场景题/微服务架构核心：服务注册与发现的AP与CP抉择.md",
-        "/后端进阶之路/面试场景题/当面试官问起\"负载均衡\"，哪些点是核心？.md",
-        "/后端进阶之路/面试场景题/熔断：如何优雅地应对服务雪崩与抖动.md",
-        "/后端进阶之路/面试场景题/服务降级：从有损服务到保障核心业务的架构智慧.md",
-        "/后端进阶之路/面试场景题/限流：从算法到阈值，一次性讲透.md",
-        "/后端进阶之路/面试场景题/Go程序数据库连接池耗尽如何排查.md",
-        "/后端进阶之路/面试场景题/Java线上接口响应慢如何排查.md",
+        "/backend_series/advanced_interview/service_registry.md",
+        "/backend_series/advanced_interview/load_balance.md",
+        "/backend_series/advanced_interview/circuit_breaker.md",
+        "/backend_series/advanced_interview/downgrade.md",
+        "/backend_series/advanced_interview/rate_limiting.md",
+        "/backend_series/advanced_interview/go_connection_pool.md",
+        "/backend_series/advanced_interview/java_request_slow.md",
       ]
     }
   ],
@@ -201,13 +201,6 @@ export default sidebar({
         },
 
       ],
-    }
-  ],
-  "/面试题/": [
-    {
-      text: "高级程序员面试场景题",
-      collapsible: true,
-      children: ["/面试题/高级程序员面试题/消息丢失.md"]
     }
   ],
 
