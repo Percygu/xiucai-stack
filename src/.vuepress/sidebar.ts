@@ -204,4 +204,17 @@ export default sidebar({
     }
   ],
 
+  // 关于作者页面的侧边栏
+  "/about-author": [
+    {
+      text: "关于作者",
+      collapsible: false,
+      children: [
+        "/about-author.md",
+        "/personal-journey.md",
+        "/tech-growth-journey.md",
+      ]
+    }
+  ],
+
 });

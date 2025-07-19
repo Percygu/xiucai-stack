@@ -7,6 +7,7 @@ set -e
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
+BLUE='\033[0;34m'
 NC='\033[0m'
 
 print_info() {
@@ -19,6 +20,10 @@ print_warning() {
 
 print_error() {
     echo -e "${RED}[ERROR]${NC} $1"
+}
+
+print_header() {
+    echo -e "${BLUE}=== $1 ===${NC}"
 }
 
 # 检查可用内存
@@ -82,25 +87,48 @@ free_system_resources() {
 # 执行编译
 build_project() {
     local mode=$1
+    local build_result=0
+
+    print_info "开始编译项目..."
 
     case $mode in
         0)
             print_info "使用标准模式编译 (内存限制: 2GB)..."
-            NODE_OPTIONS='--max-old-space-size=2048' pnpm docs:build
+            export NODE_OPTIONS='--max-old-space-size=2048'
+            pnpm docs:build
+            build_result=$?
             ;;
         1)
             print_info "使用超低内存模式编译 (内存限制: 512MB)..."
-            NODE_OPTIONS='--max-old-space-size=512' pnpm docs:build-low-mem
+            export NODE_OPTIONS='--max-old-space-size=512'
+            pnpm docs:build-low-mem
+            build_result=$?
             ;;
         2)
             print_info "使用低内存模式编译 (内存限制: 1GB)..."
-            NODE_OPTIONS='--max-old-space-size=1024' pnpm docs:build-low-mem
+            export NODE_OPTIONS='--max-old-space-size=1024'
+            pnpm docs:build-low-mem
+            build_result=$?
             ;;
         3)
             print_info "使用中等内存模式编译 (内存限制: 1.5GB)..."
-            NODE_OPTIONS='--max-old-space-size=1536' pnpm docs:build
+            export NODE_OPTIONS='--max-old-space-size=1536'
+            pnpm docs:build
+            build_result=$?
+            ;;
+        *)
+            print_error "未知的编译模式: $mode"
+            return 1
             ;;
     esac
+
+    if [ $build_result -eq 0 ]; then
+        print_info "编译命令执行成功"
+        return 0
+    else
+        print_error "编译命令执行失败，退出码: $build_result"
+        return 1
+    fi
 }
 
 # 拷贝图片资源
@@ -135,7 +163,18 @@ copy_assets() {
 
 # 主函数
 main() {
-    print_info "开始优化编译..."
+    print_header "开始优化编译"
+
+    # 显示系统信息
+    print_info "系统信息:"
+    print_info "  当前目录: $(pwd)"
+    print_info "  Node版本: $(node --version 2>/dev/null || echo '未安装')"
+
+    # 检查当前目录
+    if [ ! -f "package.json" ]; then
+        print_error "未找到package.json文件，请确保在项目根目录运行此脚本"
+        exit 1
+    fi
 
     # 检查pnpm
     if ! command -v pnpm &> /dev/null; then
@@ -143,26 +182,33 @@ main() {
         exit 1
     fi
 
+    print_info "  pnpm版本: $(pnpm --version)"
+
     # 释放系统资源
+    print_info "释放系统资源..."
     free_system_resources
 
     # 清理缓存
+    print_info "清理缓存..."
     clean_cache
 
     # 检查内存并选择编译模式
+    print_info "检查内存..."
     check_memory
     local memory_mode=$?
 
     print_info "选择的编译模式: $memory_mode"
 
     # 设置进程优先级为低优先级，减少系统负载
+    print_info "设置进程优先级..."
     renice 10 $$ 2>/dev/null || true
 
     # 执行编译
+    print_header "开始编译"
     if build_project $memory_mode; then
-        print_info "编译成功！"
+        print_info "✅ 编译成功！"
     else
-        print_error "编译失败"
+        print_error "❌ 编译失败"
         exit 1
     fi
 

@@ -17,4 +17,9 @@ export default navbar([
     icon: "robot",
     link: "/ai_series/generative_ai/ai_introduction.md",
   },
+  {
+    text: "关于作者",
+    icon: "user",
+    link: "/about-author.md",
+  },
 ]);
