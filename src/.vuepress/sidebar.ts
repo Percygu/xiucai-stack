@@ -211,8 +211,6 @@ export default sidebar({
       collapsible: false,
       children: [
         "/about-author.md",
-        "/personal-journey.md",
-        "/tech-growth-journey.md",
       ]
     }
   ],
