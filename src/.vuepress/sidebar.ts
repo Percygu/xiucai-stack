@@ -114,6 +114,7 @@ export default sidebar({
         "/backend_series/advanced_interview/rate_limiting.md",
         "/backend_series/advanced_interview/go_connection_pool.md",
         "/backend_series/advanced_interview/java_request_slow.md",
+        "/backend_series/advanced_interview/isolation.md",
       ]
     }
   ],
