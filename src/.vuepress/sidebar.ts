@@ -10,7 +10,7 @@ export default sidebar({
       children: [
         "/go_series/introduction.md",
         "/go_series/go_prospect/go_prospect.md",
-        "/go_series/go_environment/go_ environment.md",
+        "/go_series/go_environment/go_environment.md",
         {
           text: "四、Go语言基础",
           collapsible: true,
