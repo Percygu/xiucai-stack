@@ -21,33 +21,33 @@ taglineStyle:
 actions:
   - text: 开始学习→
     icon: rocket
-    link: ./Go语言系列/
+    link: ./go_series/introduction.md
     type: primary
 
   # - text: 秀才的编程星球
   #   icon: star
-  #   link: ./AI进阶之路/
+  #   link: ./ai_series/
 
 features:
   - title: 🎯 Go语言从入门到面试
     details: 系统化的Go语言进阶路线，从基础语法到高并发编程，以及精心整理的Go开发面试题库，配合实战经验分析，让你的技术之路走得更稳更远！
-    link: ./Go语言系列/Go语言前景/Go语言前景.md
+    link: ./go_series/introduction.md
 
   - title: 📚 后端架构进阶
     details: 深入浅出的系统设计文章，覆盖微服务、分布式，架构设计、性能优化等核心知识，再配合50+热门场景面试题，助你成为面试达人！
-    link: ./后端进阶之路/面试场景题/微服务架构核心：服务注册与发现的AP与CP抉择.md
+    link: ./backend_series/advanced_interview/service_registry.md
 
   - title: ⭐ AI进阶实战
     details: 从理论到实践的AI开发教程，包括大模型应用、LangChain开发、RAG实战、AI助手打造等，带你进入AI开发新纪元！
-    link: ./AI进阶之路/生成式AI入门/人工智能导论.md
+    link: ./ai_series/generative_ai/ai_introduction.md
 ---
 
 ## 推荐阅读
 
-- **Go语言进阶🚀** : 完整的Go语言学习体系，从语言基础到高并发编程，从实战项目到架构设计，带你掌握Go开发核心技能！
-- **AI开发实战⭐** ：最新最热的AI应用开发教程，从大模型基础到LangChain开发，从RAG系统到AI助手定制，让你快速进入AI开发领域！
-- **架构设计精讲📚**：一线大厂架构实践分享，微服务、分布式、高并发、性能优化等系统设计精华，助你构建可靠高效的系统。
-- **面试通关宝典📗** ：硬核面试题详解，配合实战经验分析，覆盖Go语言特性、系统设计、性能优化等，让你在面试中脱颖而出！
+- [**Go语言进阶**🚀](./go_series/introduction.md) : 完整的Go语言学习体系，从语言基础到高并发编程，从实战项目到架构设计，带你掌握Go开发核心技能！
+- [**AI开发实战**⭐](./ai_series/generative_ai/llm_degelopment/langchain/concepts.md) ：最新最热的AI应用开发教程，从大模型基础到LangChain开发，从RAG系统到AI助手定制，让你快速进入AI开发领域！
+- [**架构设计精讲**📚](./backend_series/advanced_interview/service_registry.md)：一线大厂架构实践分享，微服务、分布式、高并发、性能优化等系统设计精华，助你构建可靠高效的系统。
+- [**面试通关宝典**📗](./go_series/go_interview/go_interview.md)：硬核面试题详解，配合实战经验分析，覆盖Go语言特性、底层原理、性能优化等，让你在面试中脱颖而出！
 
 <!-- ## 公众号
 
