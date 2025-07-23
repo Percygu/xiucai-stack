@@ -45,7 +45,7 @@ features:
 ## 推荐阅读
 
 - [**Go语言进阶**🚀](./go_series/introduction.md) : 完整的Go语言学习体系，从语言基础到高并发编程，从实战项目到架构设计，带你掌握Go开发核心技能！
-- [**AI开发实战**⭐](./ai_series/generative_ai/llm_degelopment/langchain/concepts.md) ：最新最热的AI应用开发教程，从大模型基础到LangChain开发，从RAG系统到AI助手定制，让你快速进入AI开发领域！
+- [**AI开发实战**⭐](./ai_series/llm_development/langchain/concepts.md) ：最新最热的AI应用开发教程，从大模型基础到LangChain开发，从RAG系统到AI助手定制，让你快速进入AI开发领域！
 - [**架构设计精讲**📚](./backend_series/advanced_interview/service_registry.md)：一线大厂架构实践分享，微服务、分布式、高并发、性能优化等系统设计精华，助你构建可靠高效的系统。
 - [**面试通关宝典**📗](./go_series/go_interview/go_interview.md)：硬核面试题详解，配合实战经验分析，覆盖Go语言特性、底层原理、性能优化等，让你在面试中脱颖而出！
 
