@@ -31,6 +31,9 @@ export default hopeTheme({
   footer: '秀才的进阶之路｜专注于技术分享与知识传播｜<a href="https://beian.miit.gov.cn/" target="_blank" style="color: #3b82f6; text-decoration: none;">粤ICP备2024352247号-2</a>',
   displayFooter: true,
 
+  // 禁用打印按钮
+  print: false,
+
   // 启用搜索
   hotReload: false,
 
