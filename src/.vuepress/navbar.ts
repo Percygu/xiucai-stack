@@ -18,6 +18,11 @@ export default navbar([
     link: "/ai_series/generative_ai/ai_introduction.md",
   },
   {
+    text: "26届秋招企业汇总表",
+    icon: "table",
+    link: "/26jobs.md",
+  },
+  {
     text: "关于作者",
     icon: "user",
     link: "/about-author.md",
