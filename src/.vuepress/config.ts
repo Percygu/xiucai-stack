@@ -11,7 +11,16 @@ export default defineUserConfig({
   description: "通俗易懂、风趣幽默的技术学习指南，涵盖Go语言、AI应用、后端架构、面试攻略等核心知识点",
 
   head: [
+    // 基本favicon设置
     ["link", { rel: "icon", href: "/web_logo2.png" }],
+    ["link", { rel: "shortcut icon", href: "/web_logo2.png" }],
+    // 添加各种尺寸的图标以确保兼容性
+    ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/web_logo2.png" }],
+    ["link", { rel: "icon", type: "image/png", sizes: "16x16", href: "/web_logo2.png" }],
+    ["link", { rel: "apple-touch-icon", href: "/web_logo2.png" }],
+    // 确保也有favicon.ico（浏览器和搜索引擎通常会优先查找这个）
+    ["link", { rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
+    
     ["meta", { name: "docsearch:language", content: "zh-CN" }],
     // 默认canonical链接，将在页面渲染时被替换为实际URL
     ["link", { rel: "canonical", href: "https://golangstar.cn" }],
