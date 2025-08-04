@@ -18,7 +18,8 @@ export default defineUserConfig({
     ["link", { rel: "icon", type: "image/png", sizes: "32x32", href: "/web_logo2.png" }],
     ["link", { rel: "icon", type: "image/png", sizes: "16x16", href: "/web_logo2.png" }],
     ["link", { rel: "apple-touch-icon", href: "/web_logo2.png" }],
-    // 删除对favicon.ico的引用，避免覆盖web_logo2.png
+    // 确保也有favicon.ico（浏览器和搜索引擎通常会优先查找这个）
+    ["link", { rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
     
     ["meta", { name: "docsearch:language", content: "zh-CN" }],
     // 默认canonical链接，将在页面渲染时被替换为实际URL
