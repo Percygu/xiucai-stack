@@ -104,7 +104,7 @@ export default sidebar({
   ],
   "/backend_series/": [
     {
-      text: "面试场景题",
+      text: "后端面试场景题",
       collapsible: true,
       children: [
         "/backend_series/advanced_interview/service_registry.md",

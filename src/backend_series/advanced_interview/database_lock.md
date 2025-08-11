@@ -340,7 +340,16 @@ for {
 
 更重要的是，我们必须认识到，对锁的理解不能止步于理论。无论是通过"为缺失索引的查询补上索引"来避免表锁的基础优化，还是分析"临键锁引发死锁"和"以乐观锁替代悲观锁"这类更复杂的实战场景，最终目的都是为了将理论知识转化为解决实际问题的能力。你在面试中准备的案例，不应仅仅是背诵的脚本，而应是你对这些问题深入思考和理解的体现。
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
 
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>
 
 
 

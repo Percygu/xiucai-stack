@@ -248,3 +248,13 @@ tags:
 
 记住几个关键技术概念：全链路传播、协议头封装、时间预算管理、超时监控责任分配。这些都是构建你技术回答的重要支撑点。
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>

@@ -204,7 +204,16 @@ EXPLAIN select * from tx_user.user order by uid desc limit 5;
 
 反之，如果无法主导节奏，被动地接受面试官天马行空的提问，那么触及到你的知识盲区也就在所难免了。
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
 
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>
 
 
 

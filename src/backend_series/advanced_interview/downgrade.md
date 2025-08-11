@@ -209,3 +209,14 @@ tags:
 最后，提供给你的两个实践方案——"读写服务降级写服务"和"快慢路径降级慢路径"，希望你能吸收其设计精髓，并结合自己的业务背景，构建出属于你的、独一无二的降级案例。
 
 请记住，提供的这些方案都具备在企业内部落地的可行性。纸上得来终觉浅，绝知此事要躬行。有机会一定要在真实环境中去思考和实践。 
+
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>

@@ -229,3 +229,13 @@ tags:
 
 记住，下次再被问到限流时，不要只停留在背诵算法的层面。主动将话题引向**阈值的科学计算方法论**，向面试官展示你如何结合**监控、压测、业务分析**等多种手段来解决一个复杂的、现实的工程问题。这，才是让你在众多候选人中脱颖而出的关键所在。
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>

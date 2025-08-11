@@ -244,3 +244,13 @@ tags:
 
 同时，你也不需要掌握全部的高可用方案，因为实在太多，学不过来。你只需要重点掌握几种，然后在面试的时候，学会主动引导和把控面试的节奏，将面试官的提问，巧妙地限制在你所了解和擅长的那几种方案上，就足够了。
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>

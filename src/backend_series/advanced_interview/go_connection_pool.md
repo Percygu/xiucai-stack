@@ -239,13 +239,13 @@ type NameInfo struct {
 ## 6. 小结
 数据连接池是现在后端开发中必然会使用的一项池化技术，主要是通过对数据库的连接进行管理和服用，以此来减少频繁的连接创建，从而较少不必要的性能消耗。但是随着并发量的提高，连接池在使用上也很容易出现一些问题，最常见的就是连接耗尽，导致请求获取不到连接而报错。所以掌握好数据库连接池问题的排查是非常有必要的，同时我们还应当做好数据库的一些性能监控，这样对于连接的使用情况就能比较清晰的看到，再要出现问题的时候也会发出告警，从而可以进行及时干预，避免出现线上问题
 
-## 学习交流
-> 如果您觉得文章有帮助，点个关注哦。可以关注公众号：**IT杨秀才**，秀才后面会在公众号分享**线上问题排查**的系列知识。也会持续更新更多硬核文章，一起聊聊互联网那些事儿!
-![IT杨秀才公众号二维码](../../assets/img/公众号二维码.jpg)
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
 
------------------------------**历史好文**-------------------------------  
-[《Java线上死锁问题如何排查》](https://mp.weixin.qq.com/s/S7FShnuDL5b-Se8lkJU80Q)    
-[《线上慢SQL问题如何排查》](https://mp.weixin.qq.com/s/vYGwzEZjtubXzcrcdZmvJA)  
-[《线上CPU飙高如何排查》](https://mp.weixin.qq.com/s/JGEGj3kIBwEBfOJCUO4lsA)   
-[《线上OOM问题如何排查》](https://mp.weixin.qq.com/s/8mmXy2hY_it35xLOrjfvWA)   
-[《频繁FullGC问题如何排查》](https://mp.weixin.qq.com/s/9mBfPWUGyCJOEHyeYnT-IA)   
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>

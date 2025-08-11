@@ -327,3 +327,13 @@ for a in A {
 
 最后，关于面试官提出的具体场景题（比如给一个SQL让你分析），这往往是在考察你思维的缜密性。面对这类问题，最好的策略是“防御性回答”：先主动询问或假设清楚问题的约束条件，比如数据量、并发量、数据分布等。如果面试官不提供，就在你的回答中明确指出你的方案是基于哪些假设之上的。这种严谨的思考方式，远比一个单一的“正确答案”更有价值。
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>

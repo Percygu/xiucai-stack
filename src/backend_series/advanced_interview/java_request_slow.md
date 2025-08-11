@@ -189,3 +189,14 @@ select * from student where id > 1000000 limit 20
 
 ## 6. 小结
 接口响应慢也是一个较为宽泛的问题，排查起来也要涉及多个方面，比如数据库问题，程序代码问题，包括服务器的资源瓶颈等等都要考虑到。也有可能只是单纯的数据量过大导致的接口响应慢，总之，在具体的接口问题面前要具体分析，找到对应的优化手段
+
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+# **学习交流**
+<span style="color:rgb(4, 4, 4);">
+> 如果您觉得文章有帮助，可以关注下秀才的<strong style="color: red;">公众号：IT杨秀才</strong>，后续更多优质的文章都会在公众号第一时间发布，不一定会及时同步到网站。点个关注👇，优质内容不错过
+</span>
+
+![](../../assets/icon/avatar.png)
+
+</div>
