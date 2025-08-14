@@ -107,6 +107,7 @@ export default sidebar({
       text: "后端面试场景题",
       collapsible: true,
       children: [
+        "/backend_series/advanced_interview/java_request_slow.md",
         "/backend_series/advanced_interview/service_registry.md",
         "/backend_series/advanced_interview/load_balance.md",
         "/backend_series/advanced_interview/circuit_breaker.md",
@@ -120,9 +121,7 @@ export default sidebar({
         "/backend_series/advanced_interview/sql_optimization.md",
         "/backend_series/advanced_interview/database_lock.md",
         "/backend_series/advanced_interview/database_mvcc.md",
-        "/backend_series/advanced_interview/go_connection_pool.md",
-        "/backend_series/advanced_interview/java_request_slow.md",
-        
+        "/backend_series/advanced_interview/go_connection_pool.md",      
       ]
     }
   ],

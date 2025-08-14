@@ -1,5 +1,5 @@
 ---
-title: MySQL为何钟爱B+树索引，而非B树？
+title: MySQL为什么选用B+树做索引？
 tags:
   - 场景题
   - 面试题
