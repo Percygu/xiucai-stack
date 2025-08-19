@@ -10,7 +10,7 @@ export default navbar([
   {
     text: "后端进阶之路",
     icon: "chart-simple",
-    link: "/backend_series/advanced_interview/service_registry.md",
+    link: "/backend_series/advanced_interview/tinyurl.md",
   },
   {
     text: "AI进阶之路",

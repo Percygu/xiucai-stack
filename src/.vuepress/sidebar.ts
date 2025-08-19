@@ -107,7 +107,9 @@ export default sidebar({
       text: "后端面试场景题",
       collapsible: true,
       children: [
+        "/backend_series/advanced_interview/tinyurl.md",
         "/backend_series/advanced_interview/java_request_slow.md",
+        "/backend_series/advanced_interview/mq_scene.md",
         "/backend_series/advanced_interview/service_registry.md",
         "/backend_series/advanced_interview/load_balance.md",
         "/backend_series/advanced_interview/circuit_breaker.md",
