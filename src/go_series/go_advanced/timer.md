@@ -254,3 +254,21 @@ Ticker Stop!!!
 `Watch`函数里创建一个`ticker`，将它传递到子`goroutine`函数，每隔1s打印"watch!!!"，主函数创建一个管道`ch`，通过`ch`来控制`go func()`函数的退出，在5s之后主函数发送一个信号到`ch`，`watch`函数`select`收到`ch`信号，将`return`，在`return`之前将执行`defer ticker.Stop()`语句关闭`ticker`。在这5s之间，`select`将每个1s收到`ticker.C`管道里的消息，打印"watch!!!"。
 
 > 注意：调用`ticker.Stop()`只会停止`ticker`，但并不会关闭`ticker.C`这个管道，所以我们需要用这个`channel`来控制`watch`函数中的`goroutine`能够退出。
+
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+<h1><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才</strong></span><span style="color: #006400;"><strong>，领取精品学习资料</strong></span></h1>
+
+<div style="color: #333; font-family: 'Microsoft YaHei', Arial, sans-serif; font-size: 14px;">
+<ul>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">Go面试</span><span style="color: #006400;">，领取Go面试题库PDF</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">Go学习</span><span style="color: #006400;">，领取Go必看书籍</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">大模型</span><span style="color: #006400;">，领取大模型学习资料</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">111</span><span style="color: #006400;">，领取架构学习资料</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">26届秋招</span><span style="color: #006400;">，领取26届秋招企业汇总表</span></strong></li>
+</ul>
+</div>
+
+![](/assets/icon/avatar.png)
+
+</div> 
