@@ -1544,3 +1544,20 @@ func BenchmarkAbsParallel(b *testing.B) {
 
 单元测试（Unit Test，简称 UT）是高质量软件项目中不可缺少的一个组成部分。它的核心目标是对程序中**最小的功能单位**进行验证，通常是一个函数或者方法，确保其行为符合预期。Go语言对单元测试提供了很好的支持，其自身就带有一个轻量级的测试框架testing，可以用自带的go test命令来实现单元测试和性能测试。同时也有非常多好用的第三方测试包，比如GoConvey，testify等，可以更加简洁的写测试用例。写好Go程序的单测，不仅仅可以确保代码的完整性和正确性，也是一个Gopher基本功的重要体现
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+<h1><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才</strong></span><span style="color: #006400;"><strong>，领取精品学习资料</strong></span></h1>
+
+<div style="color: #333; font-family: 'Microsoft YaHei', Arial, sans-serif; font-size: 14px;">
+<ul>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">Go面试</span><span style="color: #006400;">，领取Go面试题库PDF</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">Go学习</span><span style="color: #006400;">，领取Go必看书籍</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">大模型</span><span style="color: #006400;">，领取大模型学习资料</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">111</span><span style="color: #006400;">，领取架构学习资料</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">26届秋招</span><span style="color: #006400;">，领取26届秋招企业汇总表</span></strong></li>
+</ul>
+</div>
+
+![](/assets/icon/avatar.png)
+
+</div> 
