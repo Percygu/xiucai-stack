@@ -221,5 +221,21 @@ func main(){
 首先，`getNumer`这个函数会返回一个闭包函数，我们先理解闭包是啥，题库里面我也写过的，闭包就是等于 匿名函数+捕获的变量，我们可以看到第7行-第10行，闭包函数里面捕获了i变量，因为i不是在闭包函数里面定义的，
 第15行代码，通过`getNumber`获取了一个闭包函数——`nextNumber`，18，19，20行分别执行一次`nextNumber`函数，每次i就会自增1，并且因为每次调用`i`都是固定的，结果会累计，所以会输出1，2，3。23行重新获取了一个闭包函数，`i`是独立于上面闭包函数的，所以重新输出1，2，3
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
 
+<h1><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才</strong></span><span style="color: #006400;"><strong>，领取精品学习资料</strong></span></h1>
+
+<div style="color: #333; font-family: 'Microsoft YaHei', Arial, sans-serif; font-size: 14px;">
+<ul>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">Go面试</span><span style="color: #006400;">，领取Go面试题库PDF</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">Go学习</span><span style="color: #006400;">，领取Go必看书籍</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">大模型</span><span style="color: #006400;">，领取大模型学习资料</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">111</span><span style="color: #006400;">，领取架构学习资料</span></strong></li>
+<li><strong><span style="color: #006400;">公众号后台回复：</span><span style="color: red;">26届秋招</span><span style="color: #006400;">，领取26届秋招企业汇总表</span></strong></li>
+</ul>
+</div>
+
+![](/assets/icon/avatar.png)
+
+</div> 
 
