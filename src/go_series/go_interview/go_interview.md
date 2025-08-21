@@ -10,6 +10,14 @@ tags:
 
 # Go面试题库
 
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+<h1><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才，回复：Go面试<br/></strong></span><span style="color: #006400;"><strong>领取Go面试题库PDF</strong></span></h1>
+
+![](/assets/icon/avatar.png)
+</div> 
+
+
 ## **1. 基础面试题**
 
 ### **1.1 与其他语言相比，使用 Go 有什么好处?**
