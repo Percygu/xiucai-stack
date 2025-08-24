@@ -265,15 +265,15 @@ reflect包下跟类型相关的常用函数或方法
 
 | 函数/方法 | 说明 |
 |----------|------|
-| `reflect.Value.NumField()` | 获取结构体的反射值对象中的字段个数，只对结构体类型有效 |
-| `reflect.Value.Field(i)` | 获取结构体的反射值对象中的第i个字段，只对结构体类型有效 |
-| `reflect.Value.Elem()` | 根据指针获取对应的具体类型 |
-| `reflect.Value.NumIn()` | 获取函数反射类型的参数个数 |
-| `reflect.Value.In(i)` | 获取函数反射类型的第i个参数 |
-| `reflect.Value.NumOut()` | 获取函数反射类型的返回值个数 |
-| `reflect.Value.Out(i)` | 获取函数反射类型的第i个返回值 |
-| `reflect.Value.NumMethod()` | 获取struct上绑定的方法个数 |
-| `reflect.Value.Method(i)` | 获取struct上绑定的第i个方法 |
+| `reflect.Type.NumField()` | 获取结构体的反射值对象中的字段个数，只对结构体类型有效 |
+| `reflect.Type.Field(i)` | 获取结构体的反射值对象中的第i个字段，只对结构体类型有效 |
+| `reflect.Type.Elem()` | 根据指针获取对应的具体类型 |
+| `reflect.Type.NumIn()` | 获取函数反射类型的参数个数 |
+| `reflect.Type.In(i)` | 获取函数反射类型的第i个参数 |
+| `reflect.Type.NumOut()` | 获取函数反射类型的返回值个数 |
+| `reflect.Type.Out(i)` | 获取函数反射类型的第i个返回值 |
+| `reflect.Type.NumMethod()` | 获取struct上绑定的方法个数 |
+| `reflect.Type.Method(i)` | 获取struct上绑定的第i个方法 |
 
 #### **struct反射类型**
 ```go
