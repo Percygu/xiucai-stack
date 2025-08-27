@@ -328,8 +328,8 @@
   --theme-color: rgb(7, 86, 171); // 修改为右侧红框中的蓝色 rgb(7.1084070796, 86.0907079646, 171.3915929204)
   --breadcrumb-bg-color: #f0f7ff; // 面包屑背景色
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --quote-bg-color: #f3f0ff; // 引用背景色 - 淡紫色
-  --quote-border-color: #9f7aea; // 引用边框色 - 紫色
+  --quote-bg-color: #f0f7ff; // 引用背景色 - 淡蓝色，与主题色相匹配
+  --quote-border-color: rgb(7, 86, 171); // 引用边框色 - 蓝色，与主题色相匹配
 }
 
 // 全局字体设置
@@ -420,6 +420,7 @@ body {
     padding: 0.4rem 1rem !important; // 移除左侧缩进，使所有项目左对齐
     line-height: 1.5 !important;
     font-family: var(--font-family) !important;
+    transition: all 0.2s ease !important;
     
     &.active {
       color: var(--theme-color) !important;
