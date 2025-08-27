@@ -415,7 +415,7 @@ body {
     font-weight: normal !important; // 移除加粗
     font-size: 0.95rem !important;
     color: var(--sidebar-text-color) !important;
-    padding: 0.4rem 1rem 0.4rem 1.5rem !important;
+    padding: 0.4rem 1rem !important; // 移除左侧缩进，使所有项目左对齐
     line-height: 1.5 !important;
     font-family: var(--font-family) !important;
     
@@ -431,11 +431,32 @@ body {
     }
   }
   
-  // 移除"前言"项目的特殊背景样式
+  // 确保所有层级的链接都左对齐
+  .vp-sidebar-group .vp-sidebar-link {
+    padding-left: 1rem !important; // 强制所有链接使用相同的左边距
+  }
+  
+  // 针对嵌套菜单项的特殊处理
+  .vp-sidebar-group .vp-sidebar-group .vp-sidebar-link {
+    padding-left: 1rem !important;
+  }
   
   // 覆盖任何可能的内联样式
   span, p, div {
     font-family: var(--font-family) !important;
+  }
+  
+  // 强制所有链接左对齐
+  .vp-sidebar-links {
+    .vp-sidebar-link, a {
+      margin-left: 0 !important;
+      padding-left: 1rem !important;
+    }
+  }
+  
+  // 修正前言项的样式
+  .vp-sidebar-item > a {
+    padding-left: 1rem !important;
   }
 }
 
@@ -535,6 +556,16 @@ html[data-theme="dark"] {
   
   .vp-navbar .vp-navbar-links .vp-navbar-link.active::after {
     background: var(--theme-color);
+  }
+  
+  // 夜间模式下侧边栏选中状态的样式增强
+  .vp-sidebar {
+    .vp-sidebar-link.active {
+      color: #ffffff !important; // 更亮的文字颜色
+      background-color: rgba(59, 130, 246, 0.3) !important; // 更明显的背景色
+      border-left: 2px solid #3b82f6 !important; // 更亮的边框颜色
+      font-weight: 700 !important; // 更粗的字体
+    }
   }
 }
 
