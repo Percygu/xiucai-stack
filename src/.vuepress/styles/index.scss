@@ -557,7 +557,78 @@ body {
   }
 }
 
-// 确保夜间模式下仍然有良好的对比度
+// 为主页上红框选中的三个部分添加单色背景
+.vp-project-home {
+  // 针对三个红框部分
+  .vp-card {
+    background-color: #f0f7ff !important; // 淡蓝色背景，与主题色相协调
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #e2e8f0 !important;
+    transition: all 0.3s ease !important;
+    
+    &:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+}
+
+// 主页features部分的样式美化
+.vp-feature-item {
+  background-color: #f0f7ff !important; // 淡蓝色背景
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 1.5rem !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 1rem !important;
+  position: relative !important; // 为伪元素定位做准备
+  overflow: hidden !important; // 确保伪元素不会溢出
+  
+  // 添加鼠标悬停效果
+  &:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    background-color: #e6f0ff !important; // 悬停时背景色加深
+  }
+  
+  // 添加鼠标选中/点击效果
+  &:active {
+    transform: translateY(1px) !important; // 轻微下沉效果
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important; // 减小阴影
+    background-color: #d9e8ff !important; // 点击时背景色更深
+  }
+  
+  // 移除涟漪效果，简化为背景色变化
+  &::after {
+    display: none !important;
+  }
+  
+  .vp-feature-title {
+    color: var(--theme-color) !important;
+    font-weight: 600 !important;
+  }
+  
+  .vp-feature-description {
+    color: #4a5568 !important;
+    line-height: 1.6 !important;
+  }
+}
+
+// 涟漪动画
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0) !important;
+    opacity: 0.5 !important;
+  }
+  100% {
+    transform: scale(20, 20) !important;
+    opacity: 0 !important;
+  }
+}
+
+// 确保夜间模式下样式也生效
 html[data-theme="dark"] {
   --text-color: #e0e0e0;
   --heading-color: #d0d0d0; // 夜间模式下的标题颜色
@@ -602,6 +673,34 @@ html[data-theme="dark"] {
     
     code {
       background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  .vp-project-home {
+    .vp-card {
+      background-color: rgba(7, 86, 171, 0.1) !important; // 深色模式下的背景
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+  }
+
+  .vp-feature-item {
+    background-color: rgba(7, 86, 171, 0.1) !important; // 深色模式下的背景
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    &:hover {
+      background-color: rgba(7, 86, 171, 0.15) !important; // 深色模式下悬停时的背景色
+    }
+    
+    &:active {
+      background-color: rgba(7, 86, 171, 0.25) !important; // 深色模式下选中时的背景色
+    }
+    
+    .vp-feature-title {
+      color: #e0e0e0 !important;
+    }
+    
+    .vp-feature-description {
+      color: #c0c0c0 !important;
     }
   }
 }
