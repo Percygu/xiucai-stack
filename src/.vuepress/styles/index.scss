@@ -328,6 +328,8 @@
   --theme-color: rgb(7, 86, 171); // 修改为右侧红框中的蓝色 rgb(7.1084070796, 86.0907079646, 171.3915929204)
   --breadcrumb-bg-color: #f0f7ff; // 面包屑背景色
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --quote-bg-color: #f3f0ff; // 引用背景色 - 淡紫色
+  --quote-border-color: #9f7aea; // 引用边框色 - 紫色
 }
 
 // 全局字体设置
@@ -532,6 +534,28 @@ body {
   }
 }
 
+// 引用样式美化
+.theme-hope-content blockquote,
+.theme-default-content blockquote {
+  background-color: var(--quote-bg-color) !important;
+  border-left: 4px solid var(--quote-border-color) !important;
+  padding: 1rem 1.2rem !important;
+  border-radius: 0 6px 6px 0 !important;
+  margin: 1.5rem 0 !important;
+  color: #4a5568 !important;
+  font-style: normal !important; // 移除斜体
+  
+  p {
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    font-style: normal !important; // 确保段落也不是斜体
+  }
+  
+  code {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+  }
+}
+
 // 确保夜间模式下仍然有良好的对比度
 html[data-theme="dark"] {
   --text-color: #e0e0e0;
@@ -539,6 +563,8 @@ html[data-theme="dark"] {
   --navbar-text-color: #e0e0e0;
   --sidebar-text-color: #e0e0e0;
   --toc-text-color: #e0e0e0;
+  --quote-bg-color: rgba(104, 211, 145, 0.15); // 夜间模式下的引用背景色 - 淡绿色
+  --quote-border-color: #68d391; // 夜间模式下的引用边框色 - 绿色
   
   .theme-hope-content {
     p, li, td, th {
@@ -565,6 +591,16 @@ html[data-theme="dark"] {
       background-color: rgba(59, 130, 246, 0.3) !important; // 更明显的背景色
       border-left: 2px solid #3b82f6 !important; // 更亮的边框颜色
       font-weight: 700 !important; // 更粗的字体
+    }
+  }
+  
+  // 夜间模式下引用样式
+  .theme-hope-content blockquote,
+  .theme-default-content blockquote {
+    color: #d0d0d0 !important;
+    
+    code {
+      background-color: rgba(255, 255, 255, 0.1) !important;
     }
   }
 }
