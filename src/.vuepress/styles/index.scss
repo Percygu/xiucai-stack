@@ -145,7 +145,7 @@
 // 推荐阅读区域样式
 .theme-default-content {
   h2 {
-    color: #1e293b !important;
+    color: #4a5568 !important; // 更浅的颜色
     font-weight: 700 !important;
     border-bottom: 2px solid #e2e8f0 !important;
     padding-bottom: 0.5rem !important;
@@ -315,6 +315,226 @@
         }
       }
     }
+  }
+}
+
+// 设置全局变量
+:root {
+  --text-color: #333333;
+  --heading-color: #4a5568; // 更浅的标题颜色
+  --navbar-text-color: #333333;
+  --sidebar-text-color: #333333;
+  --toc-text-color: #333333;
+  --theme-color: rgb(7, 86, 171); // 修改为右侧红框中的蓝色 rgb(7.1084070796, 86.0907079646, 171.3915929204)
+  --breadcrumb-bg-color: #f0f7ff; // 面包屑背景色
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+// 全局字体设置
+body {
+  font-family: var(--font-family) !important;
+}
+
+// 顶部导航栏样式增强 - 更具体的选择器和!important
+.vp-navbar {
+  font-family: var(--font-family) !important;
+  
+  .vp-navbar-brand {
+    .vp-navbar-brand-title {
+      font-weight: 700 !important;
+      font-size: 1.25rem !important;
+      color: var(--navbar-text-color) !important;
+      font-family: var(--font-family) !important;
+    }
+  }
+}
+
+// 单独处理导航链接，使用更具体的选择器
+.vp-navbar .vp-navbar-links .vp-navbar-link {
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  color: var(--navbar-text-color) !important;
+  position: relative;
+  font-family: var(--font-family) !important;
+  
+  &.active {
+    color: var(--theme-color) !important;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1.3rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--theme-color);
+    }
+  }
+  
+  &:hover {
+    color: var(--theme-color) !important;
+  }
+}
+
+// 单独处理下拉菜单标题
+.vp-navbar .vp-navbar-links .vp-dropdown-title {
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  color: var(--navbar-text-color) !important;
+  font-family: var(--font-family) !important;
+  
+  &:hover {
+    color: var(--theme-color) !important;
+  }
+}
+
+// 左侧边栏样式增强 - 还原为图片中的样式
+.vp-sidebar {
+  font-family: var(--font-family) !important;
+  
+  // 移除之前强制所有链接使用相同样式的代码
+  a {
+    font-family: var(--font-family) !important;
+    text-decoration: none !important;
+    
+    &:hover {
+      color: var(--theme-color) !important;
+    }
+  }
+  
+  .vp-sidebar-heading {
+    font-weight: normal !important; // 移除加粗
+    font-size: 1rem !important;
+    color: var(--sidebar-text-color) !important;
+    padding: 0.5rem 1rem !important;
+    line-height: 1.5 !important;
+    font-family: var(--font-family) !important;
+  }
+  
+  .vp-sidebar-link {
+    font-weight: normal !important; // 移除加粗
+    font-size: 0.95rem !important;
+    color: var(--sidebar-text-color) !important;
+    padding: 0.4rem 1rem 0.4rem 1.5rem !important;
+    line-height: 1.5 !important;
+    font-family: var(--font-family) !important;
+    
+    &.active {
+      color: var(--theme-color) !important;
+      border-left: 2px solid var(--theme-color) !important;
+      background-color: rgba(7, 86, 171, 0.05) !important; // 使用新的蓝色背景
+      font-weight: 600 !important; // 选中时加粗
+    }
+    
+    &:hover {
+      color: var(--theme-color) !important;
+    }
+  }
+  
+  // 移除"前言"项目的特殊背景样式
+  
+  // 覆盖任何可能的内联样式
+  span, p, div {
+    font-family: var(--font-family) !important;
+  }
+}
+
+// 右侧目录样式增强
+.vp-toc {
+  font-family: var(--font-family) !important;
+  
+  .vp-toc-header {
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    color: var(--toc-text-color) !important;
+    font-family: var(--font-family) !important;
+  }
+  
+  .vp-toc-link {
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    color: var(--toc-text-color) !important;
+    font-family: var(--font-family) !important;
+    
+    &.active {
+      color: var(--theme-color) !important;
+      border-left: 2px solid var(--theme-color) !important;
+    }
+    
+    &:hover {
+      color: var(--theme-color) !important;
+    }
+  }
+}
+
+// 应用到主要内容区域
+.theme-hope-content {
+  color: var(--text-color);
+  font-family: var(--font-family) !important;
+  
+  p, li, td, th {
+    color: var(--text-color);
+    font-family: var(--font-family) !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 700 !important;
+    font-family: var(--font-family) !important;
+  }
+}
+
+// 页面标题和面包屑增强
+.vp-page-title {
+  h1 {
+    font-weight: 700 !important;
+    color: var(--heading-color) !important;
+    font-family: var(--font-family) !important;
+  }
+}
+
+.vp-breadcrumb {
+  font-weight: 600 !important;
+  font-family: var(--font-family) !important;
+}
+
+// 面包屑导航样式 - 确保颜色一致
+.vp-breadcrumb {
+  .vp-breadcrumb-item {
+    &.is-active {
+      background-color: var(--breadcrumb-bg-color) !important;
+    }
+    
+    a {
+      color: var(--theme-color) !important;
+    }
+  }
+}
+
+// 确保夜间模式下仍然有良好的对比度
+html[data-theme="dark"] {
+  --text-color: #e0e0e0;
+  --heading-color: #d0d0d0; // 夜间模式下的标题颜色
+  --navbar-text-color: #e0e0e0;
+  --sidebar-text-color: #e0e0e0;
+  --toc-text-color: #e0e0e0;
+  
+  .theme-hope-content {
+    p, li, td, th {
+      color: var(--text-color);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--heading-color);
+    }
+  }
+  
+  .vp-page-title h1 {
+    color: var(--heading-color) !important;
+  }
+  
+  .vp-navbar .vp-navbar-links .vp-navbar-link.active::after {
+    background: var(--theme-color);
   }
 }
 
