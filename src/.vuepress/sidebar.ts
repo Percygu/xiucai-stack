@@ -110,6 +110,7 @@ export default sidebar({
         "/backend_series/advanced_interview/tinyurl.md",
         "/backend_series/advanced_interview/rate_limiter.md",
         "/backend_series/advanced_interview/java_request_slow.md",
+        "/backend_series/advanced_interview/slow_sql.md",
         "/backend_series/advanced_interview/mq_scene.md",
         "/backend_series/advanced_interview/mq_order.md",
         "/backend_series/advanced_interview/mq_block.md",
