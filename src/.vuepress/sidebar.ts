@@ -115,6 +115,7 @@ export default sidebar({
         "/backend_series/advanced_interview/mq_order.md",
         "/backend_series/advanced_interview/mq_block.md",
         "/backend_series/advanced_interview/mq_lost.md",
+        "/backend_series/advanced_interview/mq_repeat.md",
        // "/backend_series/advanced_interview/service_registry.md",
        // "/backend_series/advanced_interview/load_balance.md",
        // "/backend_series/advanced_interview/circuit_breaker.md",
