@@ -109,6 +109,7 @@ export default sidebar({
       children: [
         "/backend_series/advanced_interview/tinyurl.md",
         "/backend_series/advanced_interview/rate_limiter.md",
+        "/backend_series/advanced_interview/comments_system.md",
         "/backend_series/advanced_interview/java_request_slow.md",
         "/backend_series/advanced_interview/slow_sql.md",
         "/backend_series/advanced_interview/mq_scene.md",
@@ -122,8 +123,8 @@ export default sidebar({
        // "/backend_series/advanced_interview/downgrade.md",
         "/backend_series/advanced_interview/rate_limiting.md",
        // "/backend_series/advanced_interview/isolation.md",
-       // "/backend_series/advanced_interview/timeout_control.md",
-       // "/backend_series/advanced_interview/third_interface.md",
+        "/backend_series/advanced_interview/timeout_control.md",
+        "/backend_series/advanced_interview/third_interface.md",
        // "/backend_series/advanced_interview/high_availability.md",
        // "/backend_series/advanced_interview/database_index.md",
        // "/backend_series/advanced_interview/sql_optimization.md",
