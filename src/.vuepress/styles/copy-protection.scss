@@ -1,0 +1,47 @@
+/* 防复制样式 */
+
+/* 允许正文选中，但不能复制（通过JavaScript阻止复制行为） */
+.theme-hope-content p, 
+.theme-hope-content li, 
+.theme-hope-content h1, 
+.theme-hope-content h2, 
+.theme-hope-content h3, 
+.theme-hope-content h4, 
+.theme-hope-content h5, 
+.theme-hope-content h6, 
+.theme-hope-content table {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+/* 允许代码块选择和复制 */
+.theme-hope-content pre, 
+.theme-hope-content code, 
+.theme-hope-content .code-block,
+.theme-hope-content [class*="language-"] {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+/* 确保复制按钮可点击 */
+.copy-code-button, 
+.copy-button, 
+.vp-copy, 
+.vp-code-copy, 
+[class*="copy"] {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* 复制成功样式 */
+.copy-code-button.copied, 
+.copy-button.copied, 
+.vp-copy.copied, 
+.vp-code-copy.copied, 
+[class*="copy"].copied {
+  opacity: 0.7;
+} 

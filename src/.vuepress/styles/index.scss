@@ -1,5 +1,8 @@
 // place your custom styles here
 
+// 引入防复制样式
+@import "./copy-protection.scss";
+
 // 添加以下代码来修改背景图颜色
 .vp-hero-info-wrapper {
   position: relative;
@@ -703,5 +706,21 @@ html[data-theme="dark"] {
       color: #c0c0c0 !important;
     }
   }
+}
+
+// 禁止复制内容的样式，但排除代码块
+.theme-hope-content {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+// 允许代码块的复制
+.theme-hope-content pre, .theme-hope-content code {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
 }
 
