@@ -1,6 +1,16 @@
-/* 防复制样式 */
+/* 防复制样式 - 修复版 */
 
-/* 允许正文选中，但不能复制（通过JavaScript阻止复制行为） */
+/* 确保正文可以选中但不可复制 */
+.theme-hope-content {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: text !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* 只针对正文内容，不影响导航栏和其他交互元素 */
 .theme-hope-content p, 
 .theme-hope-content li, 
 .theme-hope-content h1, 
@@ -9,32 +19,26 @@
 .theme-hope-content h4, 
 .theme-hope-content h5, 
 .theme-hope-content h6, 
-.theme-hope-content table {
-  user-select: text !important;
+.theme-hope-content table,
+.theme-hope-content blockquote {
+  -webkit-touch-callout: none !important;
   -webkit-user-select: text !important;
+  -khtml-user-select: none !important;
   -moz-user-select: text !important;
   -ms-user-select: text !important;
+  user-select: text !important;
 }
 
-/* 允许代码块选择和复制 */
-.theme-hope-content pre, 
-.theme-hope-content code, 
-.theme-hope-content .code-block,
-.theme-hope-content [class*="language-"] {
-  user-select: text !important;
+/* 确保代码区域可以复制 */
+pre, code, .language-container, .code-group, .vp-code {
+  -webkit-touch-callout: text !important;
   -webkit-user-select: text !important;
+  -khtml-user-select: text !important;
   -moz-user-select: text !important;
   -ms-user-select: text !important;
-}
-
-/* 确保复制按钮可点击 */
-.copy-code-button, 
-.copy-button, 
-.vp-copy, 
-.vp-code-copy, 
-[class*="copy"] {
-  pointer-events: auto !important;
-  cursor: pointer !important;
+  user-select: text !important;
+  position: relative;
+  z-index: 1000;
 }
 
 /* 复制成功样式 */

@@ -6,34 +6,6 @@ export default defineClientConfig({
   setup() {
     // 在Vue组件挂载后执行
     onMounted(() => {
-      // 禁用右键菜单，但允许代码块的右键菜单
-      document.addEventListener('contextmenu', (e) => {
-        // 检查点击的元素或其父元素是否是代码块
-        let target = e.target;
-        let isCodeElement = false;
-        
-        // 向上查找父元素，检查是否是代码相关元素
-        for (let i = 0; i < 5 && target; i++) {
-          if (target.tagName === 'PRE' || 
-              target.tagName === 'CODE' || 
-              (target.classList && (
-                target.classList.contains('language-') || 
-                target.classList.contains('code-block') ||
-                target.classList.contains('code')
-              ))) {
-            isCodeElement = true;
-            break;
-          }
-          target = target.parentElement;
-        }
-        
-        // 如果不是代码元素，则禁用右键菜单
-        if (!isCodeElement) {
-          e.preventDefault();
-          return false;
-        }
-      });
-      
       // 监测开发者工具的打开
       const devtools = {
         isOpen: false,
@@ -60,7 +32,7 @@ export default defineClientConfig({
       };
       
       // 定期检查开发者工具状态
-      setInterval(checkDevTools, 1000);
+      setInterval(checkDevTools, 3000);
     });
   },
   rootComponents: [],

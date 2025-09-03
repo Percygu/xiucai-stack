@@ -25,6 +25,8 @@ export default defineUserConfig({
     ["link", { rel: "canonical", href: "https://golangstar.cn" }],
     // 添加复制按钮JavaScript文件
     ["script", { src: "/js/copy-code.js" }],
+    // 添加防复制脚本
+    ["script", { src: "/js/anti-copy.js" }],
     // 百度统计
     [
       "script",
