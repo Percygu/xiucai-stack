@@ -117,6 +117,7 @@ export default sidebar({
         "/backend_series/advanced_interview/mq_block.md",
         "/backend_series/advanced_interview/mq_lost.md",
         "/backend_series/advanced_interview/mq_repeat.md",
+        "/backend_series/advanced_interview/database_index.md",
         "/backend_series/advanced_interview/data_migrate.md",
        // "/backend_series/advanced_interview/service_registry.md",
        // "/backend_series/advanced_interview/load_balance.md",
@@ -183,7 +184,10 @@ export default sidebar({
             {
               text: "大模型导论",
               collapsible: true,
-              children: ["/ai_series/llm_development/llm_introduction/llm_ Introduction.md"]
+              children: [
+                "/ai_series/llm_development/llm_introduction/llm_ Introduction.md",
+                "/ai_series/llm_development/llm_introduction/llm_introduction1.md"
+              ]
             },
             {
               text: "LangChain从入门到精通",
