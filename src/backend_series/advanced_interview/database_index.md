@@ -1,5 +1,5 @@
 ---
-title: 面试官：为什么MySQL索引要用B+树？
+title: 为什么MySQL索引要用B+树？
 tags:
   - 场景题
   - 面试题
