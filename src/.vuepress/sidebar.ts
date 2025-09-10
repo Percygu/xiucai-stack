@@ -119,6 +119,7 @@ export default sidebar({
         "/backend_series/advanced_interview/mq_repeat.md",
         "/backend_series/advanced_interview/database_index.md",
         "/backend_series/advanced_interview/data_migrate.md",
+        "/backend_series/advanced_interview/database_sharding.md",
        // "/backend_series/advanced_interview/service_registry.md",
        // "/backend_series/advanced_interview/load_balance.md",
        // "/backend_series/advanced_interview/circuit_breaker.md",
