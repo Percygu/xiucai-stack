@@ -135,6 +135,13 @@ export default sidebar({
        // "/backend_series/advanced_interview/database_mvcc.md",
         "/backend_series/advanced_interview/go_connection_pool.md",      
       ]
+    },
+    {
+      text: "Mysql面试题",
+      collapsible: true,
+      children: [
+        "/backend_series/mysql_interview/mysql_interview.md",
+      ]
     }
   ],
   "/杂文": [
