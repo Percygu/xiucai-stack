@@ -32,7 +32,7 @@ export default hopeTheme({
   displayFooter: true,
 
   // 禁用打印按钮
-  print: false,
+  print: true,
 
   // 启用搜索
   hotReload: false,
