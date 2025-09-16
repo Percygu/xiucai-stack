@@ -104,12 +104,20 @@ export default sidebar({
   ],
   "/backend_series/": [
     {
+      text: "Mysql面试题",
+      collapsible: true,
+      children: [
+        "/backend_series/mysql_interview/mysql_interview.md",
+      ]
+    },
+    {
       text: "后端面试场景题",
       collapsible: true,
       children: [
         "/backend_series/advanced_interview/tinyurl.md",
         "/backend_series/advanced_interview/rate_limiter.md",
         "/backend_series/advanced_interview/comments_system.md",
+        "/backend_series/advanced_interview/video_ranking.md",
         "/backend_series/advanced_interview/java_request_slow.md",
         "/backend_series/advanced_interview/slow_sql.md",
         "/backend_series/advanced_interview/mq_scene.md",
@@ -136,13 +144,6 @@ export default sidebar({
         "/backend_series/advanced_interview/go_connection_pool.md",      
       ]
     },
-    {
-      text: "Mysql面试题",
-      collapsible: true,
-      children: [
-        "/backend_series/mysql_interview/mysql_interview.md",
-      ]
-    }
   ],
   "/杂文": [
     {
