@@ -133,6 +133,7 @@ export default sidebar({
        // "/backend_series/advanced_interview/circuit_breaker.md",
        // "/backend_series/advanced_interview/downgrade.md",
         "/backend_series/advanced_interview/rate_limiting.md",
+        "/backend_series/advanced_interview/circuit_breaker.md",
        // "/backend_series/advanced_interview/isolation.md",
         "/backend_series/advanced_interview/timeout_control.md",
         "/backend_series/advanced_interview/third_interface.md",
