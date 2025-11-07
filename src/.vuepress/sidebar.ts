@@ -137,7 +137,7 @@ export default sidebar({
         "/backend_series/advanced_interview/database_index.md",
         "/backend_series/advanced_interview/sql_optimization.md",
        // "/backend_series/advanced_interview/database_lock.md",
-       // "/backend_series/advanced_interview/database_mvcc.md",
+        "/backend_series/advanced_interview/database_mvcc.md",
        "/backend_series/advanced_interview/slow_sql.md",
        "/backend_series/advanced_interview/java_request_slow.md",
         "/backend_series/advanced_interview/go_connection_pool.md",  
