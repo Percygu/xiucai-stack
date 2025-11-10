@@ -125,6 +125,7 @@ export default sidebar({
         "/backend_series/advanced_interview/third_interface.md",
         "/backend_series/advanced_interview/high_availability.md",
         "/backend_series/advanced_interview/distributed_lock.md",
+        "/backend_series/advanced_interview/distributed_transaction.md",
         "/backend_series/advanced_interview/mq_scene.md",
         "/backend_series/advanced_interview/mq_order.md",
         "/backend_series/advanced_interview/mq_block.md",
