@@ -11,7 +11,7 @@ tags:
 
 <h2><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才</strong></span><span style="color: #006400;"><strong>，回复：</strong></span><span style="color: red;"><strong>Go面试</strong></span></h2>
 
-<div style="text-align: center;"><span style="color: #006400; font-size: 28px;"><strong>领取面试题库PDF</strong></span></div>
+<div style="text-align: center;"><span style="color: #006400; font-size: 28px;"><strong>领取Mysql&Go面试题库PDF</strong></span></div>
 
 ![](/assets/icon/avatar.png)
 </div> 
