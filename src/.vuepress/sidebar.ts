@@ -134,7 +134,7 @@ export default sidebar({
         "/backend_series/advanced_interview/mq_design.md",       
         "/backend_series/advanced_interview/database_index.md",
         "/backend_series/advanced_interview/data_migrate.md",
-        "/backend_series/advanced_interview/database_sharding.md",
+        "/backend_series/advanced_interview/database_estimate.md",
         "/backend_series/advanced_interview/database_primary_key.md",
         "/backend_series/advanced_interview/database_index.md",
         "/backend_series/advanced_interview/sql_optimization.md",
