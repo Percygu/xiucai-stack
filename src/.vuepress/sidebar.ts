@@ -131,6 +131,7 @@ export default sidebar({
         "/backend_series/advanced_interview/mq_block.md",
         "/backend_series/advanced_interview/mq_lost.md",
         "/backend_series/advanced_interview/mq_repeat.md",
+        "/backend_series/advanced_interview/mq_kafka.md",       
         "/backend_series/advanced_interview/mq_design.md",       
         "/backend_series/advanced_interview/database_index.md",
         "/backend_series/advanced_interview/data_migrate.md",
