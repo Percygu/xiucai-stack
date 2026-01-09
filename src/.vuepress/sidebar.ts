@@ -145,6 +145,7 @@ export default sidebar({
        "/backend_series/advanced_interview/slow_sql.md",
        "/backend_series/advanced_interview/cache_eliminate.md",
        "/backend_series/advanced_interview/cache_expired.md",
+       "/backend_series/advanced_interview/cache_mode.md",
        "/backend_series/advanced_interview/java_request_slow.md",
         "/backend_series/advanced_interview/go_connection_pool.md",  
         "/backend_series/advanced_interview/tinyurl.md",
