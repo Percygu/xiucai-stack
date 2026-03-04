@@ -23,6 +23,10 @@ export default navbar([
     link: "/26jobs.md",
   },
   {
+    text: "🧑‍💻程序人生",
+    link: "/life_series/35.md",
+  },
+  {
     text: "🌟求职训练营🌟",
     //icon: "user",
     link: "/offer.md",

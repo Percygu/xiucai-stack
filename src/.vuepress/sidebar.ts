@@ -157,6 +157,22 @@ export default sidebar({
       ]
     },
   ],
+  "/life_series/": [
+    {
+      text: "程序人生",
+      collapsible: true,
+      children: [
+        {
+          text: "程序员职业规划",
+          collapsible: true,
+          children: [
+            "/life_series/35.md",
+            "/life_series/company.md",
+          ]
+        },
+      ],
+    }
+  ],
   "/杂文": [
     {
       text: "宋词",
@@ -246,6 +262,7 @@ export default sidebar({
       ],
     }
   ],
+
 
   // 关于作者页面的侧边栏
   "/about-author": [
