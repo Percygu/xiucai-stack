@@ -197,24 +197,6 @@ export default sidebar({
       collapsible: true,
       children: [
         {
-          text: "生成式AI入门指南",
-          collapsible: true,
-          children: [
-            "/ai_series/generative_ai/ai_introduction.md",
-            "/ai_series/generative_ai/machine_learning.md",
-            "/ai_series/generative_ai/deep_learning.md",
-            "/ai_series/generative_ai/generative_ai.md",
-            "/ai_series/generative_ai/llm.md",
-          ]
-        },
-        {
-          text: "提示词工程",
-          collapsible: true,
-          children: [
-
-          ]
-        },
-        {
           text: "大模型应用开发",
           collapsible: true,
           children: [
@@ -223,7 +205,6 @@ export default sidebar({
               collapsible: true,
               children: [
                 "/ai_series/llm_development/llm_introduction/llm_ Introduction.md",
-                "/ai_series/llm_development/llm_introduction/llm_introduction1.md"
               ]
             },
             {
@@ -242,10 +223,12 @@ export default sidebar({
               ]
             },
             {
-              text: "RAG系列",
+              text: "大模型面试题",
               collapsible: true,
-              children: ["/ai_series/llm_development/rag_series/rag_concepts.md"]
-            }
+              children: [
+                "/ai_series/llm_interview/transform_attention.md",
+              ]
+            },
           ]
         },
         {

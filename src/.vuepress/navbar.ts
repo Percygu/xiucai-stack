@@ -15,12 +15,7 @@ export default navbar([
   {
     text: "AI进阶之路",
     icon: "robot",
-    link: "/ai_series/generative_ai/ai_introduction.md",
-  },
-  {
-    text: "26届秋招企业汇总表",
-    icon: "table",
-    link: "/26jobs.md",
+    link: "/ai_series/llm_development/llm_introduction/llm_ Introduction.md",
   },
   {
     text: "🧑‍💻程序人生",
