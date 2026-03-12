@@ -8,7 +8,7 @@ export default navbar([
     link: "/go_series/introduction.md",
   },
   {
-    text: "后端进阶之路",
+    text: "🔥后端/AI面试题🔥",
     icon: "chart-simple",
     link: "/backend_series/advanced_interview/tinyurl.md",
   },
