@@ -227,6 +227,7 @@ export default sidebar({
               collapsible: true,
               children: [
                 "/ai_series/llm_interview/transform_attention.md",
+                "/ai_series/llm_interview/agent_ definition.md",
               ]
             },
           ]
