@@ -103,9 +103,20 @@ export default sidebar({
     },
   ],
   "/backend_series/": [
-      "/backend_series/go_interview/go_interview.md",
-      "/backend_series/mysql_interview/mysql_interview.md",
-      "/backend_series/redis_interview/redis_interview.md",
+    "/backend_series/go_interview/go_interview.md",
+    "/backend_series/mysql_interview/mysql_interview.md",
+    "/backend_series/redis_interview/redis_interview.md",
+    {
+      text: "大模型面试题",
+      collapsible: true,
+      children: [
+        "/backend_series/llm_interview/transform_attention.md",
+        "/backend_series/llm_interview/agent_ definition.md",
+        "/backend_series/llm_interview/react_definition.md",
+        "/backend_series/llm_interview/agent_planning.md",
+        "/backend_series/llm_interview/position_code.md",
+      ]
+    },
     {
       text: "后端面试场景题",
       collapsible: true,
@@ -152,15 +163,6 @@ export default sidebar({
         "/backend_series/advanced_interview/video_ranking.md",    
       ]
     },
-    {
-      text: "大模型面试题",
-      collapsible: true,
-      children: [
-        "/backend_series/llm_interview/transform_attention.md",
-        "/backend_series/llm_interview/agent_ definition.md",
-        "/backend_series/llm_interview/react_definition.md",
-      ]
-    }
   ],
   "/life_series/": [
     {
@@ -234,6 +236,8 @@ export default sidebar({
                 "/ai_series/llm_interview/transform_attention.md",
                 "/ai_series/llm_interview/agent_ definition.md",
                 "/ai_series/llm_interview/react_definition.md",
+                "/ai_series/llm_interview/agent_planning.md",
+                "/ai_series/llm_interview/position_code.md",
               ]
             },
           ]
