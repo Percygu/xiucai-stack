@@ -116,6 +116,7 @@ export default sidebar({
         "/backend_series/llm_interview/react_definition.md",
         "/backend_series/llm_interview/agent_planning.md",
         "/backend_series/llm_interview/position_code.md",
+        "/backend_series/llm_interview/agent_memory.md",
       ]
     },
     {
@@ -239,6 +240,7 @@ export default sidebar({
                 "/ai_series/llm_interview/react_definition.md",
                 "/ai_series/llm_interview/agent_planning.md",
                 "/ai_series/llm_interview/position_code.md",
+                "/ai_series/llm_interview/agent_memory.md",
               ]
             },
           ]
