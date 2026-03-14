@@ -106,6 +106,7 @@ export default sidebar({
     "/backend_series/go_interview/go_interview.md",
     "/backend_series/mysql_interview/mysql_interview.md",
     "/backend_series/redis_interview/redis_interview.md",
+    "/backend_series/mq_interview/mq_interview.md",
     {
       text: "大模型面试题",
       collapsible: true,
