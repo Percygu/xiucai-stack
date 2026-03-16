@@ -119,6 +119,7 @@ export default sidebar({
         "/backend_series/llm_interview/position_code.md",
         "/backend_series/llm_interview/agent_memory.md",
         "/backend_series/llm_interview/agent_challenge.md",
+        "/backend_series/llm_interview/multi_agent.md",
       ]
     },
     {
@@ -244,6 +245,7 @@ export default sidebar({
                 "/ai_series/llm_interview/position_code.md",
                 "/ai_series/llm_interview/agent_memory.md",
                 "/ai_series/llm_interview/agent_challenge.md",
+                "/ai_series/llm_interview/multi_agent.md",
               ]
             },
           ]
