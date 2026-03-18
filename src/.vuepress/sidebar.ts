@@ -120,6 +120,8 @@ export default sidebar({
         "/backend_series/llm_interview/agent_memory.md",
         "/backend_series/llm_interview/agent_challenge.md",
         "/backend_series/llm_interview/multi_agent.md",
+        "/backend_series/llm_interview/agent_frame.md",
+        "/backend_series/llm_interview/agent_tool.md",
       ]
     },
     {
@@ -246,6 +248,8 @@ export default sidebar({
                 "/ai_series/llm_interview/agent_memory.md",
                 "/ai_series/llm_interview/agent_challenge.md",
                 "/ai_series/llm_interview/multi_agent.md",
+                "/ai_series/llm_interview/agent_frame.md",
+                "/ai_series/llm_interview/agent_tool.md",
               ]
             },
           ]
