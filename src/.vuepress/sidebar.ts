@@ -123,6 +123,8 @@ export default sidebar({
         "/backend_series/llm_interview/agent_frame.md",
         "/backend_series/llm_interview/agent_tool.md",
         "/backend_series/llm_interview/agent_safety.md",
+        "/backend_series/llm_interview/rag.md",
+        "/backend_series/llm_interview/chunk.md",
       ]
     },
     {
@@ -252,6 +254,8 @@ export default sidebar({
                 "/ai_series/llm_interview/agent_frame.md",
                 "/ai_series/llm_interview/agent_tool.md",
                 "/ai_series/llm_interview/agent_safety.md",
+                "/ai_series/llm_interview/rag.md",
+                "/ai_series/llm_interview/chunk.md",
               ]
             },
           ]
