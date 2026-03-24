@@ -127,6 +127,7 @@ export default sidebar({
         "/backend_series/llm_interview/chunk.md",
         "/backend_series/llm_interview/embedding.md",
         "/backend_series/llm_interview/rag_ optimization.md",
+        "/backend_series/llm_interview/rag_evaluate.md",
       ]
     },
     {
@@ -260,6 +261,7 @@ export default sidebar({
                 "/ai_series/llm_interview/chunk.md",
                 "/ai_series/llm_interview/embedding.md",
                 "/ai_series/llm_interview/rag_ optimization.md",
+                "/ai_series/llm_interview/rag_evaluate.md",
               ]
             },
           ]
