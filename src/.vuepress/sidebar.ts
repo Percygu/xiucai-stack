@@ -128,6 +128,7 @@ export default sidebar({
         "/backend_series/llm_interview/embedding.md",
         "/backend_series/llm_interview/rag_ optimization.md",
         "/backend_series/llm_interview/rag_evaluate.md",
+        "/backend_series/llm_interview/knowledge_graph.md",
       ]
     },
     {
@@ -262,6 +263,7 @@ export default sidebar({
                 "/ai_series/llm_interview/embedding.md",
                 "/ai_series/llm_interview/rag_ optimization.md",
                 "/ai_series/llm_interview/rag_evaluate.md",
+                "/ai_series/llm_interview/knowledge_graph.md",
               ]
             },
           ]
