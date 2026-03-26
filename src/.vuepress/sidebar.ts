@@ -129,6 +129,7 @@ export default sidebar({
         "/backend_series/llm_interview/rag_ optimization.md",
         "/backend_series/llm_interview/rag_evaluate.md",
         "/backend_series/llm_interview/knowledge_graph.md",
+        "/backend_series/llm_interview/rag_deploy.md",
       ]
     },
     {
@@ -264,6 +265,7 @@ export default sidebar({
                 "/ai_series/llm_interview/rag_ optimization.md",
                 "/ai_series/llm_interview/rag_evaluate.md",
                 "/ai_series/llm_interview/knowledge_graph.md",
+                "/ai_series/llm_interview/rag_deploy.md",
               ]
             },
           ]
