@@ -5,7 +5,7 @@ Allow: /
 Sitemap: https://golangstar.cn/sitemap.xml
 
 # 爬取延迟
-Crawl-delay: 1
+# Crawl-delay: 1
 
 # 优先爬取重要内容
 Allow: /go_series/
