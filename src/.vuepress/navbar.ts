@@ -15,7 +15,7 @@ export default navbar([
   {
     text: "AI进阶之路",
     icon: "robot",
-    link: "/ai_series/llm_development/llm_introduction/llm_ Introduction.md",
+    link: "/ai_series/llm_development/llm_introduction/llm_Introduction.md",
   },
   {
     text: "🧑‍💻程序人生",

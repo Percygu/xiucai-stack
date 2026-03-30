@@ -113,7 +113,7 @@ export default sidebar({
       collapsible: true,
       children: [
         "/backend_series/llm_interview/transform_attention.md",
-        "/backend_series/llm_interview/agent_ definition.md",
+        "/backend_series/llm_interview/agent_definition.md",
         "/backend_series/llm_interview/react_definition.md",
         "/backend_series/llm_interview/agent_planning.md",
         "/backend_series/llm_interview/position_code.md",
@@ -123,10 +123,11 @@ export default sidebar({
         "/backend_series/llm_interview/agent_frame.md",
         "/backend_series/llm_interview/agent_tool.md",
         "/backend_series/llm_interview/agent_safety.md",
+        "/backend_series/llm_interview/agent_memory_design.md",
         "/backend_series/llm_interview/rag.md",
         "/backend_series/llm_interview/chunk.md",
         "/backend_series/llm_interview/embedding.md",
-        "/backend_series/llm_interview/rag_ optimization.md",
+        "/backend_series/llm_interview/rag_optimization.md",
         "/backend_series/llm_interview/rag_evaluate.md",
         "/backend_series/llm_interview/knowledge_graph.md",
         "/backend_series/llm_interview/rag_deploy.md",
@@ -228,7 +229,7 @@ export default sidebar({
               text: "大模型导论",
               collapsible: true,
               children: [
-                "/ai_series/llm_development/llm_introduction/llm_ Introduction.md",
+                "/ai_series/llm_development/llm_introduction/llm_Introduction.md",
               ]
             },
             {
@@ -251,7 +252,7 @@ export default sidebar({
               collapsible: true,
               children: [
                 "/ai_series/llm_interview/transform_attention.md",
-                "/ai_series/llm_interview/agent_ definition.md",
+                "/ai_series/llm_interview/agent_definition.md",
                 "/ai_series/llm_interview/react_definition.md",
                 "/ai_series/llm_interview/agent_planning.md",
                 "/ai_series/llm_interview/position_code.md",
@@ -261,10 +262,11 @@ export default sidebar({
                 "/ai_series/llm_interview/agent_frame.md",
                 "/ai_series/llm_interview/agent_tool.md",
                 "/ai_series/llm_interview/agent_safety.md",
+                "/ai_series/llm_interview/agent_memory_design.md",
                 "/ai_series/llm_interview/rag.md",
                 "/ai_series/llm_interview/chunk.md",
                 "/ai_series/llm_interview/embedding.md",
-                "/ai_series/llm_interview/rag_ optimization.md",
+                "/ai_series/llm_interview/rag_optimization.md",
                 "/ai_series/llm_interview/rag_evaluate.md",
                 "/ai_series/llm_interview/knowledge_graph.md",
                 "/ai_series/llm_interview/rag_deploy.md",

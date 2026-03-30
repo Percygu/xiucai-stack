@@ -125,6 +125,7 @@ https://golangstar.cn/backend_series/llm_interview/react_definition.html
 https://golangstar.cn/backend_series/llm_interview/position_code.html
 https://golangstar.cn/backend_series/llm_interview/agent_planning.html
 https://golangstar.cn/backend_series/llm_interview/agent_memory.html
+https://golangstar.cn/backend_series/llm_interview/agent_memory_design.html
 https://golangstar.cn/backend_series/llm_interview/agent_challenge.html
 https://golangstar.cn/backend_series/llm_interview/multi_agent.html
 https://golangstar.cn/backend_series/llm_interview/agent_tool.html
@@ -148,6 +149,7 @@ https://golangstar.cn/ai_series/llm_interview/react_definition.html
 https://golangstar.cn/ai_series/llm_interview/position_code.html
 https://golangstar.cn/ai_series/llm_interview/agent_planning.html
 https://golangstar.cn/ai_series/llm_interview/agent_memory.html
+https://golangstar.cn/ai_series/llm_interview/agent_memory_design.html
 https://golangstar.cn/ai_series/llm_interview/agent_challenge.html
 https://golangstar.cn/ai_series/llm_interview/multi_agent.html
 https://golangstar.cn/ai_series/llm_interview/agent_tool.html
