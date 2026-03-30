@@ -1,3 +1,8 @@
+---
+title: Go性能分析pprof实战
+description: "Go性能优化面试题：pprof性能分析工具实战指南，包括CPU分析、内存分析、goroutine泄漏排查、火焰图解读等。"
+---
+
 # 1. 环境准备
 服务器环境：Linux  
 CPU：2核  

@@ -1,5 +1,6 @@
 ---
 title: 4. sync包
+description: "Go并发编程教程：sync包详解，涵盖Mutex互斥锁、RWMutex读写锁、WaitGroup、Once、Pool等同步原语使用。"
 category:
   - Go语言
 tag:

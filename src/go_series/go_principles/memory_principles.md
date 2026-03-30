@@ -1,5 +1,6 @@
 ---
 title: 11. 内存管理
+description: "Go底层原理：内存管理详解，涵盖TCMalloc分配器、mspan/mcache/mcentral/mheap层级结构、内存分配与回收流程。"
 category:
   - Go语言
 tag:

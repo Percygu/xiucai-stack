@@ -1,5 +1,6 @@
 ---
 title: 2. string原理
+description: "Go底层原理：string字符串实现原理，涵盖底层结构、不可变性设计、字符串拼接性能对比、与byte切片转换等。"
 category:
   - Go语言
 tag:

@@ -1,5 +1,6 @@
 ---
 title: 4. Go语言常量
+description: "Go语言教程：常量定义与iota枚举详解，涵盖const声明、类型常量、无类型常量、iota自增规则等用法。"
 category:
   - Go语言
 tag:

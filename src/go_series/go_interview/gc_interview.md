@@ -1,4 +1,6 @@
 ---
+title: Go垃圾回收面试题
+description: "Go语言面试题：精选高频GC面试题与解析，涵盖三色标记、STW、写屏障、GC触发条件、调优方法等核心考点。"
 tags:
   - Go
   - golang

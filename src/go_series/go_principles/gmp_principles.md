@@ -1,5 +1,6 @@
 ---
 title: 13. GMP调度原理
+description: "Go底层原理：GMP调度模型详解，涵盖G/M/P三者关系、调度循环、抢占机制、sysmon监控、网络轮询器等核心实现。"
 category:
   - Go语言
 tag:

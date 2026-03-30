@@ -1,5 +1,6 @@
 ---
 title: 11. Go语言指针
+description: "Go语言教程：指针详解，包括指针声明与使用、值传递与引用传递、unsafe.Pointer、指针与性能优化等核心概念。"
 category:
   - Go语言
 tag:

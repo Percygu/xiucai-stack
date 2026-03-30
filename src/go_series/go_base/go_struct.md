@@ -1,5 +1,6 @@
 ---
 title: 6. Go语言结构体
+description: "Go语言教程：结构体(struct)详解，涵盖结构体定义、初始化、嵌套、匿名字段、标签(tag)、内存对齐等核心知识。"
 category:
   - Go语言
 tag:

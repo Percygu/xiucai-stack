@@ -1,5 +1,6 @@
 ---
 title: 5. sync.map原理
+description: "Go底层原理：sync.Map并发安全映射实现，详解读写分离设计、dirty提升机制、适用场景与性能特点分析。"
 category:
   - Go语言
 tag:

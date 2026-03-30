@@ -1,5 +1,6 @@
 ---
 title: 4. map原理
+description: "Go底层原理：map哈希表实现原理，涵盖hmap结构、桶(bucket)设计、哈希冲突解决、扩容迁移、遍历随机化等。"
 category:
   - Go语言
 tag:

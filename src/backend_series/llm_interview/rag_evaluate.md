@@ -1,5 +1,6 @@
 ---
 title: 如何全面地评估一个 RAG 系统的性能？请分别从检索和生成两个阶段提出评估指标
+description: "大模型RAG面试题：从检索和生成两个阶段全面评估RAG系统性能，涵盖召回率、准确率、faithfulness、relevancy等核心指标。"
 tags: 
   - 大模型
   - 大模型应用开发

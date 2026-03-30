@@ -1,5 +1,6 @@
 ---
 title: 12. Go语言函数
+description: "Go语言教程：函数详解，涵盖函数定义、多返回值、可变参数、匿名函数、闭包、defer执行顺序等核心知识点。"
 category:
   - Go语言
 tag:

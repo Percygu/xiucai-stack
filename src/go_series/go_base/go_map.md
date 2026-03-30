@@ -1,5 +1,6 @@
 ---
 title: 8. Go语言Map
+description: "Go语言教程：Map映射详解，涵盖声明初始化、增删改查操作、遍历顺序、并发安全、sync.Map等实战知识。"
 category:
   - Go语言
 tag:

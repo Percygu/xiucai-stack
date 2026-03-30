@@ -1,5 +1,6 @@
 ---
 title: 什么是位置编码？在 Transformer 中，为什么它是必需的？请列举至少两种实现方式
+description: "大模型面试题：详解Transformer位置编码的必要性与实现方式，包括正弦位置编码、RoPE旋转位置编码、ALiBi等方案对比分析。"
 tags: 
   - 大模型
   - 大模型应用开发

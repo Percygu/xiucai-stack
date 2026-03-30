@@ -1,5 +1,6 @@
 ---
 title: 2. Goroutine
+description: "Go并发编程教程：Goroutine协程详解，包括创建方式、调度原理、goroutine泄漏排查、与线程的区别等核心知识。"
 category:
   - Go语言
 tag:

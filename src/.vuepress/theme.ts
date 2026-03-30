@@ -186,6 +186,35 @@ export default hopeTheme({
       components: ["Badge", "VPCard"],
     },
 
+    // SEO 优化配置
+    seo: {
+      // 自动从文章内容生成 description（当 frontmatter 没有设置时）
+      autoDescription: true,
+      // 自定义 canonical URL，确保每个页面有正确的 canonical
+      canonical: (page) => `https://golangstar.cn${page.path}`,
+      // 自定义 Open Graph 信息
+      ogp: (ogp, page) => ({
+        ...ogp,
+        "og:site_name": "秀才的进阶之路",
+        "og:locale": "zh_CN",
+        // Twitter Card 支持
+        "twitter:card": "summary_large_image",
+        "twitter:title": ogp["og:title"],
+        "twitter:description": ogp["og:description"],
+      }),
+      // 自定义 JSON-LD 结构化数据
+      jsonLd: (jsonLd, page) => ({
+        ...jsonLd,
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+          "@type": "Organization",
+          "name": "秀才的进阶之路",
+          "url": "https://golangstar.cn",
+        },
+      }),
+    },
+
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     // pwa: {
     //   favicon: "/favicon.ico",

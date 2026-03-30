@@ -1,5 +1,6 @@
 ---
 title: 10. Go语言循环
+description: "Go语言教程：循环语句详解，涵盖for循环、range遍历、break/continue控制、无限循环等用法与性能优化技巧。"
 category:
   - Go语言
 tag:

@@ -1,4 +1,6 @@
 ---
+title: Go语言编程面试题
+description: "Go语言面试题：精选Go手撕代码题与解析，涵盖并发编程、数据结构、算法实现、goroutine控制等实战编码题。"
 tags:
   - Go
   - golang

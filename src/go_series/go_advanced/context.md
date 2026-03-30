@@ -1,5 +1,6 @@
 ---
 title: 6. Context
+description: "Go并发编程教程：Context上下文详解，涵盖WithCancel、WithTimeout、WithValue的使用场景与传递规范。"
 category:
   - Go语言
 tag:

@@ -1,5 +1,6 @@
 ---
 title: 14. Go语言接口
+description: "Go语言教程：接口(interface)详解，涵盖接口定义、隐式实现、空接口、类型断言、接口组合等面向对象编程核心。"
 category:
   - Go语言
 tag:

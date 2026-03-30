@@ -21,8 +21,6 @@ export default defineUserConfig({
     ["link", { rel: "apple-touch-icon", href: "/web_logo2.png" }],
     
     ["meta", { name: "docsearch:language", content: "zh-CN" }],
-    // 默认canonical链接，将在页面渲染时被替换为实际URL
-    ["link", { rel: "canonical", href: "https://golangstar.cn" }],
     // 添加复制按钮JavaScript文件
     ["script", { src: "/js/copy-code.js" }],
     // 添加防复制脚本

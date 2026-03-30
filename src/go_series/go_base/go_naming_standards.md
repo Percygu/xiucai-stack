@@ -1,5 +1,6 @@
 ---
 title: 2. Go语言命名规范
+description: "Go语言教程：Go命名规范详解，涵盖变量、函数、包、接口的命名规则，大小写可见性控制，写出地道的Go代码。"
 category:
   - Go语言
 tag:

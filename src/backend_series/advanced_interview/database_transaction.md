@@ -1,5 +1,6 @@
 ---
 title: Mysql事务提交之后，真能保证数据不丢失吗？
+description: "MySQL面试题：事务提交后数据持久性保障机制，深入分析redo log、binlog双写、组提交、崩溃恢复等核心原理。"
 tags:
   - 场景题
   - 面试题

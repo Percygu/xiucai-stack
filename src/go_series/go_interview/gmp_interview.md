@@ -1,4 +1,6 @@
 ---
+title: Go GMP调度面试题
+description: "Go语言面试题：精选高频GMP面试题与解析，涵盖G/M/P模型、调度策略、抢占机制、sysmon���控等核心考点。"
 tags:
   - Go
   - golang

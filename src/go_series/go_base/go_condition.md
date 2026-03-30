@@ -1,5 +1,6 @@
 ---
 title: 9. Go语言条件语句
+description: "Go语言教程：条件语句详解，包括if-else、switch-case、type switch类型断言等流程控制语法与最佳实践。"
 category:
   - Go语言
 tag:

@@ -1,5 +1,6 @@
 ---
 title: 7. Go语言数组与切片
+description: "Go语言教程：数组与切片(slice)详解，包括声明、初始化、append扩容机制、切片表达式、底层数组共享等重点内容。"
 category:
   - Go语言
 tag:

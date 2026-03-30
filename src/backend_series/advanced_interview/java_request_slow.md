@@ -1,5 +1,6 @@
 ---
 title: Java线上接口响应慢如何排查？
+description: "Java面试题：线上接口响应慢的系统排查方法，涵盖链路追踪、慢SQL分析、GC调优、线程池分析、网络诊断等。"
 tags:
   - java
   - 慢接口

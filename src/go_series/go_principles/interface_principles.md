@@ -1,5 +1,6 @@
 ---
 title: 9. interface原理
+description: "Go底层原理：interface接口实现原理，详解iface与eface结构、类型断言实现、动态派发、接口内存布局等。"
 category:
   - Go语言
 tag:

@@ -1,5 +1,6 @@
 ---
 title: kafka的性能为什么这么好？
+description: "Kafka面试必考题：深入分析Kafka高性能的核心原因，包括零拷贝、顺序写、分区并行、批量压缩、Page Cache等技术。"
 tags:
   - 场景题
   - 面试题

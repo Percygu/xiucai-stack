@@ -1,5 +1,6 @@
 ---
 title: 1. 程序初始化
+description: "Go底层原理：程序初始化流程详解，包括runtime启动、包初始化顺序、init函数执行机制、全局变量初始化等。"
 category:
   - Go语言
 tag:

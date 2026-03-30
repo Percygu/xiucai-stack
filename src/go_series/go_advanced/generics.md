@@ -1,5 +1,6 @@
 ---
 title: 10. 泛型
+description: "Go语言进阶教程：泛型(Generics)详解，涵盖类型参数、类型约束、泛型函数与结构体、comparable等Go 1.18+新特性。"
 category:
   - Go语言
 tag:

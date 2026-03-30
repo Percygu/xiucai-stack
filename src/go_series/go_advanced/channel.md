@@ -1,5 +1,6 @@
 ---
 title: 3. Channel
+description: "Go并发编程教程：Channel通道详解，涵盖有缓冲/无缓冲channel、方向限制、select多路复用、channel最佳实践。"
 category:
   - Go语言
 tag:

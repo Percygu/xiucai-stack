@@ -1,4 +1,6 @@
 ---
+title: Go Context面试题
+description: "Go语言面试题：精选高频context面试题与解析，涵盖超时控制、取消传播、值传递、最佳实践等核心考点。"
 tags:
   - Go
   - golang

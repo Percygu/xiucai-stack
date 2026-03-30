@@ -1,4 +1,6 @@
 ---
+title: Go内存管理面试题
+description: "Go语言面试题：精选高频内存面试题与解析，涵盖内存分配、逃逸分析、栈与堆、TCMalloc等核心考点。"
 tags:
   - Go
   - golang

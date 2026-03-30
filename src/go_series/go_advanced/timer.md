@@ -1,5 +1,6 @@
 ---
 title: 7. 定时器
+description: "Go并发编程教程：定时器详解，包括time.Timer、time.Ticker、time.After的使用方法与内存泄漏避坑指南。"
 category:
   - Go语言
 tag:

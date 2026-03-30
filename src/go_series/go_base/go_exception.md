@@ -1,5 +1,6 @@
 ---
 title: 17. Go语言异常捕获
+description: "Go语言教程：panic与recover异常处理机制详解，包括触发场景、恢复策略、与error的区别及最佳实践。"
 category:
   - Go语言
 tag:

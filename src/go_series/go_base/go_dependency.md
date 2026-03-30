@@ -1,5 +1,6 @@
 ---
 title: 18. Go语言依赖管理
+description: "Go语言教程：Go Modules依赖管理详解，涵盖go.mod文件、版本管理、私有仓库���置、依赖升级与冲突解决。"
 category:
   - Go语言
 tag:

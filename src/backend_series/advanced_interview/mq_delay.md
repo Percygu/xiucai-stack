@@ -1,5 +1,6 @@
 ---
 title: 如何在Kafka中实现延迟消息？
+description: "Kafka面试题：在Kafka中实现延迟消息的多种方案，包括时间轮、延迟队列、分层Topic、外部调度等实现对比。"
 tags:
   - 场景题
   - 面试题

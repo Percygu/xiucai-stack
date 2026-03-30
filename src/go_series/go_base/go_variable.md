@@ -1,5 +1,6 @@
 ---
 title: 3. Go语言变量
+description: "Go语言教程：变量声明与使用详解，包括var声明、短变量声明、类型推断、零值机制、变量作用域等核心知识点。"
 category:
   - Go语言
 tag:

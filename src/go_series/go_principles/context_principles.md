@@ -1,5 +1,6 @@
 ---
 title: 7. context原理
+description: "Go底层原理：context实现原理详解，包括接口设计、cancelCtx取消传播、timerCtx定时取消、valueCtx链式查找等。"
 category:
   - Go语言
 tag:

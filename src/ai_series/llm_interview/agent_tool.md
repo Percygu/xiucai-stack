@@ -1,5 +1,6 @@
 ---
 title: Tool Use是扩展Agent能力的有效途径。请解释LLM是如何学会调用外部API或工具的？
+description: "大模型Agent面试题：解析LLM工具调用(Tool Use)的实现原理，包括Function Calling机制、工具描述设计、调用链路编排等。"
 tags:
   - 大模型
   - 大模型应用开发

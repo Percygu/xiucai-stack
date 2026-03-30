@@ -1,5 +1,6 @@
 ---
 title: 12. 垃圾回收
+description: "Go底层原理：垃圾回收(GC)机制详解，涵盖三色标记法、写屏障、并发GC流程、STW优化、GC调优参数等核心原理。"
 category:
   - Go语言
 tag:

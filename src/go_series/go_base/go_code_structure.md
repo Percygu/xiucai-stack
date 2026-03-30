@@ -1,5 +1,6 @@
 ---
 title: 1. Go语言代码结构
+description: "Go语言入门教程：详解Go代码结构，包括package声明、import导入、main函数、代码组织方式等基础概念，零基础快速上手。"
 category:
   - Go语言
 tag:

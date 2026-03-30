@@ -1,5 +1,6 @@
 ---
 title: 为什么MySQL索引要用B+树？
+description: "MySQL面试必考题：深入解析B+树索引的设计原理，对比B树、Hash索引的优劣，分析为什么B+树最适合数据库场景。"
 tags:
   - 场景题
   - 面试题

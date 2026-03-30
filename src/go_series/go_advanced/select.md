@@ -1,5 +1,6 @@
 ---
 title: 5. Select
+description: "Go并发编程教程：Select多路复用详解，包括多channel监听、超时控制、非阻塞操作、与switch的区别等用法。"
 category:
   - Go语言
 tag:

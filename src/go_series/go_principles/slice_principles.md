@@ -1,5 +1,6 @@
 ---
 title: 3. slice原理
+description: "Go底层原理：slice切片底层实现，详解SliceHeader结构、扩容策略、内存分配、切片截取共享底层数组等核心机制。"
 category:
   - Go语言
 tag:

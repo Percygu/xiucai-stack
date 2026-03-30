@@ -1,5 +1,6 @@
 ---
 title: 15. Go语言error
+description: "Go语言教程：error错误处理详解，包括error接口、自定义错误、errors.Is/As、错误包装(wrap)等惯用模式。"
 category:
   - Go语言
 tag:

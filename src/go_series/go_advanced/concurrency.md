@@ -1,5 +1,6 @@
 ---
 title: 1. 并发概述
+description: "Go并发编程教程：并发与并行概念解析，涵盖goroutine调度、CSP并发模型、Go并发设计哲学等核心基础知识。"
 category:
   - Go语言
 tag:

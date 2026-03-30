@@ -1,4 +1,6 @@
 ---
+title: Go Slice面试题
+description: "Go语言面试题：精选高频切片面试题与解析，涵盖扩容策略、底层数组共享、内存泄漏、与数组区别等核心考点。"
 tags:
   - Go
   - golang

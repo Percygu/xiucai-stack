@@ -1,5 +1,6 @@
 ---
 title: 8. 协程池
+description: "Go并发编程教程：协程池设计与实现，包括ants库使用、自定义worker pool、池化复用原理与性能优化实践。"
 category:
   - Go语言
 tag:

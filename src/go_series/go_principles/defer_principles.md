@@ -1,5 +1,6 @@
 ---
 title: 8. defer原理
+description: "Go底层原理：defer实现原理详解，涵盖defer栈、开放编码优化、参数预计算、与panic/recover的交互机制。"
 category:
   - Go语言
 tag:

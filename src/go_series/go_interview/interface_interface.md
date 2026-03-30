@@ -1,4 +1,6 @@
 ---
+title: Go Interface面试题
+description: "Go语言面试题：精选高频接口面试题与解析，涵盖隐式实现、类型断言、空接口、iface/eface结构等核心考点。"
 tags:
   - Go
   - golang

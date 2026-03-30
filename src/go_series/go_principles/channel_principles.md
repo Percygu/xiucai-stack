@@ -1,5 +1,6 @@
 ---
 title: 6. channel原理
+description: "Go底层原理：channel底层实现原理，涵盖hchan结构、环形缓冲区、发送接收流程、goroutine阻塞唤醒机制等。"
 category:
   - Go语言
 tag:

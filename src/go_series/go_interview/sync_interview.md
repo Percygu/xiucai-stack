@@ -1,4 +1,6 @@
 ---
+title: Go Sync面试题
+description: "Go语言面试题：精选高频同步原语面试题与解析，涵盖Mutex实现、RWMutex、WaitGroup、Once、Map等核心考点。"
 tags:
   - Go
   - golang

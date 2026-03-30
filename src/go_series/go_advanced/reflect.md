@@ -1,5 +1,6 @@
 ---
 title: 9. 反射
+description: "Go语言进阶教程：反射(reflect)详解，涵盖Type与Value、结构体字段遍历、动态调用方法、反射性能分析等。"
 category:
   - Go语言
 tag:

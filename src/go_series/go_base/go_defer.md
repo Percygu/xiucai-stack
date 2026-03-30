@@ -1,5 +1,6 @@
 ---
 title: 16. Go语言defer
+description: "Go语言教程：defer延迟调用详解，涵盖执行顺序(LIFO)、参数预计算、与return的关系、资源释放最佳实践。"
 category:
   - Go语言
 tag:

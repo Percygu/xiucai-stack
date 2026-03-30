@@ -1,5 +1,6 @@
 ---
 title: 十、Go面试题库
+description: "Go语言面试题大全：精选高频Go面试题与详细解答，覆盖基础语法、并发编程、底层原理、内存管理等核心考点。"
 category:
   - Go语言
 tags:

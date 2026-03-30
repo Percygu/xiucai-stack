@@ -1,4 +1,6 @@
 ---
+title: Go Channel面试题
+description: "Go语言面试题：精选高频channel面试题与解析，涵盖缓冲与非缓冲、死锁场景、关闭规则、select用法等必考题。"
 tags:
   - Go
   - golang
