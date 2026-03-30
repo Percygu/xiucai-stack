@@ -21,6 +21,8 @@ export default defineUserConfig({
     ["link", { rel: "apple-touch-icon", href: "/web_logo2.png" }],
     
     ["meta", { name: "docsearch:language", content: "zh-CN" }],
+    // 百度站长验证
+    ["meta", { name: "baidu-site-verification", content: "codeva-huKj7TCOQm" }],
     // 添加复制按钮JavaScript文件
     ["script", { src: "/js/copy-code.js" }],
     // 添加防复制脚本
