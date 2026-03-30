@@ -120,7 +120,7 @@ https://golangstar.cn/backend_series/advanced_interview/cache_system.html
 ## 大模型面试题 (backend_series)
 
 https://golangstar.cn/backend_series/llm_interview/transform_attention.html
-https://golangstar.cn/backend_series/llm_interview/agent_%20definition.html
+https://golangstar.cn/backend_series/llm_interview/agent_definition.html
 https://golangstar.cn/backend_series/llm_interview/react_definition.html
 https://golangstar.cn/backend_series/llm_interview/position_code.html
 https://golangstar.cn/backend_series/llm_interview/agent_planning.html
@@ -133,7 +133,7 @@ https://golangstar.cn/backend_series/llm_interview/agent_frame.html
 https://golangstar.cn/backend_series/llm_interview/rag.html
 https://golangstar.cn/backend_series/llm_interview/chunk.html
 https://golangstar.cn/backend_series/llm_interview/embedding.html
-https://golangstar.cn/backend_series/llm_interview/rag_%20optimization.html
+https://golangstar.cn/backend_series/llm_interview/rag_optimization.html
 https://golangstar.cn/backend_series/llm_interview/rag_evaluate.html
 https://golangstar.cn/backend_series/llm_interview/knowledge_graph.html
 https://golangstar.cn/backend_series/llm_interview/rag_deploy.html
@@ -143,7 +143,7 @@ https://golangstar.cn/backend_series/llm_interview/fine_tuning.html
 ## 大模型面试题 (ai_series)
 
 https://golangstar.cn/ai_series/llm_interview/transform_attention.html
-https://golangstar.cn/ai_series/llm_interview/agent_%20definition.html
+https://golangstar.cn/ai_series/llm_interview/agent_definition.html
 https://golangstar.cn/ai_series/llm_interview/react_definition.html
 https://golangstar.cn/ai_series/llm_interview/position_code.html
 https://golangstar.cn/ai_series/llm_interview/agent_planning.html
@@ -156,7 +156,7 @@ https://golangstar.cn/ai_series/llm_interview/agent_frame.html
 https://golangstar.cn/ai_series/llm_interview/rag.html
 https://golangstar.cn/ai_series/llm_interview/chunk.html
 https://golangstar.cn/ai_series/llm_interview/embedding.html
-https://golangstar.cn/ai_series/llm_interview/rag_%20optimization.html
+https://golangstar.cn/ai_series/llm_interview/rag_optimization.html
 https://golangstar.cn/ai_series/llm_interview/rag_evaluate.html
 https://golangstar.cn/ai_series/llm_interview/knowledge_graph.html
 https://golangstar.cn/ai_series/llm_interview/rag_deploy.html
@@ -179,7 +179,7 @@ https://golangstar.cn/ai_series/generative_ai/machine_learning.html
 https://golangstar.cn/ai_series/generative_ai/deep_learning.html
 https://golangstar.cn/ai_series/generative_ai/generative_ai.html
 https://golangstar.cn/ai_series/generative_ai/llm.html
-https://golangstar.cn/ai_series/llm_development/llm_introduction/llm_%20Introduction.html
+https://golangstar.cn/ai_series/llm_development/llm_introduction/llm_Introduction.html
 https://golangstar.cn/ai_series/llm_development/llm_introduction/llm_introduction1.html
 https://golangstar.cn/ai_series/llm_development/langchain/concepts.html
 https://golangstar.cn/ai_series/llm_development/langchain/model-io.html
