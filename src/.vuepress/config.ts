@@ -23,6 +23,8 @@ export default defineUserConfig({
     ["meta", { name: "docsearch:language", content: "zh-CN" }],
     // 百度站长验证
     ["meta", { name: "baidu-site-verification", content: "codeva-huKj7TCOQm" }],
+    // Bing站长验证
+    ["meta", { name: "msvalidate.01", content: "68574E14F538D261A948C3E5F815E169" }],
     // 添加复制按钮JavaScript文件
     ["script", { src: "/js/copy-code.js" }],
     // 添加防复制脚本
