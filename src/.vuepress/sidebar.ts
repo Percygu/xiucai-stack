@@ -123,6 +123,7 @@ export default sidebar({
         "/backend_series/llm_interview/agent_frame.md",
         "/backend_series/llm_interview/agent_tool.md",
         "/backend_series/llm_interview/agent_safety.md",
+        "/backend_series/llm_interview/agent_frame_compare.md",
         "/backend_series/llm_interview/agent_memory_design.md",
         "/backend_series/llm_interview/rag.md",
         "/backend_series/llm_interview/chunk.md",
@@ -133,7 +134,7 @@ export default sidebar({
         "/backend_series/llm_interview/rag_deploy.md",
         "/backend_series/llm_interview/rag_search.md",
         "/backend_series/llm_interview/fine_tuning.md",
-        "/backend_series/llm_interview/agent_frame_compare.md",
+        "/backend_series/llm_interview/rag_ops.md",
       ]
     },
     {
@@ -274,6 +275,7 @@ export default sidebar({
                 "/ai_series/llm_interview/rag_search.md",
                 "/ai_series/llm_interview/fine_tuning.md",
                 "/ai_series/llm_interview/agent_frame_compare.md",
+                "/ai_series/llm_interview/rag_ops.md",
               ]
             },
           ]
