@@ -115,6 +115,7 @@ urls = [
     "https://golangstar.cn/backend_series/llm_interview/position_code.html",
     "https://golangstar.cn/backend_series/llm_interview/agent_planning.html",
     "https://golangstar.cn/backend_series/llm_interview/agent_memory.html",
+    "https://golangstar.cn/backend_series/llm_interview/agent_memory_cover.html",
     "https://golangstar.cn/backend_series/llm_interview/agent_memory_design.html",
     "https://golangstar.cn/backend_series/llm_interview/agent_challenge.html",
     "https://golangstar.cn/backend_series/llm_interview/multi_agent.html",
@@ -129,6 +130,7 @@ urls = [
     "https://golangstar.cn/backend_series/llm_interview/knowledge_graph.html",
     "https://golangstar.cn/backend_series/llm_interview/rag_deploy.html",
     "https://golangstar.cn/backend_series/llm_interview/rag_search.html",
+    "https://golangstar.cn/backend_series/llm_interview/rag_ops.html",
     "https://golangstar.cn/backend_series/llm_interview/fine_tuning.html",
     "https://golangstar.cn/ai_series/llm_interview/transform_attention.html",
     "https://golangstar.cn/ai_series/llm_interview/agent_definition.html",
@@ -136,6 +138,7 @@ urls = [
     "https://golangstar.cn/ai_series/llm_interview/position_code.html",
     "https://golangstar.cn/ai_series/llm_interview/agent_planning.html",
     "https://golangstar.cn/ai_series/llm_interview/agent_memory.html",
+    "https://golangstar.cn/ai_series/llm_interview/agent_memory_cover.html",
     "https://golangstar.cn/ai_series/llm_interview/agent_memory_design.html",
     "https://golangstar.cn/ai_series/llm_interview/agent_challenge.html",
     "https://golangstar.cn/ai_series/llm_interview/multi_agent.html",
@@ -150,6 +153,7 @@ urls = [
     "https://golangstar.cn/ai_series/llm_interview/knowledge_graph.html",
     "https://golangstar.cn/ai_series/llm_interview/rag_deploy.html",
     "https://golangstar.cn/ai_series/llm_interview/rag_search.html",
+    "https://golangstar.cn/ai_series/llm_interview/rag_ops.html",
     "https://golangstar.cn/ai_series/llm_interview/fine_tuning.html",
     "https://golangstar.cn/backend_series/go_interview/go_interview.html",
     "https://golangstar.cn/backend_series/mysql_interview/mysql_interview.html",
@@ -194,13 +198,29 @@ def push_to_google():
     credentials = service_account.Credentials.from_service_account_file(JSON_KEY_FILE, scopes=scopes)
     service = build("indexing", "v3", credentials=credentials)
 
-    for url in urls:
+    success_count = 0
+    fail_count = 0
+    failed_urls = []
+
+    for i, url in enumerate(urls, 1):
         body = {"url": url, "type": "URL_UPDATED"}
         try:
             res = service.urlNotifications().publish(body=body).execute()
-            print(f"成功提交: {url}")
+            success_count += 1
+            print(f"[{i}/{len(urls)}] 成功提交: {url}")
         except Exception as e:
-            print(f"提交失败 {url}: {e}")
+            fail_count += 1
+            failed_urls.append(url)
+            print(f"[{i}/{len(urls)}] 提交失败 {url}: {e}")
+
+    print(f"\n========== 推送结果统计 ==========")
+    print(f"总计: {len(urls)} 个 URL")
+    print(f"成功: {success_count} 个")
+    print(f"失败: {fail_count} 个")
+    if failed_urls:
+        print(f"\n失败的 URL 列表:")
+        for url in failed_urls:
+            print(f"  - {url}")
 
 if __name__ == "__main__":
     push_to_google()
