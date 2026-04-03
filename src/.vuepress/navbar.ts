@@ -10,7 +10,7 @@ export default navbar([
   {
     text: "🔥后端/AI面试题🔥",
     //icon: "chart-simple",
-    link: "/backend_series/advanced_interview/tinyurl.md",
+    link: "/backend_series/advanced_interview/load_balance.md",
   },
   {
     text: "AI进阶之路",

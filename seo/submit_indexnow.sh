@@ -4,7 +4,8 @@
 
 KEY="3276867ac5154ec787e7dec775ff5997"
 HOST="golangstar.cn"
-URL_FILE="bing_urls.txt"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+URL_FILE="${SCRIPT_DIR}/bing_urls.txt"
 
 # 读取所有 URL，构建 JSON 数组
 urls_json=""
