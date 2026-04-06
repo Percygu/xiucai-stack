@@ -137,52 +137,58 @@ import (
 	"log"
 	"os"
 
-	"google.golang.org/genai"
+	openai "github.com/sashabaranov/go-openai"
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	// 使用通义千问的 OpenAI 兼容接口
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
-	// System 消息：设定模型的角色和行为
-	config := &genai.GenerateContentConfig{
-		SystemInstruction: genai.NewContentFromText(
-			"你是一位资深Go语言专家，回答简洁专业，代码示例使用Go语言。",
-			genai.RoleUser,
-		),
-	}
-
-	// 构建多轮对话：User 和 Assistant 消息交替
-	contents := []*genai.Content{
-		// 第一轮：用户提问
-		genai.NewContentFromText("如何创建一个goroutine？", genai.RoleUser),
-		// 第一轮：模型回复（历史记录）
-		genai.NewContentFromText(
-			"使用go关键字即可启动一个goroutine，例如：go func() { fmt.Println(\"hello\") }()",
-			genai.RoleModel,
-		),
-		// 第二轮：用户追问（基于上下文）
-		genai.NewContentFromText("那如何在两个goroutine之间传递数据？", genai.RoleUser),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	// 构建多轮对话：System、User、Assistant 消息
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model: "qwen-plus", // 通义千问模型
+			Messages: []openai.ChatCompletionMessage{
+				// System 消息：设定模型的角色和行为
+				{
+					Role:    openai.ChatMessageRoleSystem,
+					Content: "你是一位资深Go语言专家，回答简洁专业，代码示例使用Go语言。",
+				},
+				// 第一轮：用户提问
+				{
+					Role:    openai.ChatMessageRoleUser,
+					Content: "如何创建一个goroutine？",
+				},
+				// 第一轮：模型回复（历史记录）
+				{
+					Role:    openai.ChatMessageRoleAssistant,
+					Content: "使用go关键字即可启动一个goroutine，例如：go func() { fmt.Println(\"hello\") }()",
+				},
+				// 第二轮：用户追问（基于上下文）
+				{
+					Role:    openai.ChatMessageRoleUser,
+					Content: "那如何在两个goroutine之间传递数据？",
+				},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(resp.Text())
+	fmt.Println(resp.Choices[0].Message.Content)
 }
 ```
 
-���意看代码中的结构：System 消息通过 `SystemInstruction` 设置，User 和 Assistant（在 Gemini 中叫 Model）消息则组成 `contents` 数组传入。第二轮提问时，第一轮的对话历史也一起发送，这样模型才知道"那如何在两个 goroutine 之间传递数据？"这个问题的上下文是关于 goroutine 的。
+> **安装依赖**：`go get github.com/sashabaranov/go-openai`
+>
+> 本系列的代码示例统一使用通义千问（DashScope）的 OpenAI 兼容接口。你需要在 [阿里云百炼平台](https://bailian.console.aliyun.com/) 创建 API Key，然后设置环境变量：`export DASHSCOPE_API_KEY="你的API Key"`
+
+
+注意看代码中的结构：System 消息、User 消息和 Assistant 消息统一放在 `Messages` 数组中，各自通过 `Role` 字段区分。这里我们使用的是通义千问提供的 OpenAI 兼容接口，大多数国内外大模型都支持这套接口标准，所以学会了这种调用方式，切换其他模型的成本非常低。第二轮提问时，第一轮的对话历史也一起发送，这样模型才知道"那如何在两个 goroutine 之间传递数据？"这个问题的上下文是关于 goroutine 的。
 
 ### **2.3 Prompt 的好坏差距有多大**
 
@@ -261,48 +267,43 @@ import (
 	"log"
 	"os"
 
-	"google.golang.org/genai"
+	openai "github.com/sashabaranov/go-openai"
 )
 
-func generateWithTemperature(ctx context.Context, client *genai.Client, temp float32) {
-	config := &genai.GenerateContentConfig{
-		Temperature: genai.Ptr(temp),
-		MaxOutputTokens: genai.Ptr(int32(100)),
-	}
-
+func generateWithTemperature(client *openai.Client, temp float32) {
 	prompt := "用一句话描述Go语言的特点。"
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
 
 	fmt.Printf("\n--- Temperature = %.1f ---\n", temp)
 	// 生成3次，观察输出的差异
 	for i := 1; i <= 3; i++ {
-		resp, err := client.Models.GenerateContent(
-			ctx, "gemini-2.0-flash", contents, config,
+		resp, err := client.CreateChatCompletion(
+			context.Background(),
+			openai.ChatCompletionRequest{
+				Model:       "qwen-plus",
+				Temperature: temp,
+				MaxTokens:   100,
+				Messages: []openai.ChatCompletionMessage{
+					{Role: openai.ChatMessageRoleUser, Content: prompt},
+				},
+			},
 		)
 		if err != nil {
 			log.Printf("第%d次生成失败: %v", i, err)
 			continue
 		}
-		fmt.Printf("第%d次: %s\n", i, resp.Text())
+		fmt.Printf("第%d次: %s\n", i, resp.Choices[0].Message.Content)
 	}
 }
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// 分别用不同的Temperature生成
-	generateWithTemperature(ctx, client, 0.0)
-	generateWithTemperature(ctx, client, 0.7)
-	generateWithTemperature(ctx, client, 1.5)
+	generateWithTemperature(client, 0.0)
+	generateWithTemperature(client, 0.7)
+	generateWithTemperature(client, 1.5)
 }
 ```
 
@@ -527,30 +528,28 @@ import (
 	"os"
 	"time"
 
-	"google.golang.org/genai"
+	openai "github.com/sashabaranov/go-openai"
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	prompt := "用Go语言写一个简单的HTTP服务器，包含健康检查接口。"
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
 
 	start := time.Now()
 	fmt.Println("等待模型响应...")
 
 	// 同步调用：等模型完全生成后才返回
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, nil,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model: "qwen-plus",
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
@@ -558,7 +557,7 @@ func main() {
 
 	elapsed := time.Since(start)
 	fmt.Printf("总耗时: %v\n", elapsed)
-	fmt.Printf("回答:\n%s\n", resp.Text())
+	fmt.Printf("回答:\n%s\n", resp.Choices[0].Message.Content)
 }
 ```
 
@@ -584,33 +583,39 @@ import (
 	"os"
 	"time"
 
-	"google.golang.org/genai"
+	openai "github.com/sashabaranov/go-openai"
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	prompt := "用Go语言写一个简单的HTTP服务器，包含健康检查接口。"
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
 
 	start := time.Now()
 	firstToken := true
 
 	// 流式调用：逐步接收模型输出
-	for resp, err := range client.Models.GenerateContentStream(
-		ctx, "gemini-2.0-flash", contents, nil,
-	) {
+	stream, err := client.CreateChatCompletionStream(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model: "qwen-plus",
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+			Stream: true,
+		},
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stream.Close()
+
+	for {
+		resp, err := stream.Recv()
 		if err != nil {
-			log.Fatal(err)
+			break // io.EOF 表示流结束
 		}
 
 		if firstToken {
@@ -619,8 +624,8 @@ func main() {
 		}
 
 		// 逐块输出，用户可以实时看到内容
-		for _, part := range resp.Candidates[0].Content.Parts {
-			fmt.Print(part.Text)
+		if len(resp.Choices) > 0 {
+			fmt.Print(resp.Choices[0].Delta.Content)
 		}
 	}
 
@@ -634,7 +639,7 @@ func main() {
 
 对于 Agent 应用，流式调用几乎是必选项。原因有两个方面：一是用户体验，Agent 执行复杂任务可能需要较长时间，流式输出能让用户实时看到 Agent 的"思考过程"，而不是对着空白屏幕干等；二是中间结果处理，在流式模式下，你可以在收到模型的工具调用请求后立即开始执行工具，而不用等模型把所有内容都生成完——这在多工具调用的场景中能显著降低端到端延迟。
 
-Google ADK 框架默认就是使用流式模式的，这也是我们后续实战中会深入讲解的内容。
+ADK 框架默认就是使用流式模式的，这也是我们后续实战中会深入讲解的内容。
 
 ## **7. 其他重要参数**
 
@@ -675,57 +680,51 @@ import (
 	"log"
 	"os"
 
-	"google.golang.org/genai"
+	openai "github.com/sashabaranov/go-openai"
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// 为Agent场景配置最佳参数组合
-	config := &genai.GenerateContentConfig{
-		// System消息：设定Agent角色
-		SystemInstruction: genai.NewContentFromText(
-			"你是一位Go语言技术顾问。回答要简洁准确，优先给出代码示例。",
-			genai.RoleUser,
-		),
-		// Temperature低一些，保证输出稳定
-		Temperature: genai.Ptr(float32(0.2)),
-		// Top-P稍微收紧
-		TopP: genai.Ptr(float32(0.9)),
-		// 限制最大输出长度
-		MaxOutputTokens: genai.Ptr(int32(1024)),
-		// 停止序列：遇到连续分隔线就停
-		StopSequences: []string{"---"},
-	}
-
-	prompt := "请用3句话解释Go语言的error处理哲学。"
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model: "qwen-plus",
+			Messages: []openai.ChatCompletionMessage{
+				// System消息：设定Agent角色
+				{
+					Role:    openai.ChatMessageRoleSystem,
+					Content: "你是一位Go语言技术顾问。回答要简洁准确，优先给出代码示例。",
+				},
+				{
+					Role:    openai.ChatMessageRoleUser,
+					Content: "请用3句话解释Go语言的error处理哲学。",
+				},
+			},
+			// Temperature低一些，保证输出稳定
+			Temperature: 0.2,
+			// Top-P稍微收紧
+			TopP: 0.9,
+			// 限制最大输出长度
+			MaxTokens: 1024,
+			// 停止序列：遇到连续分隔线就停
+			Stop: []string{"---"},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(resp.Text())
+	fmt.Println(resp.Choices[0].Message.Content)
 
 	// 查看Token使用情况
-	if resp.UsageMetadata != nil {
-		fmt.Printf("\n--- Token 使用统计 ---\n")
-		fmt.Printf("输入Token: %d\n", resp.UsageMetadata.PromptTokenCount)
-		fmt.Printf("输出Token: %d\n", resp.UsageMetadata.CandidatesTokenCount)
-		fmt.Printf("总Token: %d\n", resp.UsageMetadata.TotalTokenCount)
-	}
+	fmt.Printf("\n--- Token 使用统计 ---\n")
+	fmt.Printf("输入Token: %d\n", resp.Usage.PromptTokens)
+	fmt.Printf("输出Token: %d\n", resp.Usage.CompletionTokens)
+	fmt.Printf("总Token: %d\n", resp.Usage.TotalTokens)
 }
 ```
 

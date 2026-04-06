@@ -215,3 +215,10 @@ tag:
 5. **不需要前后衔接**：开头不回顾上篇，结尾不预告下篇。每篇文章独立成文。
 6. **结尾推广块必须加**，使用上面提供的统一 HTML 模板。
 7. **涉及 ADK 框架的文章**，代码要基于 Google ADK Go 版本（`github.com/google/adk-go`），确保 API 用法准确。如有不确定的 API，先查阅最新文档。
+8. **大模型 API 调用统一使用通义千问（DashScope）的 OpenAI 兼容接口**，不使用 Google Gemini API Key（因为作者是中国用户，无法付费使用 Gemini API）。具体要求：
+   - Go SDK 使用 `github.com/sashabaranov/go-openai`
+   - API Base URL：`https://dashscope.aliyuncs.com/compatible-mode/v1`
+   - API Key 环境变量：`DASHSCOPE_API_KEY`
+   - 默认模型：`qwen-plus`（通用场景），`qwen-turbo`（轻量场景），`qwen-max`（复杂推理场景）
+   - 首次出现代码示例时，需要说明安装依赖和申请 API Key 的方式（阿里云百炼平台）
+   - ADK 框架本身仍然使用 `github.com/google/adk-go`，但底层模型调用要通过 OpenAI 兼容接口接入通义千问，而非直接使用 Gemini API

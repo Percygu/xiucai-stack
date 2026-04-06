@@ -73,41 +73,36 @@ import (
 	"google.golang.org/genai"
 )
 
-func ask(ctx context.Context, client *genai.Client, label, prompt string) {
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-	config := &genai.GenerateContentConfig{
-		Temperature:     genai.Ptr(float32(0.1)),
-		MaxOutputTokens: genai.Ptr(int32(300)),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+func ask(client *openai.Client, label, prompt string) {
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0.1,
+			MaxTokens:   300,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("=== %s ===\n%s\n\n", label, resp.Text())
+	fmt.Printf("=== %s ===\n%s\n\n", label, resp.Choices[0].Message.Content)
 }
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// 模糊的 Zero-shot
-	ask(ctx, client, "模糊Prompt",
+	ask(client, "模糊Prompt",
 		"写个Go函数处理错误。",
 	)
 
 	// 清晰的 Zero-shot
-	ask(ctx, client, "清晰Prompt",
+	ask(client, "清晰Prompt",
 		`用Go语言编写一个函数 WrapError，功能如下：
 - 接收一个 error 和一条描述字符串
 - 如果 error 为 nil，直接返回 nil
@@ -171,14 +166,9 @@ import (
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// Few-shot Prompt：用3个例子教会模型转换规则
 	prompt := `你的任务是将用户的自然语言指令转换为JSON命令格式。
@@ -198,21 +188,21 @@ func main() {
 现在请转换以下指令：
 用户：帮我订一张下周五从上海到深圳的机票`
 
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-	config := &genai.GenerateContentConfig{
-		Temperature: genai.Ptr(float32(0.0)),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(resp.Text())
+	fmt.Println(resp.Choices[0].Message.Content)
 }
 ```
 
@@ -282,41 +272,36 @@ import (
 	"google.golang.org/genai"
 )
 
-func generate(ctx context.Context, client *genai.Client, label, prompt string) {
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-	config := &genai.GenerateContentConfig{
-		Temperature: genai.Ptr(float32(0.0)),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+func generate(client *openai.Client, label, prompt string) {
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("=== %s ===\n%s\n\n", label, resp.Text())
+	fmt.Printf("=== %s ===\n%s\n\n", label, resp.Choices[0].Message.Content)
 }
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	problem := `小明的书架上有3层，第一层放了12本书，第二层放的书是第一层的2倍，
 第三层放的书比第一层和第二层加起来少5本。书架上一共有多少本书？`
 
 	// 不用CoT，直接问
-	generate(ctx, client, "直接回答", problem+"\n请直接给出答案。")
+	generate(client, "直接回答", problem+"\n请直接给出答案。")
 
 	// 使用CoT
-	generate(ctx, client, "CoT推理", problem+"\n请一步一步地思考，展示你的推理过程。")
+	generate(client, "CoT推理", problem+"\n请一步一步地思考，展示你的推理过程。")
 }
 ```
 
@@ -364,14 +349,9 @@ import (
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// Few-shot CoT：教Agent做工具调用决策
 	prompt := `你是一个AI助手，可以使用以下工具：
@@ -400,21 +380,21 @@ func main() {
 现在请处理：
 用户：帮我查一下我们公司上个月的销售额是多少？`
 
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-	config := &genai.GenerateContentConfig{
-		Temperature: genai.Ptr(float32(0.0)),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(resp.Text())
+	fmt.Println(resp.Choices[0].Message.Content)
 }
 ```
 
@@ -497,14 +477,9 @@ type Issue struct {
 }
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	codeToReview := `
 func getUser(id string) *User {
@@ -533,15 +508,15 @@ func getUser(id string) *User {
 待审查的代码：
 %s`, codeToReview)
 
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-	config := &genai.GenerateContentConfig{
-		Temperature: genai.Ptr(float32(0.0)),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleUser, Content: prompt},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
@@ -549,8 +524,8 @@ func getUser(id string) *User {
 
 	// 解析JSON结果
 	var review CodeReview
-	if err := json.Unmarshal([]byte(resp.Text()), &review); err != nil {
-		log.Fatalf("JSON解析失败: %v\n原始输出: %s", err, resp.Text())
+	if err := json.Unmarshal([]byte(resp.Choices[0].Message.Content), &review); err != nil {
+		log.Fatalf("JSON解析失败: %v\n原始输出: %s", err, resp.Choices[0].Message.Content)
 	}
 
 	fmt.Printf("代码质量评分: %d/100\n", review.Score)
@@ -650,14 +625,9 @@ func (pt *PromptTemplate) Render(vars map[string]string) string {
 }
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// 定义Agent的System Prompt模板
 	agentTemplate := NewPromptTemplate(`你是{{company}}的技术支持助手，当前时间是{{current_time}}。
@@ -685,23 +655,22 @@ func main() {
 		"available_tools": "- search_docs: 搜索帮助文档\n- create_ticket: 创建工单\n- check_status: 查询服务状态",
 	})
 
-	config := &genai.GenerateContentConfig{
-		SystemInstruction: genai.NewContentFromText(systemPrompt, genai.RoleUser),
-		Temperature:       genai.Ptr(float32(0.3)),
-	}
-
-	contents := []*genai.Content{
-		genai.NewContentFromText("我的订阅快到期了，能帮我看看续费有什么优惠吗？", genai.RoleUser),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0.3,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleSystem, Content: systemPrompt},
+				{Role: openai.ChatMessageRoleUser, Content: "我的订阅快到期了，能帮我看看续费有什么优惠吗？"},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(resp.Text())
+	fmt.Println(resp.Choices[0].Message.Content)
 }
 ```
 
@@ -743,14 +712,9 @@ import (
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	prompt := `分析以下Go代码是否存在并发安全问题，最后用一个词回答：SAFE 或 UNSAFE。
 
@@ -771,25 +735,25 @@ func main() {
 
 请先分析，然后在最后一行只输出 SAFE 或 UNSAFE。`
 
-	config := &genai.GenerateContentConfig{
-		Temperature: genai.Ptr(float32(0.7)), // 稍高的Temperature以获得多样的推理路径
-	}
-	contents := []*genai.Content{
-		genai.NewContentFromText(prompt, genai.RoleUser),
-	}
-
 	// 采样5次
 	results := make(map[string]int)
 	for i := 0; i < 5; i++ {
-		resp, err := client.Models.GenerateContent(
-			ctx, "gemini-2.0-flash", contents, config,
+		resp, err := client.CreateChatCompletion(
+			context.Background(),
+			openai.ChatCompletionRequest{
+				Model:       "qwen-plus",
+				Temperature: 0.7, // 稍高的Temperature以获得多样的推理路径
+				Messages: []openai.ChatCompletionMessage{
+					{Role: openai.ChatMessageRoleUser, Content: prompt},
+				},
+			},
 		)
 		if err != nil {
 			log.Printf("第%d次采样失败: %v", i+1, err)
 			continue
 		}
 
-		text := resp.Text()
+		text := resp.Choices[0].Message.Content
 		// 提取最后一行的判断结果
 		lines := strings.Split(strings.TrimSpace(text), "\n")
 		lastLine := strings.TrimSpace(lines[len(lines)-1])
@@ -853,14 +817,9 @@ import (
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// 定义结构化思维框架
 	systemPrompt := `你是一位Go语言技术方案评审专家。
@@ -896,22 +855,22 @@ func main() {
 - 部署方案：单机部署，8核16G服务器
 - 预期规模：10万在线用户，日消息量500万条`
 
-	config := &genai.GenerateContentConfig{
-		SystemInstruction: genai.NewContentFromText(systemPrompt, genai.RoleUser),
-		Temperature:       genai.Ptr(float32(0.2)),
-	}
-	contents := []*genai.Content{
-		genai.NewContentFromText(userInput, genai.RoleUser),
-	}
-
-	resp, err := client.Models.GenerateContent(
-		ctx, "gemini-2.0-flash", contents, config,
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model:       "qwen-plus",
+			Temperature: 0.2,
+			Messages: []openai.ChatCompletionMessage{
+				{Role: openai.ChatMessageRoleSystem, Content: systemPrompt},
+				{Role: openai.ChatMessageRoleUser, Content: userInput},
+			},
+		},
 	)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(resp.Text())
+	fmt.Println(resp.Choices[0].Message.Content)
 }
 ```
 
@@ -950,14 +909,9 @@ type AgentAction struct {
 }
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, &genai.ClientConfig{
-		APIKey:  os.Getenv("GEMINI_API_KEY"),
-		Backend: genai.BackendGeminiAPI,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+	cfg := openai.DefaultConfig(os.Getenv("DASHSCOPE_API_KEY"))
+	cfg.BaseURL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+	client := openai.NewClientWithConfig(cfg)
 
 	// 综合运用多种Prompt技巧的Agent System Prompt
 	systemPrompt := `你是一个Go项目开发助手Agent。
@@ -996,11 +950,6 @@ func main() {
 用户：帮我优化一下性能
 {"thought": "用户说要优化性能，但没有说明是优化什么代码、什么场景的性能。我需要更多上下文才能给出有价值的建议。", "action": "clarify", "reply": "我很乐意帮你优化性能！为了给出更有针对性的建议，能告诉我：1. 是哪段代码或哪个服务需要优化？2. 当前遇到的性能问题是什么（响应慢、内存高、CPU占用高）？3. 有没有性能测试数据可以分享？"}`
 
-	config := &genai.GenerateContentConfig{
-		SystemInstruction: genai.NewContentFromText(systemPrompt, genai.RoleUser),
-		Temperature:       genai.Ptr(float32(0.0)),
-	}
-
 	// 模拟用户输入
 	userInputs := []string{
 		"Go里面怎么做优雅关闭？",
@@ -1009,20 +958,24 @@ func main() {
 	}
 
 	for _, input := range userInputs {
-		contents := []*genai.Content{
-			genai.NewContentFromText(input, genai.RoleUser),
-		}
-
-		resp, err := client.Models.GenerateContent(
-			ctx, "gemini-2.0-flash", contents, config,
+		resp, err := client.CreateChatCompletion(
+			context.Background(),
+			openai.ChatCompletionRequest{
+				Model:       "qwen-plus",
+				Temperature: 0,
+				Messages: []openai.ChatCompletionMessage{
+					{Role: openai.ChatMessageRoleSystem, Content: systemPrompt},
+					{Role: openai.ChatMessageRoleUser, Content: input},
+				},
+			},
 		)
 		if err != nil {
 			log.Fatal(err)
 		}
 
 		var action AgentAction
-		if err := json.Unmarshal([]byte(resp.Text()), &action); err != nil {
-			fmt.Printf("用户: %s\n解析失败: %v\n原始输出: %s\n\n", input, err, resp.Text())
+		if err := json.Unmarshal([]byte(resp.Choices[0].Message.Content), &action); err != nil {
+			fmt.Printf("用户: %s\n解析失败: %v\n原始输出: %s\n\n", input, err, resp.Choices[0].Message.Content)
 			continue
 		}
 
