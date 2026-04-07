@@ -8,7 +8,7 @@ tags:
   - AI大模型
   - Agent
   - 智能体
-  - 多只能爱
+  - 多智能体
   - multi-agent
   - llm
 ---
