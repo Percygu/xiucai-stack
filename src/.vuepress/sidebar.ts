@@ -139,6 +139,7 @@ export default sidebar({
         "/backend_series/llm_interview/rag_search_improve.md",
         "/backend_series/llm_interview/fine_tuning.md",
         "/backend_series/llm_interview/rag_ops.md",
+        "/backend_series/llm_interview/ragas.md",
       ]
     },
     {
@@ -284,6 +285,7 @@ export default sidebar({
                 "/ai_series/llm_interview/fine_tuning.md",
                 "/ai_series/llm_interview/agent_frame_compare.md",
                 "/ai_series/llm_interview/rag_ops.md",
+                "/ai_series/llm_interview/ragas.md",
               ]
             },
           ]
