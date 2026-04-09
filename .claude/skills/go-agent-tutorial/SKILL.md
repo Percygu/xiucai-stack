@@ -64,6 +64,7 @@ description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go
 ```yaml
 ---
 title: {序号}. {标题}
+description: {一段 80-160 字的 SEO 描述，自然融入文章核心关键词（如 Go Agent、大模型、ADK、RAG 等），概括本文要解决的问题和读者能获得的价值。要像搜索结果摘要一样吸引点击，避免堆砌关键词，语句通顺有信息量。}
 category:
   - Go Agent
 tag:
@@ -73,6 +74,13 @@ tag:
   - {具体知识点标签}
 ---
 ```
+
+**description 写作要求**：
+- 长度控制在 80-160 字之间，这是搜索引擎摘要的最佳展示长度
+- **必须优先突出高搜索量的热门关键词**，这些关键词要尽量靠前出现在 description 中。高搜索量关键词包括但不限于：`Go语言`、`Golang`、`大模型`、`LLM`、`AI Agent`、`RAG`、`ChatGPT`、`Prompt Engineering`、`Function Calling`、`向量数据库`、`Embedding`、`AI应用开发`、`智能体`、`大模型应用`、`AI编程`、`Google ADK`、`Go Agent教程`、`Agent教程`、`AI Agent教程`、`大模型教程`、`Go语言教程`、`入门教程`、`实战教程`。根据文章具体内容选择最相关的 3-5 个热门关键词自然融入，尤其注意融入"教程"类长尾关键词（如"Go Agent教程"、"AI Agent入门教程"），因为大量用户会搜索"XX教程"来寻找学习资料
+- 关键词要自然融入句子，不能生硬堆砌，读起来像一句完整通顺的话
+- 内容要概括本文的核心主题 + 读者能获得什么价值（学到什么、解决什么问题）
+- 写法示例：`Go语言 AI Agent 开发实战：本文基于 Google ADK 框架，手把手教你用 Golang 构建多工具协作的大模型智能体应用，涵盖 Function Calling、工具调度策略与完整代码示例。`
 
 #### 文章结构
 
@@ -168,7 +176,7 @@ tag:
 
 ### 第五步：保存文件
 
-将文章保存到对应目录：
+注意文章不需要在控制台输出给我，减少token消耗，直接写到md文件中，将文章保存到对应目录：
 
 - 文件路径：`src/go_agent_series/{子目录}/{文件名}.md`
 - 子目录对应关系（参照 `go_agent_series_plan.md`）：
@@ -182,7 +190,7 @@ tag:
   - 部署工程化 → `src/go_agent_series/engineering/`
   - 面试题库 → `src/go_agent_series/interview/`
 
-如果目录不存在，先创建目录。
+如果目录不存在，先创建目录。保存好之后通知我即可
 
 ## 写作风格要求
 
