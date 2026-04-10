@@ -141,6 +141,7 @@ export default sidebar({
         "/backend_series/llm_interview/rag_ops.md",
         "/backend_series/llm_interview/ragas.md",
         "/backend_series/llm_interview/rag_semantic_gaps.md",
+        "/backend_series/llm_interview/langchain_langgraph.md",
       ]
     },
     {
@@ -288,6 +289,7 @@ export default sidebar({
                 "/ai_series/llm_interview/rag_ops.md",
                 "/ai_series/llm_interview/ragas.md",
                 "/ai_series/llm_interview/rag_semantic_gaps.md",
+                "/ai_series/llm_interview/langchain_langgraph.md",
               ]
             },
           ]
