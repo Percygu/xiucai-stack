@@ -1,6 +1,6 @@
 ---
 title: LangChain 和 LangGraph 的区别是什么？各自适用什么场景？
-description: "大模型面试题：深度解析LangChain与LangGraph的核心区别、适用场景与选型策略。涵盖Chain链式抽象vs Graph有向图编排、LCEL表达式、State状态管理、Checkpointing检查点机制、ReAct Agent循环建模、多Agent协作Supervisor模式、条件分支与动态路由等关键概念，助你掌握LLM应用开发中Agent工作流编排的最佳实践。"
+description: "大模型面试题：LangChain与LangGraph核心区别与选型，涵盖Chain vs Graph编排、State管理、Checkpointing、ReAct Agent、多Agent协作等关键概念。"
 tags: 
   - 大模型
   - 大模型应用开发

@@ -1,5 +1,5 @@
 ---
-title: 在 Agent 的设计中，"规划能力"至关重要。请谈谈目前有哪些主流方法可以赋予 LLM 规划能力？（例如 CoT, ToT, GoT 等）
+title: Agent的规划能力有哪些主流的实现方法？
 description: "大模型Agent面试题：全面解析Agent规划能力的主流实现方法，包括CoT思维链、ToT思维树、GoT思维图、ReAct等策略对比。"
 tags: 
   - 大模型

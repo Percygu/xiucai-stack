@@ -1,6 +1,6 @@
 ---
 title: RAG用户提问和向量库中的语义发生不匹配怎么办？如何解决语义鸿沟问题？
-description: "大模型RAG面试题：RAG系统中用户提问与向量库语义不匹配的核心原因与解决方案。涵盖Query Rewriting查询改写、HyDE假设文档嵌入、Multi-Query多查询扩展、混合检索Hybrid Search、BM25+向量检索RRF融合、Cross-Encoder Reranker重排序、文档切分策略、层次化索引、Embedding模型微调等主流技术，附工程组合拳实战经验与评估体系搭建指南。"
+description: "大模型RAG面试题：语义鸿沟问题解决方案，涵盖Query Rewriting、HyDE、Multi-Query、混合检索、Reranker重排序、Embedding微调等核心技术与工程实践。"
 tags: 
   - 大模型
   - 大模型应用开发

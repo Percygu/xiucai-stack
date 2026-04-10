@@ -1,6 +1,6 @@
 ---
 title: RAGAS了解吗？它的评估指标有哪些？评估流程是怎样的？评估数据如何获取和构造？
-description: "大模型RAG面试题：深入解析RAGAS（Retrieval Augmented Generation Assessment）评估框架，详解Faithfulness忠实度、Answer Relevancy答案相关性、Context Precision上下文精确率、Context Recall上下文召回率四大核心指标，以及LLM-as-Judge自动化评估流程、评估数据集构造方法（人工标注/合成数据/生产日志）和CI/CD集成实践，助你全面掌握RAG系统质量评估与优化闭环。"
+description: "大模型RAG面试题：RAGAS评估框架核心指标（Faithfulness、Answer Relevancy、Context Precision、Context Recall）、LLM-as-Judge评估流程与评估数据集构造方法。"
 tags:
   - 大模型
   - 大模型应用开发

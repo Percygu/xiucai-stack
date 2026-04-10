@@ -1,6 +1,6 @@
 ---
 title: RAG 检索不到问题时如何定位问题？排查思路是什么？
-description: "大模型RAG面试题：RAG 系统检索失败时，根因可能藏在四个环节的任意一处：文档入库、向量化、检索召回、重排序后处理。本文提供一套从前往后逐层定位的排查思路，涵盖 Chunking 质量、Embedding 模型一致性、相似度阈值、TopK、HyDE、Reranker 误判等核心排查点，配合 Trace 系统与对比实验方法论，靠数据定位问题而不是靠猜"
+description: "大模型RAG面试题：检索失败排查思路，从文档入库、向量化、检索召回到Reranker逐层定位，涵盖Chunking、Embedding一致性、TopK调优等核心排查点。"
 tags: 
   - 大模型
   - 大模型应用开发

@@ -1,6 +1,6 @@
 ---
-title: 请比较一下两个流行的 Agent 开发框架，如 LangChain 和 LlamaIndex。它们的核心应用场景有何不同？
-description: "大模型Agent面试题：深度对比 LangChain 与 LlamaIndex 两大 Agent 开发框架的核心定位、设计思想与适用场景：LangChain 擅长复杂 Agent 流程编排（LangGraph），LlamaIndex 专注私有数据索引与 RAG 检索。附框架选型建议、组合使用方案及 CrewAI、Spring AI 等生态全景分析"
+title: 请比较一下LangChain 和 LlamaIndex，它们的核心应用场景有何不同？
+description: "大模型Agent面试题：LangChain与LlamaIndex核心区别与选型，LangChain擅长Agent流程编排，LlamaIndex专注RAG检索，附框架组合方案与生态分析。"
 tags:
   - 大模型
   - 大模型应用开发
