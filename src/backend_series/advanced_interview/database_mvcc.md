@@ -1,6 +1,6 @@
 ---
-title: 已经有锁了，Mysql为什么还要引入MVCC？
-description: "MySQL面试题：深入解析MVCC多版本并发控制的必要性与原理，对比锁机制与MVCC在读写并发场景下的性能差异。"
+title: 27. 已经有锁了，Mysql为什么还要引入MVCC？
+description: "MySQL面试题：架构设计面试题、场景题面试常考点，深入解析MVCC多版本并发控制的必要性与原理，对比锁机制与MVCC在读写并发场景下的性能差异。"
 tags:
   - 场景题
   - 面试题

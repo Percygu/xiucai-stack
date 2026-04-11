@@ -1,6 +1,6 @@
 ---
-title: 项目中采用哪种缓存模式来解决数据一致性问题？
-description: "缓存面试题：项目中缓存模式选型与数据一致性方案，对比Cache Aside、Read/Write Through、Write Behind等模式。"
+title: 32. 项目中采用哪种缓存模式来解决数据一致性问题？
+description: "缓存面试题：架构设计面试题、场景题面试常考点，项目中缓存模式选型与数据一致性方案，对比Cache Aside、Read/Write Through、Write Behind等模式。"
 tags:
   - 场景题
   - 面试题

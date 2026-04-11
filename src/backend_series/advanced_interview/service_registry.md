@@ -1,6 +1,6 @@
 ---
-title: 服务注册是应该选AP还是选CP？
-description: "微服务面试题：服务注册中心AP与CP的选择策略，对比Eureka、Nacos、Consul、ZooKeeper的一致性模型与适用场景。"
+title: 2. 服务注册是应该选AP还是选CP？
+description: "微服务面试题：架构设计面试题、场景题面试常考点，服务注册中心AP与CP的选择策略，对比Eureka、Nacos、Consul、ZooKeeper的一致性模型与适用场景。"
 tags:
   - 场景题
   - 面试题

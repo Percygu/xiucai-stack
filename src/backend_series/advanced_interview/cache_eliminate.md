@@ -1,6 +1,6 @@
 ---
-title: 缓存淘汰要怎么设计才能保证命中率？
-description: "Redis面试题：缓存淘汰策略设计保障命中率，详解LRU、LFU、TTL淘汰算法原理及Redis内存淘汰策略配置。"
+title: 30. 缓存淘汰要怎么设计才能保证命中率？
+description: "Redis面试题：架构设计面试题、场景题面试常考点，缓存淘汰策略设计保障命中率，详解LRU、LFU、TTL淘汰算法原理及Redis内存淘汰策略配置。"
 tags:
   - 场景题
   - 面试题

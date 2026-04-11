@@ -1,6 +1,6 @@
 ---
-title: 线上慢SQL如何排查？
-description: "MySQL面试题：线上慢SQL排查全流程，包括慢查询日志分析、EXPLAIN执行计划解读、索引优化、查询重写等实战技巧。"
+title: 29. 线上慢SQL如何排查？
+description: "MySQL面试题：架构设计面试题、场景题面试常考点，线上慢SQL排查全流程，包括慢查询日志分析、EXPLAIN执行计划解读、索引优化、查询重写等实战技巧。"
 tags:
   - 场景题
   - 面试题
