@@ -225,86 +225,72 @@ export default sidebar({
       ],
     }
   ],
-  "/ai_series/": [
+  "/go_agent_series/": [
     {
-      text: "AI进阶之路",
+      text: "Go Agent实战指南",
       collapsible: true,
       children: [
         {
-          text: "大模型应用开发",
+          text: "大模型基础",
           collapsible: true,
           children: [
-            {
-              text: "大模型导论",
-              collapsible: true,
-              children: [
-                "/ai_series/llm_development/llm_introduction/llm_Introduction.md",
-              ]
-            },
-            {
-              text: "LangChain从入门到精通",
-              collapsible: true,
-              children: [
-                "/ai_series/llm_development/langchain/concepts.md",
-                "/ai_series/llm_development/langchain/model-io.md",
-                "/ai_series/llm_development/langchain/data_connection.md",
-                "/ai_series/llm_development/langchain/chain.md",
-                "/ai_series/llm_development/langchain/memory.md",
-                "/ai_series/llm_development/langchain/rag.md",
-                "/ai_series/llm_development/langchain/agent.md",
-                "/ai_series/llm_development/langchain/callbacks.md",
-                "/ai_series/llm_development/langchain/lcel.md",
-              ]
-            },
-            {
-              text: "大模型面试题",
-              collapsible: true,
-              children: [
-                "/backend_series/llm_interview/transform_attention.md",
-                "/backend_series/llm_interview/agent_definition.md",
-                "/backend_series/llm_interview/react_definition.md",
-                "/backend_series/llm_interview/agent_planning.md",
-                "/backend_series/llm_interview/position_code.md",
-                "/backend_series/llm_interview/agent_memory.md",
-                "/backend_series/llm_interview/agent_memory_cover.md",
-                "/backend_series/llm_interview/agent_challenge.md",
-                "/backend_series/llm_interview/multi_agent.md",
-                "/backend_series/llm_interview/agent_frame.md",
-                "/backend_series/llm_interview/agent_tool.md",
-                "/backend_series/llm_interview/agent_safety.md",
-                "/backend_series/llm_interview/agent_memory_design.md",
-                "/backend_series/llm_interview/agent_dialogue_design.md",
-                "/backend_series/llm_interview/agent_cooperation.md",
-                "/backend_series/llm_interview/rag.md",
-                "/backend_series/llm_interview/chunk.md",
-                "/backend_series/llm_interview/embedding.md",
-                "/backend_series/llm_interview/rag_optimization.md",
-                "/backend_series/llm_interview/rag_evaluate.md",
-                "/backend_series/llm_interview/knowledge_graph.md",
-                "/backend_series/llm_interview/rag_deploy.md",
-                "/backend_series/llm_interview/rag_search.md",
-                "/backend_series/llm_interview/rag_search_improve.md",
-                "/backend_series/llm_interview/fine_tuning.md",
-                "/backend_series/llm_interview/agent_frame_compare.md",
-                "/backend_series/llm_interview/rag_ops.md",
-                "/backend_series/llm_interview/ragas.md",
-                "/backend_series/llm_interview/rag_semantic_gaps.md",
-                "/backend_series/llm_interview/langchain_langgraph.md",
-              ]
-            },
+            "/go_agent_series/llm_base/llm_overview.md",
+            "/go_agent_series/llm_base/llm_core_concepts.md",
+            "/go_agent_series/llm_base/prompt_engineering.md",
+            "/go_agent_series/llm_base/llm_api_practice.md",
           ]
         },
         {
-          text: "AI编程",
+          text: "大模型面试题",
           collapsible: true,
-          children: ["/ai_series/ai_coding/cursor1.md"]
+          children: [
+            "/backend_series/llm_interview/transform_attention.md",
+            "/backend_series/llm_interview/agent_definition.md",
+            "/backend_series/llm_interview/react_definition.md",
+            "/backend_series/llm_interview/agent_planning.md",
+            "/backend_series/llm_interview/position_code.md",
+            "/backend_series/llm_interview/agent_memory.md",
+            "/backend_series/llm_interview/agent_memory_cover.md",
+            "/backend_series/llm_interview/agent_challenge.md",
+            "/backend_series/llm_interview/multi_agent.md",
+            "/backend_series/llm_interview/agent_frame.md",
+            "/backend_series/llm_interview/agent_tool.md",
+            "/backend_series/llm_interview/agent_safety.md",
+            "/backend_series/llm_interview/agent_memory_design.md",
+            "/backend_series/llm_interview/agent_dialogue_design.md",
+            "/backend_series/llm_interview/agent_cooperation.md",
+            "/backend_series/llm_interview/rag.md",
+            "/backend_series/llm_interview/chunk.md",
+            "/backend_series/llm_interview/embedding.md",
+            "/backend_series/llm_interview/rag_optimization.md",
+            "/backend_series/llm_interview/rag_evaluate.md",
+            "/backend_series/llm_interview/knowledge_graph.md",
+            "/backend_series/llm_interview/rag_deploy.md",
+            "/backend_series/llm_interview/rag_search.md",
+            "/backend_series/llm_interview/rag_search_improve.md",
+            "/backend_series/llm_interview/fine_tuning.md",
+            "/backend_series/llm_interview/agent_frame_compare.md",
+            "/backend_series/llm_interview/rag_ops.md",
+            "/backend_series/llm_interview/ragas.md",
+            "/backend_series/llm_interview/rag_semantic_gaps.md",
+            "/backend_series/llm_interview/langchain_langgraph.md",
+          ]
         },
         {
-          text: "AI应用",
+          text: "LangChain从入门到精通",
           collapsible: true,
-          children: ["/ai_series/ai_app/vector_database.md"]
+          children: [
+            "/ai_series/llm_development/langchain/concepts.md",
+            "/ai_series/llm_development/langchain/model-io.md",
+            "/ai_series/llm_development/langchain/data_connection.md",
+            "/ai_series/llm_development/langchain/chain.md",
+            "/ai_series/llm_development/langchain/memory.md",
+            "/ai_series/llm_development/langchain/rag.md",
+            "/ai_series/llm_development/langchain/agent.md",
+            "/ai_series/llm_development/langchain/callbacks.md",
+            "/ai_series/llm_development/langchain/lcel.md",
+          ]
         },
-
       ],
     }
   ],

@@ -8,14 +8,14 @@ export default navbar([
     link: "/go_series/introduction.md",
   },
   {
-    text: "🔥后端/AI面试题🔥",
+    text: "🔥后端/AI面试题",
     //icon: "chart-simple",
     link: "/backend_series/advanced_interview/load_balance.md",
   },
   {
-    text: "AI进阶之路",
-    icon: "robot",
-    link: "/ai_series/llm_development/llm_introduction/llm_Introduction.md",
+    text: "🤖Go Agent实战指南",
+    //icon: "robot",
+    link: "/go_agent_series/llm_base/llm_overview.md",
   },
   {
     text: "🧑‍💻程序人生",
