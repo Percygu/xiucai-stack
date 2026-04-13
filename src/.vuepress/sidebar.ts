@@ -80,7 +80,11 @@ export default sidebar({
         },
         "/go_series/go_testing/go_testing.md",
         "/go_series/go_coding_standards/go_coding_standards.md",
-        "/backend_series/go_interview/go_interview.md",
+        {
+          text: "十、Go语言面试题",
+          link:"/backend_series/go_interview/go_interview.md",
+        },
+        
         // {
         //   text: "十、Go面试题库",
         //   collapsible: true,
@@ -232,13 +236,24 @@ export default sidebar({
       collapsible: true,
       children: [
         {
-          text: "大模型基础",
+          text: "一、大模型基础",
           collapsible: true,
           children: [
             "/go_agent_series/llm_base/llm_overview.md",
             "/go_agent_series/llm_base/llm_core_concepts.md",
             "/go_agent_series/llm_base/prompt_engineering.md",
             "/go_agent_series/llm_base/llm_api_practice.md",
+          ]
+        },
+        {
+          text: "二、Agent认知",
+          collapsible: true,
+          children: [
+            "/go_agent_series/agent_concepts/agent_definition.md",
+            "/go_agent_series/agent_concepts/agent_architecture.md",
+            "/go_agent_series/agent_concepts/agent_planning.md",
+            "/go_agent_series/agent_concepts/agent_memory.md",
+            "/go_agent_series/agent_concepts/agent_tool_use.md",
           ]
         },
         {
