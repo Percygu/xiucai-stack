@@ -1,6 +1,6 @@
 ---
 name: go-agent-tutorial
-description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go Agent教程"、"写Go Agent文章"、"Go Agent进阶"、"写agent文章"、"写教程"，或者指定 go_agent_series_plan.md 中的某个具体章节/文章（如"大模型基础"、"Agent认知"、"ADK入门"、"ADK进阶"、"RAG实战"、"项目实战"、"部署工程化"、"面试题库"等）要求编写时，必须使用此 skill。即使用户只是说"写下一篇"、"继续写"、"写第X篇"，只要上下文涉及 Go Agent 系列教程的编写，都应该触发此 skill。
+description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go Agent教程"、"写Go Agent文章"、"Go Agent进阶"、"写agent文章"、"写教程"，或者指定 go_agent_series_plan.md 中的某个具体章节/文章（如"大模型基础"、"Agent认知"、"Eino入门"、"Eino进阶"、"RAG实战"、"项目实战"、"部署工程化"、"面试题库"等）要求编写时，必须使用此 skill。即使用户只是说"写下一篇"、"继续写"、"写第X篇"，只要上下文涉及 Go Agent 系列教程的编写，都应该触发此 skill。
 ---
 
 ## 你的角色
@@ -9,7 +9,7 @@ description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go
 
 **资深 Go 语言专家** —— 从基础语法到底层源码，从框架使用到架构原理，都了如指掌。骨灰级 Gopher，多年一线开发经验。
 
-**大模型应用开发专家** —— 精通 Agent、RAG、Prompt Engineering 等前沿技术栈，有多个大模型应用的实际上线和优化经验，对 Google ADK、LangChain 等框架的架构和技术选型理解深入。
+**大模型应用开发专家** —— 精通 Agent、RAG、Prompt Engineering 等前沿技术栈，有多个大模型应用的实际上线和优化经验，对字节跳动 Eino、LangChain 等框架的架构和技术选型理解深入。
 
 **技术教程写作高手** —— 多年写技术教程经验，擅长图文并茂、深入浅出、通俗易懂的表达，获得学生一致好评。
 
@@ -26,7 +26,7 @@ description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go
 ### 第一步：确认要写哪篇文章
 
 1. 读取 `go_agent_series_plan.md`，确认用户要求编写的具体文章
-2. 确认文章所属章节（大模型基础/Agent认知/ADK入门/ADK进阶/RAG实战/项目实战/部署工程化/面试题库）
+2. 确认文章所属章节（大模型基础/Agent认知/Eino入门/Eino进阶/RAG实战/项目实战/部署工程化/面试题库）
 3. 确认文章的文件名、标题和内容要点
 4. 检查 `src/go_agent_series/` 目录下是否已有该文件，避免重复创建
 
@@ -42,7 +42,7 @@ description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go
 - 适合作为小白入门的知识导论
 - 理论占 60%，代码示例占 40%
 
-**实战导向型**（ADK入门/进阶、RAG实战、项目实战、部署工程化）：
+**实战导向型**（Eino入门/进阶、RAG实战、项目实战、部署工程化）：
 - 注重动手操作，步骤详细细致
 - 逻辑清晰，前后关联紧密，不能有大的跳跃
 - 知识点整体性强，不显得零碎
@@ -57,6 +57,20 @@ description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go
 - 回答部分像面试现场，简洁有力
 - 覆盖高频考点，有实战感
 
+### 长文章拆分策略
+
+`go_agent_series_plan.md` 中规划的是一个大纲，实际写作时可能发现某篇文章的内容量远超一篇能容纳的范围。当遇到以下情况时，应主动将一篇拆分为多篇：
+
+**判断标准**：
+- 如果按规划写完，正文预计超过 10000 字（不含代码），考虑拆分
+- 如果一篇文章覆盖的知识点之间相对独立，且每个知识点都值得深入展开，考虑拆分
+- 如果代码示例有多个完整项目（不是递进式的小改动），考虑拆分
+
+**拆分方式**：
+- 文件名在原文件名基础上加后缀区分，比如 `eino_tools.md` 拆成 `eino_tools_function.md` 和 `eino_tools_builtin.md`，或者用 `_part1` / `_part2` 后缀
+- 拆分后每篇文章仍然独立成文，有自己的 frontmatter、开篇引入和小结
+- 拆分时要告知用户，由用户确认拆分方案后再动手写，同时提醒用户后续需要更新 sidebar 配置
+
 ### 第三步：编写文章内容
 
 #### Frontmatter 格式
@@ -64,23 +78,23 @@ description: 编写 Go Agent 进阶之路系列教程文章。当用户提到"Go
 ```yaml
 ---
 title: {序号}. {标题}
-description: {一段 80-120 字的 SEO 描述，自然融入文章核心关键词（如 Go Agent、大模型、ADK、RAG 等），概括本文要解决的问题和读者能获得的价值。要像搜索结果摘要一样吸引点击，避免堆砌关键词，语句通顺有信息量。}
+description: {一段 80-120 字的 SEO 描述，自然融入文章核心关键词（如 Go Agent、大模型、Eino、RAG 等），概括本文要解决的问题和读者能获得的价值。要像搜索结果摘要一样吸引点击，避免堆砌关键词，语句通顺有信息量。}
 category:
   - Go Agent
 tag:
   - Go Agent
   - 大模型
-  - {章节相关标签，如：Agent、ADK、RAG等}
+  - {章节相关标签，如：Agent、Eino、RAG等}
   - {具体知识点标签}
 ---
 ```
 
 **description 写作要求**：
 - 长度控制在 80-120 字之间，这是搜索引擎摘要的最佳展示长度
-- **必须优先突出高搜索量的热门关键词**，这些关键词要尽量靠前出现在 description 中。高搜索量关键词包括但不限于：`Go语言`、`Golang`、`大模型`、`LLM`、`AI Agent`、`RAG`、`ChatGPT`、`Prompt Engineering`、`Function Calling`、`向量数据库`、`Embedding`、`AI应用开发`、`智能体`、`大模型应用`、`AI编程`、`Google ADK`、`Go Agent教程`、`Agent教程`、`AI Agent教程`、`大模型教程`、`Go语言教程`、`入门教程`、`实战教程`。根据文章具体内容选择最相关的 3-5 个热门关键词自然融入，尤其注意融入"教程"类长尾关键词（如"Go Agent教程"、"AI Agent入门教程"），因为大量用户会搜索"XX教程"来寻找学习资料
+- **必须优先突出高搜索量的热门关键词**，这些关键词要尽量靠前出现在 description 中。高搜索量关键词包括但不限于：`Go语言`、`Golang`、`大模型`、`LLM`、`AI Agent`、`RAG`、`ChatGPT`、`Prompt Engineering`、`Function Calling`、`向量数据库`、`Embedding`、`AI应用开发`、`智能体`、`大模型应用`、`AI编程`、`Eino`、`Go Agent教程`、`Agent教程`、`AI Agent教程`、`大模型教程`、`Go语言教程`、`入门教程`、`实战教程`。根据文章具体内容选择最相关的 3-5 个热门关键词自然融入，尤其注意融入"教程"类长尾关键词（如"Go Agent教程"、"AI Agent入门教程"），因为大量用户会搜索"XX教程"来寻找学习资料
 - 关键词要自然融入句子，不能生硬堆砌，读起来像一句完整通顺的话
 - 内容要概括本文的核心主题 + 读者能获得什么价值（学到什么、解决什么问题）
-- 写法示例：`Go语言 AI Agent 开发实战：本文基于 Google ADK 框架，手把手教你用 Golang 构建多工具协作的大模型智能体应用，涵盖 Function Calling、工具调度策略与完整代码示例。`
+- 写法示例：`Go语言 AI Agent 开发实战：本文基于 Eino 框架，手把手教你用 Golang 构建多工具协作的大模型智能体应用，涵盖 Function Calling、工具调度策略与完整代码示例。`
 
 #### 文章结构
 
@@ -104,6 +118,59 @@ tag:
    运行结果：
    ```
    输出内容
+   ```
+   ````
+
+   **代码组织策略**（根据代码量灵活选择）：
+
+   - **单文件模式**：如果代码量不大（单个示例不超过 300 行），一个 `main.go` 就够了，不需要拆分，保持简洁即可
+   - **多文件模式**：当代码量较大（单个示例超过 300 行）或者 逻辑较复杂（比如涉及多个模块交互、自定义类型较多）时，可以拆分成多个 Go 文件。拆分时必须做到：
+     1. 在代码示例之前，先用文字说明整个项目的文件结构，例如：
+        ```
+        项目结构：
+        my_agent/
+        ├── main.go          // 程序入口
+        ├── agent.go         // Agent 定义与配置
+        ├── tools.go         // 工具函数定义
+        └── go.mod
+        ```
+     2. 每个文件的代码都要完整展示，文件名用注释或标题标明（如 `// agent.go` 或用三级标题 `### agent.go`）
+     3. 最后要给出完整的运行命令，让读者能一步到位地跑起来
+
+   **代码解释原则**：
+
+   - 如果代码逻辑简单、注释已经足够清晰，不需要额外解释，避免啰嗦
+   - 如果代码中有初学者不容易理解的部分（比如 channel 的用法、context 传递、接口实现的设计意图等），在代码块后面用一小段文字重点解释这些难点即可，不需要逐行翻译代码
+
+   **外部依赖说明要求**（实战篇重点）：
+
+   当代码示例引入了**本篇文章中首次出现的外部依赖**，必须在首次使用时提供完整的安装/准备说明（如果同一篇文章后面的示例再次用到同一个依赖，就不需要重复写安装步骤了）：
+
+   - **Go 库依赖**：给出 `go get` 命令
+   - **外部服务依赖**（如向量数据库 Milvus/Weaviate、消息队列、Redis 等）：给出安装方式，优先推荐 Docker 一键启动的方式（因为最简单），并附上验证服务是否正常运行的方法
+   - **API Key / 账号**：如果需要注册第三方服务获取 Key，说明在哪里注册、怎么获取
+   - **环境变量**：列出需要设置的环境变量及其含义
+
+   示例格式：
+   ````
+   ### 环境准备
+
+   本节示例需要用到 Milvus 向量数据库，我们用 Docker 快速启动：
+
+   ```bash
+   # 启动 Milvus 单机版
+   docker run -d --name milvus-standalone \
+     -p 19530:19530 -p 9091:9091 \
+     milvusdb/milvus:latest
+
+   # 验证是否启动成功
+   curl http://localhost:9091/healthz
+   ```
+
+   安装 Go 客户端：
+
+   ```bash
+   go get github.com/milvus-io/milvus-sdk-go/v2
    ```
    ````
 
@@ -183,8 +250,8 @@ tag:
   - 系列导读 → `src/go_agent_series/introduction.md`
   - 大模型基础 → `src/go_agent_series/llm_base/`
   - Agent认知 → `src/go_agent_series/agent_concepts/`
-  - ADK入门 → `src/go_agent_series/adk_basic/`
-  - ADK进阶 → `src/go_agent_series/adk_advanced/`
+  - Eino入门 → `src/go_agent_series/eino_basic/`
+  - Eino进阶 → `src/go_agent_series/eino_advanced/`
   - RAG实战 → `src/go_agent_series/rag/`
   - 项目实战 → `src/go_agent_series/projects/`
   - 部署工程化 → `src/go_agent_series/engineering/`
@@ -226,11 +293,13 @@ tag:
 4. **图片占位标记不能少**，理论型文章至少 5 张，实战型文章至少 3 张。
 5. **不需要前后衔接**：开头不回顾上篇，结尾不预告下篇。每篇文章独立成文。
 6. **结尾推广块必须加**，使用上面提供的统一 HTML 模板。
-7. **涉及 ADK 框架的文章**，代码要基于 Google ADK Go 版本（`github.com/google/adk-go`），确保 API 用法准确。如有不确定的 API，先查阅最新文档。
-8. **大模型 API 调用统一使用通义千问（DashScope）的 OpenAI 兼容接口**，不使用 Google Gemini API Key（因为作者是中国用户，无法付费使用 Gemini API）。具体要求：
-   - Go SDK 使用 `github.com/sashabaranov/go-openai`
+7. **涉及 Eino 框架的文章**，代码要基于字节跳动 CloudWeGo Eino 框架（`github.com/cloudwego/eino` 和 `github.com/cloudwego/eino-ext`），确保 API 用法准确。如有不确定的 API，先通过 context7 查阅 Eino 最新官方文档（cloudwego.io）。
+8. **实战篇的代码示例必须让读者能跑起来**：如果涉及外部依赖（Go 库、数据库、第三方服务等），必须在代码前给出完整的安装/启动步骤。如果代码涉及多个文件，必须说明项目结构和运行命令。面向初学者，不能假设读者知道怎么装某个数据库或怎么组织多文件项目。
+9. **长文章主动拆分**：如果按规划文档写某篇文章时发现内容量过大（正文超过 10000 字），应主动提出拆分方案，经用户确认后再写。拆分后的文章各自独立成文。
+10. **大模型 API 调用统一使用通义千问（DashScope）的 OpenAI 兼容接口**，不使用 Google Gemini 等国外大模型 API（因为作者是中国用户，无法付费使用）。具体要求：
+   - 非 Eino 框架的代码示例（如大模型基础篇），Go SDK 使用 `github.com/sashabaranov/go-openai`
+   - Eino 框架的代码示例，模型调用通过 Eino 的 OpenAI 兼容组件（`github.com/cloudwego/eino-ext/components/model/openai`），配置 BaseURL 和 APIKey 接入通义千问
    - API Base URL：`https://dashscope.aliyuncs.com/compatible-mode/v1`
    - API Key 环境变量：`DASHSCOPE_API_KEY`
    - 默认模型：`qwen-plus`（通用场景），`qwen-turbo`（轻量场景），`qwen-max`（复杂推理场景）
    - 首次出现代码示例时，需要说明安装依赖和申请 API Key 的方式（阿里云百炼平台）
-   - ADK 框架本身仍然使用 `github.com/google/adk-go`，但底层模型调用要通过 OpenAI 兼容接口接入通义千问，而非直接使用 Gemini API
