@@ -1,6 +1,6 @@
 ---
 title: 1. 什么是AI Agent
-description: Go Agent教程第5篇，AI Agent入门教程，深入理解智能体的本质定义与核心能力，对比AI Agent与传统ChatBot的本质区别，详解Agent的感知、规划、行动、记忆四大核心能力。
+description: Go Agent教程，AI Agent入门教程，深入理解智能体的本质定义与核心能力，对比AI Agent与传统ChatBot的本质区别，详解Agent的感知、规划、行动、记忆四大核心能力。
 category:
   - Go Agent
 tag:
@@ -9,6 +9,7 @@ tag:
   - AI Agent
   - 智能体
   - ChatBot
+  - Agent教程
 ---
 
 如果说大模型是一颗最强大脑，那么 AI Agent 就是拥有这颗大脑的完整的人——它不仅能思考，还能感知环境、制定计划、使用工具、记住经历，最终自主地完成复杂任务。

@@ -259,6 +259,18 @@ export default sidebar({
           ]
         },
         {
+          text: "三、Eino框架基础",
+          collapsible: true,
+          children: [
+            "/go_agent_series/eino_basic/eino_overview.md",
+            "/go_agent_series/eino_basic/eino_quickstart.md",
+            "/go_agent_series/eino_basic/eino_chatmodel.md",
+            "/go_agent_series/eino_basic/eino_prompt.md",
+            "/go_agent_series/eino_basic/eino_tool.md",
+            "/go_agent_series/eino_basic/eino_react_agent.md",
+          ]
+        },
+        {
           text: "大模型面试题",
           collapsible: true,
           children: [

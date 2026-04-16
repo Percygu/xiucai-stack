@@ -1,6 +1,6 @@
 ---
 title: 3. Prompt Engineering实战
-description: Go Agent教程第3篇：Prompt Engineering提示词工程实战指南，涵盖Zero-shot、Few-shot、CoT思维链等核心技巧，AI Agent教程必看，助你掌握大模型应用开发的必备基本功。
+description: Go Agent教程，Prompt Engineering提示词工程实战指南，涵盖Zero-shot、Few-shot、CoT思维链等核心技巧，AI Agent教程必看，助你掌握大模型应用开发的必备基本功。
 category:
   - Go Agent
 tag:

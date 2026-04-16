@@ -1,6 +1,6 @@
 ---
 title: 2. Agent核心架构
-description: Go Agent教程第6篇，AI Agent核心架构解析，深入剖析智能体的感知-思考-行动循环机制，详解ReAct框架原理与Go语言实现，全面拆解Agent系统四大组成模块：LLM、工具、记忆、规划。
+description: Go Agent教程，AI Agent核心架构解析，深入剖析智能体的感知-思考-行动循环机制，详解ReAct框架原理与Go语言实现，全面拆解Agent系统四大组成模块：LLM、工具、记忆、规划。
 category:
   - Go Agent
 tag:
@@ -9,6 +9,7 @@ tag:
   - AI Agent
   - Agent架构
   - ReAct
+  - Agent教程
 ---
 
 上一篇我们认识了 AI Agent 是什么——它有感知、规划、行动、记忆四大核心能力，本质上是一个以大模型为大脑的自主任务执行系统。但"知道它有什么能力"和"理解它怎么运转"是两回事。

@@ -1,6 +1,6 @@
 ---
 title: 1. 大模型概述与发展历程
-description: Go Agent教程第一篇，从Transformer到GPT系列，系统梳理大语言模型(LLM)的发展历程与核心原理。AI Agent教程入门必读，帮助Go开发者理解Agent背后的大模型基础，为后续Go语言开发AI Agent应用打下坚实基础。
+description: Go Agent教程，从Transformer到GPT系列，系统梳理大语言模型(LLM)的发展历程与核心原理。AI Agent教程入门必读，帮助Go开发者理解Agent背后的大模型基础，为后续开发AI Agent应用打基础。
 category:
   - Go Agent
 tag:

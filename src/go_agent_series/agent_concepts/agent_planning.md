@@ -1,6 +1,6 @@
 ---
 title: 3. Agent的规划能力
-description: Go Agent教程第7篇，AI Agent规划能力解析，深入讲解智能体如何进行任务分解与多步推理，详解Plan-and-Execute、Tree of Thoughts、Reflection自我纠错等核心规划策略。
+description: Go Agent教程，AI Agent规划能力解析，深入讲解智能体如何进行任务分解与多步推理，详解Plan-and-Execute、Tree of Thoughts、Reflection自我纠错等核心规划策略。
 category:
   - Go Agent
 tag:
@@ -10,6 +10,7 @@ tag:
   - 规划能力
   - ReAct
   - Tree of Thoughts
+  - Agent教程
 ---
 
 如果说工具是 Agent 的双手，记忆是 Agent 的记事本，那么规划能力就是 Agent 的"指挥部"——它决定了 Agent 面对一个复杂任务时，应该先做什么、后做什么、遇到问题怎么调整。没有规划能力的 Agent，就像一个拿着一堆工具却没有施工图纸的工人，虽然手里家伙齐全，但真正执行任务时就会毫无章法。

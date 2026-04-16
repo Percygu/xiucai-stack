@@ -1,6 +1,6 @@
 ---
 title: 5. Agent的工具使用
-description: Go Agent教程第9篇，AI Agent工具使用详解，深入讲解Function Calling原理、工具描述与选择机制、工具调用链编排，以及MCP协议如何实现跨系统工具互通。
+description: Go Agent教程，AI Agent工具使用详解，深入讲解Function Calling原理、工具描述与选择机制、工具调用链编排，以及MCP协议如何实现跨系统工具互通。
 category:
   - Go Agent
 tag:
@@ -10,6 +10,7 @@ tag:
   - Function Calling
   - MCP
   - 工具调用
+  - Agent教程
 ---
 
 LLM 本质上是基于海量语料训练出的逻辑推理引擎，但其效能往往受限于知识密度的时效性与孤立的运行环境。要让 AI 从一个仅能提供文字反馈的 Chatbot 进化为具备生产力的 Agent，核心在于打破其离线枷锁，通过工具调用（Tool Use）将语义意图转化为对物理世界的确定性操作。

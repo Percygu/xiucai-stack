@@ -1,6 +1,6 @@
 ---
 title: 2. 大模型核心概念
-description: Go Agent教程第二篇，深入讲解大模型核心概念：Token计算与计费、Prompt结构设计、Temperature/Top-P采样策略、上下文窗口限制等。AI Agent开发必备基础，为构建高质量AI Agent应用奠定基础。
+description: Go Agent教程，深入讲解大模型核心概念：Token计算与计费、Prompt结构设计、Temperature/Top-P采样策略、上下文窗口限制等。AI Agent开发必备基础，为构建高质量AI Agent应用奠定基础。
 category:
   - Go Agent
 tag:

@@ -1,6 +1,6 @@
 ---
 title: 4. Go语言调用大模型API实战
-description: Go Agent教程第4篇：AI Agent教程必看，涵盖单轮对话、多轮对话、流式输出、Function Calling四大核心场景，并讲解生产环境中的错误处理与超时控制，是AI Agent开发的必备实战基础。
+description: Go Agent教程，AI Agent教程必看，涵盖单轮对话、多轮对话、流式输出、Function Calling四大核心场景，并讲解生产环境中的错误处理与超时控制，是AI Agent开发的必备实战基础。
 category:
   - Go Agent
 tag:
