@@ -7,7 +7,7 @@ tags:
   - 面试题
   - AI大模型
   - Prompt
-  - RPrompt注入
+  - Prompt注入
   - 大模型安全
 ---
 
