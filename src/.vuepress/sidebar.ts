@@ -150,6 +150,7 @@ export default sidebar({
         "/backend_series/llm_interview/rag_rerank.md",
         "/backend_series/llm_interview/rag_store.md",
         "/backend_series/llm_interview/prompt_injection.md",
+        "/backend_series/llm_interview/rag_query.md",
       ]
     },
     {
@@ -309,6 +310,7 @@ export default sidebar({
             "/backend_series/llm_interview/rag_rerank.md",
             "/backend_series/llm_interview/rag_store.md",
             "/backend_series/llm_interview/prompt_injection.md",
+            "/backend_series/llm_interview/rag_query.md",
           ]
         },
         {
