@@ -273,6 +273,19 @@ export default sidebar({
           ]
         },
         {
+          text: "四、Eino框架进阶",
+          collapsible: true,
+          children:[
+            "/go_agent_series/eino_advanced/eino_chain_graph.md",
+            "/go_agent_series/eino_advanced/eino_workflow.md",
+            "/go_agent_series/eino_advanced/eino_callback.md",
+            "/go_agent_series/eino_advanced/eino_streaming.md",
+            "/go_agent_series/eino_advanced/eino_mcp.md",
+            "/go_agent_series/eino_advanced/eino_adk_agent.md",
+            "/go_agent_series/eino_advanced/eino_adk_advanced.md",
+          ]
+        },
+        {
           text: "大模型面试题",
           collapsible: true,
           children: [
