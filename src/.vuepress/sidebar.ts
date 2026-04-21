@@ -117,6 +117,7 @@ export default sidebar({
       collapsible: true,
       children: [
         "/backend_series/llm_interview/transform_attention.md",
+        "/backend_series/llm_interview/llm_gateway.md",
         "/backend_series/llm_interview/agent_definition.md",
         "/backend_series/llm_interview/react_definition.md",
         "/backend_series/llm_interview/agent_planning.md",
@@ -290,6 +291,7 @@ export default sidebar({
           collapsible: true,
           children: [
             "/backend_series/llm_interview/transform_attention.md",
+            "/backend_series/llm_interview/llm_gateway.md",
             "/backend_series/llm_interview/agent_definition.md",
             "/backend_series/llm_interview/react_definition.md",
             "/backend_series/llm_interview/agent_planning.md",
