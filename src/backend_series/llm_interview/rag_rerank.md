@@ -1,5 +1,5 @@
 ---
-title: 什么是RAG 中的Rerank？具体需要怎么做？你了解哪些常用的 Rerank模型？
+title: 33. 什么是RAG 中的Rerank？具体需要怎么做？你了解哪些常用的 Rerank模型？
 description: "大模型RAG面试题：深入解析RAG中Rerank重排序原理：Cross-Encoder与Bi-Encoder区别，Cohere、BGE-Reranker、bce-reranker等主流模型对比与选型，工程落地实践及效果评估方法。"
 tags: 
   - 大模型

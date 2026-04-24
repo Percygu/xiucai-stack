@@ -1,5 +1,5 @@
 ---
-title: 你知道哪些方法可以提高RAG的检索正确率？
+title: 27. 你知道哪些方法可以提高RAG的检索正确率？
 description: "大模型RAG面试题：深入解析提高RAG检索正确率的系统性方法，涵盖三重检索鸿沟分析、Query改写/Multi-Query/HyDE等Query侧优化、Chunk策略与索引侧优化、混合检索与多路召回、Reranking重排序，以及数据质量治理，助你构建高精度RAG系统。"
 tags: 
   - 大模型

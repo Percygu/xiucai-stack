@@ -1,5 +1,5 @@
 ---
-title: LangChain 和 LangGraph 的区别是什么？各自适用什么场景？
+title: 32. LangChain 和 LangGraph 的区别是什么？各自适用什么场景？
 description: "大模型面试题：LangChain与LangGraph核心区别与选型，涵盖Chain vs Graph编排、State管理、Checkpointing、ReAct Agent、多Agent协作等关键概念。"
 tags: 
   - 大模型

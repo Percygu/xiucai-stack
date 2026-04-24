@@ -287,7 +287,17 @@ export default sidebar({
           ]
         },
         {
-          text: "大模型面试题",
+          text: "五、RAG原理与实战",
+          collapsible: true,
+          children:[
+            "/go_agent_series/rag/rag_overview.md",
+            "/go_agent_series/rag/rag_embedding.md",
+            "/go_agent_series/rag/rag_chunking.md",
+            "/go_agent_series/rag/rag_eino_practice.md",
+          ]
+        },
+        {
+          text: "六、大模型面试题",
           collapsible: true,
           children: [
             "/backend_series/llm_interview/transform_attention.md",
@@ -329,7 +339,7 @@ export default sidebar({
           ]
         },
         {
-          text: "LangChain从入门到精通",
+          text: "附、LangChain实战",
           collapsible: true,
           children: [
             "/ai_series/llm_development/langchain/concepts.md",

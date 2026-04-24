@@ -1,5 +1,5 @@
 ---
-title: 如何选择一个合适的嵌入模型？评估一个 Embedding 模型的好坏有哪些指标？
+title: 21. 如何选择一个合适的嵌入模型？评估一个 Embedding 模型的好坏有哪些指标？
 description: "大模型RAG面试题：如何选择合适的Embedding嵌入模型，详解MTEB评估指标、中文嵌入模型对比、向量维度选择等实战经验。"
 tags: 
   - 大模型

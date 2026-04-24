@@ -1,5 +1,5 @@
 ---
-title: RAG 检索不到问题时如何定位问题？排查思路是什么？
+title: 29. RAG 检索不到问题时如何定位问题？排查思路是什么？
 description: "大模型RAG面试题：检索失败排查思路，从文档入库、向量化、检索召回到Reranker逐层定位，涵盖Chunking、Embedding一致性、TopK调优等核心排查点。"
 tags: 
   - 大模型

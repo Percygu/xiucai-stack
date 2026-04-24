@@ -1,5 +1,5 @@
 ---
-title: RAGAS了解吗？它的评估指标有哪些？评估流程是怎样的？评估数据如何获取和构造？
+title: 30. RAGAS了解吗？它的评估指标有哪些？评估流程是怎样的？评估数据如何获取和构造？
 description: "大模型RAG面试题：RAGAS评估框架核心指标（Faithfulness、Answer Relevancy、Context Precision、Context Recall）、LLM-as-Judge评估流程与评估数据集构造方法。"
 tags:
   - 大模型

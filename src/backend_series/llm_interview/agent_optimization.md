@@ -1,5 +1,5 @@
 ---
-title: 在高并发RAG Agent系统中，如何优化召回和生成阶段的延迟？
+title: 18. 在高并发RAG Agent系统中，如何优化召回和生成阶段的延迟？
 description: "大模型Agent面试题：高并发RAG Agent系统延迟优化方案，涵盖HNSW/IVF向量检索调优、ColBERT重排序加速、Continuous Batching、推测解码、模型量化、语义缓存、流水线并行等核心技术"
 tags: 
   - 大模型

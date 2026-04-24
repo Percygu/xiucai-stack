@@ -1,5 +1,5 @@
 ---
-title: RAG用户提问和向量库中的语义发生不匹配怎么办？如何解决语义鸿沟问题？
+title: 31. RAG用户提问和向量库中的语义发生不匹配怎么办？如何解决语义鸿沟问题？
 description: "大模型RAG面试题：语义鸿沟问题解决方案，涵盖Query Rewriting、HyDE、Multi-Query、混合检索、Reranker重排序、Embedding微调等核心技术与工程实践。"
 tags: 
   - 大模型

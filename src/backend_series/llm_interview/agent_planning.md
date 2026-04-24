@@ -1,5 +1,5 @@
 ---
-title: Agent的规划能力有哪些主流的实现方法？
+title: 5. Agent的规划能力有哪些主流的实现方法？
 description: "大模型Agent面试题：全面解析Agent规划能力的主流实现方法，包括CoT思维链、ToT思维树、GoT思维图、ReAct等策略对比。"
 tags: 
   - 大模型

@@ -1,5 +1,5 @@
 ---
-title: 请比较一下LangChain 和 LlamaIndex，它们的核心应用场景有何不同？
+title: 14. 请比较一下LangChain 和 LlamaIndex，它们的核心应用场景有何不同？
 description: "大模型Agent面试题：LangChain与LlamaIndex核心区别与选型，LangChain擅长Agent流程编排，LlamaIndex专注RAG检索，附框架组合方案与生态分析。"
 tags:
   - 大模型

@@ -1,5 +1,5 @@
 ---
-title: RAG系统中如何进行query改写，以及如何基于检索结果构建有效prompt？
+title: 36. RAG系统中如何进行query改写，以及如何基于检索结果构建有效prompt？
 description: "大模型RAG面试题：本文深度解析RAG系统两大核心优化环节，Query改写与Prompt构建，涵盖指代消解、查询分解、Multi-Query多角度改写、HyDE假设文档嵌入、Step-back Prompting等主流改写策略"
 tags: 
   - 大模型
