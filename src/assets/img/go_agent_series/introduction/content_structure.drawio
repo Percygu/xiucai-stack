@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="28.2.8">
+  <diagram name="Go Agent Content Structure" id="goagent-structure">
+    <mxGraphModel dx="1234" dy="828" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1" value="&lt;div style=&quot;background: rgb(21, 101, 192); color: rgb(255, 255, 255); padding: 14px; margin: -1px; text-align: center; font-weight: bold; letter-spacing: 2px;&quot;&gt;🧠 理论筑基&lt;/div&gt;&lt;div style=&quot;padding: 14px 18px; line-height: 2; color: rgb(51, 51, 51);&quot;&gt;&lt;b style=&quot;color: rgb(21, 101, 192);&quot;&gt;一、大模型基础&lt;/b&gt;（4篇）&lt;br&gt;大模型概述 · 核心概念&lt;br&gt;Prompt Engineering · API调用实战&lt;br&gt;&lt;br&gt;&lt;b style=&quot;color: rgb(21, 101, 192);&quot;&gt;二、Agent认知&lt;/b&gt;（5篇）&lt;br&gt;Agent定义 · 核心架构&lt;br&gt;规划能力 · 记忆机制 · 工具使用&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=2;arcSize=6;verticalAlign=top;spacing=0;overflow=hidden;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="30" y="30" width="430" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="&lt;div style=&quot;background: rgb(230, 81, 0); color: rgb(255, 255, 255); padding: 14px; margin: -1px; text-align: center; font-weight: bold; letter-spacing: 2px;&quot;&gt;🔧 框架掌握&lt;/div&gt;&lt;div style=&quot;padding: 14px 18px; line-height: 2; color: rgb(51, 51, 51);&quot;&gt;&lt;b style=&quot;color: rgb(230, 81, 0);&quot;&gt;三、Eino框架入门&lt;/b&gt;（6篇）&lt;br&gt;框架概述 · 快速上手 · ChatModel&lt;br&gt;Prompt模板 · 工具定义 · ReAct Agent&lt;br&gt;&lt;br&gt;&lt;b style=&quot;color: rgb(230, 81, 0);&quot;&gt;四、Eino框架进阶&lt;/b&gt;（7篇）&lt;br&gt;Chain/Graph · Workflow · 回调机制&lt;br&gt;流式输出 · MCP协议 · ADK多智能体&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;arcSize=6;verticalAlign=top;spacing=0;overflow=hidden;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="540" y="30" width="437" height="291" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="&lt;div style=&quot;background: rgb(46, 125, 50); color: rgb(255, 255, 255); padding: 14px; margin: -1px; text-align: center; font-weight: bold; letter-spacing: 2px;&quot;&gt;🚀 动手实战&lt;/div&gt;&lt;div style=&quot;padding: 14px 18px; line-height: 2; color: rgb(51, 51, 51);&quot;&gt;&lt;b style=&quot;color: rgb(46, 125, 50);&quot;&gt;五、RAG实战&lt;/b&gt;（4篇）&lt;br&gt;RAG原理 · Embedding&lt;br&gt;Chunking策略 · Eino RAG实战&lt;br&gt;&lt;br&gt;&lt;b style=&quot;color: rgb(46, 125, 50);&quot;&gt;六、项目实战&lt;/b&gt;（4篇）&lt;br&gt;智能客服 · 代码助手&lt;br&gt;数据分析Agent · 多Agent平台&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;arcSize=6;verticalAlign=top;spacing=0;overflow=hidden;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="30" y="400" width="430" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="&lt;div style=&quot;background: rgb(198, 40, 40); color: rgb(255, 255, 255); padding: 14px; margin: -1px; text-align: center; font-weight: bold; letter-spacing: 2px;&quot;&gt;🎯 查漏补缺&lt;/div&gt;&lt;div style=&quot;padding: 14px 18px; line-height: 2; color: rgb(51, 51, 51);&quot;&gt;&lt;b style=&quot;color: rgb(198, 40, 40);&quot;&gt;七、部署工程化&lt;/b&gt;（3篇）&lt;br&gt;测试策略 · 可观测性 · 生产部署&lt;br&gt;&lt;br&gt;&lt;b style=&quot;color: rgb(198, 40, 40);&quot;&gt;八、面试题库&lt;/b&gt;（6篇）&lt;br&gt;大模型题 · Agent题 · RAG题&lt;br&gt;工程化题 · 多智能体题 · 场景设计题&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#FCE4EC;strokeColor=#C62828;strokeWidth=2;arcSize=6;verticalAlign=top;spacing=0;overflow=hidden;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="540" y="400" width="430" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="①" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.5;strokeColor=#555555;endArrow=blockThin;endFill=1;fontSize=15;fontStyle=1;fontColor=#555555;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="p1" target="p2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="②" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;html=1;strokeWidth=2.5;strokeColor=#555555;endArrow=blockThin;endFill=1;fontSize=15;fontStyle=1;fontColor=#555555;labelBackgroundColor=#FFFFFF;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;" parent="1" source="p2" target="p3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="③" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2.5;strokeColor=#555555;endArrow=blockThin;endFill=1;fontSize=15;fontStyle=1;fontColor=#555555;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="p3" target="p4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

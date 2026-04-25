@@ -240,8 +240,9 @@ export default sidebar({
       text: "Go Agent实战指南",
       collapsible: true,
       children: [
+        "/go_agent_series/introduction.md",
         {
-          text: "一、大模型基础",
+          text: "二、大模型基础",
           collapsible: true,
           children: [
             "/go_agent_series/llm_base/llm_overview.md",
@@ -251,7 +252,7 @@ export default sidebar({
           ]
         },
         {
-          text: "二、Agent认知",
+          text: "三、Agent认知",
           collapsible: true,
           children: [
             "/go_agent_series/agent_concepts/agent_definition.md",
@@ -262,7 +263,7 @@ export default sidebar({
           ]
         },
         {
-          text: "三、Eino框架基础",
+          text: "四、Eino框架基础",
           collapsible: true,
           children: [
             "/go_agent_series/eino_basic/eino_overview.md",
@@ -274,7 +275,7 @@ export default sidebar({
           ]
         },
         {
-          text: "四、Eino框架进阶",
+          text: "五、Eino框架进阶",
           collapsible: true,
           children:[
             "/go_agent_series/eino_advanced/eino_chain_graph.md",
@@ -287,7 +288,7 @@ export default sidebar({
           ]
         },
         {
-          text: "五、RAG原理与实战",
+          text: "六、RAG原理与实战",
           collapsible: true,
           children:[
             "/go_agent_series/rag/rag_overview.md",
@@ -297,7 +298,7 @@ export default sidebar({
           ]
         },
         {
-          text: "六、大模型面试题",
+          text: "七、大模型面试题",
           collapsible: true,
           children: [
             "/backend_series/llm_interview/transform_attention.md",

@@ -15,7 +15,7 @@ export default navbar([
   {
     text: "🤖Go Agent实战指南",
     //icon: "robot",
-    link: "/go_agent_series/llm_base/llm_overview.md",
+    link: "/go_agent_series/introduction.md",
   },
   {
     text: "🧑‍💻程序人生",

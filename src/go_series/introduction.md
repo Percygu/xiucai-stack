@@ -1,5 +1,6 @@
 ---
 title: 一、前言
+description: "Go语言进阶之路，专注Go语言学习与面试。涵盖Go语言基础语法、并发编程、Gin/GORM框架实战、Slice/Map/Channel/GMP底层原理剖析、面试题库等内容，30W字+300张图，实战+图解帮你系统掌握Go语言"
 category:
   - Go语言
 tag:
@@ -60,79 +61,103 @@ tag:
 ![Go语言进阶之路](../assets/img/go语言系列/go语言进阶之路.png)
 
 ### **Go语言前景分析** 👇
-- [**Go语言前景**](./go_prospect/go_prospect.md)：为什么选择Go？Go的应用场景分析
+
+| 文章 | 内容简介 |
+|------|----------|
+| [Go语言前景](./go_prospect/go_prospect.md) | 为什么选择Go？Go的应用场景分析 |
 
 ### **环境准备篇** 👇
-- [**Go环境搭建**](./go_environment/go_environment.md)：从安装到配置的完整指南
+
+| 文章 | 内容简介 |
+|------|----------|
+| [Go环境搭建](./go_environment/go_environment.md) | 从安装到配置的完整指南 |
 
 ### **语言基础篇** 👇
-- [**Go语言代码结构**](./go_base/go_code_structure.md)：理解Go程序的组织方式
-- [**Go语言命名规范**](./go_base/go_naming_standards.md)：Go语言的命名约定和规范
-- [**Go语言变量**](./go_base/go_variable.md)：数据类型和变量声明
-- [**Go语言常量**](./go_base/go_constant.md)：常量的定义和使用
-- [**Go语言运算符**](./go_base/go_operators.md)：各种运算符的使用和优先级
-- [**Go语言结构体**](./go_base/go_struct.md)：自定义类型和方法定义
-- [**Go语言数组与切片**](./go_base/go_slice.md)：数组和切片的区别与使用
-- [**Go语言Map**](./go_base/go_map.md)：映射类型的操作和应用场景
-- [**Go语言条件句**](./go_base/go_condition.md)：条件控制语句的使用
-- [**Go语言循环**](./go_base/go_loop.md)：循环语句和迭代控制
-- [**Go语言指针**](./go_base/go_pointer.md)：指针的概念和内存地址操作
-- [**Go语言函数**](./go_base/go_function.md)：函数定义、参数传递、返回值
-- [**Go语言方法**](./go_base/go_method.md)：方法接收者和方法集
-- [**Go语言接口**](./go_base/go_interface.md)：接口的定义和多态实现
-- [**Go语言error**](./go_base/go_error.md)：错误处理的Go语言方式
-- [**Go语言defer**](./go_base/go_defer.md)：延迟执行和资源清理
-- [**Go语言异常捕获**](./go_base/go_exception.md)：panic和recover机制
-- [**Go语言依赖管理**](./go_base/go_dependency.md)：使用go module管理项目依赖
-- [**Go编码规范**](./go_coding_standards/go_coding_standards.md)：写出优雅Go代码的最佳实践
+
+| 文章 | 内容简介 |
+|------|----------|
+| [Go语言代码结构](./go_base/go_code_structure.md) | 理解Go程序的组织方式 |
+| [Go语言命名规范](./go_base/go_naming_standards.md) | Go语言的命名约定和规范 |
+| [Go语言变量](./go_base/go_variable.md) | 数据类型和变量声明 |
+| [Go语言常量](./go_base/go_constant.md) | 常量的定义和使用 |
+| [Go语言运算符](./go_base/go_operators.md) | 各种运算符的使用和优先级 |
+| [Go语言结构体](./go_base/go_struct.md) | 自定义类型和方法定义 |
+| [Go语言数组与切片](./go_base/go_slice.md) | 数组和切片的区别与使用 |
+| [Go语言Map](./go_base/go_map.md) | 映射类型的操作和应用场景 |
+| [Go语言条件句](./go_base/go_condition.md) | 条件控制语句的使用 |
+| [Go语言循环](./go_base/go_loop.md) | 循环语句和迭代控制 |
+| [Go语言指针](./go_base/go_pointer.md) | 指针的概念和内存地址操作 |
+| [Go语言函数](./go_base/go_function.md) | 函数定义、参数传递、返回值 |
+| [Go语言方法](./go_base/go_method.md) | 方法接收者和方法集 |
+| [Go语言接口](./go_base/go_interface.md) | 接口的定义和多态实现 |
+| [Go语言error](./go_base/go_error.md) | 错误处理的Go语言方式 |
+| [Go语言defer](./go_base/go_defer.md) | 延迟执行和资源清理 |
+| [Go语言异常捕获](./go_base/go_exception.md) | panic和recover机制 |
+| [Go语言依赖管理](./go_base/go_dependency.md) | 使用go module管理项目依赖 |
+| [Go编码规范](./go_coding_standards/go_coding_standards.md) | 写出优雅Go代码的最佳实践 |
 
 ### **并发编程篇** 👇
-- [**并发概述**](./go_advanced/concurrency.md)：并发与并行的区别
-- [**Goroutine**](./go_advanced/goroutine.md)：轻量级线程的使用和管理
-- [**Channel**](./go_advanced/channel.md)：通道的各种使用模式
-- [**Sync**](./go_advanced/sync.md)：互斥锁、读写锁、条件变量等同步原语
-- [**Select**](./go_advanced/select.md)：多路复用的通道操作
-- [**Context**](./go_advanced/context.md)：优雅的并发控制和超时处理
-- [**定时器**](./go_advanced/timer.md)：Timer和Ticker的使用场景
-- [**协程池**](./go_advanced/goroutine_pool.md)：Goroutine池的设计和实现
-- [**反射**](./go_advanced/reflect.md)：运行时类型检查和动态调用
-- [**范型**](./go_advanced/generics.md)：Go 1.18+ 泛型编程
+
+| 文章 | 内容简介 |
+|------|----------|
+| [并发概述](./go_advanced/concurrency.md) | 并发与并行的区别 |
+| [Goroutine](./go_advanced/goroutine.md) | 轻量级线程的使用和管理 |
+| [Channel](./go_advanced/channel.md) | 通道的各种使用模式 |
+| [Sync](./go_advanced/sync.md) | 互斥锁、读写锁、条件变量等同步原语 |
+| [Select](./go_advanced/select.md) | 多路复用的通道操作 |
+| [Context](./go_advanced/context.md) | 优雅的并发控制和超时处理 |
+| [定时器](./go_advanced/timer.md) | Timer和Ticker的使用场景 |
+| [协程池](./go_advanced/goroutine_pool.md) | Goroutine池的设计和实现 |
+| [反射](./go_advanced/reflect.md) | 运行时类型检查和动态调用 |
+| [范型](./go_advanced/generics.md) | Go 1.18+ 泛型编程 |
 
 ### **框架实战篇** 👇
-- [**Gin**](./go_framework/gin.md)：高性能HTTP Web框架实战
-- [**GORM**](./go_framework/gorm.md)：优雅的ORM框架使用指南
+
+| 文章 | 内容简介 |
+|------|----------|
+| [Gin](./go_framework/gin.md) | 高性能HTTP Web框架实战 |
+| [GORM](./go_framework/gorm.md) | 优雅的ORM框架使用指南 |
 
 ### **语言原理篇** 👇
-- [**程序初始化**](./go_principles/initialization.md)：Go程序的启动过程解析
-- [**String原理**](./go_principles/string_principles.md)：字符串的不可变性和内存优化
-- [**Slice原理**](./go_principles/slice_principles.md)：切片的底层数组和扩容策略
-- [**Map原理**](./go_principles/map_principles.md)：哈希表的实现和扩容机制
-- [**Sync.Map原理**](./go_principles/sync.map_principles.md)：并发安全的映射实现
-- [**Channel原理**](./go_principles/channel_principles.md)：通道的底层实现和同步机制
-- [**Context原理**](./go_principles/context_principles.md)：上下文传递和取消机制
-- [**Defer原理**](./go_principles/defer_principles.md)：延迟调用的执行时机和性能
-- [**Interface原理**](./go_principles/interface_principles.md)：接口的底层数据结构
-- [**逃逸分析**](./go_principles/escape_principles.md)：变量分配在栈还是堆的判断
-- [**GMP调度原理**](./go_principles/gmp_principles.md)：Goroutine调度模型深度解析
-- [**内存管理**](./go_principles/memory_principles.md)：Go的内存分配和管理机制
-- [**垃圾回收**](./go_principles/gc_principles.md)：三色标记算法和GC优化
+
+| 文章 | 内容简介 |
+|------|----------|
+| [程序初始化](./go_principles/initialization.md) | Go程序的启动过程解析 |
+| [String原理](./go_principles/string_principles.md) | 字符串的不可变性和内存优化 |
+| [Slice原理](./go_principles/slice_principles.md) | 切片的底层数组和扩容策略 |
+| [Map原理](./go_principles/map_principles.md) | 哈希表的实现和扩容机制 |
+| [Sync.Map原理](./go_principles/sync.map_principles.md) | 并发安全的映射实现 |
+| [Channel原理](./go_principles/channel_principles.md) | 通道的底层实现和同步机制 |
+| [Context原理](./go_principles/context_principles.md) | 上下文传递和取消机制 |
+| [Defer原理](./go_principles/defer_principles.md) | 延迟调用的执行时机和性能 |
+| [Interface原理](./go_principles/interface_principles.md) | 接口的底层数据结构 |
+| [逃逸分析](./go_principles/escape_principles.md) | 变量分配在栈还是堆的判断 |
+| [GMP调度原理](./go_principles/gmp_principles.md) | Goroutine调度模型深度解析 |
+| [内存管理](./go_principles/memory_principles.md) | Go的内存分配和管理机制 |
+| [垃圾回收](./go_principles/gc_principles.md) | 三色标记算法和GC优化 |
 
 ### **测试篇** 👇
-- [**Go语言单测**](./go_testing/go_testing.md)：单元测试、基准测试、表格驱动测试
+
+| 文章 | 内容简介 |
+|------|----------|
+| [Go语言单测](./go_testing/go_testing.md) | 单元测试、基准测试、表格驱动测试 |
 
 ### **面试题库** 👇
-- [**基础面试题**](./go_interview/base_interview.md)：Go语言基础语法相关面试题
-- [**Slice面试题**](./go_interview/slice_interview.md)：切片相关面试题
-- [**Map面试题**](./go_interview/map_interview.md)：映射相关面试题
-- [**Channel面试题**](./go_interview/channel_interview.md)：通道使用和原理相关面试题
-- [**Sync面试题**](./go_interview/sync_interview.md)：同步原语相关面试题
-- [**Context面试题**](./go_interview/context_interview.md)：上下文相关面试题
-- [**Interface面试题**](./go_interview/interface_interface.md)：接口相关面试题
-- [**反射面试题**](./go_interview/reflect_interview.md)：反射机制相关面试题
-- [**GMP面试题**](./go_interview/gmp_interview.md)：Goroutine调度相关面试题
-- [**内存管理面试题**](./go_interview/memory_interview.md)：内存分配和管理相关面试题
-- [**垃圾回收面试题**](./go_interview/gc_interview.md)：GC机制相关面试题
-- [**代码面试题**](./go_interview/coding_interview.md)：编程实现题和算法题
+
+| 面试题 | 核心考点 |
+|--------|----------|
+| [基础面试题](./go_interview/base_interview.md) | Go语言基础语法相关面试题 |
+| [Slice面试题](./go_interview/slice_interview.md) | 切片相关面试题 |
+| [Map面试题](./go_interview/map_interview.md) | 映射相关面试题 |
+| [Channel面试题](./go_interview/channel_interview.md) | 通道使用和原理相关面试题 |
+| [Sync面试题](./go_interview/sync_interview.md) | 同步原语相关面试题 |
+| [Context面试题](./go_interview/context_interview.md) | 上下文相关面试题 |
+| [Interface面试题](./go_interview/interface_interface.md) | 接口相关面试题 |
+| [反射面试题](./go_interview/reflect_interview.md) | 反射机制相关面试题 |
+| [GMP面试题](./go_interview/gmp_interview.md) | Goroutine调度相关面试题 |
+| [内存管理面试题](./go_interview/memory_interview.md) | 内存分配和管理相关面试题 |
+| [垃圾回收面试题](./go_interview/gc_interview.md) | GC机制相关面试题 |
+| [代码面试题](./go_interview/coding_interview.md) | 编程实现题和算法题 |
 
 ## **学习建议**
 
@@ -150,6 +175,18 @@ tag:
 ```
 基础面试题 → 原理深入 → 高频面试题 → 项目实战经验
 ```
+
+## **学完 Go 语言，下一步学什么？**
+
+如果你已经掌握了 Go 语言基础，想要进一步提升竞争力，强烈推荐秀才的另一个系列——[**《Go Agent实战指南》**](/go_agent_series/introduction.md)。
+
+2024年是 AI Agent 元年，掌握 Agent 开发已经成为开发者的核心竞争力。《Go Agent实战指南》**专为 Go 开发者打造**，从大模型基础到 Agent 架构认知，从字节跳动 Eino 框架入门到进阶实战，从 RAG 检索增强到面试题库，帮你用 Go 构建真正能落地的 AI Agent 应用。
+
+- 🤖 **26篇深度文章**，涵盖大模型基础、Agent认知、Eino框架、RAG实战等 8 大模块
+- 🔧 核心框架采用字节跳动开源的 **Eino**，经过字节内部大规模生产验证
+- 🎯 配套 **36道大模型面试题**深度解析，助力 AI 方向面试
+
+<span style="color:rgb(74, 99, 255); font-weight: bold;">Go 语言 + AI Agent = 你的技术护城河，[点击开始学习 →](/go_agent_series/introduction.md)</span>
 
 ## **质量如何？**
 
@@ -175,7 +212,7 @@ tag:
 
 秀才，资深Go开发工程师，有多年互联网后端开发经验，专注于Go语言生态和高并发系统设计
 
-**一个人的学习是孤独的，但是一群人的学习是快乐的。欢迎加入我们的学习交流群，一起学习，一起进步！扫描下方二维码，回复<span style="color:rgb(71, 99, 255);">「加群」</span>，拉你进入百人学习交流群。回复<span style="color:rgb(74, 71, 255);">「Go面试」</span>，领取Go面试题库PDF。**
+**一个人的学习是孤独的，但是一群人的学习是快乐的。欢迎加入我们的学习交流群，一起学习，一起进步！扫描下方二维码，回复<span style="color:rgb(71, 99, 255);">「加群」</span>，拉你进入百人学习交流群。回复<span style="color:rgb(74, 71, 255);">「面试」</span>，领取面试题库PDF。**
 
 ![](../assets/icon/avatar.png)
 
