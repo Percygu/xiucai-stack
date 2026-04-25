@@ -10,16 +10,14 @@ tag:
   - 反射
 ---
 
-# **反射**
-
-## **什么是反射**
+## **1. 什么是反射**
 反射可以认为是程序在运行时的一种能力，反射可以在程序运行时访问、检测和修改它本身状态，比如在程序运行时可以检查变量的类型和值，调用它们的方法，甚至修改它们的值。使用反射可以增加程序的灵活性，简单来说，反射就是程序在运行时能够检测自身和修改自身的一种能力。
 
-## **Go语言反射**
+## **2. Go语言反射**
 对于很多的高级语言都实现了反射，像Java，Python。在Go语言中，反射在Go语言内置的`reflect`包下实现。Go语言中的反射建立在Go的类型系统之上，并且与接口密切相关。通过前面的学习我们知道Go语言的空接口包含类型(`Type`)和值(`Value`)两个部分，在反射里，也要用到类型(`Type`)和值(`Value`)。
 `reflect`包中定义了`reflect.Type`和`reflect.Value`，正好对应我们前面所说的`Type`和`Value`。要注意的是`reflect.Type`是一个接口而`reflect.Value`是一个具体的结构体。在`reflect.Type`接口中定义了很多跟类型相关的方法，而`reflect.Value`则是绑定了很多跟值相关的方法。
 
-### **reflect.TypeOf()**
+### **2.1 reflect.TypeOf()**
 由于`reflect.Type`是一个接口，所以只有当某个类型实现了这个接口，我们才能获取到它的类型，同时，在`reflect`包内，类型描述符是未导出类型，所以我们只能通过`reflect.TypeOf()`方法获取`reflect.Type`类型的值。
 我们首先看一个例子，看下`reflect.TypeOf()`的常用用法：
 ```go
@@ -63,7 +61,7 @@ main.Student
 
 `reflect.TypeOf()`方法获取的就是这个`interface{}`中的类型部分。
 
-### **reflect.ValueOf()**
+### **2.2 reflect.ValueOf()**
 同理，`reflect.ValueOf()`方法自然就是获取接口中的值部分，`reflect.ValueOf()`的返回值其实就是一个`reflect.Value`结构。
 ```go
 import (
@@ -100,7 +98,7 @@ func main() {
 ```
 注意到这里`fmt.Println(v1)`和`fmt.Println(v1.String())`打印的不一样，上面说了`reflect.ValueOf()`的返回值就是一个`reflect.Value`结构，但是`fmt.Println(v1)`却打印出了具体的值，这是因为`fmt.Println`的参数是一个接口类型，在执行过程中有一些类型转换，对`reflect.Value`结构做了特殊处理。
 
-### **Go语言数据种类**
+### **2.3 Go语言数据种类**
 在Go语言中常用的数据类型有26种，以枚举的方式定义在`src/reflect/type.go`文件中：
 
 ![数据种类](../../assets/img/go语言系列/反射/反射2.png)
@@ -142,9 +140,9 @@ kind of num2 is int
 ```
 通过`WrapInt`的定义可以看到，`WrapInt`其实就是用`type`给`int`去了个别名，二者底层其实都是`int`类型，但是通过`reflect.TypeOf`获取到各自的`type`其实是不一样的，不同`type`之间的变量赋值是需要类型强制转换的，但是深层次的去分析`type`的种类，即`Kind`确是一样的。
 
-## **反射使用**
+## **3. 反射使用**
 
-### **值对象**
+### **3.1 值对象**
 `reflect`包下跟值对象相关的常用函数或方法：
 
 | 函数/方法 | 说明 |
@@ -160,7 +158,7 @@ kind of num2 is int
 | `reflect.Value.Index(i)` | 返回切片或数组第i个元素的`reflect.Value`值 |
 | `reflect.Int()/reflect.Uint()/reflect.String()/reflect.Bool()` | 从反射的值对象中取出对应值，注意`reflect.Int()/reflect.Uint()`方法对种类做了合并处理，它们只返回相应的最大范围的类型，`Int()`返回`Int64`类型，`Uint()`返回`Uint64`类型 |
 
-#### **获取struct反射值**
+#### **3.1.1 获取struct反射值**
 ```go
 package main
 
@@ -199,7 +197,7 @@ field2 type is float64, value is 95.500000
 `v := reflect.ValueOf(st)`，`v`是一个`Student`类型的反射值对象，通过`v.NumField()`可以得出`Student`类型的字段个数，然后`v.Field(i).Type().Name()`打印出各个字段值的类型，`v.Field(i)`打印出各个字段值
 注意：`NumField()`和`Field()`方法只有原对象是结构体时才能调用，否则会panic
 
-#### **获取map反射值**
+#### **3.1.2 获取map反射值**
 ```go
 package main
 
@@ -227,7 +225,7 @@ key type is int, key = 2; value type is uint32, value = 200
 ```
 `v := reflect.ValueOf(m)`对map类型的对象m进行反射，通过`v.MapKeys()`的到m中所有key的`reflect.Value`对象k，然后通过`v.MapIndex(k)`的到对应key反射值对象的value反射值对象，然后通过`reflect.Value`的`Type().Name()`方法获取map中key，value的类型，然后打印出对应值
 
-#### **获取slice反射值**
+#### **3.1.3 获取slice反射值**
 ```go
 
 import (
@@ -261,7 +259,7 @@ func main() {
 `v1`，`v2`分别是切片和数组的反射值对象，通过`Len()`获取到数组或切片中的元素个数，然后通过`v.Index(i)`获取对应元素的`reflect.value`对象，打印出其值
 > **注意：`Len()`和`Index(i)`方法只能在原对象是切片，数组或字符串时才能调用，其他类型会panic**。
 
-### **类型对象**
+### **3.2 类型对象**
 reflect包下跟类型相关的常用函数或方法
 
 | 函数/方法 | 说明 |
@@ -276,7 +274,7 @@ reflect包下跟类型相关的常用函数或方法
 | `reflect.Type.NumMethod()` | 获取struct上绑定的方法个数 |
 | `reflect.Type.Method(i)` | 获取struct上绑定的第i个方法 |
 
-#### **struct反射类型**
+#### **3.2.1 struct反射类型**
 ```go
 package main
 
@@ -315,7 +313,7 @@ field1 name is Name, field1 type is string
 ```
 通过`reflect.Type`的`Name()`方法可以获取对应的`Type`类型，`Kind()`方法获取底层的数据种类，即`kind`，跟`reflect.Value`一样，`reflect.Type`也提供了`NumField()`方法用于获取结构体对象中的字段个数，通过`t.Field(i).Name`可以获取对应字段的名字。同样，`Field(i)`和`NumField()`也只能对结构体反射使用
 
-#### **指针反射类型**
+#### **3.2.2 指针反射类型**
 ```go
 package main
 
@@ -358,7 +356,7 @@ field3 name is Score, field3 type is float64
 ```
 可以看到，跟上面直接获取`struct`有一点点小小的区别，那就是`fmt.Println(t.Kind())`打印出的是一个`ptr`指针类型，而不再是`struct`类型，正是因为这里是一个`ptr`，所以我们不能直接在这个`ptr`上调用.Name()以及其他的.NumField()之类的方法，要根据`ptr`的.Elem()获取到具体类型之后，才能用这些方法，否则程序就回报`panic`，这点一定要注意
 
-#### **函数反射类型**
+#### **3.2.3 函数反射类型**
 ```go
 package main
 
@@ -478,7 +476,7 @@ type Method struct {
 ```
 所以，通过`reflect.Method`对象，我们可以获取到`struct`所绑定的对应方法的方法名，方法类型等信息
 
-### **通过反射调用方法**
+### **3.3 通过反射调用方法**
 在上一小节我们知道了`reflect.Type.Method(i)`可以获取到`struct`所绑定的具体的方法对象`reflect.Method`，通过这个对象，我们不仅可以获取方法的详细信息，还可以动态的调用方法。
 其实在`reflect.Value`里我们也可以使用`NumMethod()`/`Method(i)`方法获取到对应的方法信息，不同的是`reflect.Value.Method(i)`返回的使一个`reflect.Value`对象，但是同样可以根据这个对象来动态调用方法，只是两者调用方法的方式有所区别
 请看具体例子：
@@ -564,7 +562,7 @@ m1.Func.Call(argsV1)
 m2.Call(argsV2)
 ```
 
-### **通过反射设置值**
+### **3.4 通过反射设置值**
 在介绍通过反射设置或者说是修改值的方法之前，首先介绍一个概念，反射寻址。简单的说，可寻址就是可以根据地址找到值，在反射里面，`reflect.Value`由`reflect.ValueOf()`方法得到，根据命名就可以知道`reflect.ValueOf()`是得到一个值对象，显然他不能得到这个值的地址。所以通过`reflect.ValueOf()`方法得到的`reflect.Value`都是不可寻址的。在`reflect`包下有一个`CanAddr()`方法可以用于验证一个对象是否可寻址
 ```go
 package main
@@ -783,7 +781,7 @@ st = &{Name:lisi Age:18 Score:90.5}
 ```
 可以看到，通过调用第一个字段`reflect.value`的`SetString`方法，将`st`对象的`Name`改为了`lisi`。
 
-### **结构体标签**
+### **3.5 结构体标签**
 我们在定义结构体的时候，可以为每个字段后面加一个标签，即`StructTag`，标签其实就是一组键值对，每个键值对用空格分开，这些标签信息可以通过反射获取：
 ```go
 package main
@@ -819,7 +817,7 @@ json:"age"
 json:"score"
 ```
 
-## **反射的优缺点**
+## **4. 反射的优缺点**
 优点：
 - 可以提升程序代码的灵活性，根据条件在程序运行时灵活的调用函数，并且修改源代码结构
 

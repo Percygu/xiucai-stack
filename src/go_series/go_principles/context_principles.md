@@ -10,15 +10,13 @@ tag:
   - context原理
 ---
 
-# **context原理**
-
-## **context是什么**
+## **1. context是什么**
 
 context是go语言在1.7引入的一个用于goroutine之间传递信息的并发安全的包，context可以翻译为上下文，其在项目中主要是用于上下与下层goroutine的取消控制以及数据共享，也是go语言中goroutine之间通信的一种方式，其底层是借助channl与sync.Mutex实现的。
 
 关于context的用法我们在前一章节并发实践里已经做过介绍，本章主要介绍一下context的底层原理
 
-## **context的底层实现**
+## **2. context的底层实现**
 
 与context相关的源码基本都在src/context/context.go中，我们通过源码来看一下，context的底层究竟做了些什么
 
@@ -55,9 +53,9 @@ context接口的四种实现
 
 下面我们将逐一解读这几个结构及其实现方法
 
-## **接口说明**
+## **3. 接口说明**
 
-### **context接口**
+### **3.1 context接口**
 
 首先还是回顾一下context接口，context的接口定义如下：
 
@@ -80,7 +78,7 @@ type Context interface {
 
 * 4.`Value` ：从 context.Context 中获取键对应的值，类似于map的get方法，对于同一个context，多次调用 Value 并传入相同的 Key 会返回相同的结果，如果没有对应的`key`,则返回`nil`，键值对是通过WithValue方法写入
 
-### **canceler接口**
+### **3.2 canceler接口**
 
 **canceler接口的源码定义如下**
 
@@ -93,11 +91,11 @@ type canceler interface {
 
 canceler接口主要用于取消方法的实现，如果一个示例既实现了context接口又实现了canceler接口，那么这个context就是可以本取消的，比如cancelCtx 和timerCtx。如果仅仅只是实现了context接口，而没有实现canceler，就是不可取消的，比如emptyCtx 和valueCtx。
 
-## **contex实现**
+## **4. contex实现**
 
 在context报下对context接口有四种基本的实现，即emptyCtx ，cancelCtx ，timerCtx，valueCtx
 
-### **emptyCtx**
+### **4.1 emptyCtx**
 
 首先看一下emptyCtx 这个最基本的实现，emptyCtx 虽然实现了context接口，但是不具备任何功能，因为实现很简单，基本都是直接返回空值。虽然emptyCtx 没有任何功能，但他还是有作用的，一般用它作为根context来派生出有实际用处的context。要想创建有实际功能的context，要使用后续提供的一系列with方法来派生出新的context，这个在前面讲context用法的时候已经做过介绍，就不再过多赘述。
 
@@ -334,7 +332,7 @@ func parentCancelCtx(parent Context) (*cancelCtx, bool) {
 
 3. 父context可以被取消，但是还未被取消，父context不能提取出标准的cancelCtx结构，新起一个goroutine监控父子context的通信管道有没有取消信号
 
-### **timerCtx**
+### **4.2 timerCtx**
 
 timerCtx在cancelCtx 的基础上，又提供了截止时间的功能，不仅拥有像cancelCtx 一样，可以通过调用取消函数cancelFun来取消子context的方式，还可以设置一个截止时间deadline ，在 deadline 到来时，自动取消 context。
 
@@ -415,7 +413,7 @@ func WithDeadline(parent Context, d time.Time) (Context, CancelFunc) {
 
 设置的截止时间早于父context的截止时间，会创建一个正常的timerCtx
 
-### **valueCtx**
+### **4.3 valueCtx**
 
 valueCtx的作用与上述三个context有点不同，他不是用于父子context之间的取消的，而是用于数据共享。作用类似于一个map，不过数据的存储和读取是在两个context，用于goroutine之间的数据传递。
 

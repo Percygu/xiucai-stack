@@ -7,7 +7,6 @@ tag:
   - 环境搭建
 ---
 
-# **Go环境搭建**
 Golang是云原生时代的宠儿，它最大的优点在于简单有效，简单在于上手迅速、代码规范、部署方便；有效在于它能很容易写出高并发的代码，处理能力强。
 Golang能适用于web后台、数据库、云原生、区块链等大多数场景，大厂与其相关的招聘岗位也在逐年增加，因此，学习Golang这样相对较新、发展前景很好的语言，我们是可以实现弯道超车的。
 本文环境安装部分，每个步骤都贴出了执行命令，希望小伙伴们读完此文，自己动手安装Go环境，实现快速入门，用Golang开启新的旅程。
@@ -18,7 +17,6 @@ Go语言可以运行在Linux，Windows以及Mac系统上，对于开发者而言
 下面将分别介绍这三个平台的安装方式。Go语言官方安装包地址：[https://golang.org/dl/](https://golang.org/dl/)大家可以上去选择自己需要的版本，通常来说选择次新版本即可，下面的演示选择的是go1.22.10版本
 
 ![](../../assets/img/go语言安装/go安装3.png)
-
 
 打开[https://go.dev/doc/install](https://go.dev/doc/install)可以看到各个系统下的安装介绍
 
@@ -93,7 +91,7 @@ GoLand下载官网地址: https://www.jetbrains.com/go/download/， 根据操作
 
 ![](../../assets/img/go语言安装/go安装9.png)
 
-#### **2.2.1 设置Go Modules**
+#### **2.2.2 设置Go Modules**
 Go1.14版本之后，Go项目推荐使用Go Modules来管理依赖，在Goland中要使用Go Modules，同样要把Go Modules设置开启，打开Settings → Go → Go Moudles，勾选打开即可
 
 ![](../../assets/img/go语言安装/go安装10.png)
@@ -117,7 +115,6 @@ go mod init hello
 可以查看下go.mod的文件内容，第一行表示module名为hello，go的版本为1.20
 
 ![](../../assets/img/go语言安装/go安装12.png)
-
 
 3. 在hello文件夹创建一个main.go文件，文件内容如下：
 ```go
@@ -150,8 +147,8 @@ go build
 
 ![](../../assets/img/go语言安装/go安装14.png)
 
-### **3.1 Goland方式**
-#### **3.1.1 新建Go项目**
+### **3.2 Goland方式**
+#### **3.2.1 新建Go项目**
 打开Goland应用，或者事在已经打开的Goland的最上方选择File → New → Project， 继而弹出New Project设置向导：
 
 ![](../../assets/img/go语言安装/go安装15.png)
@@ -174,8 +171,7 @@ func main() { // main函数，是程序执行的入口
 
 ![](../../assets/img/go语言安装/go安装17.png)
 
-
-#### **3.1.2 导入已有Go项目**
+#### **3.2.2 导入已有Go项目**
 如果你本地已有Go项目代码，只需在主菜单选择File → Open，打开你的项目目录即可。比如我们打开刚刚命令行方式常见的hello工程
 
 ![](../../assets/img/go语言安装/go安装18.png)
@@ -201,7 +197,4 @@ func main() { // main函数，是程序执行的入口
 ![](/assets/icon/avatar.png)
 
 </div> 
-
-
-
 

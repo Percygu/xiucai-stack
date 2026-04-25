@@ -55,8 +55,8 @@ export default sidebar({
           text: "六、Go语言框架",
           collapsible: true,
           children: [
-            "/go_series/go_framework/gorm.md",
             "/go_series/go_framework/gin.md",
+            "/go_series/go_framework/gorm.md",
           ]
         },
         {

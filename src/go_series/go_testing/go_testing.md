@@ -9,9 +9,6 @@ tag:
   - 单元测试
 ---
 
-# **Go单元测试**
-
-
 ## **1. 什么是单元测试**
 
 单元测试是软件开发中的一种测试方法，旨在验证代码中最小可测试单元（如函数、方法、类）的行为是否符合预期，它是开发流程的重要组成部分。单元测试的目标是发现代码中的缺陷和错误，并确保代码的正确性和稳定性。
@@ -222,7 +219,6 @@ func TestSlicesEqual(t *testing.T) {
 
   测试切片相等性函数 ✔
 
-
 1 total assertion
 
 --- PASS: TestSlicesEqual (0.00s)
@@ -276,7 +272,6 @@ func TestSlicesEqual(t *testing.T) {
     当两个非空切片内容相同时 ✔
     当两个都是nil切片时 ✔
     当两个切片长度不同时 ✔
-
 
 3 total assertions
 
@@ -1019,7 +1014,7 @@ func TestHTTPClient(t *testing.T) {
 
 ## **8. 实战案例：消息通讯系统**
 
-### **8.1  项目概览**
+### **8.1 项目概览**
 
 假设该项目是一个具有用户登录、查看在线用户、私聊、群聊等功能的命令行通讯系统。项目分为Client和Server两个子模块，都采用Model-Controller(Processor)-View(Main)的架构进行功能划分。另外还有一个Common模块存放通用工具类和数据结构。
 
@@ -1172,7 +1167,7 @@ func TestMessageSender_SendPrivateMessage(t *testing.T) {
 }
 ```
 
-### **8.4  登录功能测试**
+### **8.4 登录功能测试**
 
 登录功能涉及服务器连接和数据处理，我们可以使用多种Mock技术结合测试：
 
@@ -1267,7 +1262,7 @@ func TestUserProcessor_Login(t *testing.T) {
 }
 ```
 
-## **8.5 工具类测试**
+## **9. 工具类测试**
 
 测试网络传输工具类：
 
@@ -1354,7 +1349,7 @@ func TestTransfer_WritePackage(t *testing.T) {
 
 * [GoMock实践指南](https://github.com/golang/mock)
 
-## **9. 基准测试**
+## **10. 基准测试**
 
 除了前面提到的单元测试，测试代码单元的正确性之外，Go语言还提供了基准测试框架，可以测试一段程序的性能、CPU消耗，可以对代码做性能分析，测试方法与单元测试类似。
 
@@ -1540,7 +1535,7 @@ func BenchmarkAbsParallel(b *testing.B) {
 
 可以通过 `-cpu` 参数为 `go test` 指定 GOMAXPROCS 的值，用来控制使用的 CPU 核心数量。如果想了解更多 `go test` 支持的参数选项，可以执行命令 `go help testflag` 来获取完整的帮助信息。
 
-## **10. 小结**
+## **11. 小结**
 
 单元测试（Unit Test，简称 UT）是高质量软件项目中不可缺少的一个组成部分。它的核心目标是对程序中**最小的功能单位**进行验证，通常是一个函数或者方法，确保其行为符合预期。Go语言对单元测试提供了很好的支持，其自身就带有一个轻量级的测试框架testing，可以用自带的go test命令来实现单元测试和性能测试。同时也有非常多好用的第三方测试包，比如GoConvey，testify等，可以更加简洁的写测试用例。写好Go程序的单测，不仅仅可以确保代码的完整性和正确性，也是一个Gopher基本功的重要体现
 

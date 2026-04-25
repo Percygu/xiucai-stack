@@ -9,9 +9,7 @@ tags:
   - context面试题
 ---
 
-# Context面试题
-
-## 1. Go语言里的Context是什么？
+## **1. Go语言里的Context是什么？**
 
 go语言里的context实际上是一个接口，提供了Deadline()，Done()，Err()以及Value()四种方法。它在Go 1.7 标准库被引入。
 
@@ -38,7 +36,7 @@ type Context interface {
 
 * `Value()` - 允许`Context`在调用链中携带请求范围的键值对数据。
 
-## 2. Go语言的Context有什么作用？
+## **2. Go语言的Context有什么作用？**
 
 Go的Context主要解决三个核心问题：**超时控制、取消信号传播和请求级数据传递**
 
@@ -48,7 +46,7 @@ Go的Context主要解决三个核心问题：**超时控制、取消信号传播
 
 ![](../../assets/img/go语言系列/go面试题库/Context面试题/image-1.png)
 
-## 3. Context.Value的查找过程是怎样的
+## **3. Context.Value的查找过程是怎样的**
 
 Context.Value的查找过程是一个**链式递归查找的过程**，从当前Context开始，沿着父Context链一直向上查找直到找到对应的key或者到达根Context。
 
@@ -56,7 +54,7 @@ Context.Value的查找过程是一个**链式递归查找的过程**，从当前
 
 ![](../../assets/img/go语言系列/go面试题库/Context面试题/image.png)
 
-## 4. Context如何被取消
+## **4. Context如何被取消**
 
 Context的取消是通过**channel关闭信号**实现的，主要有三种取消方式。
 
