@@ -35,11 +35,11 @@ features:
 
   - title: 📚 后端架构进阶
     details: 深入浅出的系统设计文章，覆盖微服务、分布式，架构设计、性能优化等核心知识，再配合50+热门场景面试题，助你成为面试达人！
-    link: ./backend_series/advanced_interview/tinyurl.md
+    link: ./backend_series/advanced_interview/load_balance.md
 
   - title: ⭐ AI进阶实战
     details: 从理论到实践的AI开发教程，包括大模型应用、LangChain开发、RAG实战、AI助手打造等，带你进入AI开发新纪元！
-    link: ./ai_series/generative_ai/ai_introduction.md
+    link: ./go_agent_series/introduction.md
 ---
 
 ## 推荐阅读

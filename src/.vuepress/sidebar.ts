@@ -152,6 +152,7 @@ export default sidebar({
         "/backend_series/llm_interview/rag_store.md",
         "/backend_series/llm_interview/prompt_injection.md",
         "/backend_series/llm_interview/rag_query.md",
+        "/backend_series/llm_interview/agent_high_availability.md",
       ]
     },
     {
@@ -337,6 +338,7 @@ export default sidebar({
             "/backend_series/llm_interview/rag_store.md",
             "/backend_series/llm_interview/prompt_injection.md",
             "/backend_series/llm_interview/rag_query.md",
+            "/backend_series/llm_interview/agent_high_availability.md",
           ]
         },
         {
