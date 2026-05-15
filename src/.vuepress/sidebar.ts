@@ -155,6 +155,7 @@ export default sidebar({
         "/backend_series/llm_interview/agent_high_availability.md",
         "/backend_series/llm_interview/llm_architecture.md",
         "/backend_series/llm_interview/rag_update.md",
+        "/backend_series/llm_interview/function_calling.md",
       ]
     },
     {
@@ -343,6 +344,7 @@ export default sidebar({
             "/backend_series/llm_interview/agent_high_availability.md",
             "/backend_series/llm_interview/llm_architecture.md",
             "/backend_series/llm_interview/rag_update.md",
+            "/backend_series/llm_interview/function_calling.md",
           ]
         },
         {
