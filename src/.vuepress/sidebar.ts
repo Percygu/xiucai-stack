@@ -302,7 +302,11 @@ export default sidebar({
           ]
         },
         {
-          text: "七、大模型面试题",
+          text: "七、Agent项目实战",
+          link: "/projects/interview-agent.md",
+        },
+        {
+          text: "八、大模型面试题",
           collapsible: true,
           children: [
             "/backend_series/llm_interview/transform_attention.md",

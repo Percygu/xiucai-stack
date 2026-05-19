@@ -18,6 +18,11 @@ export default navbar([
     link: "/go_agent_series/introduction.md",
   },
   {
+    text: "🔥Agent项目",
+    //icon: "chart-simple",
+    link: "/projects/interview-agent.md",
+  },
+  {
     text: "🧑‍💻程序人生",
     link: "/life_series/35.md",
   },

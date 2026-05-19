@@ -175,10 +175,10 @@ Nano Banana 提示词：
 | [文档处理与Chunking策略](./rag/rag_chunking.md) | 分块策略、元数据提取、Go实现 |
 | [基于Eino构建RAG Agent](./rag/rag_eino_practice.md) | Retriever组件、检索工具封装、效果优化 |
 
-### **六、大模型面试题（36题）** 👇
+### **六、大模型面试题（40题）** 👇
 > 🎯 查漏补缺 — 覆盖 Agent 开发领域的高频面试题
 
-涵盖 Transformer与注意力机制、Agent架构与原理、RAG检索增强、Prompt工程、多智能体协作等 **36 道**深度面试题解析，每题都有详细的技术分析和面试参考回答。
+涵盖 Transformer与注意力机制、Agent架构与原理、RAG检索增强、Prompt工程、多智能体协作等 **40 道**深度面试题解析，每题都有详细的技术分析和面试参考回答。
 
 | 面试题 | 核心考点 |
 |--------|----------|
@@ -218,6 +218,10 @@ Nano Banana 提示词：
 | [RAG存储架构设计](/backend_series/llm_interview/rag_store.md) | 向量库、文档库、元数据的存储架构方案 |
 | [Prompt注入攻击与防护](/backend_series/llm_interview/prompt_injection.md) | 攻击方式分类、防护策略与安全实践 |
 | [RAG Query改写与Prompt构建](/backend_series/llm_interview/rag_query.md) | 查询改写方法、基于检索结果的Prompt构建 |
+| [Agent高可用与稳健性设计](/backend_series/llm_interview/agent_high_availability.md) | 多模型Fallback、工具熔断、Checkpoint、降级策略 |
+| [大模型应用后端架构设计](/backend_series/llm_interview/llm_architecture.md) | SSE流式响应、多模型路由、语义缓存、Token成本控制 |
+| [RAG知识库更新策略](/backend_series/llm_interview/rag_update.md) | 增量更新、双索引蓝绿切换、质量验证、过期清理 |
+| [Function Calling可靠性保障](/backend_series/llm_interview/function_calling.md) | 失败模式分析、Schema优化、参数校验、重试降级 |
 
 ## **核心框架：字节跳动 Eino**
 
@@ -298,9 +302,17 @@ Eino进阶（7篇） → RAG实战（4篇） → 项目实战 → 面试题库
 
 ### **📚 面试突击路径**
 ```
-Agent认知（5篇） → RAG原理（1篇） → 面试题库（35+题）
+Agent认知（5篇） → RAG原理（1篇） → 面试题库（40题）
 ```
 适合：准备 AI 方向技术面试的求职者。重点理解原理，刷面试题。
+
+## **学完想实战？**
+
+如果你跟着上面的学习路径把理论和框架都啃完了，接下来最好的巩固方式就是做一个**完整的项目**。秀才基于本系列的技术栈（Go + Eino），打磨了一个工程级实战项目——**AI 模拟面试官（InterviewAgent）**。
+
+这个项目把本系列学到的多 Agent 协作、RAG 多路召回、MCP 协议、记忆系统等技术全部串联在一起，配套 36 篇从需求分析到代码实现的深度教程，还附带简历写法和 50+ 面试题。学完不仅能加深理解，还能直接写进简历拿去面试——学技术和找工作，一举两得。
+
+[![AI 模拟面试官](../assets/img/项目/AI模拟面试官/AI模拟面试官宣传文档-image-14.png)](/projects/interview-agent.md)
 
 ## **质量如何？**
 

@@ -190,6 +190,10 @@ tag:
 
 <span style="color:rgb(74, 99, 255); font-weight: bold;">Go 语言 + AI Agent = 你的技术护城河，[点击开始学习 →](/go_agent_series/introduction.md)</span>
 
+如果你学完 Go 语言和 Agent 理论后，想通过一个**完整的实战项目**来检验学习成果，可以看看秀才打磨的这个大模型应用项目——**AI 模拟面试官（InterviewAgent）**。基于 Go + Eino 框架，涵盖多 Agent 协作、RAG 多路召回、MCP 协议、记忆系统等核心技术，配套 36 篇深度教程，从需求分析到代码实现到简历面试，是一个真正能写进简历、拿去面试的工程级项目。
+
+[![AI 模拟面试官](../assets/img/项目/AI模拟面试官/AI模拟面试官宣传文档-image-14.png)](/projects/interview-agent.md)
+
 ## **5. 质量如何？**
 
 这份《Go语言进阶之路》自发布以来，已经帮助了数千名开发者：
