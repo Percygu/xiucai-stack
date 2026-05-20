@@ -312,7 +312,7 @@ Agent认知（5篇） → RAG原理（1篇） → 面试题库（40题）
 
 这个项目把本系列学到的多 Agent 协作、RAG 多路召回、MCP 协议、记忆系统等技术全部串联在一起，配套 36 篇从需求分析到代码实现的深度教程，还附带简历写法和 50+ 面试题。学完不仅能加深理解，还能直接写进简历拿去面试——学技术和找工作，一举两得。
 
-[![AI 模拟面试官](../assets/img/项目/AI模拟面试官/AI模拟面试官宣传文档-image-14.png)](/projects/interview-agent.md)
+[![AI 模拟面试官](../assets/img/项目/AI模拟面试官/AI面试官项目海报.png)](/projects/interview-agent.md)
 
 ## **质量如何？**
 
