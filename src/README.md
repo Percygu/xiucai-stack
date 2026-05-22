@@ -41,9 +41,9 @@ features:
     details: 从理论到实践的AI开发教程，涵盖大模型应用、RAG实战、AI助手打造，进入AI新纪元！
     link: ./go_agent_series/introduction.md
 
-  - title: 🔥 Agent项目实战
-    details: 真实落地的AI Agent项目，多Agent协作、RAG召回、MCP协议、记忆系统，从零打造企业级应用！
-    link: ./projects/interview-agent.md
+  # - title: 🔥 Agent项目实战
+  #   details: 真实落地的AI Agent项目，多Agent协作、RAG召回、MCP协议、记忆系统，从零打造企业级应用！
+  #   link: ./projects/interview-agent.md
 ---
 
 ## 推荐阅读
