@@ -17,20 +17,20 @@ export default navbar([
     //icon: "robot",
     link: "/go_agent_series/introduction.md",
   },
-  // {
-  //   text: "🔥Agent项目",
-  //   //icon: "chart-simple",
-  //   link: "/projects/interview-agent.md",
-  // },
-  // {
-  //   text: "🧑‍💻程序人生",
-  //   link: "/life_series/35.md",
-  // },
-  // {
-  //   text: "🌟求职训练营🌟",
-  //   //icon: "user",
-  //   link: "/offer.md",
-  // },
+  {
+    text: "🔥Agent项目",
+    //icon: "chart-simple",
+    link: "/projects/interview-agent.md",
+  },
+  {
+    text: "🧑‍💻程序人生",
+    link: "/life_series/35.md",
+  },
+  {
+    text: "🌟求职训练营🌟",
+    //icon: "user",
+    link: "/offer.md",
+  },
   {
     text: "关于作者",
     icon: "user",

@@ -577,6 +577,21 @@ body {
   }
 }
 
+// 主页features区域4列布局
+.vp-features {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1rem !important;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 // 主页features部分的样式美化
 .vp-feature-item {
   background-color: #f0f7ff !important; // 淡蓝色背景

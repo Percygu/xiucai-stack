@@ -30,16 +30,20 @@ actions:
 
 features:
   - title: 🎯 Go语言从入门到面试
-    details: 系统化的Go语言进阶路线，从基础语法到高并发编程，以及精心整理的Go开发面试题库，配合实战经验分析，让你的技术之路走得更稳更远！
+    details: 系统化的Go语言进阶路线，从基础语法到高并发编程，配合精心整理的面试题库，助你稳步进阶！
     link: ./go_series/introduction.md
 
   - title: 📚 后端架构进阶
-    details: 深入浅出的系统设计文章，覆盖微服务、分布式，架构设计、性能优化等核心知识，再配合50+热门场景面试题，助你成为面试达人！
+    details: 深入浅出的系统设计文章，覆盖微服务、分布式、性能优化等核心知识，配合50+面试题！
     link: ./backend_series/advanced_interview/load_balance.md
 
   - title: ⭐ AI进阶实战
-    details: 从理论到实践的AI开发教程，包括大模型应用、LangChain开发、RAG实战、AI助手打造等，带你进入AI开发新纪元！
+    details: 从理论到实践的AI开发教程，涵盖大模型应用、RAG实战、AI助手打造，进入AI新纪元！
     link: ./go_agent_series/introduction.md
+
+  - title: 🔥 Agent项目实战
+    details: 真实落地的AI Agent项目，多Agent协作、RAG召回、MCP协议、记忆系统，从零打造企业级应用！
+    link: ./projects/interview-agent.md
 ---
 
 ## 推荐阅读
