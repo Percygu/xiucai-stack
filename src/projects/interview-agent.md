@@ -2,7 +2,7 @@
 title: "AI模拟面试官"
 slug: "interview-agent"
 keywords: ["AI面试官", "多Agent", "RAG", "Go", "Eino", "Java", "Spring AI Alibaba", "大模型项目", "面试项目", "AI项目", "Agent项目"]
-description: "大模型Agent项目：基于 Go（Eino 框架）和 Java（Spring AI Alibaba 框架）双语言各实现一套的 AI Agent 实战面试项目，涵盖多Agent编排、RAG多路召回、MCP协议、记忆系统、Skill技能系统等，配套双语言深度教程、50+面试题以及两套简历写法"
+description: "大模型Agent项目：Go（Eino）+ Java（Spring AI Alibaba）双语言实现的 AI 模拟面试项目，涵盖多Agent编排、RAG多路召回、MCP、记忆系统、Skill系统，配套双语言教程、50+面试题及两套简历写法"
 category: ["AI", "Go", "Java", "Agent"]
 tags: 
   - AI项目
