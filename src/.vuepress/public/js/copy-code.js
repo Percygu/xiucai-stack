@@ -303,23 +303,6 @@
     // 定期检查并应用样式
     setInterval(ensureTextSelectable, 1000);
     
-    // 13. 监测开发者工具
-    function checkDevTools() {
-      const threshold = 160;
-      const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-      const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-      
-      if (
-        !(heightThreshold && widthThreshold) &&
-        ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)
-      ) {
-        alert('请不要尝试使用开发者工具查看或复制内容！');
-      }
-    }
-    
-    // 定期检查开发者工具
-    setInterval(checkDevTools, 3000);
-    
     console.log('防复制功能已初始化');
   }
 })(); 
