@@ -18,13 +18,14 @@ export default navbar([
     link: "/go_agent_series/introduction.md",
   },
   {
+    text: "🔥Vibe Coding实战指南",
+    //icon: "code",
+    link: "/vibe_coding_series/basics/what_is_vibe_coding.md",
+  },
+  {
     text: "🔥Agent项目",
     //icon: "chart-simple",
     link: "/projects/interview-agent.md",
-  },
-  {
-    text: "🧑‍💻程序人生",
-    link: "/life_series/35.md",
   },
   {
     text: "🌟求职训练营🌟",

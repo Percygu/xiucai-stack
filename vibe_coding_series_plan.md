@@ -2,9 +2,9 @@
 
 > 面向零基础小白的 Vibe Coding（氛围编程）系统教程，从"什么是 Vibe Coding"到独立交付完整项目，由浅入深、层层递进。
 >
-> 核心工具：Claude Code（终端 AI 编程助手）
+> 核心工具：三大主流 Coding Agent —— Claude Code、Cursor、Codex
 >
-> 总计：**25篇 + 1篇导读**
+> 总计：**约 51 篇 + 1篇导读**
 
 ---
 
@@ -23,20 +23,25 @@
 2. **实战驱动**：70% 的篇幅围绕实际操作，读者跟着教程就能做出东西
 3. **图文并茂**：大量配图（操作截图、流程图、对比图），让读者"看一眼就懂"
 4. **循序渐进**：前面的文章是后面的基础，知识链路清晰不跳跃
-5. **工具中立但有主张**：以 Claude Code 为主线，同时介绍 Cursor、Copilot 等工具，帮读者选择最适合自己的
+5. **聚焦三大主流 Coding Agent**：全系列围绕 Claude Code、Cursor、Codex 三大主流工具展开，以 Claude Code 为主线，三者都讲深讲透；其他工具（Copilot/Windsurf/v0 等）仅在全景/扫盲篇一笔带过
 
 ---
 
 ## 整体目录结构
 
 ```
-vibe_coding_series/                  # 共 25 篇
+vibe_coding_series/                  # 共约 51 篇
 ├── introduction.md                  # 系列导读（1篇）
 ├── basics/                          # 一、认知篇（3篇）
-├── setup/                           # 二、环境搭建篇（3篇）
+├── setup/                           # 二、环境搭建篇（4篇）
 ├── prompt/                          # 三、Prompt技巧篇（4篇）
-├── tools/                           # 四、工具精通篇（4篇）
-├── engineering/                     # 五、工程实践篇（4篇）
+├── tools/                           # 四、工具精通篇（26篇）
+│   ├── tools_overview.md            #   总览导读
+│   ├── claude_code/                 #   Claude Code 深入浅出（9篇）
+│   ├── cursor/                      #   Cursor 深入浅出（7篇）
+│   ├── codex/                       #   Codex 深入浅出（8篇）
+│   └── other_tools.md               #   其他工具生态扫盲
+├── engineering/                     # 五、工程实践篇（6篇）
 ├── projects/                        # 六、项目实战篇（4篇）
 └── advanced/                        # 七、进阶心法篇（3篇）
 ```
@@ -52,22 +57,25 @@ vibe_coding_series/                  # 共 25 篇
 | 序号 | 文件名 | 标题 | 内容要点 |
 |------|--------|------|----------|
 | 1 | `what_is_vibe_coding.md` | 什么是Vibe Coding | Andrej Karpathy 的定义、Vibe Coding 与传统编程的区别、"用自然语言写代码"的本质、适合哪些人（非程序员/初级开发者/资深开发者分别能获得什么）、真实案例展示 |
-| 2 | `ai_coding_landscape.md` | AI编程工具全景图 | 当前主流 AI 编程工具分类（IDE类/终端类/对话类）、Claude Code vs Cursor vs Copilot vs Windsurf 对比、怎么选工具（按场景/按预算/按经验水平）、免费方案推荐 |
+| 2 | `ai_coding_landscape.md` | AI编程工具全景图 | 当前主流 AI 编程工具分类（终端类/IDE类/插件类/在线平台类）、引出三大主流 Coding Agent 并重点对比 Claude Code vs Cursor vs Codex、怎么选工具（按经验/按预算/按场景）、国内可用性与免费/国产平替方案。其他工具（Copilot/Windsurf 等）仅作生态扫盲一笔带过 |
 | 3 | `mindset_and_workflow.md` | 正确的协作心态 | 人与 AI 的分工（人负责"想什么"，AI 负责"怎么做"）、Vibe Coding 的基本工作流（需求→指令→生成→验证→迭代）、常见误区（不是完全放手、不是只会复制粘贴）、学习路线建议 |
 
 ---
 
-## 二、环境搭建篇（3篇）
+## 二、环境搭建篇（4篇）
 
 > 目录：`vibe_coding_series/setup/`
 >
-> 目标：手把手教读者搭建 Vibe Coding 的开发环境，确保能跟着后续教程动手操作。
+> 目标：手把手教读者搭建 Vibe Coding 的开发环境，并把三大主流 Coding Agent（Claude Code / Cursor / Codex）各装好一份，确保能跟着后续教程动手操作。
+>
+> ⚠️ 写每个工具的安装配置前，必须先用 WebSearch/WebFetch 核实该工具官方文档的最新安装方式与界面（迭代极快，凭记忆易错）。
 
 | 序号 | 文件名 | 标题 | 内容要点 |
 |------|--------|------|----------|
 | 1 | `dev_environment.md` | 开发环境搭建 | 操作系统准备（macOS/Windows/Linux）、终端配置、Node.js 安装、Git 基础配置、VS Code 安装与基础配置、每一步都配截图 |
-| 2 | `claude_code_setup.md` | Claude Code安装与配置 | Claude Code 是什么、安装方式（npm全局安装）、账号注册与认证、第一次对话体验、基础命令介绍（/help /clear /compact 等）、常见安装问题排查 |
-| 3 | `cursor_setup.md` | Cursor安装与配置 | Cursor 下载安装、从 VS Code 迁移设置、AI 功能配置（模型选择、快捷键）、Composer/Chat/Tab 三大功能初体验、Cursor Rules 配置入门 |
+| 2 | `claude_code_setup.md` | Claude Code安装与配置 | Claude Code 是什么、安装方式（官方 native install / Homebrew）、账号订阅与认证、国内可用性配置（第三方兼容接口/中转 API）、第一次对话体验、基础命令（/help /clear /compact 等）、常见安装问题排查 |
+| 3 | `cursor_setup.md` | Cursor安装与配置 | Cursor 下载安装、从 VS Code 迁移设置、登录与模型配置、Ask/Agent/Plan/Edit 四模式与 Tab 补全初体验、Rules 配置入门、常见问题 |
+| 4 | `codex_setup.md` | Codex安装与配置 | Codex 是什么、CLI 安装、用 ChatGPT 订阅登录认证、国内网络与账号配置、首次会话、CLI/IDE/云端三种形态初体验、常见问题排查 |
 
 ---
 
@@ -86,22 +94,67 @@ vibe_coding_series/                  # 共 25 篇
 
 ---
 
-## 四、工具精通篇（4篇）
+## 四、工具精通篇（26篇：1篇总览 + 三工具深度 24篇 + 1篇生态扫盲）
 
 > 目录：`vibe_coding_series/tools/`
 >
-> 目标：深入掌握核心 AI 编程工具的高级用法，从"能用"到"用得好"。
+> 目标：深入掌握三大主流 Coding Agent（Claude Code / Cursor / Codex）的高级用法，从"能用"到"用得好"，**一篇讲透一个点**，让小白也能精通。
+>
+> 结构：根目录放一篇总览导读和一篇生态扫盲，中间分三个子目录，每个工具各成一个"深入浅出"小系列。三个工具都覆盖「快速上手 / 配置文件 / MCP / 命令 / 工作流」通用骨架，差异体现在各自特色能力上。
+>
+> ⚠️ **【强制】写本篇任意文章前，必须先用 WebSearch/WebFetch 调研对应工具官方文档的最新能力**（`code.claude.com/docs`、`cursor.com/docs`、`developers.openai.com/codex`）。这三个工具迭代极快——功能、模式名、界面几个月就变（如 Cursor 早已从"Tab/Chat/Composer"变为 Ask/Agent/Plan/Edit 四模式、Notepads 被 Memories 取代），凭训练记忆必出错。
+
+### 总览 + 生态扫盲（`tools/` 根目录，2篇）
+
+| 文件名 | 标题 | 内容要点 |
+|--------|------|----------|
+| `tools_overview.md` | 工具精通篇导读 | 三大 Coding Agent 能力地图与定位对比、各自最适合的场景、这一篇怎么学、三个子系列导航 |
+| `other_tools.md` | 其他实用工具（生态扫盲） | 收尾扫盲篇：集中、简要地带读者认识生态里的其他工具，有个全貌即可，不深入展开。包括 GitHub Copilot、Windsurf 简介，v0/bolt.new/Lovable 等在线 AI 编程平台，AI 辅助设计（截图转代码），以及这些工具与三大 Coding Agent 的搭配建议 |
+
+### 4.1 Claude Code 深入浅出（`tools/claude_code/`，9篇）
 
 | 序号 | 文件名 | 标题 | 内容要点 |
 |------|--------|------|----------|
-| 1 | `claude_code_mastery.md` | Claude Code深度使用 | 工作模式详解（交互模式/单次模式/管道模式）、Slash 命令全解析、CLAUDE.md 配置最佳实践、MCP Server 集成、子代理（subagent）使用、Hooks 自动化、实用技巧与快捷键 |
-| 2 | `cursor_mastery.md` | Cursor深度使用 | Composer 多文件编辑、Chat 代码问答、Tab 智能补全、Agent 模式详解、.cursorrules 高级配置、@引用（@file @web @doc）技巧、多模型切换策略 |
-| 3 | `git_for_vibe_coding.md` | Git与版本控制 | 为什么 Vibe Coding 更需要 Git、Git 基础操作速成、分支策略（主分支保护）、用 AI 辅助写 commit message、AI 生成代码后的 review 要点、回退与恢复（AI 写坏了怎么办） |
-| 4 | `other_tools.md` | 其他实用工具 | GitHub Copilot 使用技巧、Windsurf 简介、v0/bolt.new 等在线 AI 编程平台、AI 辅助设计（截图转代码）、AI 辅助文档编写、工具组合搭配建议 |
+| 1 | `claude_code_quickstart.md` | Claude Code 快速上手核心指南 | 安装与多形态（终端/VS Code/JetBrains/桌面 App/Web）、工作模式（普通/Plan/Auto-accept）、基础对话、常用内置命令（/help /clear /compact /context /init），一篇把"会用"打通 |
+| 2 | `claude_code_md.md` | CLAUDE.md 配置与记忆完全指南 | CLAUDE.md 三层（用户/项目/子目录）、写法最佳实践、auto-memory 自动记忆、`#` 快捷记忆、上下文如何被加载 |
+| 3 | `claude_code_commands.md` | Slash Commands 完全指南 | 内置命令全解、自定义命令（`.claude/commands/*.md`）、参数与组织、团队共享 |
+| 4 | `claude_code_mcp.md` | MCP Server 集成完全指南 | MCP 是什么、stdio/HTTP/SSE 三种传输、常用 server（GitHub/数据库/浏览器）、配置与排错 |
+| 5 | `claude_code_subagents.md` | Subagents 子代理工作流完全指南 | 子代理概念与上下文隔离、定义方法、agent teams 多代理并行、后台 agent view 监看 |
+| 6 | `claude_code_hooks.md` | Hooks 自动化完全指南 | 生命周期事件（PreToolUse/PostToolUse/UserPromptSubmit 等）、PreToolUse 安全校验、自动格式化/提交检查实战 |
+| 7 | `claude_code_skills.md` | Skills 技能封装完全指南 | Skill 是什么、目录结构、配套 scripts、与 Slash 命令的区别、编写可复用工作流 |
+| 8 | `claude_code_plugins.md` | Plugins 插件打包与分发完全指南 | 把 skills/subagents/commands/hooks/MCP 打包成插件、`/plugin` 一键安装、团队分发 |
+| 9 | `claude_code_workflow.md` | 实战工作流与高效技巧盘点 | Plan 模式、checkpoints 回退、权限管理、上下文压缩、管道/headless（`-p`）、定时任务（Routines/`/schedule`/`/loop`）、高效技巧 |
+
+### 4.2 Cursor 深入浅出（`tools/cursor/`，7篇）
+
+| 序号 | 文件名 | 标题 | 内容要点 |
+|------|--------|------|----------|
+| 1 | `cursor_quickstart.md` | Cursor 快速上手核心指南 | 安装、从 VS Code 迁移、Tab 智能补全（Sonic 模型）、界面与基础工作流总览 |
+| 2 | `cursor_modes.md` | 四大模式完全指南 | Ask / Agent / Plan / Edit（Cmd+K）四种模式各自用途、切换方式、"Plan→Agent→手动 Edit"推荐工作流 |
+| 3 | `cursor_rules.md` | Rules 规则完全指南 | `.cursor/rules/*.mdc`（YAML frontmatter + 作用域）、always-on 规则、Team Rules 团队策略、与 CLAUDE.md 的类比 |
+| 4 | `cursor_context_memories.md` | 上下文与记忆完全指南 | @引用（@file/@web/@docs/@code/codebase）、Memories 自动持久记忆（已取代 Notepads）、上下文管理技巧 |
+| 5 | `cursor_mcp.md` | MCP 集成与多模型完全指南 | MCP 配置与常用 server、多模型（Sonnet/Opus/GPT/Gemini/Composer/Sonic）选择策略 |
+| 6 | `cursor_cloud_agents.md` | 云端代理与 BugBot 完全指南 | Background Agents、Cloud Agents（浏览器/手机/Slack 启动）、BugBot 自动 PR 审查 |
+| 7 | `cursor_hooks_workflow.md` | Hooks 自动化与实战工作流 | Cursor Hooks（beta，onPreEdit/onPostEdit 等）、高效实战工作流、与其他工具配合 |
+
+### 4.3 Codex 深入浅出（`tools/codex/`，8篇）
+
+| 序号 | 文件名 | 标题 | 内容要点 |
+|------|--------|------|----------|
+| 1 | `codex_quickstart.md` | Codex 快速上手核心指南 | 安装、用 ChatGPT 订阅登录、首次会话、CLI/IDE/云端/GitHub 四种形态总览与选择 |
+| 2 | `codex_agents_md.md` | AGENTS.md 与配置完全指南 | AGENTS.md 写法与作用、`~/.codex/config.toml`、Profiles 配置层切换（`--profile`） |
+| 3 | `codex_commands_prompts.md` | 命令与自定义 Prompt 完全指南 | Slash Commands（/review 等）、自定义 Prompt（`prompts/` 目录、`/prompts:` 菜单） |
+| 4 | `codex_skills.md` | Skills 完全指南 | Skill 是什么、存放位置（`.agents/skills/`、`~/.codex/skills/`）、`$skill` 调用、`$skill-creator` 创建 |
+| 5 | `codex_mcp.md` | MCP 集成完全指南 | 在 config.toml 配置 MCP server、`codex mcp` 命令管理、会话自动启动 |
+| 6 | `codex_cloud_github.md` | 云端任务与 GitHub 自动化完全指南 | 云端 microVM 沙箱、并行任务、GitHub PR/issue 自动化、本地 vs 云端如何选 |
+| 7 | `codex_sandbox_models.md` | 沙箱审批与模型完全指南 | 沙箱/审批模式与安全策略、reasoning effort（xhigh~low）、模型选择与成本权衡 |
+| 8 | `codex_workflow.md` | 实战工作流与高效技巧 | 多步工具链、self-check 自检、跨形态协作、高效技巧盘点 |
+
+> 注：Claude Code 的 Output styles、Agent SDK，以及 Codex 的 computer-use（屏幕操作）等较小众/偏开发者的能力，本篇不单列，必要时在 `workflow` 篇里一笔带过。GitHub Actions / 自动 Code Review（CI 自动化）已归入工程实践篇。
 
 ---
 
-## 五、工程实践篇（4篇）
+## 五、工程实践篇（6篇）
 
 > 目录：`vibe_coding_series/engineering/`
 >
@@ -113,6 +166,8 @@ vibe_coding_series/                  # 共 25 篇
 | 2 | `code_quality.md` | 代码质量保障 | AI 生成代码的常见质量问题、Code Review 要点（安全/性能/可维护性）、用 AI 写测试、ESLint/Prettier 等工具配置、质量门禁概念、如何让 AI 生成更高质量的代码 |
 | 3 | `debugging_with_ai.md` | AI辅助调试 | 报错信息的正确喂给 AI 的方法、截图 + 日志 + 上下文的组合技巧、常见 Bug 类型与 AI 调试策略、"AI 写出的 Bug 让 AI 自己修"的方法论、调试案例实战 |
 | 4 | `iterative_development.md` | 迭代式开发 | 需求变更时如何与 AI 协作、渐进式重构、功能迭代的最佳实践、上下文管理（长对话 vs 新对话）、项目文档持续维护、从 MVP 到完整产品的演进路径 |
+| 5 | `git_for_vibe_coding.md` | Git与版本控制 | 为什么 Vibe Coding 更需要 Git、Git 基础操作速成、分支策略（主分支保护）、用 AI 辅助写 commit message、AI 生成代码后的 review 要点、回退与恢复（AI 写坏了怎么办） |
+| 6 | `ci_and_code_review.md` | CI 自动化与自动 Code Review | 把 AI 接入持续集成流水线、用 Claude Code GitHub Actions / GitLab CI 实现自动代码审查与 issue 三连、定时任务（每日 PR 审查/依赖巡检）、自动化的安全与权限边界 |
 
 ---
 
@@ -172,6 +227,7 @@ vibe_coding_series/                  # 共 25 篇
           "/vibe_coding_series/setup/dev_environment.md",
           "/vibe_coding_series/setup/claude_code_setup.md",
           "/vibe_coding_series/setup/cursor_setup.md",
+          "/vibe_coding_series/setup/codex_setup.md",
         ],
       },
       {
@@ -188,9 +244,49 @@ vibe_coding_series/                  # 共 25 篇
         text: "四、工具精通",
         collapsible: true,
         children: [
-          "/vibe_coding_series/tools/claude_code_mastery.md",
-          "/vibe_coding_series/tools/cursor_mastery.md",
-          "/vibe_coding_series/tools/git_for_vibe_coding.md",
+          "/vibe_coding_series/tools/tools_overview.md",
+          {
+            text: "Claude Code 深入浅出",
+            collapsible: true,
+            children: [
+              "/vibe_coding_series/tools/claude_code/claude_code_quickstart.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_md.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_commands.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_mcp.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_subagents.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_hooks.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_skills.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_plugins.md",
+              "/vibe_coding_series/tools/claude_code/claude_code_workflow.md",
+            ],
+          },
+          {
+            text: "Cursor 深入浅出",
+            collapsible: true,
+            children: [
+              "/vibe_coding_series/tools/cursor/cursor_quickstart.md",
+              "/vibe_coding_series/tools/cursor/cursor_modes.md",
+              "/vibe_coding_series/tools/cursor/cursor_rules.md",
+              "/vibe_coding_series/tools/cursor/cursor_context_memories.md",
+              "/vibe_coding_series/tools/cursor/cursor_mcp.md",
+              "/vibe_coding_series/tools/cursor/cursor_cloud_agents.md",
+              "/vibe_coding_series/tools/cursor/cursor_hooks_workflow.md",
+            ],
+          },
+          {
+            text: "Codex 深入浅出",
+            collapsible: true,
+            children: [
+              "/vibe_coding_series/tools/codex/codex_quickstart.md",
+              "/vibe_coding_series/tools/codex/codex_agents_md.md",
+              "/vibe_coding_series/tools/codex/codex_commands_prompts.md",
+              "/vibe_coding_series/tools/codex/codex_skills.md",
+              "/vibe_coding_series/tools/codex/codex_mcp.md",
+              "/vibe_coding_series/tools/codex/codex_cloud_github.md",
+              "/vibe_coding_series/tools/codex/codex_sandbox_models.md",
+              "/vibe_coding_series/tools/codex/codex_workflow.md",
+            ],
+          },
           "/vibe_coding_series/tools/other_tools.md",
         ],
       },
@@ -202,6 +298,8 @@ vibe_coding_series/                  # 共 25 篇
           "/vibe_coding_series/engineering/code_quality.md",
           "/vibe_coding_series/engineering/debugging_with_ai.md",
           "/vibe_coding_series/engineering/iterative_development.md",
+          "/vibe_coding_series/engineering/git_for_vibe_coding.md",
+          "/vibe_coding_series/engineering/ci_and_code_review.md",
         ],
       },
       {

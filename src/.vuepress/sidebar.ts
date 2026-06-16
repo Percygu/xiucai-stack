@@ -371,6 +371,34 @@ export default sidebar({
   ],
 
 
+  "/vibe_coding_series/": [
+    {
+      text: "Vibe Coding实战指南",
+      collapsible: true,
+      children: [
+        {
+          text: "一、认知篇",
+          collapsible: true,
+          children: [
+            "/vibe_coding_series/basics/what_is_vibe_coding.md",
+            "/vibe_coding_series/basics/ai_coding_landscape.md",
+            "/vibe_coding_series/basics/mindset_and_workflow.md",
+          ],
+        },
+        {
+          text: "二、环境搭建",
+          collapsible: true,
+          children: [
+            "/vibe_coding_series/setup/dev_environment.md",
+            "/vibe_coding_series/setup/claude_code_setup.md",
+            "/vibe_coding_series/setup/cursor_setup.md",
+            "/vibe_coding_series/setup/codex_setup.md",
+          ],
+        },
+      ],
+    },
+  ],
+
   // 关于作者页面的侧边栏
   "/about-author": [
     {
