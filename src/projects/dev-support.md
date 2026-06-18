@@ -1,5 +1,5 @@
 ---
-title: "智能客服系统（DevSupport AI）"
+title: "DevSupport AI"
 slug: "dev-support"
 keywords: ["AI智能客服", "多Agent", "RAG", "Python", "FastAPI", "LangGraph", "DashScope", "大模型项目", "面试项目", "AI项目", "Agent项目"]
 description: "大模型Agent项目：Python（FastAPI + LangGraph）实现的面向 API 开放平台的多 Agent 智能客服系统，涵盖多Agent编排、RAG混合检索、安全脱敏、多级兜底、可观测与压测调优，配套31篇深度教程、50+面试题及两套简历写法"
