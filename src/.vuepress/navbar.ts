@@ -25,7 +25,7 @@ export default navbar([
   {
     text: "🔥Agent项目",
     //icon: "chart-simple",
-    link: "/projects/interview-agent.md",
+    link: "/projects/dev-support.md",
   },
   {
     text: "🌟求职训练营🌟",

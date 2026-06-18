@@ -303,7 +303,11 @@ export default sidebar({
         },
         {
           text: "七、Agent项目实战",
-          link: "/projects/interview-agent.md",
+          collapsible: true,
+          children: [
+            "/projects/dev-support.md",
+            "/projects/interview-agent.md",
+          ],
         },
         {
           text: "八、大模型面试题",
@@ -395,6 +399,18 @@ export default sidebar({
             "/vibe_coding_series/setup/codex_setup.md",
           ],
         },
+      ],
+    },
+  ],
+
+  // Agent项目实战页面的侧边栏
+  "/projects/": [
+    {
+      text: "Agent项目实战",
+      collapsible: false,
+      children: [
+        "/projects/dev-support.md",
+        "/projects/interview-agent.md",
       ],
     },
   ],

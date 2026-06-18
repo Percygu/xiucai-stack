@@ -19,11 +19,10 @@ tags:
 ![](https://files.mdnice.com/user/75626/1660c694-ad84-47e6-878d-57802daf8a36.jpg)
 [![](../assets/img/项目/AI模拟面试官1/海报.png)](/projects/interview-agent.md)
 
-大家好，我是秀才。
 
-今天给大家介绍一个我精心打磨的**大模型应用开发实战项目 —— AI 模拟面试官（InterviewAgent）**。
+**AI 模拟面试官（InterviewAgent）** 是一个精心打磨的大模型应用开发实战项目。
 
-而且这次有个**重磅升级**：这个项目我用 **Go（Eino 框架）和 Java（Spring Boot + Spring AI Alibaba 框架）两种语言各做了一套完整实现**。同一套架构、同一套能力，Go 开发者和 Java 开发者都能用最熟悉的技术栈直接上手——这在面试里还是个隐藏加分项：**能体现你跨语言、跨框架落地同一个 AI 系统的架构能力**。
+而且它还有个**重磅升级**：这个项目用 **Go（Eino 框架）和 Java（Spring Boot + Spring AI Alibaba 框架）两种语言各做了一套完整实现**。同一套架构、同一套能力，Go 开发者和 Java 开发者都能用最熟悉的技术栈直接上手——这在面试里还是个隐藏加分项：**能体现你跨语言、跨框架落地同一个 AI 系统的架构能力**。
 
 先说结论：这不是一个调 API 套壳的玩具项目，而是一个涵盖**多 Agent 协作、RAG 多路召回、MCP 协议、记忆系统、Skill 技能系统、RAG 评估体系**的完整工程级 AI 应用。配套深度教程，从需求分析到方案设计到代码实现到简历面试，手把手带你从零搭建。
 
@@ -176,7 +175,7 @@ tags:
 
 ## **如何获取**
 
-**项目价格** **「<span style="color: rgb(216,57,49); background-color: inherit">299</span>」**，**Go + Java 双语言完整源码 + 全套深度教程**一次到手。而且现在购买还会享受一个早鸟项目福利，秀才后续会持续更新新的项目，新项目出来后，购买多个项目肯定不止这个价格。目前在新项目出来之前，购买InterviewAgent AI模拟面试官项目的话，后续所有更新的新项目免费赠送学习。购买「AI模拟面试官项目」之后会解锁这些权益：
+**项目价格** **「<span style="color:#FF0000; font-weight: bold;">299</span>」**，**Go + Java 双语言完整源码 + 全套深度教程**一次到手。[【AI模拟面试官】](/projects/interview-agent.md)、[【DevSupport AI】](/projects/dev-support.md)两个项目打包价只要<span style="color:#FF0000; font-weight: bold;">**499**</span>。购买「AI模拟面试官项目」之后会解锁这些权益：
 
 * ✅ 详细的全套项目文档资料学习（文档永久可看）
 
