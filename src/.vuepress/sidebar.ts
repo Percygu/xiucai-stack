@@ -399,6 +399,31 @@ export default sidebar({
             "/vibe_coding_series/setup/codex_setup.md",
           ],
         },
+        {
+          text: "三、Prompt技巧",
+          collapsible: true,
+          children: [
+            "/vibe_coding_series/prompt/prompt_basics.md",
+            "/vibe_coding_series/prompt/requirement_to_prompt.md",
+            "/vibe_coding_series/prompt/prompt_patterns.md",
+            "/vibe_coding_series/prompt/prompt_advanced.md",
+          ],
+        },
+        {
+          text: "四、工具精通",
+          collapsible: true,
+          children: [
+            "/vibe_coding_series/tools/tools_overview.md",
+            {
+              text: "Claude Code 深入浅出",
+              collapsible: true,
+              children: [
+                "/vibe_coding_series/tools/claude_code/claude_code_quickstart.md",
+                "/vibe_coding_series/tools/claude_code/claude_code_md.md",
+              ],
+            },
+          ],
+        },
       ],
     },
   ],

@@ -218,11 +218,22 @@ tag:
 - **先按章节英文名分子目录**（与文章子目录一一对应）：`basics/`、`setup/`、`prompt/`、`tools/`、`engineering/`、`projects/`、`advanced/`
 - **再按文章文件名建一层子目录**：每篇文章的图片单独放进 `{章节}/{文章文件名}/` 这个专属目录里，不要把同一章节所有文章的图混在章节目录下。目录不存在先创建。例如文章 `what_is_vibe_coding.md` 的图片全部放在 `src/assets/img/vibe_coding/basics/what_is_vibe_coding/` 下
 - **文件命名**：`{文章文件名}{序号}.png`，如 `what_is_vibe_coding1.png`、`what_is_vibe_coding2.png`，序号按图片在文章中出现的先后排
-- **引用路径**：文章位于 `src/vibe_coding_series/{分类}/xxx.md`，到 `src/assets/` 需回退两级，因此用相对路径引用：
 
-  ```markdown
-  ![个人主页初版效果](../../assets/img/vibe_coding/basics/what_is_vibe_coding/what_is_vibe_coding1.png)
-  ```
+  > ⚠️ **【编号铁律，曾多次翻车】全文所有图片（设计配图 + 待截图 + 实战截图，不分类型）必须按"在文章中出现的先后"统一、连续编号 1、2、3、4…… 绝不允许跳号或断号。** 常见错误：把设计配图和 `🔴待截图` 分开各自编号、或中间漏掉某个数字（如出现 1、2、3、5、6 而没有 4），或同一位置的占位标记编号与它的"建议保存为"路径序号不一致。这些都会导致作者按出现顺序生成的图片和文中引用对不上、内容贴错位。**写每张图（无论占位块 `【建议配图N】`、待截图 `🔴待截图N`、还是直接引用）时，N 一律等于"它是全文第几张出现的图"，且占位块标题里的 N 必须和其图片文件名/保存路径里的序号完全一致。** 写完一篇后，从上到下数一遍所有图，确认序号是 1,2,3…连续无缺。
+- **引用路径（⚠️ 回退层数必须按文章实际深度算，最容易出错）**：相对路径要从「文章所在目录」回退到 `src/`，再进 `assets/`。**回退几级取决于文章嵌套多深，不是固定 `../../`**：
+  - 二级目录文章（`src/vibe_coding_series/{分类}/xxx.md`，如 `basics/`、`setup/`、`prompt/`、`engineering/`、`projects/`、`advanced/`、以及 `tools/tools_overview.md`、`tools/other_tools.md`）→ 回退**两级** `../../assets/...`
+
+    ```markdown
+    ![个人主页初版效果](../../assets/img/vibe_coding/basics/what_is_vibe_coding/what_is_vibe_coding1.png)
+    ```
+
+  - **三级目录文章（`src/vibe_coding_series/tools/{claude_code|cursor|codex}/xxx.md`）→ 必须回退三级 `../../../assets/...`**，少回退一级图片就会 404、不显示：
+
+    ```markdown
+    ![Claude Code 多形态](../../../assets/img/vibe_coding/tools/claude_code/claude_code_quickstart/claude_code_quickstart1.png)
+    ```
+
+  写完后务必核对：相对路径回退级数 = 文章在 `vibe_coding_series/` 下的目录层数。
 
 - **设计配图**先用占位标记，等出图后把图放进对应目录，再把占位标记替换成上面的引用语法；**实战截图**截好存好后，直接用引用语法插入，不需要占位标记
 
