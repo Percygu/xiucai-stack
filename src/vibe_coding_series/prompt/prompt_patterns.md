@@ -207,6 +207,21 @@ AI 直接给出了一个可以拿去用的成品：
 让主函数更清爽。改完说明你调整了什么。
 ```
 
+重构后的代码长这样，清洗逻辑被抽成了独立的 `clean` 函数，主函数一眼就能读懂：
+
+```python
+import re
+
+def clean(s):
+    """清洗字符串：转小写，去掉标点、空格等非字母数字和非汉字字符"""
+    return re.sub(r"[^0-9a-z一-鿿]", "", s.lower())
+
+def is_palindrome(s):
+    """判断 s 是不是回文，忽略大小写、空格和标点"""
+    cleaned = clean(s)
+    return cleaned == cleaned[::-1]
+```
+
 **第四步，解释。** 重构后多了点你没把握的写法，用解释模式问明白：
 
 ```
@@ -220,6 +235,21 @@ AI 直接给出了一个可以拿去用的成品：
 帮这个 is_palindrome 函数写一组单元测试，用 pytest，
 覆盖正常回文、非回文、带标点、带大小写、空字符串这几种情况，
 每个用例加注释说明在测什么。
+```
+
+它会生成五个对应的测试用例，跑一下 `pytest`，五种情况全部通过：
+
+```
+============================= test session starts ==============================
+collected 5 items
+
+test_palindrome.py::test_normal_palindrome PASSED                        [ 20%]
+test_palindrome.py::test_not_palindrome PASSED                           [ 40%]
+test_palindrome.py::test_with_punctuation PASSED                         [ 60%]
+test_palindrome.py::test_with_case PASSED                                [ 80%]
+test_palindrome.py::test_empty PASSED                                    [100%]
+
+============================== 5 passed in 0.01s ===============================
 ```
 
 走完这一圈，你得到的不只是一个能用的函数，还有理顺过的代码、搞懂了的细节、以及一组保命的测试。**这就是五种模式在实战里的样子——它们不是孤立的招法，而是一条顺畅的流水线**，从无到有、从有到对、从对到好、从好到懂、从懂到稳。把这条线跑顺，你会发现自己用 AI 写东西的节奏一下子就稳了。
