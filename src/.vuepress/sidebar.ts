@@ -420,6 +420,7 @@ export default sidebar({
               children: [
                 "/vibe_coding_series/tools/claude_code/claude_code_quickstart.md",
                 "/vibe_coding_series/tools/claude_code/claude_code_md.md",
+                "/vibe_coding_series/tools/claude_code/claude_code_commands.md",
               ],
             },
           ],
