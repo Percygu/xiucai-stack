@@ -413,9 +413,12 @@ export default sidebar({
           text: "四、工具精通",
           collapsible: true,
           children: [
-            "/vibe_coding_series/tools/tools_overview.md",
             {
-              text: "Claude Code 深入浅出",
+              text: "1. 工具精通篇导读",
+              link: "/vibe_coding_series/tools/tools_overview.md",
+            },
+            {
+              text: "2. Claude Code 深入浅出",
               collapsible: true,
               children: [
                 "/vibe_coding_series/tools/claude_code/claude_code_quickstart.md",
