@@ -391,7 +391,24 @@ node scripts/check-article.mjs <刚保存的文章路径>
 
 > ⚠️ **【要点清单驱动，先列单再下笔】** 动笔前必须先产出一份"本篇要点清单"——把该讲的知识点穷尽式列出来（对照下面的官方文档 / 标杆篇）。**写作就是把清单上每个要点按五要素讲透，写满的是要点，不是字数。** 严禁清单没列全就开写、写到一半发现单薄再用软话填。清单越全、每点讲得越透，成稿自然又干又足；清单漏了，成稿必然单薄，这时要回去补要点，不是补话。
 
-- **有标杆的主题（Claude Code 系列）**：对照 **官方文档（`code.claude.com/docs`）+ easy-vibe 同主题篇**（`github.com/datawhalechina/easy-vibe`，`docs/zh-cn/stage-3/core-skills/` 下，质量很高），先列出本篇知识点清单逐条查漏，**深度和干货密度不弱于该标杆篇**——不只是覆盖到，要点密度也要追平。
+> 🚨🚨 **【最高铁律，已违反两次，绝不允许再犯】写 Claude Code 任意一篇前，动笔前的第一个动作，必须先判断 easy-vibe 有没有对应标杆篇，有就先 WebFetch 通读、把它的要点逐条抄进你的要点清单。** 跳过这一步直接写 = 违规。本系列写 MCP 篇时 easy-vibe 明明有 `mcp` 专篇，却没对照就写，是反面教材。
+>
+> **easy-vibe 标杆篇对应表**（`core-skills/` 下实际存在这些篇，网页可直接 WebFetch：`https://datawhalechina.github.io/easy-vibe/zh-cn/stage-3/core-skills/<主题>/`）：
+>
+> | 我的篇目 | easy-vibe 对应标杆篇 | 是否必须对照 |
+> |---|---|---|
+> | `claude_code_mcp.md` | `core-skills/mcp/` | ✅ 必须 |
+> | `claude_code_skills.md` | `core-skills/skills/` | ✅ 必须 |
+> | `claude_code_workflow.md` | `core-skills/workflow/` | ✅ 必须 |
+> | `claude_code_subagents.md` | `core-skills/agent-teams/` | ✅ 必须 |
+> | `claude_code_plugins.md` | `core-skills/superpowers/`、`long-running-tasks/`（Ralph 插件） | ✅ 尽量对照 |
+> | `claude_code_quickstart.md` | `core-skills/basics/` | ✅ 尽量对照 |
+> | `claude_code_md.md` / `commands.md` / `hooks.md` | 无专篇 | 官网为主 |
+> | 工程实践篇相关 | `spec-coding/`（规格驱动）等 | 相关则对照 |
+>
+> **对照动作（有标杆篇时，一步都不能省）**：①WebFetch 通读对应 easy-vibe 篇；②把它讲到的每一个要点、案例、讲法都提取出来，逐条并入你的"要点清单"，**它有的你一个都不能漏**；③在此基础上再用官网补它没有的最新要点；④成稿的要点密度和深度**不弱于、最好超过**它。
+
+- **有标杆的主题（Claude Code 系列等）**：严格执行上面的对照动作，对照 **官方文档（`code.claude.com/docs`）+ easy-vibe 同主题篇**，先列出本篇要点清单逐条查漏，**深度和干货密度不弱于该标杆篇**——不只是覆盖到，要点密度也要追平。
 - **无标杆的主题（Cursor / Codex 等，easy-vibe 没有对应深度系列）**：
   1. **以官方文档为第一来源**（`cursor.com/docs`、`developers.openai.com/codex`），把该主题相关的所有子页扫一遍，**穷尽式列出要点清单**，官方文档列了什么就不能漏什么；
   2. 借 **Claude Code 同骨架篇做"结构与深度模板"**——套用它那套结构层次（简介→为什么→快速开始→详解→实战示例→调试/最佳实践→FAQ）和干货水准，只是填各自工具的内容；

@@ -1,6 +1,6 @@
 ---
 title: 1. 开发环境搭建
-description: Vibe Coding教程第4篇：零基础也能搞定的 AI 编程开发环境搭建教程。手把手带你认识终端、安装 Node.js、配置 Git、装好 VS Code，macOS 和 Windows 双系统步骤齐全，每步都有真实截图，为后面用 Claude Code、Cursor 写代码打好地基。
+description: Vibe Coding教程第4篇：零基础的 AI 编程开发环境搭建。带你认识终端、装 Node.js、配 Git、装好 VS Code，macOS 和 Windows 步骤齐全，每步有真实截图，为后续写代码打好地基。
 category:
   - Vibe Coding
 tag:
@@ -118,7 +118,7 @@ git config --list
 
 切成中文之后，VS Code 就基本可以用了。新手阶段不用急着装一堆插件、改一堆设置，保持简洁就好，后面用到什么再装什么。你现在只要会一个最基础的操作：用 VS Code"打开一个文件夹"——以后 AI 帮你生成的项目，都是一个个文件夹，用 VS Code 打开它，你就能看到里面所有的代码文件了。
 
-## **6. 验收：四件套是否都就位**
+## **6. 验收四件套**
 
 四样东西都装完了，最后做一次总验收，确认它们都正常工作。打开终端，把下面几条命令依次敲一遍，看是不是都能正常吐出版本号：
 
@@ -147,4 +147,10 @@ git --version
 <div style="text-align: center;"><span style="color: #006400; font-size: 28px;"><strong>领取后端/AI面试题库PDF</strong></span></div>
 
 ![](/assets/icon/avatar.png)
+
+<div style="text-align: center; margin-top: 22px; padding-top: 20px; border-top: 1px solid #c2e7b0;">
+<div style="color: #006400; font-size: 20px; font-weight: bold;">🔥 配套实战项目，拆得开、跑得起、能写进简历</div>
+<div style="color: red; font-size: 16px; font-weight: bold; margin-top: 8px;">多 Agent 编排 + RAG 混合检索 · 31 篇深度教程 + 50+ 面试题</div>
+<a href="/projects/dev-support.html" style="display: inline-block; margin-top: 14px; background: #ff7a18; color: #fff; font-size: 18px; font-weight: bold; padding: 10px 28px; border-radius: 24px; text-decoration: none;">点击查看 DevSupport AI 实战项目 →</a>
+</div>
 </div>
