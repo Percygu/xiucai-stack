@@ -1,5 +1,5 @@
 ---
-title: 2. CLAUDE.md 配置与记忆完全指南
+title: 2. CLAUDE.md 配置与记忆
 description: Vibe Coding教程第14篇：CLAUDE.md 配置与记忆完全指南。讲透 Claude Code 两套记忆——你写的 CLAUDE.md 与自动 auto memory，覆盖作用域、/init 生成、写法实践与 /memory 管理。
 category:
   - Vibe Coding

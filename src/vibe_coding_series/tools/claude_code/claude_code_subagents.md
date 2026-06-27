@@ -1,5 +1,5 @@
 ---
-title: 5. Subagents 子代理工作流完全指南
+title: 5. Subagents 子代理工作流
 description: Vibe Coding教程第17篇：Claude Code Subagents 子代理完全指南。讲透上下文隔离、内置 Explore/Plan 子代理、自定义子代理写法、工具模型限制、持久记忆，以及 Agent Teams 多代理并行。
 category:
   - Vibe Coding

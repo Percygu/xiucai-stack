@@ -1,5 +1,5 @@
 ---
-title: 6. Hooks 自动化完全指南
+title: 6. Hooks 自动化
 description: Vibe Coding教程第18篇：Claude Code Hooks 钩子自动化完全指南。讲透生命周期事件、settings.json 配置结构、退出码与 JSON 决策机制，以及自动格式化、拦截危险命令、注入上下文、完成检查等实战。
 category:
   - Vibe Coding

@@ -1,5 +1,5 @@
 ---
-title: 7. Skills 技能封装完全指南
+title: 7. Skills 技能封装
 description: Vibe Coding教程第19篇：Claude Code Skills 技能封装完全指南。讲透技能是什么、三层渐进加载机制、SKILL.md 目录结构与字段、与命令和 MCP 的区别、配套脚本、自动触发与调用控制，把团队流程沉淀成可复用技能。
 category:
   - Vibe Coding

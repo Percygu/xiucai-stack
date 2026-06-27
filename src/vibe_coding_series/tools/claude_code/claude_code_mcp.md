@@ -1,5 +1,5 @@
 ---
-title: 4. MCP Server 集成完全指南
+title: 4. MCP Server 集成
 description: Vibe Coding教程第16篇：Claude Code MCP 集成完全指南。讲透 MCP 是什么、四种传输类型、claude mcp add 配置、三种作用域、认证与 Tool Search，以及常用 server 的接入与排错。
 category:
   - Vibe Coding

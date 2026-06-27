@@ -1,5 +1,5 @@
 ---
-title: 3. Slash Commands 完全指南
+title: 3. Slash Commands
 description: Vibe Coding教程第15篇：Claude Code Slash Commands 斜杠命令完全指南。讲透内置命令全解、捆绑技能与工作流，以及自定义命令的写法——参数传递、动态上下文注入、个人与项目级共享、调用控制，把命令用成效率利器。
 category:
   - Vibe Coding

@@ -1,5 +1,5 @@
 ---
-title: 8. Plugins 插件打包与分发完全指南
+title: 8. Plugins 插件打包与分发
 description: Vibe Coding教程第20篇：Claude Code Plugins 插件完全指南。讲透插件是什么、能打包哪些组件、plugin.json 结构与目录规范、/plugin 一键安装与市场，以及从零做一个插件并分发给团队。
 category:
   - Vibe Coding
