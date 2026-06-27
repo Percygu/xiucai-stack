@@ -123,6 +123,18 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
+    // git 贡献者：过滤掉 AI 协作者，只显示真实作者
+    git: {
+      contributors: {
+        transform: (contributors) =>
+          contributors.filter(
+            (contributor) =>
+              !/claude|anthropic/i.test(contributor.name) &&
+              !/anthropic/i.test(contributor.email),
+          ),
+      },
+    },
+
     // 使用Algolia DocSearch - 已配置爬虫
     docsearch: {
       appId: "C8LLZ1Q294",
