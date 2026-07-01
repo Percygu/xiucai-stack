@@ -72,7 +72,7 @@ export default defineUserConfig({
         regExp: ["^/go_agent_series/(?!introduction\\.html$).+"],
       },
       allowMobile: false,
-      height: 800,
+      height: 1600,
       random: 1.0,
     }),
     sitemapPlugin({
