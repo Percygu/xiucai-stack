@@ -159,6 +159,17 @@ copy_assets() {
             print_info "已拷贝: $source_dir"
         fi
     done
+
+    local wechat_qrcode="src/assets/icon/IT_yangxiucai.jpg"
+    if [ -f "$wechat_qrcode" ]; then
+        mkdir -p "src/.vuepress/dist/assets/img"
+        mkdir -p "src/.vuepress/dist/assets/icon"
+        cp "$wechat_qrcode" "src/.vuepress/dist/assets/img/wechat-qrcode.jpg"
+        cp "$wechat_qrcode" "src/.vuepress/dist/assets/icon/IT_yangxiucai.jpg"
+        print_info "已拷贝公众号二维码: $wechat_qrcode"
+    else
+        print_warning "未找到公众号二维码: $wechat_qrcode"
+    fi
 }
 
 # 主函数
