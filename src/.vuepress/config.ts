@@ -69,7 +69,7 @@ export default defineUserConfig({
           "/vibe_coding_series/*",
           "/面试题/*",
         ],
-        regExp: [],
+        regExp: ["^/go_agent_series/(?!introduction\\.html$).+"],
       },
       allowMobile: false,
       height: 800,

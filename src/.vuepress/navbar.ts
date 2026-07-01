@@ -10,7 +10,7 @@ export default navbar([
   {
     text: "🔥后端/AI面试题",
     //icon: "chart-simple",
-    link: "/backend_series/advanced_interview/load_balance.md",
+    link: "/backend_series/llm_interview/agent_definition.md",
   },
   {
     text: "🤖Go Agent实战指南",
