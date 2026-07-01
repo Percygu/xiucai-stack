@@ -7,3 +7,7 @@ src/assets/.DS_Store
 src/assets/img/.DS_Store
 .DS_Store
 src/.DS_Store
+
+# 微信公众号凭据，含 appsecret，绝不提交
+.agents/skills/article-to-wechat/config.yaml
+.claude/skills/article-to-wechat/config.yaml

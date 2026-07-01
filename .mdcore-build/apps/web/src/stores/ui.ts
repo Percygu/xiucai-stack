@@ -1,0 +1,314 @@
+import { store } from '@/storage'
+import { addPrefix } from '@/storage/prefix'
+
+/**
+ * UI 状态 Store
+ * 负责管理全局 UI 状态，包括深色模式、侧边栏、对话框等
+ */
+export const useUIStore = defineStore(`ui`, () => {
+  // ==================== 全局 UI 状态 ====================
+  // 是否开启深色模式
+  const isDark = useDark()
+  const toggleDark = useToggle(isDark)
+
+  // 是否开启 AI 工具箱
+  const showAIToolbox = store.reactive(`showAIToolbox`, true)
+  const toggleAIToolbox = useToggle(showAIToolbox)
+
+  // 是否已经显示过 AI 工具箱选中文本提示
+  const hasShownAIToolboxHint = store.reactive(`hasShownAIToolboxHint`, false)
+
+  // 是否打开右侧滑块
+  const isOpenRightSlider = store.reactive(addPrefix(`is_open_right_slider`), false)
+
+  // 是否打开文章列表滑块
+  const isOpenPostSlider = store.reactive(addPrefix(`is_open_post_slider`), false)
+
+  // 是否打开本地文件夹面板
+  const isOpenFolderPanel = store.reactive(addPrefix(`is_open_folder_panel`), false)
+
+  // 是否为移动端
+  const isMobile = store.reactive(`isMobile`, false)
+
+  // 视图模式：edit（纯编辑）| split（双屏）| preview（纯预览）
+  const viewMode = store.reactive<'edit' | 'split' | 'preview'>(`viewMode`, `split`)
+
+  function setViewMode(mode: 'edit' | 'split' | 'preview') {
+    viewMode.value = mode
+  }
+
+  // 预览设备：desktop（电脑端）| mobile（移动端模拟）
+  const previewDevice = store.reactive<'desktop' | 'mobile'>(`previewDevice`, `mobile`)
+
+  function setPreviewDevice(device: 'desktop' | 'mobile') {
+    previewDevice.value = device
+  }
+
+  function togglePreviewDevice() {
+    previewDevice.value = previewDevice.value === `desktop` ? `mobile` : `desktop`
+  }
+
+  // 是否启用图片转存（默认关闭）
+  const enableImageReupload = store.reactive(addPrefix(`enableImageReupload`), false)
+  const toggleImageReupload = useToggle(enableImageReupload)
+
+  // 是否开启同步滚动（编辑器与预览区联动）
+  const enableScrollSync = store.reactive(addPrefix(`enableScrollSync`), true)
+  const toggleScrollSync = useToggle(enableScrollSync)
+
+  // 复制到公众号时的格式模式
+  const copyMode = store.reactive(addPrefix(`copyMode`), `txt`)
+
+  // ==================== 对话框状态 ====================
+  // 是否展示 CSS 编辑器
+  const isShowCssEditor = store.reactive(`isShowCssEditor`, false)
+  const toggleShowCssEditor = useToggle(isShowCssEditor)
+
+  // 是否展示插入表格对话框
+  const isShowInsertFormDialog = ref(false)
+  const toggleShowInsertFormDialog = useToggle(isShowInsertFormDialog)
+
+  // 是否展示上传图片对话框
+  const isShowUploadImgDialog = ref(false)
+  const toggleShowUploadImgDialog = useToggle(isShowUploadImgDialog)
+
+  // 是否展示公式编辑对话框
+  const isShowFormulaEditorDialog = ref(false)
+  const formulaEditorValue = ref(``)
+  const formulaEditorDisplayMode = ref(true)
+  const formulaEditorSourceRaw = ref<string | null>(null)
+
+  function openFormulaEditor(options: {
+    value?: string
+    displayMode?: boolean
+    sourceRaw?: string | null
+  } = {}) {
+    formulaEditorValue.value = options.value ?? ``
+    formulaEditorDisplayMode.value = options.displayMode ?? true
+    formulaEditorSourceRaw.value = options.sourceRaw ?? null
+    isShowFormulaEditorDialog.value = true
+  }
+
+  function closeFormulaEditor() {
+    isShowFormulaEditorDialog.value = false
+    formulaEditorValue.value = ``
+    formulaEditorDisplayMode.value = true
+    formulaEditorSourceRaw.value = null
+  }
+
+  // 是否展示导入 Markdown 对话框
+  const isShowImportMdDialog = ref(false)
+  const toggleShowImportMdDialog = useToggle(isShowImportMdDialog)
+  /** 通过 URL 参数 open 打开时传入的待导入链接，对话框打开后会据此自动执行导入 */
+  const importMdOpenUrl = ref<string | null>(null)
+
+  // 是否展示本地图片上传对话框
+  const isShowLocalImageUpload = ref(false)
+  const toggleShowLocalImageUpload = useToggle(isShowLocalImageUpload)
+  /** 待处理的本地图片上传数据 */
+  const localImageUploadData = ref<{
+    markdownContent: string
+    detectedPaths: string[]
+    processed?: boolean
+    skipUpload?: boolean
+    successCount?: number
+    failCount?: number
+  } | null>(null)
+
+  // 是否展示模板管理对话框
+  const isShowTemplateDialog = ref(false)
+  const toggleShowTemplateDialog = useToggle(isShowTemplateDialog)
+
+  // 是否展示组件对话框
+  const isShowComponentDialog = ref(false)
+  const toggleShowComponentDialog = useToggle(isShowComponentDialog)
+
+  // 是否展示云同步对话框
+  const isShowSyncDialog = ref(false)
+  const toggleShowSyncDialog = useToggle(isShowSyncDialog)
+
+  // 是否展示账户对话框
+  const isShowAccountDialog = ref(false)
+  const toggleShowAccountDialog = useToggle(isShowAccountDialog)
+
+  // 是否展示分享对话框
+  const isShowShareDialog = ref(false)
+  const shareDialogInitialTab = ref<`create` | `manage`>(`create`)
+
+  function openShareDialog(options?: { tab?: `create` | `manage` }) {
+    shareDialogInitialTab.value = options?.tab ?? `create`
+    isShowShareDialog.value = true
+  }
+
+  // 是否展示关于 / 赞赏 / 语法帮助 / 配置导入导出对话框
+  const isShowAboutDialog = ref(false)
+  const toggleShowAboutDialog = useToggle(isShowAboutDialog)
+
+  const isShowFundDialog = ref(false)
+  const toggleShowFundDialog = useToggle(isShowFundDialog)
+
+  const isShowMarkdownHelpDialog = ref(false)
+  const toggleShowMarkdownHelpDialog = useToggle(isShowMarkdownHelpDialog)
+
+  const isShowEditorStateDialog = ref(false)
+  const toggleShowEditorStateDialog = useToggle(isShowEditorStateDialog)
+
+  const isShowPreferencesDialog = ref(false)
+  const toggleShowPreferencesDialog = useToggle(isShowPreferencesDialog)
+
+  const isShowKeyboardShortcutsDialog = ref(false)
+  const toggleShowKeyboardShortcutsDialog = useToggle(isShowKeyboardShortcutsDialog)
+
+  const isShowCommandPalette = ref(false)
+  const toggleShowCommandPalette = useToggle(isShowCommandPalette)
+
+  // 组件对话框 — 打开时预展开的组件名（如 'MpProfile'）
+  const componentDialogTarget = ref<string | null>(null)
+
+  function openComponentDialogWithTarget(target: string) {
+    componentDialogTarget.value = target
+    isShowComponentDialog.value = true
+  }
+
+  // AI 对话框
+  const aiDialogVisible = ref(false)
+  const aiImageDialogVisible = ref(false)
+
+  function toggleAIDialog(value?: boolean) {
+    aiDialogVisible.value = value ?? !aiDialogVisible.value
+  }
+
+  function toggleAIImageDialog(value?: boolean) {
+    aiImageDialogVisible.value = value ?? !aiImageDialogVisible.value
+  }
+
+  // 搜索面板状态
+  const searchTabRequest = ref<{ word: string, showReplace: boolean } | null>(null)
+
+  function openSearchTab(searchWord: string = '', showReplace: boolean = false) {
+    searchTabRequest.value = { word: searchWord, showReplace }
+  }
+
+  function clearSearchTabRequest() {
+    searchTabRequest.value = null
+  }
+
+  // 跳转行号（Footer 监听并打开输入框）
+  const goToLineRequest = ref(0)
+
+  function requestGoToLine() {
+    goToLineRequest.value++
+  }
+
+  // ==================== 工具函数 ====================
+  // 处理窗口大小变化
+  let splitCollapsedByResize = false
+
+  function handleResize() {
+    const wasMobile = isMobile.value
+    isMobile.value = window.innerWidth <= 768
+
+    if (!wasMobile && isMobile.value && viewMode.value === `split`) {
+      // 从桌面端变为移动端且当前是双屏：切换为编辑模式并记录
+      viewMode.value = `edit`
+      splitCollapsedByResize = true
+    }
+    else if (wasMobile && !isMobile.value && splitCollapsedByResize) {
+      // 从移动端变回桌面端且是由 resize 触发的折叠：还原为双屏
+      viewMode.value = `split`
+      splitCollapsedByResize = false
+    }
+  }
+
+  onMounted(() => {
+    handleResize()
+    window.addEventListener(`resize`, handleResize)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener(`resize`, handleResize)
+  })
+
+  return {
+    // ==================== 全局 UI 状态 ====================
+    isDark,
+    showAIToolbox,
+    hasShownAIToolboxHint,
+    isOpenRightSlider,
+    isOpenPostSlider,
+    isMobile,
+    viewMode,
+    previewDevice,
+    isOpenFolderPanel,
+    enableImageReupload,
+    enableScrollSync,
+    copyMode,
+
+    // ==================== 对话框状态 ====================
+    isShowCssEditor,
+    toggleShowCssEditor,
+    isShowInsertFormDialog,
+    toggleShowInsertFormDialog,
+    isShowUploadImgDialog,
+    toggleShowUploadImgDialog,
+    isShowFormulaEditorDialog,
+    formulaEditorValue,
+    formulaEditorDisplayMode,
+    formulaEditorSourceRaw,
+    openFormulaEditor,
+    closeFormulaEditor,
+    isShowImportMdDialog,
+    toggleShowImportMdDialog,
+    importMdOpenUrl,
+    isShowLocalImageUpload,
+    toggleShowLocalImageUpload,
+    localImageUploadData,
+    isShowTemplateDialog,
+    toggleShowTemplateDialog,
+    isShowComponentDialog,
+    toggleShowComponentDialog,
+    isShowSyncDialog,
+    toggleShowSyncDialog,
+    isShowAccountDialog,
+    toggleShowAccountDialog,
+    isShowShareDialog,
+    shareDialogInitialTab,
+    openShareDialog,
+    isShowAboutDialog,
+    toggleShowAboutDialog,
+    isShowFundDialog,
+    toggleShowFundDialog,
+    isShowMarkdownHelpDialog,
+    toggleShowMarkdownHelpDialog,
+    isShowEditorStateDialog,
+    toggleShowEditorStateDialog,
+    isShowPreferencesDialog,
+    toggleShowPreferencesDialog,
+    isShowKeyboardShortcutsDialog,
+    toggleShowKeyboardShortcutsDialog,
+    isShowCommandPalette,
+    toggleShowCommandPalette,
+    componentDialogTarget,
+    openComponentDialogWithTarget,
+    aiDialogVisible,
+    toggleAIDialog,
+    aiImageDialogVisible,
+    toggleAIImageDialog,
+
+    // ==================== 搜索面板 ====================
+    searchTabRequest,
+    openSearchTab,
+    clearSearchTabRequest,
+    goToLineRequest,
+    requestGoToLine,
+
+    // ==================== Actions ====================
+    toggleDark,
+    toggleAIToolbox,
+    toggleImageReupload,
+    toggleScrollSync,
+    setViewMode,
+    setPreviewDevice,
+    togglePreviewDevice,
+  }
+})

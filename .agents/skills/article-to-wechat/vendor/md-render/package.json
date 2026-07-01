@@ -1,0 +1,10 @@
+{
+  "name": "md-render",
+  "private": true,
+  "type": "module",
+  "description": "vendored doocs/md 渲染器（公众号内联 HTML）。core.bundle.mjs 由 esbuild 生成；jsdom 系依赖无法打包故 isomorphic-dompurify 留外部。",
+  "dependencies": {
+    "juice": "^11.0.1",
+    "isomorphic-dompurify": "^3.18.0"
+  }
+}
