@@ -432,6 +432,13 @@ export default sidebar({
                 "/vibe_coding_series/tools/claude_code/claude_code_workflow.md",
               ],
             },
+            {
+              text: "3. Codex 深入浅出",
+              collapsible: true,
+              children: [
+                "/vibe_coding_series/tools/codex/codex_quickstart.md",
+              ],
+            },
           ],
         },
       ],
