@@ -10,21 +10,6 @@ tags:
   - 面试题
 ---
 
-<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
-
-<h2><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才</strong></span><span style="color: #006400;"><strong>，回复：</strong></span><span style="color: red;"><strong>面试</strong></span></h2>
-
-<div style="text-align: center;"><span style="color: #006400; font-size: 28px;"><strong>领取后端/AI面试题库PDF</strong></span></div>
-
-![](/assets/icon/avatar.png)
-
-<div style="text-align: center; margin-top: 22px; padding-top: 20px; border-top: 1px solid #c2e7b0;">
-<div style="color: #006400; font-size: 20px; font-weight: bold;">🔥 配套实战项目，拆得开、跑得起、能写进简历</div>
-<div style="color: red; font-size: 16px; font-weight: bold; margin-top: 8px;">多 Agent 编排 + RAG 混合检索 · 31 篇深度教程 + 50+ 面试题</div>
-<a href="/projects/dev-support.html" style="display: inline-block; margin-top: 14px; background: #ff7a18; color: #fff; font-size: 18px; font-weight: bold; padding: 10px 28px; border-radius: 24px; text-decoration: none;">点击查看 DevSupport AI 实战项目 →</a>
-</div>
-</div> 
-
 ## **1. 分布式理论**
 
 ### **1.1 什么是分布式系统？**
@@ -724,3 +709,18 @@ Paxos是分布式一致性领域最经典的协议，解决的是多个节点如
 ZAB是ZooKeeper专属的分布式一致性协议，核心就是保证ZK集群所有节点的数据一致。集群有三种角色：**Leader**负责处理所有写请求和发指令，**Follower**跟着Leader同步数据、参与投票、处理读请求，**Observer**不参与投票只同步数据处理读请求，是为了提升读性能。
 
 ZAB有两种工作模式。正常情况下是**广播模式**：客户端的写请求发给Leader，Leader把请求封装成事务提案并分配一个唯一的zxid（事务ID，保证全局有序），然后广播给所有Follower。Follower收到后先写本地日志再回复确认，Leader收到**超过半数**确认后广播提交指令，大家一起正式执行，数据就一致了。如果Leader挂了就进入**崩溃恢复模式**，Follower发现收不到心跳就发起选举，投票选出拥有最新最全日志的节点作为新Leader，新Leader先同步所有Follower的日志使其完全一致，然后切回广播模式继续工作。ZAB和Raft思想类似，但ZAB是专门为ZK的工作场景量身设计的。
+
+<div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
+
+<h2><span style="color: #006400;"><strong>关注秀才公众号：</strong></span><span style="color: red;"><strong>IT杨秀才</strong></span><span style="color: #006400;"><strong>，回复：</strong></span><span style="color: red;"><strong>面试</strong></span></h2>
+
+<div style="text-align: center;"><span style="color: #006400; font-size: 28px;"><strong>领取后端/AI面试题库PDF</strong></span></div>
+
+![](/assets/icon/avatar.png)
+
+<div style="text-align: center; margin-top: 22px; padding-top: 20px; border-top: 1px solid #c2e7b0;">
+<div style="color: #006400; font-size: 20px; font-weight: bold;">🔥 配套实战项目，拆得开、跑得起、能写进简历</div>
+<div style="color: red; font-size: 16px; font-weight: bold; margin-top: 8px;">多 Agent 编排 + RAG 混合检索 · 31 篇深度教程 + 50+ 面试题</div>
+<a href="/projects/dev-support.html" style="display: inline-block; margin-top: 14px; background: #ff7a18; color: #fff; font-size: 18px; font-weight: bold; padding: 10px 28px; border-radius: 24px; text-decoration: none;">点击查看 DevSupport AI 实战项目 →</a>
+</div>
+</div>
