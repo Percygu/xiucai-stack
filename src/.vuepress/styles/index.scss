@@ -497,10 +497,12 @@ body {
 // 应用到主要内容区域
 .theme-hope-content {
   color: var(--text-color);
+  font-size: 16px;
   font-family: var(--font-family) !important;
   
-  p, li, td, th {
+  p, ul, ol, li, td, th {
     color: var(--text-color);
+    line-height: 1.8 !important;
     font-family: var(--font-family) !important;
   }
   
@@ -738,4 +740,3 @@ html[data-theme="dark"] {
   -moz-user-select: text !important;
   -ms-user-select: text !important;
 }
-
