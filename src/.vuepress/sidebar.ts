@@ -568,6 +568,8 @@ export default sidebar({
               collapsible: true,
               children: [
                 "/vibe_coding_series/tools/codex/codex_quickstart.md",
+                "/vibe_coding_series/tools/codex/codex_agents_md.md",
+                "/vibe_coding_series/tools/codex/codex_commands_prompts.md",
               ],
             },
           ],

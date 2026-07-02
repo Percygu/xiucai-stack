@@ -75,7 +75,7 @@ vibe_coding_series/                  # 共约 51 篇
 | 1 | `dev_environment.md` | 开发环境搭建 | 操作系统准备（macOS/Windows/Linux）、终端配置、Node.js 安装、Git 基础配置、VS Code 安装与基础配置、每一步都配截图 |
 | 2 | `claude_code_setup.md` | Claude Code安装与配置 | Claude Code 是什么、安装方式（官方 native install / Homebrew）、账号订阅与认证、国内可用性配置（第三方兼容接口/中转 API）、第一次对话体验、基础命令（/help /clear /compact 等）、常见安装问题排查 |
 | 3 | `cursor_setup.md` | Cursor安装与配置 | Cursor 下载安装、从 VS Code 迁移设置、登录与模型配置、Ask/Agent/Plan/Edit 四模式与 Tab 补全初体验、Rules 配置入门、常见问题 |
-| 4 | `codex_setup.md` | Codex安装与配置 | Codex 是什么、CLI 安装、用 ChatGPT 订阅登录认证、国内网络与账号配置、首次会话、CLI/IDE/云端三种形态初体验、常见问题排查 |
+| 4 | `codex_setup.md` | Codex安装与配置 | Codex 是什么、Codex App 桌面端安装、用 ChatGPT 订阅登录认证、国内网络与账号配置、第一次 Local 任务、CLI/IDE/Web/Cloud 四种入口初体验、常见问题排查 |
 
 ---
 
@@ -141,14 +141,14 @@ vibe_coding_series/                  # 共约 51 篇
 
 | 序号 | 文件名 | 标题 | 内容要点 |
 |------|--------|------|----------|
-| 1 | `codex_quickstart.md` | Codex 快速上手核心指南 | 安装、用 ChatGPT 订阅登录、首次会话、CLI/IDE/云端/GitHub 四种形态总览与选择 |
+| 1 | `codex_quickstart.md` | Codex 快速上手核心指南 | Codex App 快速上手、用 ChatGPT 订阅登录、第一次 Local 任务、Local/Worktree/Cloud 模式、CLI/IDE/Web 四种入口总览与选择 |
 | 2 | `codex_agents_md.md` | AGENTS.md 与配置完全指南 | AGENTS.md 写法与作用、`~/.codex/config.toml`、Profiles 配置层切换（`--profile`） |
-| 3 | `codex_commands_prompts.md` | 命令与自定义 Prompt 完全指南 | Slash Commands（/review 等）、自定义 Prompt（`prompts/` 目录、`/prompts:` 菜单） |
-| 4 | `codex_skills.md` | Skills 完全指南 | Skill 是什么、存放位置（`.agents/skills/`、`~/.codex/skills/`）、`$skill` 调用、`$skill-creator` 创建 |
+| 3 | `codex_commands_prompts.md` | 命令与提示词入口完全指南 | Codex App 命令入口、CLI Slash Commands（`/review`、`/permissions` 等）、自定义 Prompt 的旧用法与 Skills 迁移建议 |
+| 4 | `codex_skills.md` | Skills 完全指南 | Skill 是什么、存放位置（`.agents/skills/`、`~/.agents/skills/`）、`$skill` 调用、`$skill-installer` 与 `skill-creator` |
 | 5 | `codex_mcp.md` | MCP 集成完全指南 | 在 config.toml 配置 MCP server、`codex mcp` 命令管理、会话自动启动 |
-| 6 | `codex_cloud_github.md` | 云端任务与 GitHub 自动化完全指南 | 云端 microVM 沙箱、并行任务、GitHub PR/issue 自动化、本地 vs 云端如何选 |
+| 6 | `codex_cloud_github.md` | 云端任务与 GitHub 自动化完全指南 | Codex App 的 Cloud 模式、云端沙箱、并行任务、GitHub PR/issue 自动化、本地 App vs 云端如何选 |
 | 7 | `codex_sandbox_models.md` | 沙箱审批与模型完全指南 | 沙箱/审批模式与安全策略、reasoning effort（xhigh~low）、模型选择与成本权衡 |
-| 8 | `codex_workflow.md` | 实战工作流与高效技巧 | 多步工具链、self-check 自检、跨形态协作、高效技巧盘点 |
+| 8 | `codex_workflow.md` | 实战工作流与高效技巧 | Codex App 优先的日常工作流、多步工具链、self-check 自检、App/CLI/IDE/Cloud 跨入口接力、高效技巧盘点 |
 
 > 注：Claude Code 的 Output styles、Agent SDK，以及 Codex 的 computer-use（屏幕操作）等较小众/偏开发者的能力，本篇不单列，必要时在 `workflow` 篇里一笔带过。GitHub Actions / 自动 Code Review（CI 自动化）已归入工程实践篇。
 

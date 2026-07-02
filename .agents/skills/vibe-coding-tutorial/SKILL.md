@@ -178,11 +178,11 @@ tag:
 
 5. **小结**：`## **{编号}. 小结**`，用一两段自然的文字收束全文。小结不是复述文章干了什么的总结清单，而是作者以自然的笔触提炼升华全文核心思想。不要预告下一篇内容。
 
-6. **结尾推广块**：必须在文章最后加上统一的推广 HTML 块（见下方模板）。
+6. **结尾推广块**：必须在文章最后加上统一的推广 HTML 块（见下方模板），同时包含公众号资料领取和 DevSupport AI 实战项目引流两部分。
 
 #### 结尾推广块模板
 
-> ⚠️ **【SEO 铁律】推广块里绝不能用 `<h1>`**。VuePress 已经把 frontmatter 的 `title` 渲染成页面唯一的 `<h1>`，推广块若再用 `<h1>` 会导致一个页面出现多个 `<h1>`，被 Bing 等搜索引擎判为"More than one h1 tag"而拒绝索引。统一用 `<h2>`，照抄下面的模板即可，不要改动标签层级。
+> ⚠️ **【SEO 铁律】推广块里绝不能用 `<h1>`**。VuePress 已经把 frontmatter 的 `title` 渲染成页面唯一的 `<h1>`，推广块若再用 `<h1>` 会导致一个页面出现多个 `<h1>`，被 Bing 等搜索引擎判为"More than one h1 tag"而拒绝索引。统一用 `<h2>`，照抄下面的模板即可，不要改动标签层级，也不要删除二维码下方的 DevSupport 项目引流。
 
 ```html
 <div style="background-color: #f0f9eb; padding: 10px 15px; border-radius: 4px; border-left: 5px solid #67c23a; margin: 20px 0; color:rgb(64, 147, 255);">
@@ -192,6 +192,12 @@ tag:
 <div style="text-align: center;"><span style="color: #006400; font-size: 28px;"><strong>领取后端/AI面试题库PDF</strong></span></div>
 
 ![](/assets/icon/avatar.png)
+
+<div style="text-align: center; margin-top: 22px; padding-top: 20px; border-top: 1px solid #c2e7b0;">
+<div style="color: #006400; font-size: 20px; font-weight: bold;">🔥 配套实战项目，拆得开、跑得起、能写进简历</div>
+<div style="color: red; font-size: 16px; font-weight: bold; margin-top: 8px;">多 Agent 编排 + RAG 混合检索 · 31 篇深度教程 + 50+ 面试题</div>
+<a href="/projects/dev-support.html" style="display: inline-block; margin-top: 14px; background: #ff7a18; color: #fff; font-size: 18px; font-weight: bold; padding: 10px 28px; border-radius: 24px; text-decoration: none;">点击查看 DevSupport AI 实战项目 →</a>
+</div>
 </div>
 ```
 
@@ -483,7 +489,7 @@ node scripts/check-article.mjs <刚保存的文章路径>
 5. **实战篇要真做真截**：项目实战 / 工具精通 / 工程实践等动手型文章，必须真正跑一遍 Vibe Coding，浏览器能渲染的效果用 chrome-devtools 真实截图存入 `src/assets/img/vibe_coding/{分类}/{文章文件名}/`。
 6. **截不了的图要标记好让作者补**：我无法截取的工具界面（终端 UI、IDE 操作、云端工具等），凡是该位置需要图的，用 `🔴待截图` 标记交代清楚截什么、怎么截、存哪里，写完后列出所有待截点提醒作者。
 7. **不需要前后衔接**：开头不回顾上篇，结尾不预告下篇。每篇文章独立成文。
-8. **结尾推广块必须加**，使用上面提供的统一 HTML 模板。
+8. **结尾推广块必须加**，使用上面提供的统一 HTML 模板，必须保留公众号资料领取、二维码和 DevSupport AI 实战项目引流按钮三部分。
 9. **面向中国用户**：推荐工具时优先考虑国内可用性，涉及付费工具时说明价格和免费替代方案。
 10. **长文章主动拆分**：如果按规划文档写某篇文章时发现内容量过大（正文超过 10000 字），应主动提出拆分方案，经用户确认后再写。
 11. **【全系列统一】AI Coding 工具只聚焦三大主流 Coding Agent**：本系列从头到尾涉及的 AI 编程工具，统一锁定 **Codex、Cursor、Codex** 这三个主流 Coding Agent，所有讲解、示例、推荐、对比都围绕它们展开，不要再把其他工具（GitHub Copilot、Windsurf、Trae、通义灵码、CodeGeeX、v0、bolt.new 等）当作主角去展开介绍。例外仅三种：①认知篇《AI编程工具全景图》这类"全景/扫盲"性质的文章，为了让读者对整个生态有概念，可以一笔带过地提及其他工具，但重点拆解部分仍只讲这三个；②工具精通篇《其他实用工具》(`other_tools.md`) 已明确定位为"生态扫盲篇"，集中、简要地带读者认识 Copilot / Windsurf / v0 / bolt.new 等其他工具，让大家有个全貌即可，不深入展开；③确有必要时（如讲免费/国产平替）可顺带一提，点到为止。除这三种情况外，正文主线一律只用 Codex、Cursor、Codex 这三个工具举例和演示。
