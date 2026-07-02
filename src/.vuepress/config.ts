@@ -69,7 +69,7 @@ export default defineUserConfig({
           "/vibe_coding_series/*",
           "/面试题/*",
         ],
-        regExp: ["^/go_agent_series/(?!introduction\\.html$).+"],
+        regExp: ["^/go_agent_series/(?!introduction\\.html$|eino_basic/eino_overview\\.html$).+"],
       },
       allowMobile: false,
       height: 1600,
