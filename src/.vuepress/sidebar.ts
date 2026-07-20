@@ -577,6 +577,17 @@ export default sidebar({
                 "/vibe_coding_series/tools/codex/codex_workflow.md",
               ],
             },
+            {
+              text: "04 | Cursor 深入浅出",
+              collapsible: true,
+              children: [
+                "/vibe_coding_series/tools/cursor/cursor_quickstart.md",
+                "/vibe_coding_series/tools/cursor/cursor_modes.md",
+                "/vibe_coding_series/tools/cursor/cursor_rules.md",
+                "/vibe_coding_series/tools/cursor/cursor_context_memories.md",
+                "/vibe_coding_series/tools/cursor/cursor_mcp.md",
+              ],
+            },
           ],
         },
       ],
