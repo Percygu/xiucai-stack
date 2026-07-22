@@ -28,11 +28,6 @@ export default navbar([
     link: "/projects/dev-support.md",
   },
   {
-    text: "🌟求职训练营🌟",
-    //icon: "user",
-    link: "/offer.md",
-  },
-  {
     text: "关于作者",
     icon: "user",
     link: "/about-author.md",
