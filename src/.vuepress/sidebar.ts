@@ -83,6 +83,10 @@ const llmInterviewGroups = [
         link: "/backend_series/llm_interview/agent_dialogue_design.md",
       },
       {
+        text: "你的Agent意图识别是怎么做的？",
+        link: "/backend_series/llm_interview/agent_intent_recognition.md",
+      },
+      {
         text: "介绍一下多 Agent 如何实现工作？多个 Agent 之间如何协调和分工？",
         link: "/backend_series/llm_interview/agent_cooperation.md",
       },
