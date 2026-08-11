@@ -33,9 +33,6 @@ importers:
       vuepress:
         specifier: 2.0.0-rc.19
         version: 2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.2)(sass-embedded@1.83.0))(vue@3.5.13)
-      vuepress-plugin-readmore-popular-next:
-        specifier: 2.0.0-rc.19.1
-        version: 2.0.0-rc.19.1
       vuepress-theme-hope:
         specifier: 2.0.0-rc.66
         version: 2.0.0-rc.66(@vuepress/plugin-docsearch@2.0.0-rc.67(@algolia/client-search@5.17.1)(search-insights@2.17.3)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.2)(sass-embedded@1.83.0))(vue@3.5.13)))(@vuepress/plugin-slimsearch@2.0.0-rc.61(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.2)(sass-embedded@1.83.0))(vue@3.5.13)))(markdown-it@14.1.0)(sass-embedded@1.83.0)(vuepress@2.0.0-rc.19(@vuepress/bundler-vite@2.0.0-rc.19(@types/node@22.10.2)(sass-embedded@1.83.0))(vue@3.5.13))
@@ -1694,9 +1691,6 @@ packages:
     engines: {node: ^18 || >=20}
     hasBin: true
 
-  node-match-path@0.6.3:
-    resolution: {integrity: sha512-fB1reOHKLRZCJMAka28hIxCwQLxGmd7WewOCBDYKpyA1KXi68A7vaGgdZAPhY2E6SXoYt3KqYCCvXLJ+O0Fu/Q==}
-
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
 
@@ -2337,9 +2331,6 @@ packages:
         optional: true
       sass-loader:
         optional: true
-
-  vuepress-plugin-readmore-popular-next@2.0.0-rc.19.1:
-    resolution: {integrity: sha512-ommlr0RSNotp0Fn+nTc5cU+W11KadsykQW4wFkSJdkOhpaVHZ9+5MOs3kToNURzTK5ileGSsSvSL/GQa+HBs2g==}
 
   vuepress-plugin-sitemap@2.3.1:
     resolution: {integrity: sha512-n+8lbukhrKrsI9H/EX0EBgkE1pn85LAQFvQ5dIvrZP4Kz6JxPOPPNTQmZMhahQV1tXbLZQCEN7A1WZH4x+arJQ==}
@@ -4262,8 +4253,6 @@ snapshots:
 
   nanoid@5.0.9: {}
 
-  node-match-path@0.6.3: {}
-
   node-releases@2.0.19: {}
 
   normalize-path@3.0.0: {}
@@ -4774,19 +4763,6 @@ snapshots:
       sass-embedded: 1.83.0
     transitivePeerDependencies:
       - markdown-it
-      - typescript
-
-  vuepress-plugin-readmore-popular-next@2.0.0-rc.19.1:
-    dependencies:
-      '@vuepress/client': 2.0.0-rc.19
-      '@vuepress/core': 2.0.0-rc.19
-      '@vuepress/utils': 2.0.0-rc.19
-      chalk: 4.1.2
-      node-match-path: 0.6.3
-      vue: 3.5.13
-      vue-router: 4.4.5(vue@3.5.13)
-    transitivePeerDependencies:
-      - supports-color
       - typescript
 
   vuepress-plugin-sitemap@2.3.1(chalk@5.3.0)(commander@2.20.3)(esm@3.2.25):
