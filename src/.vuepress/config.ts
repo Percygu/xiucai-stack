@@ -4,6 +4,9 @@ import sitemapPlugin from "vuepress-plugin-sitemap";
 
 import theme from "./theme.js";
 
+// 临时关闭公众号引流；故障恢复后改为 true 即可重新启用。
+const ENABLE_READMORE = false;
+
 export default defineUserConfig({
   base: "/",
 
@@ -47,34 +50,38 @@ export default defineUserConfig({
   theme,
 
   plugins: [
-    readmorePlugin({
-      // 填写 TechGrow 后台博客 ID 和公众号自动回复关键词后，解锁功能才会正式可用。
-      blogId: "06470-0293055288582-940",
-      name: "IT杨秀才",
-      keyword: "验证码",
-      qrcode: "/assets/icon/IT_yangxiucai.jpg",
-      selector: "div[vp-content]",
-      cssUrl: "https://qiniu.techgrow.cn/readmore/dist/vuepress2.css",
-      reverse: true,
-      excludes: {
-        strExp: [
-          "/backend_series/advanced_interview/*",
-          "/backend_series/distributed_interview/*",
-          "/backend_series/go_interview/*",
-          "/backend_series/llm_interview/*",
-          "/backend_series/mq_interview/*",
-          "/backend_series/mysql_interview/*",
-          "/backend_series/redis_interview/*",
-          "/go_series/go_interview/*",
-          "/vibe_coding_series/*",
-          "/面试题/*",
-        ],
-        regExp: ["^/go_agent_series/(?!introduction\\.html$|eino_basic/eino_overview\\.html$).+"],
-      },
-      allowMobile: false,
-      height: 1600,
-      random: 1.0,
-    }),
+    ...(ENABLE_READMORE
+      ? [
+          readmorePlugin({
+            // 填写 TechGrow 后台博客 ID 和公众号自动回复关键词后，解锁功能才会正式可用。
+            blogId: "06470-0293055288582-940",
+            name: "IT杨秀才",
+            keyword: "验证码",
+            qrcode: "/assets/icon/IT_yangxiucai.jpg",
+            selector: "div[vp-content]",
+            cssUrl: "https://qiniu.techgrow.cn/readmore/dist/vuepress2.css",
+            reverse: true,
+            excludes: {
+              strExp: [
+                "/backend_series/advanced_interview/*",
+                "/backend_series/distributed_interview/*",
+                "/backend_series/go_interview/*",
+                "/backend_series/llm_interview/*",
+                "/backend_series/mq_interview/*",
+                "/backend_series/mysql_interview/*",
+                "/backend_series/redis_interview/*",
+                "/go_series/go_interview/*",
+                "/vibe_coding_series/*",
+                "/面试题/*",
+              ],
+              regExp: ["^/go_agent_series/(?!introduction\\.html$|eino_basic/eino_overview\\.html$).+"],
+            },
+            allowMobile: false,
+            height: 1600,
+            random: 1.0,
+          }),
+        ]
+      : []),
     sitemapPlugin({
       hostname: "https://golangstar.cn",
       // 确保使用正确的URI编码生成sitemap
