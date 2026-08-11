@@ -245,14 +245,14 @@ const lockContent = (content) => {
   gateMount.value = mount;
 };
 
-const waitForContent = async (currentEvaluation) => {
+const waitForContent = async (currentEvaluation, staleContent = null) => {
   for (let attempt = 0; attempt < 30; attempt += 1) {
     await nextTick();
 
     if (currentEvaluation !== evaluationId) return null;
 
     const content = document.querySelector(config.contentSelector);
-    if (content?.isConnected) return content;
+    if (content?.isConnected && content !== staleContent) return content;
 
     await new Promise((resolve) => window.setTimeout(resolve, 50));
   }
@@ -345,7 +345,7 @@ const submitCode = async () => {
   }
 };
 
-const evaluateRoute = async (path) => {
+const evaluateRoute = async (path, staleContent = null) => {
   const currentEvaluation = ++evaluationId;
   routeController?.abort();
   routeController = new AbortController();
@@ -357,7 +357,7 @@ const evaluateRoute = async (path) => {
 
   if (!shouldLockReadmorePath(path)) return;
 
-  const content = await waitForContent(currentEvaluation);
+  const content = await waitForContent(currentEvaluation, staleContent);
   if (!content || currentEvaluation !== evaluationId) return;
 
   try {
@@ -449,10 +449,16 @@ watch(modalOpen, async (isOpen) => {
 onMounted(() => {
   stopRouteWatch = watch(
     () => route.path,
-    (path) => {
-      void evaluateRoute(path);
+    (path, previousPath) => {
+      // Theme Hope replaces the keyed page after an out-in transition. Capture
+      // the current article before rendering starts so we never attach the gate
+      // to the old page while it is leaving.
+      const staleContent = previousPath === undefined
+        ? null
+        : document.querySelector(config.contentSelector);
+      void evaluateRoute(path, staleContent);
     },
-    { immediate: true, flush: "post" },
+    { immediate: true, flush: "sync" },
   );
 });
 
