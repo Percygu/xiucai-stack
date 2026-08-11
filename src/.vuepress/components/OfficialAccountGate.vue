@@ -133,19 +133,6 @@ let previousFocus = null;
 let previousBodyOverflow = "";
 let previousPreviewHeight = "";
 
-const isMobileDevice = () => {
-  const userAgentData = navigator.userAgentData;
-
-  if (userAgentData?.mobile) return true;
-
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi/iu.test(navigator.userAgent)) {
-    return true;
-  }
-
-  // Modern iPadOS can identify itself as macOS.
-  return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
-};
-
 const getStoredToken = () => {
   try {
     return localStorage.getItem(config.tokenStorageKey) || "";
@@ -368,7 +355,7 @@ const evaluateRoute = async (path) => {
   closeModal();
   restoreContent();
 
-  if (isMobileDevice() || !shouldLockReadmorePath(path)) return;
+  if (!shouldLockReadmorePath(path)) return;
 
   const content = await waitForContent(currentEvaluation);
   if (!content || currentEvaluation !== evaluationId) return;
