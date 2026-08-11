@@ -2,6 +2,7 @@
   "name": "xiucai-stack",
   "description": "xiucai-stack",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.18.2",
   "license": "MIT",
   "type": "module",
   "scripts": {
