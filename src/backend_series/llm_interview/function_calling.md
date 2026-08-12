@@ -1,5 +1,5 @@
 ---
-title: 41. Function Calling 的可靠性怎么保证？
+title: 42. Function Calling 的可靠性怎么保证？
 description: "大模型面试题：深度解析Function Calling可靠性保障方案，涵盖五大失败模式分析、Schema设计优化、Structured Output受约束解码、Pydantic参数校验与重试降级策略、多工具并行调用治理及线上评估监控体系"
 tags:
   - 大模型

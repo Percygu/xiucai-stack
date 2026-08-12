@@ -95,6 +95,10 @@ const llmInterviewGroups = [
         link: "/backend_series/llm_interview/agent_optimization.md",
       },
       {
+        text: "你的Agent是怎么应对高并发的？",
+        link: "/backend_series/llm_interview/agent_high_concurrency.md",
+      },
+      {
         text: "LangChain 和 LangGraph 的区别是什么？各自适用什么场景？",
         link: "/backend_series/llm_interview/langchain_langgraph.md",
       },
