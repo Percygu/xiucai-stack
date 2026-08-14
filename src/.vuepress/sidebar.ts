@@ -99,6 +99,10 @@ const llmInterviewGroups = [
         link: "/backend_series/llm_interview/agent_high_concurrency.md",
       },
       {
+        text: "最常见的 Agent 生产环境内存泄漏有哪几种？你会如何排查修复？",
+        link: "/backend_series/llm_interview/agent_memory_leak.md",
+      },
+      {
         text: "LangChain 和 LangGraph 的区别是什么？各自适用什么场景？",
         link: "/backend_series/llm_interview/langchain_langgraph.md",
       },

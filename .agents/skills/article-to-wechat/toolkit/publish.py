@@ -2,21 +2,23 @@
 """
 把 golangstar.cn 网站的一篇 markdown 文章发布到微信公众号草稿箱。
 
-流程：读 md → 开头拼头部(header.md：网站头图+链接) → doocs/md 渲染排版(wechat_render→node)
+流程：读 md → 开头拼头部(header.md：正文品牌头图+链接) → doocs/md 渲染排版(wechat_render→node)
       → 末尾拼引流尾巴(cta_footer.md，按系列选段) → 正文/头图自动上传素材库并替换链接
-      → 取首图作封面 → 建草稿。停在草稿箱，由你去后台预览无误后手动群发。
+      → 上传显式指定的 2.35:1 专属封面 → 建草稿。停在草稿箱，由你去后台预览无误后手动群发。
 
 排版：直接复用开源 doocs/md（md.openwrite.cn）官方渲染内核，default 主题（居中标题、蓝色
       胶囊二级标题、Mac 深色代码块）。渲染器是 vendored 的 Node 产物，详见 vendor/md-render/。
 
 用法：
-  python3 publish.py <文章.md> [--title 标题] [--series KEY] [--series-index N]
-                      [--cover 封面图] [--dry-run] [--no-header] [--no-cta]
+  python3 publish.py <文章.md> --digest 手写摘要 --cover 2.35:1专属封面
+                      [--title 标题] [--series KEY] [--series-index N]
+                      [--dry-run] [--no-header] [--no-cta]
 
-  --title         公众号标题（默认用 frontmatter title 去掉前导序号）
+  --title         公众号标题（默认用 frontmatter title 去掉前导序号；LLM 面试系列自动加“面试官：”）
   --series        系列 KEY（vibe-coding / llm-interview…）。默认按文章路径自动推断
   --series-index  填进引流尾巴的"第 N 篇"
-  --cover         指定封面图（默认取首图——通常就是开头那张头图）
+  --digest        80-120 字的手写公众号摘要，不允许自动截取正文
+  --cover         文章专属封面，PNG/JPG，实际像素比例必须为 2.35:1
   --dry-run       只生成本地预览 HTML，不调用任何微信接口
   --no-header     不插开头头部
   --no-cta        不追加引流尾巴
@@ -49,6 +51,8 @@ SERIES_BY_PATH = {
     "llm_interview": "llm-interview",
 }
 
+LLM_INTERVIEW_TITLE_PREFIX = "面试官："
+
 
 def _read_creds(cfg: Path):
     data = yaml.safe_load(cfg.read_text(encoding="utf-8")) or {}
@@ -75,18 +79,65 @@ def load_credentials() -> tuple[str, str, str]:
     raise SystemExit("未找到有效的微信 appid/secret（建 skill 内 config.yaml 填入）")
 
 
-def first_paragraph_digest(body_md: str) -> str:
-    """从正文（已剥 frontmatter）取第一段纯文本作摘要，跳过标题/图片/引用/列表。"""
-    for line in body_md.splitlines():
-        s = line.strip()
-        if not s or s[0] in "#!>-*|" or s.startswith("```"):
-            continue
-        s = re.sub(r"!\[.*?\]\(.*?\)", "", s)          # 去图片
-        s = re.sub(r"\[(.*?)\]\(.*?\)", r"\1", s)        # 链接留文字
-        s = re.sub(r"[*`]", "", s).strip()                # 去强调/代码标记
-        if s:
-            return s[:100]
-    return ""
+def image_dimensions(path: Path) -> tuple[int, int]:
+    """读取 PNG/JPEG 尺寸，不引入额外图像依赖。"""
+    with path.open("rb") as image:
+        header = image.read(24)
+        if header.startswith(b"\x89PNG\r\n\x1a\n") and header[12:16] == b"IHDR":
+            return int.from_bytes(header[16:20], "big"), int.from_bytes(header[20:24], "big")
+
+        image.seek(0)
+        if image.read(2) != b"\xff\xd8":
+            raise SystemExit(f"封面必须是可读取的 PNG 或 JPEG: {path}")
+
+        sof_markers = {
+            0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
+            0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF,
+        }
+        while True:
+            marker_start = image.read(1)
+            if not marker_start:
+                break
+            if marker_start != b"\xff":
+                continue
+            marker = image.read(1)
+            while marker == b"\xff":
+                marker = image.read(1)
+            if not marker:
+                break
+            marker_code = marker[0]
+            if marker_code in sof_markers:
+                segment_length = int.from_bytes(image.read(2), "big")
+                if segment_length < 7:
+                    break
+                image.read(1)
+                height = int.from_bytes(image.read(2), "big")
+                width = int.from_bytes(image.read(2), "big")
+                return width, height
+            if marker_code in {0x01, 0xD8, 0xD9}:
+                continue
+            length_bytes = image.read(2)
+            if len(length_bytes) != 2:
+                break
+            segment_length = int.from_bytes(length_bytes, "big")
+            if segment_length < 2:
+                break
+            image.seek(segment_length - 2, 1)
+
+    raise SystemExit(f"无法读取封面尺寸: {path}")
+
+
+def validate_cover(path_arg: str) -> tuple[Path, int, int]:
+    cover = Path(path_arg).expanduser().resolve()
+    if not cover.is_file():
+        raise SystemExit(f"封面不存在: {cover}")
+    width, height = image_dimensions(cover)
+    if height <= 0 or round(width / height, 2) != 2.35:
+        raise SystemExit(
+            f"封面比例必须为 2.35:1，当前为 {width}×{height} "
+            f"({width / height:.3f}:1): {cover}"
+        )
+    return cover, width, height
 
 
 def force_linebreaks(text: str) -> str:
@@ -126,6 +177,14 @@ def infer_series(md_path: Path, override: str | None) -> str | None:
     return None
 
 
+def format_title(title: str, series: str | None) -> str:
+    normalized = title.strip()
+    if series != "llm-interview":
+        return normalized
+    question = re.sub(r"^面试官\s*[:：]\s*", "", normalized).strip()
+    return f"{LLM_INTERVIEW_TITLE_PREFIX}{question}"
+
+
 def build_cta(series: str | None, index: int | None) -> str:
     """按系列从 cta_footer.md 取对应段；取不到则返回空串。"""
     cfile = SKILL_DIR / "assets" / "cta_footer.md"
@@ -162,11 +221,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("md")
     ap.add_argument("--title", default=None)
-    ap.add_argument("--digest", default=None,
-                    help="公众号摘要（≤120字，吸引力强）。不传则回退截取正文开头——但应优先手写。")
+    ap.add_argument("--digest", required=True,
+                    help="80-120字的手写公众号摘要，不允许自动截取正文")
     ap.add_argument("--series", default=None)
     ap.add_argument("--series-index", type=int, default=None)
-    ap.add_argument("--cover", default=None)
+    ap.add_argument("--cover", required=True,
+                    help="文章专属封面（PNG/JPG，实际像素比例必须为2.35:1）")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--no-header", action="store_true")
     ap.add_argument("--no-cta", action="store_true")
@@ -176,17 +236,18 @@ def main():
     if not md_path.exists():
         raise SystemExit(f"文章不存在: {md_path}")
 
+    digest = args.digest.strip()
+    if not 80 <= len(digest) <= 120:
+        raise SystemExit(f"公众号摘要必须为 80-120 字，当前 {len(digest)} 字")
+    cover_path, cover_width, cover_height = validate_cover(args.cover)
+
     series = infer_series(md_path, args.series)
     print(f"系列: {series or '(无)'}")
 
-    # 先从文章剥掉 frontmatter、取标题与摘要——必须在拼头部之前做，
-    # 否则头部挡住开头，frontmatter 取不到、摘要会变成头部那行链接。
+    # 先从文章剥掉 frontmatter、取标题——必须在拼头部之前做，
+    # 否则头部会挡住 frontmatter。
     body, fm_title = _strip_frontmatter(md_path.read_text(encoding="utf-8"))
     body = strip_web_promo_card(body)  # 剥掉网站专用绿色引流卡片，公众号不需要
-    # 摘要：优先用手写的 --digest（吸引力强、≤120字）；没传才回退截取正文开头。
-    digest = (args.digest or "").strip() or first_paragraph_digest(body)
-    if len(digest) > 120:
-        digest = digest[:120]
 
     parts = []
     if not args.no_header:
@@ -201,9 +262,10 @@ def main():
     combined = "\n\n".join(parts)
 
     html, images = render_markdown(combined, base_dir=md_path.parent)
-    title = args.title or fm_title or md_path.stem
+    title = format_title(args.title or fm_title or md_path.stem, series)
     print(f"标题: {title}")
     print(f"摘要: {digest}")
+    print(f"封面: {cover_path.name} ({cover_width}×{cover_height}, 2.35:1)")
     print(f"图片(含头图): {len(images)} 张")
 
     if args.dry_run:
@@ -230,13 +292,8 @@ def main():
     for path, wx_url in url_map.items():
         html = html.replace(path, wx_url)
 
-    cover = args.cover or (local_imgs[0] if local_imgs and Path(local_imgs[0]).exists() else None)
-    if cover and Path(cover).exists():
-        thumb_id = wechat_api.upload_thumb(token, cover)
-        print(f"  封面: {Path(cover).name} ✓")
-    else:
-        thumb_id = wechat_api.upload_default_thumb(token)
-        print("  封面: 占位白图（无可用图片）")
+    thumb_id = wechat_api.upload_thumb(token, str(cover_path))
+    print(f"  封面上传: {cover_path.name} ✓")
 
     res = create_draft(token, title=title, html=html, digest=digest,
                        thumb_media_id=thumb_id, author=author)

@@ -51,7 +51,7 @@ markdown
 
 ## 公众号接口约束（来自 wechat_api.py / publisher.py）
 
-- 建草稿强制要 `thumb_media_id`（封面）：默认取正文第一张图作封面；无图则上传占位白图。
+- 建草稿强制要 `thumb_media_id`（封面）：必须通过 `--cover` 显式传入文章专属 PNG/JPG，脚本读取实际尺寸并要求比例为 2.35:1；不再使用正文首图、固定头图或占位白图兜底。
 - 正文图用 `media/uploadimg` 返回 url；封面用 `material/add_material` 返回 media_id。
 - 正文不接受站内/外链（会触发 45166 invalid content），故 `wechat_render.py` 把非 mp.weixin 链接拆成纯文本。
 - 建草稿 body 必须 `ensure_ascii=False`；access_token 带缓存（按 appid，提前 5 分钟过期）。
