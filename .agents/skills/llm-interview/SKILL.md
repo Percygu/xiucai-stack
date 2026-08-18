@@ -42,7 +42,7 @@ description: 为当前 xiucai-stack 网站编写大模型（LLM）应用开发�
 - 参考回答的长度、语感和关键词密度
 - 分析和回答之间的文体差异
 - 读取完了pdf文件以后，请你输出一下你对pdf中各个配图的理解，这样我才能够判断你是否准确的读取了pdf，和理解了配图的质量要求
-- 读取现有网站文章与 `src/.vuepress/sidebar.ts`，确认当前最大题号、文章分类、文件命名和侧边栏插入位置，避免重复创建
+- 读取现有网站文章与 `src/.vuepress/sidebar.ts`，确认目标分类、分类内插入位置、文件命名与侧边栏顺序，避免重复创建
 
 ### 第二步：分析面试题
 
@@ -137,7 +137,12 @@ description: 为当前 xiucai-stack 网站编写大模型（LLM）应用开发�
 
 **文件命名**：使用简短、可读、与现有风格一致的 snake_case 英文语义名，例如 `prompt_injection.md`、`function_calling.md`、`agent_memory_design.md`。禁止用完整中文题目作为文件名。
 
-**题号规则**：先根据 `src/.vuepress/sidebar.ts` 确认文章是追加到末尾还是插入现有顺序。若追加到末尾，扫描全部文章 frontmatter 的 `title`，使用当前最大序号加 1；若插入两篇现有文章之间，则读取前后文章的 frontmatter 编号，把新文章放在前一篇之后，并将原本占用该编号及其后的文章整体顺延一位。侧边栏各分类会从 1 单独计数，不能直接把分类内显示序号当作文章 frontmatter 编号。完成后必须检查所有题号唯一、无重复，并与插入顺序一致。
+**题号规则**：页面大标题与侧边栏必须只有一套编号。`src/.vuepress/sidebar.ts` 中每个分类都由 `numberedInterviewQuestions` 从 1 开始计数，因此文章 frontmatter `title` 的前导数字必须等于它在所属分类中的顺序号。不再维护跨分类的全局题号，不同分类出现相同序号是正常结果。
+
+- 追加到分类末尾：新题号 = 该分类现有文章数 + 1。
+- 插入分类中间：只顺延该分类内从插入位置开始的后续文章，不修改其他分类。
+- 侧边栏 `text` 仍不手写数字，由 `numberedInterviewQuestions` 渲染；frontmatter 显式写同一个分类内序号。
+- 更新侧边栏后运行 `node .agents/skills/llm-interview/scripts/sync_title_numbers.mjs --write`，再运行不带参数的检查模式。任何不一致都必须在落盘前修复。
 
 **Frontmatter 格式**：
 
@@ -179,7 +184,7 @@ tags:
 
 1. 根据题目主题，将文章加入 `src/.vuepress/sidebar.ts` 中 `llmInterviewSidebar` 的对应分类：基础、Agent、RAG 或大模型架构。没有完全匹配时选择技术关系最接近的分类，不要随意新增分类。
 2. `text` 使用不带序号的完整面试题，`link` 使用 `/backend_series/llm_interview/{英文语义文件名}.md`。页面显示序号由现有 `numberedInterviewQuestions` 逻辑处理。
-3. 检查 frontmatter 合法、正文没有 `#` 一级标题、标题层级从 `##` 开始、题目分析部分没有第一或第二人称、图片路径全部存在、每张设计配图右下角引流信息完整、推广尾巴完整、侧边栏链接与文件名一致。
+3. 先运行 `node .agents/skills/llm-interview/scripts/sync_title_numbers.mjs --write`，然后运行 `node .agents/skills/llm-interview/scripts/sync_title_numbers.mjs` 确认每篇文章的 frontmatter 编号与侧边栏分类内序号完全一致。同时检查 frontmatter 合法、正文没有 `#` 一级标题、标题层级从 `##` 开始、题目分析部分没有第一或第二人称、图片路径全部存在、每张设计配图右下角引流信息完整、推广尾巴完整、侧边栏链接与文件名一致。
 4. 检查同目录的 `wechat-cover.png` 存在且可读取，实际尺寸比例为 2.35:1，封面没有出现在网站 Markdown 正文中，也没有使用固定网站截图。
 5. 检查新建文章和图片只落在本项目约定目录，不得再写入 `/Users/gupeng/projects/llm_interview/` 或其他外部目录。
 
@@ -189,7 +194,7 @@ tags:
 
 1. 网站文章的 frontmatter 和侧边栏继续使用不带角色前缀的纯面试题；公众号标题统一使用 `面试官：{题目}`，其中必须是“面试官”三个字加中文冒号。先去掉 frontmatter 前导序号，再添加该前缀；标题已经以 `面试官：` 或 `面试官:` 开头时只做规范化，绝不重复添加。用户明确给出公众号标题时也遵循这条规则，不要为了自动发布再次追问。
 2. 单独撰写公众号摘要，严禁截取文章开头或直接复用 SEO `description`。摘要严格控制在 **80-120 字**，推荐 90-110 字，通常包含“读者最关心的问题或冲突 + 文章拆解的关键方案 + 阅读收益”，语言要有吸引力但不能标题党，不要使用空泛的“本文详细介绍了……”。
-3. 从 frontmatter 标题前导数字取得 `--series-index`，使用本篇 `wechat-cover.png` 的绝对路径作为 `--cover`。
+3. 从 frontmatter 标题前导数字取得 `--series-index`；该数字表示文章在所属面试题分类中的顺序，不要再扫描或推导全局题号。使用本篇 `wechat-cover.png` 的绝对路径作为 `--cover`。
 4. 先执行 dry-run，并核对标题、摘要字数、正文图片数量、引流尾巴和封面路径：
 
 ```bash

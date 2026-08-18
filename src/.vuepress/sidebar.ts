@@ -99,6 +99,10 @@ const llmInterviewGroups = [
         link: "/backend_series/llm_interview/agent_high_concurrency.md",
       },
       {
+        text: "LLM 响应慢导致整个 Agent 链路超时，你说一下分层超时的熔断策略是什么？",
+        link: "/backend_series/llm_interview/agent_timeout_circuit_breaker.md",
+      },
+      {
         text: "最常见的 Agent 生产环境内存泄漏有哪几种？你会如何排查修复？",
         link: "/backend_series/llm_interview/agent_memory_leak.md",
       },
@@ -109,6 +113,10 @@ const llmInterviewGroups = [
       {
         text: "你的 Agent 服务是如何保证高可用和稳健性的？",
         link: "/backend_series/llm_interview/agent_high_availability.md",
+      },
+      {
+        text: "生产环境Agent链路很长，包含了检索工具和多轮推理，你会如何设计把P95的RT降下来？",
+        link: "/backend_series/llm_interview/agent_tail_latency_optimization.md",
       },
     ]),
   },
@@ -201,6 +209,10 @@ const llmInterviewGroups = [
       {
         text: "Function Calling 的可靠性怎么保证？",
         link: "/backend_series/llm_interview/function_calling.md",
+      },
+      {
+        text: "高并发场景下你会如何去解决LLM接口限流？",
+        link: "/backend_series/llm_interview/llm_api_rate_limiting.md",
       },
     ]),
   },
