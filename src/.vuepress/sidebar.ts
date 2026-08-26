@@ -118,6 +118,26 @@ const llmInterviewGroups = [
         text: "生产环境Agent链路很长，包含了检索工具和多轮推理，你会如何设计把P95的RT降下来？",
         link: "/backend_series/llm_interview/agent_tail_latency_optimization.md",
       },
+      {
+        text: "讲一下生产环境完整的Agent缓存体系，哪些数据可以做缓存，哪些不能做缓存？",
+        link: "/backend_series/llm_interview/agent_cache_system.md",
+      },
+      {
+        text: "生产环境Agent的Token成本持续增长，你说一下有哪些降本的优化手段？",
+        link: "/backend_series/llm_interview/agent_token_cost_optimization.md",
+      },
+      {
+        text: "多用户并发Agent会话隔离你如何工程化落地？如何避免这种串会话？",
+        link: "/backend_series/llm_interview/agent_session_isolation.md",
+      },
+      {
+        text: "生产环境 Agent 出现了大量的异步任务堆积，你会如何处理？",
+        link: "/backend_series/llm_interview/agent_async_task_backlog.md",
+      },
+      {
+        text: "小模型成本低但推理能力较弱，大模型效果好但成本高，生产环境如何平衡？",
+        link: "/backend_series/llm_interview/agent_model_routing_tradeoff.md",
+      },
     ]),
   },
   {
@@ -188,6 +208,10 @@ const llmInterviewGroups = [
         text: "你的RAG知识库更新策略是怎样的？",
         link: "/backend_series/llm_interview/rag_update.md",
       },
+      {
+        text: "百万级知识库检索 RT 越来越高，你会如何做性能优化？",
+        link: "/backend_series/llm_interview/rag_large_scale_retrieval_optimization.md",
+      },
     ]),
   },
   {
@@ -213,6 +237,10 @@ const llmInterviewGroups = [
       {
         text: "高并发场景下你会如何去解决LLM接口限流？",
         link: "/backend_series/llm_interview/llm_api_rate_limiting.md",
+      },
+      {
+        text: "生产环境中你会如何设计大模型推理调度系统？",
+        link: "/backend_series/llm_interview/llm_inference_scheduling.md",
       },
     ]),
   },
