@@ -138,6 +138,46 @@ const llmInterviewGroups = [
         text: "小模型成本低但推理能力较弱，大模型效果好但成本高，生产环境如何平衡？",
         link: "/backend_series/llm_interview/agent_model_routing_tradeoff.md",
       },
+      {
+        text: "讲一下 Agent 服务如何做启停设计？",
+        link: "/backend_series/llm_interview/agent_service_lifecycle.md",
+      },
+      {
+        text: "Agent 服务发布期间如何避免用户报错？",
+        link: "/backend_series/llm_interview/agent_release_reliability.md",
+      },
+      {
+        text: "生产环境 Agent 长任务执行失败后，如何避免从头重跑？",
+        link: "/backend_series/llm_interview/agent_long_task_recovery.md",
+      },
+      {
+        text: "Agent 工程中哪些逻辑必须硬编码，不能交给 LLM 自主判断？",
+        link: "/backend_series/llm_interview/agent_deterministic_boundary.md",
+      },
+      {
+        text: "生产环境 Agent 如何评估性能、成本和稳定性，核心指标有哪些？",
+        link: "/backend_series/llm_interview/agent_production_metrics.md",
+      },
+      {
+        text: "Agent 批量处理任务时 CPU 和内存瞬间打满，如何定位和解决？",
+        link: "/backend_series/llm_interview/agent_batch_resource_control.md",
+      },
+      {
+        text: "Agent 多轮对话上下文持续膨胀，如何工程化治理？",
+        link: "/backend_series/llm_interview/agent_context_governance.md",
+      },
+      {
+        text: "第三方 LLM 接口不稳定，如何保障 Agent 高可用？",
+        link: "/backend_series/llm_interview/llm_provider_resilience.md",
+      },
+      {
+        text: "企业级 Agent 如何实现权限与数据隔离？",
+        link: "/backend_series/llm_interview/agent_permission_data_isolation.md",
+      },
+      {
+        text: "Agent 的多租户架构如何设计并工程化落地？",
+        link: "/backend_series/llm_interview/agent_multi_tenant_architecture.md",
+      },
     ]),
   },
   {
