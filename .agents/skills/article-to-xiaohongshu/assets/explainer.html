@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  小红书内页卡基础模板（面试讲解卡）。
+  数据来源：同目录 ./data/cards.json。
+  渲染：每张卡 1080x1440。用 ?only=N 单独显示第 N 张卡（0-based）。
+  注意：grid/list/answer 只是解释区原语，不足以组成整套成品。
+  每篇文章仍需依据 visual-plan.json 增加流程、架构、矩阵、决策树等语义主图。
+-->
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #777; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: #17191f;
+  }
+  .card {
+    width: 1080px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    padding: 72px 74px;
+    background: linear-gradient(160deg, #fff8e9 0%, #f7fbf9 58%, #fff5ef 100%);
+  }
+  .card:nth-child(2n) { background: linear-gradient(160deg, #f7fbff 0%, #fffaf0 62%, #f8fff8 100%); }
+  .card:nth-child(3n) { background: linear-gradient(160deg, #f6fff8 0%, #fff9ef 62%, #f8fbff 100%); }
+  body:not([data-only]) .card { display: flex; margin-bottom: 24px; }
+  .wm { position:static; align-self:flex-end; margin-top:18px; color:#9b9286; font-size:24px; font-weight:700; }
+
+  h1 { margin: 0; font-size: 62px; line-height: 1.16; letter-spacing: 0; font-weight: 900; }
+  .sub { margin-top: 22px; color:#59606d; font-size: 29px; line-height:1.45; font-weight: 700; }
+  .eyebrow { display:inline-flex; align-items:center; height:52px; padding:0 22px; border:3px solid; border-radius:26px; font-size:26px; font-weight:800; margin-bottom:28px; background:#fff; }
+  .blue { color:#2367f4; border-color:#2367f4; }
+  .red { color:#f25b4d; border-color:#f25b4d; }
+  .green { color:#13936c; border-color:#13936c; }
+  .orange { color:#f29a2e; border-color:#f29a2e; }
+  .dark { color:#22252d; border-color:#22252d; }
+
+  .panel {
+    background: rgba(255,255,255,.92);
+    border: 4px solid #2367f4;
+    border-radius: 34px;
+    padding: 40px 48px;
+    margin-top: 36px;
+    box-shadow: 0 18px 45px rgba(27,33,45,.06);
+  }
+  .panel.redline { border-color:#f25b4d; }
+  .panel.greenline { border-color:#13936c; }
+  .panel.darkline { border-color:#22252d; }
+  .answer {
+    font-size: 32px;
+    line-height: 1.52;
+    font-weight: 760;
+    letter-spacing: 0;
+  }
+  .answer.compact { font-size: 30px; line-height: 1.48; }
+  .answer p { margin: 0; }
+  .answer p + p { margin-top: 28px; padding-top: 28px; border-top: 3px solid #e7dfd0; }
+  .hl { background: linear-gradient(transparent 48%, #ffe15a 48% 88%, transparent 88%); padding: 0 5px; border-radius: 3px; font-weight: 900; }
+  .key { color:#2367f4; font-weight:900; }
+  .danger { color:#f25b4d; font-weight:900; }
+  .ok { color:#13936c; font-weight:900; }
+
+  .quote {
+    margin-top: 38px;
+    padding: 28px 34px;
+    border-radius: 26px;
+    background:#22252d;
+    color:#fff;
+    font-size: 34px;
+    line-height:1.45;
+    font-weight: 850;
+  }
+  .quote b { color:#ffe15a; }
+
+  .grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; margin-top: 48px; }
+  .grid2 { display:grid; grid-template-columns: repeat(2, 1fr); gap:26px; margin-top: 42px; }
+  .mini {
+    min-height: 346px;
+    background:#fff;
+    border:4px solid;
+    border-radius:30px;
+    padding: 30px 26px;
+  }
+  .mini.short { min-height: 250px; }
+  .mini h2 { margin:0 0 24px; font-size:35px; line-height:1.1; }
+  .mini p { margin:0; font-size:29px; line-height:1.42; font-weight:760; }
+
+  .list { margin-top:42px; display:flex; flex-direction:column; gap:22px; }
+  .item {
+    background:#fff;
+    border:4px solid;
+    border-radius:30px;
+    padding:28px 34px;
+    min-height:150px;
+  }
+  .item h2 { margin:0 0 12px; font-size:36px; line-height:1.1; }
+  .item p { margin:0; font-size:31px; line-height:1.45; font-weight:760; }
+
+  .flow { position:relative; height: 690px; margin-top: 26px; }
+  .node {
+    position:absolute;
+    width: 320px;
+    min-height: 160px;
+    border-radius:28px;
+    background:#fff;
+    border:5px solid;
+    padding: 20px 22px;
+    text-align:center;
+  }
+  .node h2 { margin:0; font-size:34px; line-height:1.08; }
+  .node p { margin:12px 0 0; font-size:28px; line-height:1.36; font-weight:760; }
+  .n1{ left:306px; top:0; border-color:#2367f4; color:#2367f4; }
+  .n2{ right:26px; top:244px; border-color:#f25b4d; color:#f25b4d; }
+  .n3{ left:306px; bottom:0; border-color:#13936c; color:#13936c; }
+  .n4{ left:26px; top:244px; border-color:#22252d; color:#22252d; }
+  svg.lines { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; }
+
+  .code {
+    margin-top: 40px;
+    background:#20232b;
+    border-radius:34px;
+    padding:44px 50px;
+    color:#fff;
+    font-size:32px;
+    line-height:1.62;
+    font-weight:760;
+  }
+  .code .k { display:inline-block; width:215px; font-weight:900; }
+  .code .q { color:#9ed0ff; }
+  .code .t { color:#ffe15a; }
+  .code .a { color:#ff8a78; }
+  .code .o { color:#7ce2b0; }
+  .code .f { color:#fff; }
+
+  .screenshot-frame {
+    margin-top: 34px;
+    height: 760px;
+    background:#fff;
+    border:4px solid #22252d;
+    border-radius:34px;
+    padding:18px;
+    box-shadow:0 18px 45px rgba(27,33,45,.08);
+    overflow:hidden;
+  }
+  .screenshot-frame img {
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:top center;
+    border-radius:22px;
+    background:#f5f6f8;
+  }
+  .screenshot-note {
+    position: static;
+    margin: 24px 22px 0;
+    padding: 24px 32px;
+    font-size: 30px;
+    line-height: 1.38;
+  }
+
+  .bottom-note {
+    position:static;
+    margin:44px 22px 0;
+    background:#22252d;
+    color:#fff;
+    border-radius:28px;
+    padding:24px 34px;
+    font-size:32px;
+    line-height:1.42;
+    font-weight:850;
+  }
+  .bottom-note b { color:#ffe15a; }
+  .flow-note {
+    position: static;
+    margin: 18px 22px 0;
+    padding: 24px 32px;
+    font-size: 30px;
+    line-height: 1.38;
+  }
+  :root, body[data-theme="sky"] {
+    --bg1:#f7fbff; --bg2:#fffaf0; --bg3:#f6fff8;
+    --quote-bg:#1f2f46; --accent-blue:#2f6fed; --accent-green:#0b8f85;
+    --accent-red:#e85d5a; --accent-orange:#d58a1f; --accent-dark:#22252d;
+    --highlight:#ffe45c; --muted:#8f887d;
+  }
+  body[data-theme="sage"] {
+    --bg1:#f6fff8; --bg2:#fffaf0; --bg3:#eef8f0;
+    --quote-bg:#18382e; --accent-blue:#315dcf; --accent-green:#16875d;
+    --accent-red:#d65b55; --accent-orange:#c47b16; --accent-dark:#22252d;
+    --highlight:#ffd76a; --muted:#7f8a7c;
+  }
+  body[data-theme="lilac"] {
+    --bg1:#fbf7ff; --bg2:#fffaf0; --bg3:#f7fbff;
+    --quote-bg:#352545; --accent-blue:#7556d9; --accent-green:#0c8f87;
+    --accent-red:#d85b82; --accent-orange:#c17a1a; --accent-dark:#22252d;
+    --highlight:#ffe06b; --muted:#8a8192;
+  }
+  body[data-theme="peach"] {
+    --bg1:#fff6f1; --bg2:#f8fbff; --bg3:#fffaf0;
+    --quote-bg:#3b3029; --accent-blue:#286bd6; --accent-green:#14876b;
+    --accent-red:#c9575e; --accent-orange:#db7b25; --accent-dark:#22252d;
+    --highlight:#c8f0d0; --muted:#928476;
+  }
+  body[data-theme="mint"] {
+    --bg1:#f2fffb; --bg2:#f7fbff; --bg3:#fff8ef;
+    --quote-bg:#20383b; --accent-blue:#4b63d1; --accent-green:#0d8f86;
+    --accent-red:#df6b4f; --accent-orange:#c18a18; --accent-dark:#22252d;
+    --highlight:#ffe18a; --muted:#7d8d8b;
+  }
+  .card { background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 58%, var(--bg3) 100%); }
+  .card:nth-child(2n) { background: linear-gradient(160deg, var(--bg2) 0%, var(--bg3) 62%, var(--bg1) 100%); }
+  .card:nth-child(3n) { background: linear-gradient(160deg, var(--bg3) 0%, var(--bg1) 62%, var(--bg2) 100%); }
+  .wm { color:var(--muted); }
+  .blue { color:var(--accent-blue); border-color:var(--accent-blue); }
+  .red { color:var(--accent-red); border-color:var(--accent-red); }
+  .green { color:var(--accent-green); border-color:var(--accent-green); }
+  .orange { color:var(--accent-orange); border-color:var(--accent-orange); }
+  .dark { color:var(--accent-dark); border-color:var(--accent-dark); }
+  .panel.redline { border-color:var(--accent-red); }
+  .panel.greenline { border-color:var(--accent-green); }
+  .panel.darkline { border-color:var(--accent-dark); }
+  .hl { background: linear-gradient(transparent 48%, var(--highlight) 48% 88%, transparent 88%); }
+  .key { color:var(--accent-blue); }
+  .danger { color:var(--accent-red); }
+  .ok { color:var(--accent-green); }
+  .quote, .bottom-note { background:var(--quote-bg); }
+  .quote b, .bottom-note b { color:var(--highlight); }
+  svg [stroke="#2367f4"] { stroke:var(--accent-blue); }
+  svg [stroke="#13936c"] { stroke:var(--accent-green); }
+  svg [stroke="#f25b4d"] { stroke:var(--accent-red); }
+  svg [stroke="#f29a2e"] { stroke:var(--accent-orange); }
+  svg [stroke="#22252d"] { stroke:var(--accent-dark); }
+  svg [fill="#2367f4"] { fill:var(--accent-blue); }
+  svg [fill="#13936c"] { fill:var(--accent-green); }
+  svg [fill="#f25b4d"] { fill:var(--accent-red); }
+  svg [fill="#f29a2e"] { fill:var(--accent-orange); }
+  svg [fill="#22252d"] { fill:var(--accent-dark); }
+  svg [fill="#ffe15a"], svg [fill="#ffe45c"] { fill:var(--highlight); }
+</style>
+</head>
+<body>
+<main id="stage"></main>
+
+<script>
+const COLORS = {
+  blue: 'var(--accent-blue)',
+  red: 'var(--accent-red)',
+  green: 'var(--accent-green)',
+  orange: 'var(--accent-orange)',
+  dark: 'var(--accent-dark)',
+};
+
+function esc(s = '') {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function html(s = '') { return String(s); }
+function tone(page) { return page.tone || 'blue'; }
+function noteHTML(page, extraClass = '') {
+  return page.noteHTML ? `<div class="bottom-note ${extraClass}">${html(page.noteHTML)}</div>` : '';
+}
+function quoteHTML(page) {
+  return page.quoteHTML ? `<div class="quote">${html(page.quoteHTML)}</div>` : '';
+}
+function miniCard(item, short = false) {
+  const t = item.tone || 'blue';
+  return `<div class="mini ${short ? 'short' : ''}" style="border-color:${COLORS[t] || COLORS.blue}">
+    <h2 style="color:${COLORS[t] || COLORS.blue}">${html(item.titleHTML || esc(item.title || ''))}</h2>
+    <p>${html(item.bodyHTML || esc(item.body || ''))}</p>
+  </div>`;
+}
+function itemCard(item) {
+  const t = item.tone || 'blue';
+  return `<div class="item" style="border-color:${COLORS[t] || COLORS.blue}">
+    <h2 style="color:${COLORS[t] || COLORS.blue}">${html(item.titleHTML || esc(item.title || ''))}</h2>
+    <p>${html(item.bodyHTML || esc(item.body || ''))}</p>
+  </div>`;
+}
+function flowHTML(page) {
+  const n = page.nodes || [
+    { title: 'Thought', body: '分析当前状态<br>决定下一步策略' },
+    { title: 'Action', body: '调用搜索、计算<br>数据库或 API' },
+    { title: 'Observation', body: '读取真实反馈<br>更新上下文' },
+    { title: 'Finish', body: '信息足够<br>输出最终答案' },
+  ];
+  return `<div class="flow">
+    <svg class="lines" viewBox="0 0 932 690">
+      <defs>
+        <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#2367f4"/></marker>
+        <marker id="arrow-red" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#f25b4d"/></marker>
+        <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#13936c"/></marker>
+        <marker id="arrow-dark" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#22252d"/></marker>
+      </defs>
+      <path d="M466 145 C555 176 612 214 640 270" stroke="#2367f4" stroke-width="8" fill="none" marker-end="url(#arrow-blue)"/>
+      <path d="M745 386 C700 474 604 534 510 548" stroke="#f25b4d" stroke-width="8" fill="none" marker-end="url(#arrow-red)"/>
+      <path d="M422 548 C328 532 232 474 187 386" stroke="#13936c" stroke-width="8" fill="none" marker-end="url(#arrow-green)"/>
+      <path d="M187 270 C248 191 359 157 422 145" stroke="#22252d" stroke-width="8" fill="none" marker-end="url(#arrow-dark)"/>
+    </svg>
+    ${n.map((node, i) => `<div class="node n${i + 1}"><h2>${html(node.titleHTML || esc(node.title || ''))}</h2><p>${html(node.bodyHTML || esc(node.body || ''))}</p></div>`).join('')}
+  </div>${noteHTML(page, 'flow-note')}`;
+}
+function codeHTML(page) {
+  return `<div class="code">${(page.lines || []).map(line =>
+    `<div><span class="k ${line.tone || ''}">${esc(line.key || '')}</span> ${html(line.valueHTML || esc(line.value || ''))}</div>`
+  ).join('')}</div>${quoteHTML(page)}`;
+}
+function answerHTML(page) {
+  const paragraphs = page.paragraphsHTML || (page.paragraphs || []).map(esc);
+  const cls = ['panel', page.panelTone ? `${page.panelTone}line` : '', page.compact ? 'compact-panel' : ''].filter(Boolean).join(' ');
+  return `<div class="${cls}"><div class="answer ${page.compact ? 'compact' : ''}">
+    ${paragraphs.map(p => `<p>${html(p)}</p>`).join('')}
+  </div></div>${noteHTML(page)}`;
+}
+function screenshotHTML(page) {
+  const src = page.image || './data/site-lead.png';
+  return `<div class="screenshot-frame"><img src="${esc(src)}" alt=""></div>${noteHTML(page, 'screenshot-note')}`;
+}
+function bodyHTML(page) {
+  if (page.layout === 'screenshot') return screenshotHTML(page);
+  if (page.layout === 'grid3') return `<div class="grid3">${(page.items || []).map(item => miniCard(item)).join('')}</div>${quoteHTML(page)}${noteHTML(page)}`;
+  if (page.layout === 'grid2') return `<div class="grid2">${(page.items || []).map(item => miniCard(item, true)).join('')}</div>${quoteHTML(page)}${noteHTML(page)}`;
+  if (page.layout === 'list') return `<div class="list">${(page.items || []).map(itemCard).join('')}</div>${quoteHTML(page)}${noteHTML(page)}`;
+  if (page.layout === 'flow') return flowHTML(page);
+  if (page.layout === 'code') return codeHTML(page);
+  if (page.layout === 'answer') return answerHTML(page);
+  return html(page.html || '');
+}
+function renderPage(page, index, brand) {
+  const t = tone(page);
+  return `<section class="card" id="p${index + 1}">
+    <span class="eyebrow ${t}">${esc(page.eyebrow || '')}</span>
+    <h1>${html(page.titleHTML || esc(page.title || ''))}</h1>
+    ${page.subtitle ? `<div class="sub">${html(page.subtitleHTML || esc(page.subtitle))}</div>` : ''}
+    ${bodyHTML(page)}
+    <div class="wm">${esc(brand || '@IT杨秀才')}</div>
+  </section>`;
+}
+
+(async () => {
+  const params = new URLSearchParams(location.search);
+  document.body.dataset.theme = params.get('theme') || 'sky';
+  const data = await (await fetch('./data/cards.json', { cache: 'no-store' })).json();
+  const pages = data.pages || [];
+  document.getElementById('stage').innerHTML = pages.map((page, i) => renderPage(page, i, data.brand)).join('');
+  const only = params.get('only');
+  if (only !== null) document.body.dataset.only = only;
+  if (only !== null) document.querySelectorAll('.card').forEach((c, i) => { c.style.display = i === Number(only) ? 'flex' : 'none'; });
+  window.__PAGES__ = pages.length;
+  window.__READY__ = true;
+})();
+</script>
+</body>
+</html>

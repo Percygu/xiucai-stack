@@ -1,0 +1,7 @@
+interface:
+  display_name: "文章转小红书"
+  short_description: "把网站技术文章转成图片、文案和发布入口"
+  default_prompt: "Use $article-to-xiaohongshu to turn this golangstar.cn article into images and copy, then tell me the output paths and publish links. Do not publish, upload, or create drafts."
+
+policy:
+  allow_implicit_invocation: true

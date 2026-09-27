@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<!--
+  内页文档卡模板（版本B · 定稿标准）。
+  数据来源：同目录 ./data/meta.json + ./data/content.html
+  渲染：每张卡 1080x1440（小红书竖屏 3:4）。用 ?only=N 单独显示第 N 张卡（0-based）。
+  字号等标准见 references/visual-standards.md，改字号会改变分页数。
+-->
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ overflow-x:hidden; }
+  ::-webkit-scrollbar{ display:none; }
+  body{ font-family:"PingFang SC","Microsoft YaHei",sans-serif; background:#aaa; color:#2b2b2b; }
+
+  .card{ width:1080px; height:1440px; background:#fff; overflow:hidden; position:relative; }
+
+  /* 顶部品牌导航 */
+  .nav{ height:78px; border-bottom:1px solid #eee; display:flex; align-items:center;
+        justify-content:space-between; padding:0 22px; background:#fff; }
+  .nav .brand{ display:flex; align-items:center; gap:9px; font-size:21px; font-weight:800; color:#1a1a1a; white-space:nowrap; }
+  .nav .brand img{ width:34px; height:34px; border-radius:8px; object-fit:cover; }
+  .nav .links{ display:flex; gap:14px; font-size:18.5px; color:#555; align-items:center; white-space:nowrap; }
+  .nav .links a{ color:#555; }
+  .nav .links .on{ color:#e8453c; font-weight:700; }
+
+  .body{ display:flex; height:1362px; }
+
+  /* 左侧完整题库目录 */
+  .side{ width:322px; background:#f7f8fa; border-right:1px solid #eee; padding:18px 12px 0 20px; overflow:hidden; }
+  .side .grp{ font-size:20px; font-weight:700; color:#3a3f45; padding:11px 10px; display:flex; align-items:center; gap:8px; }
+  .side .grp .ar{ color:#9aa0a6; font-size:14px; }
+  .side .grp.cur{ color:#16181c; }
+  .side ul{ list-style:none; margin:3px 0 8px; }
+  .side li{ font-size:19px; line-height:1.5; color:#5a5f66; padding:8px 10px 8px 26px; border-radius:7px; margin-bottom:2px; }
+  .side li.on{ background:#e9f1ff; color:#2f6fed; font-weight:700; }
+
+  /* 正文 */
+  .main{ flex:1; padding:32px 40px; overflow:hidden; }
+  .main h1{ font-size:40px; font-weight:800; color:#16181c; line-height:1.38; }
+  .meta{ display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; margin:18px 0 6px;
+        font-size:17.5px; color:#9aa0a6; }
+  .meta .tags{ display:flex; gap:8px; flex-wrap:wrap; }
+  .meta .tags span{ background:#eef4ff; color:#4a78d6; padding:4px 12px; border-radius:20px; font-size:15px; }
+  .hr{ border:0; border-top:1px solid #eee; margin:16px 0 4px; }
+
+  .main :is(p){ font-size:22px; line-height:1.9; color:#2f3338; margin:18px 0; text-align:justify; }
+  .main h2{ font-size:35px; font-weight:800; color:#16181c; margin:34px 0 10px; padding-left:16px;
+        border-left:8px solid #2f6fed; line-height:1.3; }
+  .main h3{ font-size:29px; font-weight:800; color:#2f6fed; margin:30px 0 8px; }
+  .main strong{ font-weight:800; color:#1f2329;
+        background:linear-gradient(transparent 58%, #ffe88a 58% 92%, transparent 92%); padding:0 2px; }
+  .main code{ font-family:"SF Mono",Menlo,Consolas,monospace; font-size:19px; background:#f1f3f5;
+        color:#e8590c; padding:2px 8px; border-radius:5px; }
+  .main figure{ margin:20px 0; }
+  .main figure img{ width:100%; max-height:600px; object-fit:contain; border:1px solid #eef0f2;
+        border-radius:10px; background:#fff; box-shadow:0 4px 16px rgba(0,0,0,.05); }
+  .main hr{ border:0; border-top:1px dashed #dcdfe3; margin:26px 0; }
+
+  .pageno{ position:absolute; right:22px; bottom:14px; font-size:14px; color:#c2c7cc; }
+  #meas{ position:absolute; left:-99999px; top:0; width:678px; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="meas"></div>
+
+<script>
+let META = null;
+
+function navHTML(){
+  const links = META.nav.map(n=>`<a class="${n.on?'on':''}">${n.label}</a>`).join('');
+  return `<div class="nav">
+    <div class="brand"><img src="${META.brand.logo}" alt="">${META.brand.name}</div>
+    <div class="links">${links}</div>
+  </div>`;
+}
+function sideHTML(){
+  const before = (META.catsBefore||[]).map(t=>`<div class="grp"><span class="ar">▸</span>${t}</div>`).join('');
+  const after  = (META.catsAfter||[]).map(t=>`<div class="grp"><span class="ar">▸</span>${t}</div>`).join('');
+  const items  = META.items.map((t,i)=>`<li class="${i===META.cur?'on':''}">${t}</li>`).join('');
+  return `<aside class="side">
+    ${before}
+    <div class="grp cur"><span class="ar">▾</span>${META.currentGroup}</div>
+    <ul>${items}</ul>
+    ${after}
+  </aside>`;
+}
+function headerHTML(){
+  const tags = (META.tags||[]).map(t=>`<span>#${t}</span>`).join('');
+  return `<h1>${META.title}</h1>
+    <div class="meta"><span>✍ ${META.author||''}</span><span>📅 ${META.date||''}</span>
+      <span>⌛ 约 ${META.readMin||''} 分钟</span><div class="tags">${tags}</div>
+    </div><hr class="hr">`;
+}
+
+async function run(){
+  META = await (await fetch('./data/meta.json', {cache:'no-store'})).json();
+  const html = await (await fetch('./data/content.html', {cache:'no-store'})).text();
+  const tmp = document.createElement('div'); tmp.innerHTML = html;
+  const blocks = Array.from(tmp.children);
+
+  const meas = document.getElementById('meas');
+  meas.className = 'main';
+  meas.style.cssText = 'position:absolute;left:-99999px;top:0;width:678px;height:auto;overflow:visible;';
+  const headerEl = document.createElement('div'); headerEl.innerHTML = headerHTML();
+  meas.appendChild(headerEl);
+  blocks.forEach(b=>meas.appendChild(b));
+
+  await Promise.all(Array.from(meas.querySelectorAll('img')).map(img=>
+    img.complete ? Promise.resolve() : new Promise(r=>{img.onload=img.onerror=r;})));
+  await new Promise(r=>requestAnimationFrame(r));
+
+  const LIMIT = 1300;
+  const headerH = headerEl.getBoundingClientRect().height;
+  const tops = blocks.map(b=>b.getBoundingClientRect().top);
+  const measBottom = meas.getBoundingClientRect().top + meas.scrollHeight;
+  const heights = blocks.map((b,i)=> (i<blocks.length-1?tops[i+1]:measBottom) - tops[i]);
+
+  const pages = [];
+  let cur = [], curH = 0, avail = LIMIT - headerH - 14;
+  blocks.forEach((b,i)=>{
+    const h = heights[i];
+    if(curH + h > avail && cur.length){ pages.push(cur); cur=[]; curH=0; avail=LIMIT; }
+    cur.push(b); curH += h;
+  });
+  if(cur.length) pages.push(cur);
+
+  const stage = document.getElementById('stage');
+  pages.forEach((pg, idx)=>{
+    const card = document.createElement('div'); card.className='card';
+    const main = document.createElement('div'); main.className='main';
+    if(idx===0){ const hd=document.createElement('div'); hd.innerHTML=headerHTML(); while(hd.firstChild) main.appendChild(hd.firstChild); }
+    pg.forEach(b=>main.appendChild(b));
+    card.innerHTML = navHTML() + `<div class="body">${sideHTML()}</div>`;
+    card.querySelector('.body').appendChild(main);
+    const pn=document.createElement('div'); pn.className='pageno'; pn.textContent=`${idx+1} / ${pages.length}`;
+    card.appendChild(pn);
+    stage.appendChild(card);
+  });
+  meas.remove();
+  window.__PAGES__ = pages.length;
+  document.title = 'PAGES='+pages.length;
+
+  const only = new URLSearchParams(location.search).get('only');
+  if(only!==null){ stage.querySelectorAll('.card').forEach((c,i)=>{ if(i!=Number(only)) c.style.display='none'; }); }
+  window.__READY__ = true;
+}
+run();
+</script>
+</body>
+</html>
